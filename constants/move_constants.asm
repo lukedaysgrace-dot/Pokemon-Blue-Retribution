@@ -52,7 +52,7 @@ DEF HORN_DRILL EQU SUCKER_PUNCH ; legacy alias
 	const LEER         ; 2b
 	const BITE         ; 2c
 	const GROWL        ; 2d
-	const ROAR         ; 2e
+	const MACH_PUNCH   ; 2e
 	const SING         ; 2f
 	const SUPERSONIC   ; 30
 	const SONICBOOM    ; 31

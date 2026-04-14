@@ -42,7 +42,7 @@ MoveGrammar:
 	db BITE
 	db CRUNCH
 	db GROWL
-	db ROAR
+	db MACH_PUNCH
 	db SING
 	db PECK
 	db COUNTER

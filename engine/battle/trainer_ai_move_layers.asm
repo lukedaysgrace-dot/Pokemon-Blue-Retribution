@@ -662,6 +662,8 @@ AIMoveChoiceModification3:
 	jr z, .flydigcheck_faster
 	cp SUCKER_PUNCH
 	jr z, .flydigcheck_faster
+	cp MACH_PUNCH
+	jr z, .flydigcheck_faster
 
 .flydigcheck_notfaster
 	jr .endflydigcheck

@@ -1098,7 +1098,7 @@ VulpixEvosMoves:
 	db 0
 ; Learnset
 	db 16, QUICK_ATTACK
-	db 21, ROAR
+	db 21, MACH_PUNCH
 	db 28, CONFUSE_RAY
 	db 35, FLAMETHROWER
 	db 42, FIRE_SPIN
@@ -1797,7 +1797,7 @@ BulbasaurEvosMoves:
 	db EVOLVE_LEVEL, 16, IVYSAUR
 	db 0
 ; Learnset
-	db 7, LEECH_SEED
+	db 6, CRUNCH
 	db 13, VINE_WHIP
 	db 20, POISONPOWDER
 	db 27, RAZOR_LEAF
@@ -2030,7 +2030,7 @@ CharmanderEvosMoves:
 	db EVOLVE_LEVEL, 16, CHARMELEON
 	db 0
 ; Learnset
-	db 6, FLAME_WHEEL
+	db 6, METAL_CLAW
 	db 15, LEER
 	db 22, RAGE
 	db 30, SLASH
@@ -2043,7 +2043,7 @@ SquirtleEvosMoves:
 	db EVOLVE_LEVEL, 16, WARTORTLE
 	db 0
 ; Learnset
-	db 6, SUCKER_PUNCH
+	db 6, MACH_PUNCH
 	db 8, BUBBLE
 	db 15, WATER_GUN
 	db 22, BITE

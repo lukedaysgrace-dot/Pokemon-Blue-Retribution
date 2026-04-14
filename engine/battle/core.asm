@@ -371,6 +371,8 @@ MainInBattleLoop:
 	cp QUICK_ATTACK
 	jr z, .playerUsedPriorityMove
 	cp SUCKER_PUNCH
+	jr z, .playerUsedPriorityMove
+	cp MACH_PUNCH
 	jr nz, .playerDidNotUseQuickAttack
 .playerUsedPriorityMove
 	ld a, [wEnemySelectedMove]
@@ -378,13 +380,17 @@ MainInBattleLoop:
 	jr z, .compareSpeed  ; if both used Quick Attack
 	cp SUCKER_PUNCH
 	jr z, .compareSpeed  ; if both used priority moves
-	jp .playerMovesFirst ; if player used Quick Attack and enemy didn't
+	cp MACH_PUNCH
+	jr z, .compareSpeed
+	jp .playerMovesFirst ; if player used a priority move and enemy didn't
 .playerDidNotUseQuickAttack
 	ld a, [wEnemySelectedMove]
 	cp QUICK_ATTACK
 	jr z, .enemyMovesFirst ; if enemy used Quick Attack and player didn't
 	cp SUCKER_PUNCH
 	jr z, .enemyMovesFirst ; if enemy used Sucker Punch and player didn't
+	cp MACH_PUNCH
+	jr z, .enemyMovesFirst
 	ld a, [wPlayerSelectedMove]
 	cp COUNTER
 	jr nz, .playerDidNotUseCounter
@@ -424,7 +430,7 @@ MainInBattleLoop:
 	jr c, .AIActionUsedEnemyFirst
 	call ExecuteEnemyMove
 	ld a, [wEscapedFromBattle]
-	and a ; was Teleport or Roar used to escape from battle?
+	and a ; was Teleport used to escape from battle?
 	ret nz ; if so, return
 	ld a, b
 	and a
@@ -435,7 +441,7 @@ MainInBattleLoop:
 	call DrawHUDsAndHPBars
 	call ExecutePlayerMove
 	ld a, [wEscapedFromBattle]
-	and a ; was Teleport or Roar used to escape from battle?
+	and a ; was Teleport used to escape from battle?
 	ret nz ; if so, return
 	ld a, b
 	and a
@@ -448,7 +454,7 @@ MainInBattleLoop:
 .playerMovesFirst
 	call ExecutePlayerMove
 	ld a, [wEscapedFromBattle]
-	and a ; was Teleport or Roar used to escape from battle?
+	and a ; was Teleport used to escape from battle?
 	ret nz ; if so, return
 	ld a, b
 	and a
@@ -462,7 +468,7 @@ MainInBattleLoop:
 	jr c, .AIActionUsedPlayerFirst
 	call ExecuteEnemyMove
 	ld a, [wEscapedFromBattle]
-	and a ; was Teleport or Roar used to escape from battle?
+	and a ; was Teleport used to escape from battle?
 	ret nz ; if so, return
 	ld a, b
 	and a

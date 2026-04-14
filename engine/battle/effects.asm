@@ -932,19 +932,12 @@ SwitchAndTeleportEffect:
 	ld hl, RanFromBattleText
 	cp TELEPORT
 	jr z, .printText
-	ld hl, RanAwayScaredText
-	cp ROAR
-	jr z, .printText
 	ld hl, WasBlownAwayText
 .printText
 	jp PrintText
 
 RanFromBattleText:
 	text_far _RanFromBattleText
-	text_end
-
-RanAwayScaredText:
-	text_far _RanAwayScaredText
 	text_end
 
 WasBlownAwayText:
