@@ -1272,6 +1272,9 @@ wBattleSpeciesIsWild:: db
    ; $14 = super-effective
 ; bit 7: STAB
 wDamageMultipliers:: db
+; AdjustDamageForMoveType: running type chart product (*10) and saved STAB bit for display
+wTypeMatchupProduct:: db
+wTypeDisplaySTAB:: db
 
 ; which entry in LoneAttacks to use
 ; it's actually the same thing as ^

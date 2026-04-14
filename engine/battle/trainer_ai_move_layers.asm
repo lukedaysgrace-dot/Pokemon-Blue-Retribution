@@ -362,8 +362,6 @@ AIMoveChoiceModification1:
 ;joenote - heavily discourage moves that do not stack
 	;check each of the stackabe effects one by one and jump to the corresponding section
 	ld a, [wEnemyMoveEffect]
-	cp FOCUS_ENERGY_EFFECT
-	jr z, .checkfocus
 	cp LIGHT_SCREEN_EFFECT
 	jr z, .checkscreen
 	cp REFLECT_EFFECT
@@ -374,11 +372,6 @@ AIMoveChoiceModification1:
 	jr z, .checkmist
 	cp LEECH_SEED_EFFECT
 	jr z, .checkseed
-	jr .endstacking
-.checkfocus	;check status, and heavily discourage if bit is set
-	ld a, [wEnemyBattleStatus2]
-	bit GETTING_PUMPED, a
-	jp nz, .heavydiscourage
 	jr .endstacking
 .checkscreen ;check status, and heavily discourage if bit is set
 	ld a, [wEnemyBattleStatus3]

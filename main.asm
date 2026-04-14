@@ -154,7 +154,7 @@ SECTION "Battle Engine 3", ROMX
 
 INCLUDE "engine/battle/print_type.asm"
 INCLUDE "engine/battle/save_trainer_name.asm"
-INCLUDE "engine/battle/move_effects/focus_energy.asm"
+INCLUDE "engine/items/tm_prices.asm"
 
 
 SECTION "Battle Engine 4", ROMX
@@ -372,4 +372,3 @@ INCLUDE "data/battle_anims/subanimations.asm"
 INCLUDE "data/battle_anims/frame_blocks.asm"
 INCLUDE "engine/movie/evolution.asm"
 INCLUDE "engine/overworld/elevator.asm"
-INCLUDE "engine/items/tm_prices.asm"

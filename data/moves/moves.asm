@@ -126,7 +126,7 @@ Moves:
 	move LIGHT_SCREEN, LIGHT_SCREEN_EFFECT,          0, PSYCHIC_TYPE,  100, 30
 	move HAZE,         HAZE_EFFECT,                  0, ICE,      100, 30
 	move REFLECT,      REFLECT_EFFECT,               0, PSYCHIC_TYPE,  100, 20
-	move FOCUS_ENERGY, FOCUS_ENERGY_EFFECT,          0, NORMAL,   100, 30
+	move OUTRAGE,      THRASH_PETAL_DANCE_EFFECT,    120, DRAGON,    95, 10
 	move BIDE,         BIDE_EFFECT,                  0, BIRD,     100, 10
 	move METRONOME,    METRONOME_EFFECT,             0, BIRD,   100, 10
 	move MIRROR_MOVE,  MIRROR_MOVE_EFFECT,           0, FLYING,   100, 20

@@ -3605,8 +3605,7 @@ CheckPlayerStatusConditions:
 .ThrashingAboutCheck
 	bit THRASHING_ABOUT, [hl] ; is mon using thrash or petal dance?
 	jr z, .MultiturnMoveCheck
-	ld a, THRASH
-	ld [wPlayerMoveNum], a
+	; wPlayerMove* already loaded from wPlayerSelectedMove by GetCurrentMove
 	ld hl, ThrashingAboutText
 	call PrintText
 	ld hl, wPlayerNumAttacksLeft
@@ -5198,6 +5197,11 @@ AdjustDamageForMoveType:
 	ld hl, wDamageMultipliers
 	set BIT_STAB_DAMAGE, [hl]
 .skipSameTypeAttackBonus
+	ld a, [wDamageMultipliers]
+	and 1 << BIT_STAB_DAMAGE
+	ld [wTypeDisplaySTAB], a
+	ld a, EFFECTIVE
+	ld [wTypeMatchupProduct], a
 	ld a, [wMoveType]
 	ld b, a
 	ld hl, TypeEffects
@@ -5218,13 +5222,9 @@ AdjustDamageForMoveType:
 	push hl
 	push bc
 	inc hl
-	ld a, [wDamageMultipliers]
-	and 1 << BIT_STAB_DAMAGE
-	ld b, a
 	ld a, [hl] ; a = damage multiplier
+	push af
 	ldh [hMultiplier], a
-	add b
-	ld [wDamageMultipliers], a
 	xor a
 	ldh [hMultiplicand], a
 	ld hl, wDamage
@@ -5249,6 +5249,20 @@ AdjustDamageForMoveType:
 	inc a
 	ld [wMoveMissed], a
 .skipTypeImmunity
+	pop af
+	ldh [hMultiplier], a
+	ld a, [wTypeMatchupProduct]
+	ldh [hMultiplicand + 2], a
+	xor a
+	ldh [hMultiplicand], a
+	ldh [hMultiplicand + 1], a
+	call Multiply
+	ld a, 10
+	ldh [hDivisor], a
+	ld b, 4
+	call Divide
+	ldh a, [hQuotient + 3]
+	ld [wTypeMatchupProduct], a
 	pop bc
 	pop hl
 .nextTypePair
@@ -5256,6 +5270,11 @@ AdjustDamageForMoveType:
 	inc hl
 	jp .loop
 .done
+	ld a, [wTypeDisplaySTAB]
+	ld b, a
+	ld a, [wTypeMatchupProduct]
+	or b
+	ld [wDamageMultipliers], a
 	ret
 
 ; function to tell how effective the type of an enemy attack is on the player's current pokemon
@@ -5980,8 +5999,7 @@ CheckEnemyStatusConditions:
 .checkIfThrashingAbout
 	bit THRASHING_ABOUT, [hl] ; is mon using thrash or petal dance?
 	jr z, .checkIfUsingMultiturnMove
-	ld a, THRASH
-	ld [wEnemyMoveNum], a
+	; wEnemyMove* already loaded from wEnemySelectedMove by GetCurrentMove
 	ld hl, ThrashingAboutText
 	call PrintText
 	ld hl, wEnemyNumAttacksLeft
@@ -6593,56 +6611,8 @@ CalculateModifiedStat:
 	ret
 
 ApplyBadgeStatBoosts:
-	ld a, [wLinkState]
-	cp LINK_STATE_BATTLING
-	ret z ; return if link battle
-	ld a, [wObtainedBadges]
-	ld b, a
-	ld hl, wBattleMonAttack
-	ld c, $4
-; the boost is applied for badges whose bit position is even
-; the order of boosts matches the order they are laid out in RAM
-; Boulder (bit 0) - attack
-; Thunder (bit 2) - defense
-; Soul (bit 4) - speed
-; Volcano (bit 6) - special
-.loop
-	srl b
-	call c, .applyBoostToStat
-	inc hl
-	inc hl
-	srl b
-	dec c
-	jr nz, .loop
-	ret
-
-; multiply stat at hl by 1.125
-; cap stat at MAX_STAT_VALUE
-.applyBoostToStat
-	ld a, [hli]
-	ld d, a
-	ld e, [hl]
-	srl d
-	rr e
-	srl d
-	rr e
-	srl d
-	rr e
-	ld a, [hl]
-	add e
-	ld [hld], a
-	ld a, [hl]
-	adc d
-	ld [hli], a
-	ld a, [hld]
-	sub LOW(MAX_STAT_VALUE)
-	ld a, [hl]
-	sbc HIGH(MAX_STAT_VALUE)
-	ret c
-	ld a, HIGH(MAX_STAT_VALUE)
-	ld [hli], a
-	ld a, LOW(MAX_STAT_VALUE)
-	ld [hld], a
+; Disabled: vanilla Gen 1 multiplies certain stats by 1.125 per earned badge
+; (Boulder/Thunder/Soul/Volcano). No badge-based stat modifiers in battle.
 	ret
 
 LoadHudAndHpBarAndStatusTilePatterns:

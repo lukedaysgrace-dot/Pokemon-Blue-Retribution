@@ -1127,9 +1127,6 @@ TrappingEffect:
 MistEffect:
 	jpfar MistEffect_
 
-FocusEnergyEffect:
-	jpfar FocusEnergyEffect_
-
 RecoilEffect:
 	jpfar RecoilEffect_
 

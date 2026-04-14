@@ -115,7 +115,7 @@ AttackAnimationPointers:
 	dw LightScreenAnim
 	dw HazeAnim
 	dw ReflectAnim
-	dw FocusEnergyAnim
+	dw OutrageAnim
 	dw BideAnim
 	dw MetronomeAnim
 	dw MirrorMoveAnim
@@ -895,8 +895,22 @@ ReflectAnim:
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
 	db -1 ; end
 
-FocusEnergyAnim:
-	battle_anim FOCUS_ENERGY, SE_SPIRAL_BALLS_INWARD
+OutrageAnim:
+; No opening dark + spiral — rampage intro already did dark + closing square. One slide + one impact, then palette pulses and cleanup.
+	battle_anim OUTRAGE, SE_SLIDE_MON_OFF
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim OUTRAGE, SUBANIM_0_STAR_DESCENDING, 0, 6
+	battle_anim NO_MOVE, SUBANIM_1_STAR_BIG_MOVING, 1, 4
+	battle_anim NO_MOVE, SE_SHAKE_SCREEN
+	battle_anim NO_MOVE, SE_DARK_SCREEN_PALETTE
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	battle_anim NO_MOVE, SE_DARK_SCREEN_PALETTE
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	battle_anim NO_MOVE, SE_RESET_MON_POSITION
+	battle_anim NO_MOVE, SE_SHOW_MON_PIC
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	battle_anim NO_MOVE, SE_BLINK_ENEMY_MON
 	db -1 ; end
 
 BideAnim:
@@ -1240,7 +1254,7 @@ XStatItemAnim:
 	db -1 ; end
 
 ShrinkingSquareAnim:
-	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
+	battle_anim HARDEN, SE_DARK_SCREEN_PALETTE
 	battle_anim NO_MOVE, SUBANIM_0_CIRCLE_1_SQUARE_CLOSING, 1, 6
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
 	db -1 ; end

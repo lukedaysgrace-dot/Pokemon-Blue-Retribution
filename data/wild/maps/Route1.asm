@@ -1,8 +1,8 @@
 Route1WildMons:
 	def_grass_wildmons 25 ; encounter rate
-	db  3, MESMERIA
-	db  3, ANNIHILAPE
-	db  3, SCIZOR
+	db  3, TENTACOOL
+	db  3, TENTACOOL
+	db  3, TENTACOOL
 	db  2, MEWTWO
 	db  2, MAGNEZONE
 	db  3, ESPEON

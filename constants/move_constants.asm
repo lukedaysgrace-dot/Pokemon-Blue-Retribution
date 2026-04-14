@@ -122,7 +122,7 @@ DEF HORN_DRILL EQU SUCKER_PUNCH ; legacy alias
 	const LIGHT_SCREEN ; 71
 	const HAZE         ; 72
 	const REFLECT      ; 73
-	const FOCUS_ENERGY ; 74
+	const OUTRAGE      ; 74
 	const BIDE         ; 75
 	const METRONOME    ; 76
 	const MIRROR_MOVE  ; 77

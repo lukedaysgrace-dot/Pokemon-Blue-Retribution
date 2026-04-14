@@ -37,6 +37,7 @@ MoveGrammar:
 	db BODY_SLAM
 	db WRAP
 	db THRASH
+	db OUTRAGE
 	db TAIL_WHIP
 	db LEER
 	db BITE
