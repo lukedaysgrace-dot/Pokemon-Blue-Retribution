@@ -1,0 +1,10 @@
+VermilionOldRodHouse_Script:
+	jp EnableAutoTextBoxDrawing
+
+VermilionOldRodHouse_TextPointers:
+	def_text_pointers
+	dw_const VermilionOldRodHouseFishingGuruText, TEXT_VERMILIONOLDRODHOUSE_FISHING_GURU
+
+VermilionOldRodHouseFishingGuruText:
+	text_far _VermilionOldRodHouseFishingGuruBrotherText
+	text_end
