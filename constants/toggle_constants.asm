@@ -89,13 +89,14 @@ ENDM
 
 	toggle_consts_for OAKS_LAB
 	const TOGGLE_OAKS_LAB_RIVAL                ; 2B
-	const TOGGLE_STARTER_BALL_1                ; 2C
-	const TOGGLE_STARTER_BALL_2                ; 2D
-	const TOGGLE_STARTER_BALL_3                ; 2E
-	const TOGGLE_OAKS_LAB_OAK_1                ; 2F
-	const TOGGLE_POKEDEX_1                     ; 30
-	const TOGGLE_POKEDEX_2                     ; 31
-	const TOGGLE_OAKS_LAB_OAK_2                ; 32
+	const TOGGLE_OAKS_LAB_GREEN                ; 2C
+	const TOGGLE_STARTER_BALL_1                ; 2D
+	const TOGGLE_STARTER_BALL_2                ; 2E
+	const TOGGLE_STARTER_BALL_3                ; 2F
+	const TOGGLE_OAKS_LAB_OAK_1                ; 30
+	const TOGGLE_POKEDEX_1                     ; 31
+	const TOGGLE_POKEDEX_2                     ; 32
+	const TOGGLE_OAKS_LAB_OAK_2                ; 33
 
 	toggle_consts_for VIRIDIAN_GYM
 	const TOGGLE_VIRIDIAN_GYM_GIOVANNI         ; 33

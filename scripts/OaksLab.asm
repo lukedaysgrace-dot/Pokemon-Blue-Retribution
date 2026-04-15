@@ -24,6 +24,12 @@ OaksLab_ScriptPointers:
 	dw_const OaksLabRivalChallengesPlayerScript,     SCRIPT_OAKSLAB_RIVAL_CHALLENGES_PLAYER
 	dw_const OaksLabRivalStartBattleScript,          SCRIPT_OAKSLAB_RIVAL_START_BATTLE
 	dw_const OaksLabRivalEndBattleScript,            SCRIPT_OAKSLAB_RIVAL_END_BATTLE
+	dw_const OaksLabGreenEntersLabScript,            SCRIPT_OAKSLAB_GREEN_ENTERS_LAB
+	dw_const OaksLabGreenTakesLastStarterScript,     SCRIPT_OAKSLAB_GREEN_TAKES_LAST_STARTER
+	dw_const OaksLabOakDemandsGreenGiveBackScript,   SCRIPT_OAKSLAB_OAK_DEMANDS_GREEN_GIVE_BACK
+	dw_const OaksLabGreenStartsExitLabScript,        SCRIPT_OAKSLAB_GREEN_STARTS_EXIT_LAB
+	dw_const OaksLabGreenFinishesExitLabScript,      SCRIPT_OAKSLAB_GREEN_FINISHES_EXIT_LAB
+	dw_const OaksLabOakAfterGreenLeavesScript,       SCRIPT_OAKSLAB_OAK_AFTER_GREEN_LEAVES
 	dw_const OaksLabRivalStartsExitScript,           SCRIPT_OAKSLAB_RIVAL_STARTS_EXIT
 	dw_const OaksLabPlayerWatchRivalExitScript,      SCRIPT_OAKSLAB_PLAYER_WATCH_RIVAL_EXIT
 	dw_const OaksLabRivalArrivesAtOaksRequestScript, SCRIPT_OAKSLAB_RIVAL_ARRIVES_AT_OAKS_REQUEST
@@ -333,10 +339,10 @@ OaksLabRivalChoosesStarterScript:
 	ldh [hTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_STARTER
-	xor a
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 
-	ld a, SCRIPT_OAKSLAB_RIVAL_CHALLENGES_PLAYER
+	ld a, SCRIPT_OAKSLAB_GREEN_ENTERS_LAB
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -433,6 +439,238 @@ OaksLabRivalEndBattleScript:
 	SetEvent EVENT_BATTLED_RIVAL_IN_OAKS_LAB
 
 	ld a, SCRIPT_OAKSLAB_RIVAL_STARTS_EXIT
+	ld [wOaksLabCurScript], a
+	ret
+
+OaksLabGreenEntersLabScript:
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	ld a, TOGGLE_OAKS_LAB_GREEN
+	ld [wToggleableObjectIndex], a
+	predef ShowObject
+	xor a ; SPRITE_FACING_DOWN
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld a, PLAYER_DIR_DOWN
+	ld [wPlayerMovingDirection], a
+	ld a, OAKSLAB_RIVAL
+	ldh [hSpriteIndex], a
+	xor a ; SPRITE_FACING_DOWN
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
+	xor a
+	ld [wEmotionBubbleSpriteIndex], a ; player
+	ld [wWhichEmotionBubble], a ; exclamation bubble
+	predef EmotionBubble
+	ld a, OAKSLAB_RIVAL
+	ld [wEmotionBubbleSpriteIndex], a
+	xor a ; exclamation bubble
+	ld [wWhichEmotionBubble], a
+	predef EmotionBubble
+	call Delay3
+	ld a, OAKSLAB_GREEN
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_UP
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
+	ld a, [wPlayerStarter]
+	cp STARTER1
+	jr z, .rightStarter
+	cp STARTER2
+	jr z, .leftStarter
+	ld de, .MiddleBallMovementAround
+	jr .moveGreen
+.leftStarter
+	ld de, .LeftBallMovementAround
+	jr .moveGreen
+.rightStarter
+	ld de, .RightBallMovementAround
+	jr .moveGreen
+.moveGreen
+	ld a, OAKSLAB_GREEN
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	ld a, SCRIPT_OAKSLAB_GREEN_TAKES_LAST_STARTER
+	ld [wOaksLabCurScript], a
+	ret
+
+.LeftBallMovementAround
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_UP
+	db -1 ; end
+
+.MiddleBallMovementAround
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_UP
+	db -1 ; end
+
+.RightBallMovementAround
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_UP
+	db -1 ; end
+
+.LeftBallExitMovementAround
+	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db -1 ; end
+
+.MiddleBallExitMovementAround
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_LEFT 
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db -1 ; end
+
+.RightBallExitMovementAround
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db -1 ; end
+
+OaksLabGreenTakesLastStarterScript:
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_NPC_MOVEMENT, a
+	ret nz
+	ld a, OAKSLAB_GREEN
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_UP
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
+	ld a, [wPlayerStarter]
+	cp STARTER1
+	jr z, .charmander
+	cp STARTER2
+	jr z, .squirtle
+	ld a, STARTER2
+	ld [wNamedObjectIndex], a
+	call GetMonName
+	ld a, TOGGLE_STARTER_BALL_2
+	jr .hideBallAndContinue
+.charmander
+	ld a, STARTER3
+	ld [wNamedObjectIndex], a
+	call GetMonName
+	ld a, TOGGLE_STARTER_BALL_3
+	jr .hideBallAndContinue
+.squirtle
+	ld a, STARTER1
+	ld [wNamedObjectIndex], a
+	call GetMonName
+	ld a, TOGGLE_STARTER_BALL_1
+.hideBallAndContinue
+	ld [wToggleableObjectIndex], a
+	predef HideObject
+	call Delay3
+	xor a
+	ld [wJoyIgnore], a
+	ld a, TEXT_OAKSLAB_GREEN_STOLE_MON
+	ldh [hTextID], a
+	call DisplayTextID
+	call Delay3
+	ld a, TEXT_OAKSLAB_GREEN_HA_GOTCHA
+	ldh [hTextID], a
+	call DisplayTextID
+	ld a, SCRIPT_OAKSLAB_OAK_DEMANDS_GREEN_GIVE_BACK
+	ld [wOaksLabCurScript], a
+	ret
+
+OaksLabOakDemandsGreenGiveBackScript:
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	ld a, OAKSLAB_OAK1
+	ldh [hSpriteIndex], a
+	xor a ; SPRITE_FACING_DOWN
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
+	xor a
+	ld [wJoyIgnore], a
+	ld a, TEXT_OAKSLAB_OAK_DEMANDS_GREEN_GIVE_BACK
+	ldh [hTextID], a
+	call DisplayTextID
+	ld a, SCRIPT_OAKSLAB_GREEN_STARTS_EXIT_LAB
+	ld [wOaksLabCurScript], a
+	ret
+
+OaksLabGreenStartsExitLabScript:
+	ld a, [wPlayerStarter]
+	cp STARTER1
+	jr z, .rightStarter
+	cp STARTER2
+	jr z, .leftStarter
+	ld de, OaksLabGreenEntersLabScript.MiddleBallExitMovementAround
+	jr .moveGreen
+.leftStarter
+	ld de, OaksLabGreenEntersLabScript.LeftBallExitMovementAround
+	jr .moveGreen
+.rightStarter
+	ld de, OaksLabGreenEntersLabScript.RightBallExitMovementAround
+.moveGreen
+	ld a, OAKSLAB_GREEN
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	ld a, SCRIPT_OAKSLAB_GREEN_FINISHES_EXIT_LAB
+	ld [wOaksLabCurScript], a
+	ret
+
+OaksLabGreenFinishesExitLabScript:
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_NPC_MOVEMENT, a
+	ret nz
+	ld a, TOGGLE_OAKS_LAB_GREEN
+	ld [wToggleableObjectIndex], a
+	predef HideObject
+	ld a, SCRIPT_OAKSLAB_OAK_AFTER_GREEN_LEAVES
+	ld [wOaksLabCurScript], a
+	ret
+
+OaksLabOakAfterGreenLeavesScript:
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	ld a, OAKSLAB_OAK1
+	ldh [hSpriteIndex], a
+	xor a ; SPRITE_FACING_DOWN
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
+	xor a
+	ld [wJoyIgnore], a
+	ld a, TEXT_OAKSLAB_OAK_HOPE_SHE_TREATS_POKEMON_WELL
+	ldh [hTextID], a
+	call DisplayTextID
+	ld a, SCRIPT_OAKSLAB_RIVAL_CHALLENGES_PLAYER
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -733,6 +971,7 @@ OaksLab_TextPointers:
 	dw_const OaksLabGirlText,                     TEXT_OAKSLAB_GIRL
 	dw_const OaksLabScientistText,                TEXT_OAKSLAB_SCIENTIST1
 	dw_const OaksLabScientistText,                TEXT_OAKSLAB_SCIENTIST2
+	dw_const OaksLabGreenText,                    TEXT_OAKSLAB_GREEN
 	dw_const OaksLabOakDontGoAwayYetText,         TEXT_OAKSLAB_OAK_DONT_GO_AWAY_YET
 	dw_const OaksLabRivalIllTakeThisOneText,      TEXT_OAKSLAB_RIVAL_ILL_TAKE_THIS_ONE
 	dw_const OaksLabRivalReceivedMonText,         TEXT_OAKSLAB_RIVAL_RECEIVED_MON
@@ -749,6 +988,10 @@ OaksLab_TextPointers:
 	dw_const OaksLabOakGotPokedexText,            TEXT_OAKSLAB_OAK_GOT_POKEDEX
 	dw_const OaksLabOakThatWasMyDreamText,        TEXT_OAKSLAB_OAK_THAT_WAS_MY_DREAM
 	dw_const OaksLabRivalLeaveItAllToMeText,      TEXT_OAKSLAB_RIVAL_LEAVE_IT_ALL_TO_ME
+	dw_const OaksLabGreenStoleMonText,            TEXT_OAKSLAB_GREEN_STOLE_MON
+	dw_const OaksLabGreenHaGotchaText,            TEXT_OAKSLAB_GREEN_HA_GOTCHA
+	dw_const OaksLabOakDemandsGreenGiveBackText,  TEXT_OAKSLAB_OAK_DEMANDS_GREEN_GIVE_BACK
+	dw_const OaksLabOakHopeTreatsPokemonWellText, TEXT_OAKSLAB_OAK_HOPE_SHE_TREATS_POKEMON_WELL
 
 OaksLab_TextPointers2:
 	dw OaksLabRivalText
@@ -762,6 +1005,7 @@ OaksLab_TextPointers2:
 	dw OaksLabGirlText
 	dw OaksLabScientistText
 	dw OaksLabScientistText
+	dw OaksLabGreenText
 
 OaksLabRivalText:
 	text_asm
@@ -1229,4 +1473,70 @@ OaksLabScientistText:
 
 .Text:
 	text_far _OaksLabScientistText
+	text_end
+
+OaksLabGreenText:
+	text_asm
+	ld hl, .Text
+	call PrintText
+	jp TextScriptEnd
+
+.Text:
+	text_far _OaksLabRivalMyPokemonLooksStrongerText
+	text_end
+
+OaksLabGreenStoleMonText:
+	text_asm
+	ld hl, .Text
+	call PrintText
+	jp TextScriptEnd
+
+.Text:
+	text_far _OaksLabGreenStoleMonText
+	sound_get_key_item
+	text_end
+
+OaksLabGreenHaGotchaText:
+	text_asm
+	ld hl, .Text
+	call PrintText
+	jp TextScriptEnd
+
+.Text:
+	text_far _OaksLabGreenHaGotchaText
+	text_end
+
+OaksLabOakDemandsGreenGiveBackText:
+	text_asm
+	ld hl, .Text
+	call PrintText
+	jp TextScriptEnd
+
+.Text:
+	text_far _OaksLabOakDemandsGreenGiveBackText
+	text_end
+
+OaksLabOakHopeTreatsPokemonWellText:
+	text_asm
+	ld a, [wPlayerStarter]
+	cp STARTER1
+	jr z, .playerPickedStarter1
+	cp STARTER2
+	jr z, .playerPickedStarter2
+	ld a, STARTER2
+	jr .gotSpecies
+.playerPickedStarter1
+	ld a, STARTER3
+	jr .gotSpecies
+.playerPickedStarter2
+	ld a, STARTER1
+.gotSpecies
+	ld [wNamedObjectIndex], a
+	call GetMonName
+	ld hl, .Text
+	call PrintText
+	jp TextScriptEnd
+
+.Text:
+	text_far _OaksLabOakHopeTreatsPokemonWellText
 	text_end

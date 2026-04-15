@@ -10,6 +10,7 @@
 	const_export OAKSLAB_GIRL
 	const_export OAKSLAB_SCIENTIST1
 	const_export OAKSLAB_SCIENTIST2
+	const_export OAKSLAB_GREEN
 
 OaksLab_Object:
 	db $3 ; border block
@@ -32,5 +33,6 @@ OaksLab_Object:
 	object_event  1,  9, SPRITE_GIRL, WALK, UP_DOWN, TEXT_OAKSLAB_GIRL
 	object_event  2, 10, SPRITE_SCIENTIST, STAY, NONE, TEXT_OAKSLAB_SCIENTIST1
 	object_event  8, 10, SPRITE_SCIENTIST, STAY, NONE, TEXT_OAKSLAB_SCIENTIST2
+	object_event  5, 10, SPRITE_UNUSED_SCIENTIST, STAY, NONE, TEXT_OAKSLAB_GREEN
 
 	def_warps_to OAKS_LAB

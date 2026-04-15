@@ -362,3 +362,32 @@ _OaksLabScientistText::
 	text "I study #MON as"
 	line "PROF.OAK's AIDE."
 	done
+
+_OaksLabGreenStoleMonText::
+	text "GREEN stole"
+	line "the @"
+	text_ram wNameBuffer
+	text "!@"
+	text_end
+
+_OaksLabGreenHaGotchaText::
+	text "GREEN: Ha, its"
+	line "my #MON now"
+	cont "old man!"
+	done
+
+_OaksLabOakDemandsGreenGiveBackText::
+	text "OAK: Young lady,"
+	line "you give that"
+	cont "#MON back"
+	cont "right now!"
+	done
+
+_OaksLabOakHopeTreatsPokemonWellText::
+	text "OAK: Oh..."
+	line "I hope she"
+	cont "treats that"
+	cont "@"
+	text_ram wNameBuffer
+	text " well."
+	done

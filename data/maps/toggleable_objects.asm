@@ -116,6 +116,7 @@ ToggleableObjectStates:
 
 	toggleable_objects_for OAKS_LAB
 	toggle_object_state OAKSLAB_RIVAL,                ON
+	toggle_object_state OAKSLAB_GREEN,                OFF
 	toggle_object_state OAKSLAB_CHARMANDER_POKE_BALL, ON
 	toggle_object_state OAKSLAB_SQUIRTLE_POKE_BALL,   ON
 	toggle_object_state OAKSLAB_BULBASAUR_POKE_BALL,  ON
