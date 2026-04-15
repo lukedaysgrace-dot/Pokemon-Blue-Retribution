@@ -11,7 +11,7 @@
 	INCBIN "gfx/pokemon/front/magnezone.pic", 0, 1
 	dw MagnezonePicFront, MagnezonePicBack
 
-	db TACKLE, SONICBOOM, NO_MOVE, NO_MOVE ; level 1 learnset
+	db POUND, SONICBOOM, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

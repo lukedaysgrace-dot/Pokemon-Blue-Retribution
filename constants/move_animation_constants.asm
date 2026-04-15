@@ -99,7 +99,7 @@ DEF FIRST_SE_ID EQU const_value
 	const SUBANIM_0_ICE_RISE
 	const SUBANIM_0_ROCKS_FALL_ENEMY
 	const SUBANIM_0_SOUND_WAVE
-	const SUBANIM_0_CIRCLE_1_SQUARE_HALF_TOSS ; unused
+	const SUBANIM_0_STATUS_POISONED_ENEMY ; poison skull/crossbones over foe (player attacking)
 	const SUBANIM_1_BARRIER
 	const SUBANIM_1_SELFDESTRUCT
 	const SUBANIM_0_WATER_BUBBLES

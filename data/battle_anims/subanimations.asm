@@ -50,7 +50,7 @@ SubanimationPointers:
 	dw Subanim_0IceRise
 	dw Subanim_0RocksFallEnemy
 	dw Subanim_0SoundWave
-	dw Subanim_0Circle_1Square_HalfToss ; unused
+	dw Subanim_0StatusPoisonedEnemy
 	dw Subanim_1Barrier
 	dw Subanim_1Selfdestruct
 	dw Subanim_0WaterBubbles
@@ -660,17 +660,18 @@ Subanim_0StatusPoisoned:
 	db FRAMEBLOCK_54, BASECOORD_01, FRAMEBLOCKMODE_00
 	db FRAMEBLOCK_54, BASECOORD_2C, FRAMEBLOCKMODE_00
 
+; Like Subanim_0StatusConfusedEnemy / SleepEnemy: SUBANIMTYPE_NORMAL so coords stay on the
+; defending mon when the player uses an attack (SUBANIMTYPE_ENEMY would HFLIP on player turn).
+Subanim_0StatusPoisonedEnemy:
+	subanim SUBANIMTYPE_NORMAL, 2
+	db FRAMEBLOCK_54, BASECOORD_01, FRAMEBLOCKMODE_00
+	db FRAMEBLOCK_54, BASECOORD_2C, FRAMEBLOCKMODE_00
+
 Subanim_1Sand:
 	subanim SUBANIMTYPE_HVFLIP, 3
 	db FRAMEBLOCK_55, BASECOORD_73, FRAMEBLOCKMODE_03
 	db FRAMEBLOCK_56, BASECOORD_73, FRAMEBLOCKMODE_03
 	db FRAMEBLOCK_57, BASECOORD_73, FRAMEBLOCKMODE_00
-
-Subanim_0Circle_1Square_HalfToss:
-	subanim SUBANIMTYPE_COORDFLIP, 3
-	db FRAMEBLOCK_47, BASECOORD_74, FRAMEBLOCKMODE_00
-	db FRAMEBLOCK_47, BASECOORD_43, FRAMEBLOCKMODE_00
-	db FRAMEBLOCK_47, BASECOORD_75, FRAMEBLOCKMODE_00
 
 Subanim_1Barrier:
 	subanim SUBANIMTYPE_HVFLIP, 6

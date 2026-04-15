@@ -32,7 +32,7 @@ AttackAnimationPointers:
 	dw HornAttackAnim
 	dw FuryAttackAnim
 	dw SuckerPunchAnim
-	dw TackleAnim
+	dw SludgeBombAnim
 	dw BodySlamAnim
 	dw WrapAnim
 	dw TakeDownAnim
@@ -397,9 +397,14 @@ SuckerPunchAnim:
 	battle_anim NO_MOVE, SE_BLINK_ENEMY_MON
 	db -1 ; end
 
-TackleAnim:
-	battle_anim LEECH_SEED, SE_MOVE_MON_HORIZONTALLY
-	battle_anim NO_MOVE, SE_RESET_MON_POSITION
+SludgeBombAnim:
+; Launch: ACID move id for toss SFX (tileset still from high bits — use 1 for black ball gfx).
+; Impact: Sludge SFX + drip on enemy.
+; End: poison icon over foe (SUBANIM_0_STATUS_POISONED_ENEMY), not SUBANIMTYPE_ENEMY flip.
+	battle_anim ACID, SUBANIM_1_CIRCLE_BLACK_TOSS, 1, 4
+	battle_anim SLUDGE, SUBANIM_1_BLOB_DRIP_ENEMY, 1, 8
+	battle_anim NO_MOVE, SUBANIM_0_STATUS_POISONED_ENEMY, 0, 10
+	battle_anim NO_MOVE, SUBANIM_0_STATUS_POISONED_ENEMY, 0, 10
 	db -1 ; end
 
 BodySlamAnim:

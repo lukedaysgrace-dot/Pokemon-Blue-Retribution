@@ -1620,7 +1620,7 @@ MagikarpEvosMoves:
 	db EVOLVE_LEVEL, 20, GYARADOS
 	db 0
 ; Learnset
-	db 15, TACKLE
+	db 15, POUND
 	db 0
 
 MissingNo86EvosMoves:
@@ -2043,7 +2043,7 @@ SquirtleEvosMoves:
 	db EVOLVE_LEVEL, 16, WARTORTLE
 	db 0
 ; Learnset
-	db 6, OUTRAGE
+	db 6, SLUDGE_BOMB
 	db 8, BUBBLE
 	db 15, WATER_GUN
 	db 22, BITE
@@ -2251,7 +2251,7 @@ EspeonEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 1, TACKLE
+	db 1, POUND
 	db 8, SAND_ATTACK
 	db 16, CONFUSION
 	db 23, QUICK_ATTACK
@@ -2265,7 +2265,7 @@ GlaceonEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 1, TACKLE
+	db 1, POUND
 	db 8, SAND_ATTACK
 	db 16, BITE
 	db 23, QUICK_ATTACK
@@ -2293,7 +2293,7 @@ LeafeonEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 1, TACKLE
+	db 1, POUND
 	db 8, SAND_ATTACK
 	db 15, RAZOR_LEAF
 	db 22, GROWTH
@@ -2336,7 +2336,7 @@ MagnezoneEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 1, TACKLE
+	db 1, POUND
 	db 7, SONICBOOM
 	db 13, THUNDERSHOCK
 	db 19, SUPERSONIC
@@ -2351,7 +2351,7 @@ PorygonZEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 1, TACKLE
+	db 1, POUND
 	db 9, METAL_CLAW
 	db 12, PSYBEAM
 	db 20, RECOVER
@@ -2366,7 +2366,7 @@ Porygon2EvosMoves:
 	db EVOLVE_TRADE, 1, PORYGON_Z
 	db 0
 ; Learnset
-	db 1, TACKLE
+	db 1, POUND
 	db 9, METAL_CLAW
 	db 12, PSYBEAM
 	db 20, RECOVER
@@ -2436,7 +2436,7 @@ SteelixEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 1, TACKLE
+	db 1, POUND
 	db 9, SCREECH
 	db 15, SHADOW_BALL
 	db 21, ROCK_THROW
@@ -2465,7 +2465,7 @@ UmbreonEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 1, TACKLE
+	db 1, POUND
 	db 8, SAND_ATTACK
 	db 16, QUICK_ATTACK
 	db 23, BITE

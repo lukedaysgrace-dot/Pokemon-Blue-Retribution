@@ -1450,7 +1450,7 @@ AnimationShakeBackAndForth:
 
 AnimationMoveMonHorizontally:
 ; Shifts the mon's sprite horizontally to a fixed location. Used by lots of
-; animations like Tackle/Body Slam.
+; contact-style animations like Body Slam.
 	call AnimationHideMonPic
 	ldh a, [hWhoseTurn]
 	and a

@@ -33,7 +33,7 @@ MoveSoundTable:
 	db SFX_BATTLE_1E,          $00, $60 ; HORN_ATTACK
 	db SFX_BATTLE_1E,          $01, $40 ; FURY_ATTACK
 	db SFX_BATTLE_1E,          $10, $80 ; SUCKER_PUNCH
-	db SFX_SUPER_EFFECTIVE,    $10, $a0 ; TACKLE
+	db SFX_BATTLE_2A,          $20, $20 ; SLUDGE_BOMB (same as SLUDGE)
 	db SFX_BATTLE_20,          $00, $c0 ; BODY_SLAM
 	db SFX_BATTLE_14,          $10, $60 ; WRAP
 	db SFX_SUPER_EFFECTIVE,    $00, $a0 ; TAKE_DOWN

@@ -33,7 +33,7 @@ MoveNames::
 	li "HORN ATTACK"
 	li "FURY ATTACK"
 	li "SUCKER PUNCH"
-	li "TACKLE"
+	li "SLUDGE BOMB"
 	li "BODY SLAM"
 	li "WRAP"
 	li "TAKE DOWN"

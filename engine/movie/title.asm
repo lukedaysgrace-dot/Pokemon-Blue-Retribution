@@ -95,11 +95,9 @@ DisplayTitleScreen:
 	jr nz, .pokemonLogoLastTileRowLoop
 
 	call DrawPlayerCharacter
-
-; put a pokeball in the player's hand
-	ld hl, wShadowOAMSprite10
-	ld a, $74
-	ld [hl], a
+;IF DEF(_BLUE)
+;	call SetupBlueTitleHandBall ; title overlay Poké Ball off
+;ENDC
 
 ; place tiles for title screen copyright
 	hlcoord 2, 17
@@ -232,7 +230,9 @@ ENDC
 	ld c, 1
 	call CheckForUserInterruption
 	jr c, .finishedWaiting
-	farcall TitleScreenAnimateBallIfStarterOut
+;IF DEF(_BLUE)
+;	farcall TitleScreenAnimateBlueTitleHandBall
+;ENDC
 	call TitleScreenPickNewMon
 	jr .awaitUserInterruptionLoop
 
@@ -354,6 +354,33 @@ DrawPlayerCharacter:
 	dec b
 	jr nz, .loop
 	ret
+
+IF 0 ; re-enable with IF DEF(_BLUE) and uncomment calls above
+SetupBlueTitleHandBall:
+; Sprite 35 + VRAM tile 35: Poké Ball overlay for Blue (tiles 0–34 are the trainer sheet).
+;
+; OAM Y is screen line (same system as DrawPlayerCharacter: rows start at $60, $68, $70…).
+; Do NOT use small values like $20–$40 — that is the logo / top margin. Hand height is ~$66–$72.
+; OAM X: ~$5a–$80 is the character band; larger = further right.
+;
+; IMPORTANT: TitleBallYTable in engine/movie/title2.asm overwrites Y every hop frame.
+; When you change the hand height here, add the same delta to every non-zero byte there.
+	ld hl, PokeballTileGraphics
+	ld de, vSprites tile 35
+	ld bc, TILE_SIZE
+	ld a, BANK(PokeballTileGraphics)
+	call FarCopyData2
+	ld hl, wShadowOAMSprite35
+	ld a, $70 ; hand ball Y (down from $6c into palm)
+	ld [hli], a
+	ld a, $78 ; hand ball X (unchanged — straight down only)
+	ld [hli], a
+	ld a, 35 ; tile id in vSprites
+	ld [hli], a
+	xor a
+	ld [hli], a
+	ret
+ENDC
 
 ClearBothBGMaps:
 	ld hl, vBGMap0

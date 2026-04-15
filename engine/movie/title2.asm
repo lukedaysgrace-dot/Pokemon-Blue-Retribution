@@ -83,20 +83,19 @@ _TitleScroll:
 	ret
 
 TitleBallYTable:
-; OBJ y-positions for the Poke Ball held by Red in the title screen.
-; This is really two 0-terminated lists. Initiated with an index of 1.
-	db 0, $71, $6f, $6e, $6d, $6c, $6d, $6e, $6f, $71, $74, 0
+; HOW TO KEEP THIS IN SYNC WITH title.asm (SetupBlueTitleHandBall):
+; 1) Pick the hand height Y in title.asm (the "ld a, $.." before wShadowOAMSprite35). Call it CENTER.
+; 2) Replace the 10 bytes between the two 0s below with a small bounce around CENTER (same ±4 pattern).
+;    Example: if CENTER=$70, use exactly these 10 bytes:
+;    $78,$76,$74,$72,$74,$76,$78,$7a,$78,$76
+;    If you change CENTER by N, add N to EACH of those 10 bytes.
+; 3) Leave the leading 0 and final 0 alone — they mark the start/end of the table.
+; GetTitleBallY reads index 1..10 (see GetTitleBallY, index starts at 1).
+; Two $05 entries in TitleScroll_WaitBall run this for 10 frames.
+	db 0, $78, $76, $74, $72, $74, $76, $78, $7a, $78, $76, 0
 
-TitleScreenAnimateBallIfStarterOut:
-; Animate the TitleBall if a starter just got scrolled out.
-	ld a, [wTitleMonSpecies]
-	cp STARTER1
-	jr z, .ok
-	cp STARTER2
-	jr z, .ok
-	cp STARTER3
-	ret nz
-.ok
+TitleScreenAnimateBlueTitleHandBall:
+; Blue title: bounce the Poké Ball in sprite 35 (SetupBlueTitleHandBall in title.asm).
 	ld e, 1 ; animate titleball
 	ld bc, TitleScroll_WaitBall
 	ld d, 0
@@ -115,6 +114,6 @@ GetTitleBallY:
 	pop de
 	and a
 	ret z
-	ld [wShadowOAMSprite10YCoord], a
+	ld [wShadowOAMSprite35YCoord], a
 	inc e
 	ret

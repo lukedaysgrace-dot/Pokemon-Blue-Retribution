@@ -5412,8 +5412,11 @@ MoveHitTest:
 	ld a, [wEnemyMoveAccuracy]
 	ld b, a
 .doAccuracyCheck
-; if the random number generated is greater than or equal to the scaled accuracy, the move misses
-; note that this means that even the highest accuracy is still just a 255/256 chance, not 100%
+; Hit if random < scaled accuracy. When accuracy is $ff, random can be $ff and would wrongly miss;
+; $ff is the cap from CalcHitChance, so treat it as true 100%.
+	ld a, b
+	cp $ff
+	ret z
 	call BattleRandom
 	cp b
 	jr nc, .moveMissed
