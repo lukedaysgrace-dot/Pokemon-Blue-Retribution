@@ -73,6 +73,16 @@ LoreleiSprite::          INCBIN "gfx/sprites/lorelei.2bpp"
 SeelSprite::             INCBIN "gfx/sprites/seel.2bpp"
 
 
+SECTION "Gym Leader OW Sprites", ROMX
+
+BrockSprite::            INCBIN "gfx/sprites/brock.2bpp"
+MistySprite::            INCBIN "gfx/sprites/misty.2bpp"
+LtSurgeSprite::          INCBIN "gfx/sprites/surge.2bpp"
+ErikaSprite::            INCBIN "gfx/sprites/erika.2bpp"
+SabrinaSprite::          INCBIN "gfx/sprites/sabrina.2bpp"
+BlaineSprite::           INCBIN "gfx/sprites/blaine.2bpp"
+
+
 ; Separate ROM bank: Battle Engine 2 cannot fit this 12-tile sheet (linker overflow).
 SECTION "Blue Cloak OW Sprite", ROMX
 
