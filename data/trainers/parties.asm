@@ -744,3 +744,7 @@ GreenData:
 	db 20, JIGGLYPUFF, NIDORINA, EEVEE, CHARMANDER, 0
 ; #3 (player picked Bulbasaur -> Green has Squirtle)
 	db 20, JIGGLYPUFF, NIDORINA, EEVEE, SQUIRTLE, 0
+; Route 10 (Rock Tunnel north) — wTrainerNo 4–6; last mon same starter mapping as Route 5
+	db $FF, 23, WIGGLYTUFF, 22, NIDORINA, 23, UMBREON, 23, JYNX, 23, BULBASAUR, 0
+	db $FF, 23, WIGGLYTUFF, 22, NIDORINA, 23, UMBREON, 23, JYNX, 23, CHARMANDER, 0
+	db $FF, 23, WIGGLYTUFF, 22, NIDORINA, 23, UMBREON, 23, JYNX, 23, SQUIRTLE, 0

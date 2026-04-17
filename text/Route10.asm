@@ -99,6 +99,67 @@ _Route10CooltrainerF2AfterBattleText::
 	cont "floral pattern!"
 	done
 
+_Route10GreenBeforeBattleText::
+	text "Hehe... don't"
+	line "get the wrong"
+	cont "idea."
+
+	para "I'm not scared"
+	line "or anything,"
+	cont "it's just..."
+
+	para "Why is this cave"
+	line "so dark?"
+	cont "You can't even see"
+	cont "your own feet!"
+
+	para "Maybe a battle"
+	line "with you will"
+	cont "pump me up"
+	cont "before I go in."
+	cont "Hope you've been"
+	cont "training!"
+	done
+
+_Route10GreenEndBattleText::
+	text "Boy, I need"
+	line "to take this"
+	cont "seriously..."
+	cont "You're the"
+	cont "real deal."
+	prompt
+
+_Route10GreenPlayerLoseText::
+	text "Hehe... maybe I"
+	line "was more ready"
+	cont "than I thought!"
+	prompt
+
+_Route10GreenAfterBattleText::
+	text "Yep, that did the"
+	line "trick... guess I"
+	cont "just needed a"
+	cont "little push."
+
+	para "Still, don't go"
+	line "thinking I needed"
+	cont "you. I can handle"
+	cont "a dark cave fine."
+
+	para "I just prefer"
+	line "knowing what I'm"
+	cont "walking into."
+
+	para "Hehe... you've"
+	line "gotten pretty"
+	cont "strong though."
+
+	para "Don't lose that"
+	line "edge before I"
+	cont "see you again,"
+	cont "alright?"
+	done
+
 _Route10RockTunnelSignText::
 	text "ROCK TUNNEL"
 	done

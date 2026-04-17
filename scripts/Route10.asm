@@ -12,6 +12,8 @@ Route10_ScriptPointers:
 	dw_const CheckFightingMapTrainers,              SCRIPT_ROUTE10_DEFAULT
 	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_ROUTE10_START_BATTLE
 	dw_const EndTrainerBattle,                      SCRIPT_ROUTE10_END_BATTLE
+	dw_const Route10GreenAfterBattleScript,         SCRIPT_ROUTE10_GREEN_AFTER_BATTLE
+	dw_const Route10GreenExitScript,                SCRIPT_ROUTE10_GREEN_EXIT
 
 Route10_TextPointers:
 	def_text_pointers
@@ -21,10 +23,12 @@ Route10_TextPointers:
 	dw_const Route10CooltrainerF1Text,  TEXT_ROUTE10_COOLTRAINER_F1
 	dw_const Route10Hiker2Text,         TEXT_ROUTE10_HIKER2
 	dw_const Route10CooltrainerF2Text,  TEXT_ROUTE10_COOLTRAINER_F2
+	dw_const Route10GreenText,          TEXT_ROUTE10_GREEN
 	dw_const Route10RockTunnelSignText, TEXT_ROUTE10_ROCKTUNNEL_NORTH_SIGN
 	dw_const PokeCenterSignText,        TEXT_ROUTE10_POKECENTER_SIGN
 	dw_const Route10RockTunnelSignText, TEXT_ROUTE10_ROCKTUNNEL_SOUTH_SIGN
 	dw_const Route10PowerPlantSignText, TEXT_ROUTE10_POWERPLANT_SIGN
+	dw_const Route10GreenAfterBattleText, TEXT_ROUTE10_GREEN_AFTER_BATTLE
 
 Route10TrainerHeaders:
 	def_trainers
@@ -156,4 +160,145 @@ Route10RockTunnelSignText:
 
 Route10PowerPlantSignText:
 	text_far _Route10PowerPlantSignText
+	text_end
+
+Route10GreenAfterBattleScript:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, Route10ResetJoyAndMapScript
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	call Route10GreenFacePlayer
+	SetEvent EVENT_BEAT_ROUTE_10_GREEN
+	ld a, TEXT_ROUTE10_GREEN_AFTER_BATTLE
+	ldh [hTextID], a
+	call DisplayTextID
+	ld a, SPRITE_FACING_UP
+	call Route10GreenSetFacingDirection
+	ld de, Route10GreenExitMovement
+	call MoveSprite
+	ld a, SCRIPT_ROUTE10_GREEN_EXIT
+	ld [wRoute10CurScript], a
+	ld [wCurMapScript], a
+	ret
+
+Route10GreenExitMovement:
+	db NPC_MOVEMENT_UP
+	db -1 ; end
+
+Route10GreenExitScript:
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_NPC_MOVEMENT, a
+	ret nz
+	ld a, TOGGLE_ROUTE_10_GREEN
+	ld [wToggleableObjectIndex], a
+	predef HideObject
+
+Route10ResetJoyAndMapScript:
+	xor a
+	ld [wJoyIgnore], a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
+	ld [wRoute10CurScript], a
+	ld [wCurMapScript], a
+	ret
+
+Route10GreenText:
+	text_asm
+	call Route10GreenExclamation
+	call Route10GreenFacePlayer
+	CheckEvent EVENT_BEAT_ROUTE_10_GREEN
+	jr z, .before_battle
+	ld hl, Route10GreenAfterBattleText
+	call PrintText
+	jr .done
+.before_battle
+	ld hl, Route10GreenBeforeBattleText
+	call PrintText
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, Route10GreenEndBattleText
+	ld de, Route10GreenPlayerLoseText
+	call SaveEndBattleTextPointers
+	ld a, OPP_GREEN
+	ld [wCurOpponent], a
+	ld a, [wPlayerStarter]
+	cp STARTER1
+	jr z, .picked_charmander
+	cp STARTER2
+	jr z, .picked_squirtle
+	ld a, 6 ; player picked Bulbasaur, Green has Squirtle
+	jr .got_team
+.picked_charmander
+	ld a, 4 ; player picked Charmander, Green has Bulbasaur
+	jr .got_team
+.picked_squirtle
+	ld a, 5 ; player picked Squirtle, Green has Charmander
+.got_team
+	ld [wTrainerNo], a
+	ld a, SCRIPT_ROUTE10_GREEN_AFTER_BATTLE
+	ld [wRoute10CurScript], a
+	ld [wCurMapScript], a
+	ld hl, wStatusFlags7
+	set BIT_USE_CUR_MAP_SCRIPT, [hl]
+.done
+	jp TextScriptEnd
+
+Route10GreenFacePlayer:
+	ld a, [wXCoord]
+	cp 8
+	jr c, .face_left
+	jr nz, .face_right
+	ld a, [wYCoord]
+	cp 18
+	jr c, .face_up
+	ld a, SPRITE_FACING_DOWN
+	jr .set_facing
+.face_up
+	ld a, SPRITE_FACING_UP
+	jr .set_facing
+.face_left
+	ld a, SPRITE_FACING_LEFT
+	jr .set_facing
+.face_right
+	ld a, SPRITE_FACING_RIGHT
+.set_facing
+	jp Route10GreenSetFacingDirection
+
+Route10GreenSetFacingDirection:
+	ldh [hSpriteFacingDirection], a
+	ld a, ROUTE10_GREEN
+	ldh [hSpriteIndex], a
+	call SetSpriteFacingDirectionAndDelay
+	ld a, SPRITESTATEDATA1_IMAGEINDEX
+	ldh [hSpriteDataOffset], a
+	call GetPointerWithinSpriteStateData1
+	ldh a, [hSpriteFacingDirection]
+	ld [hl], a
+	ret
+
+Route10GreenExclamation:
+	ld a, ROUTE10_GREEN
+	ld [wEmotionBubbleSpriteIndex], a
+	xor a ; EXCLAMATION_BUBBLE
+	ld [wWhichEmotionBubble], a
+	predef EmotionBubble
+	ret
+
+Route10GreenBeforeBattleText:
+	text_far _Route10GreenBeforeBattleText
+	text_end
+
+Route10GreenEndBattleText:
+	text_far _Route10GreenEndBattleText
+	text_end
+
+Route10GreenPlayerLoseText:
+	text_far _Route10GreenPlayerLoseText
+	text_end
+
+Route10GreenAfterBattleText:
+	text_far _Route10GreenAfterBattleText
 	text_end

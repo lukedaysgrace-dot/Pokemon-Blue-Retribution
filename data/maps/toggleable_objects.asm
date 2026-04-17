@@ -425,6 +425,9 @@ ToggleableObjectStates:
 	toggle_object_state SEAFOAMISLANDSB4F_BOULDER2, OFF
 	toggle_object_state SEAFOAMISLANDSB4F_ARTICUNO, ON
 
+	toggleable_objects_for ROUTE_10
+	toggle_object_state ROUTE10_GREEN, ON
+
 	assert_table_length NUM_TOGGLEABLE_OBJECTS
 
 	db -1, 1, ON ; end

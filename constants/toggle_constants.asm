@@ -398,4 +398,7 @@ ENDM
 	const TOGGLE_SEAFOAM_ISLANDS_B4F_BOULDER_2 ; E3
 	const TOGGLE_ARTICUNO                      ; E4 X
 
+	toggle_consts_for ROUTE_10
+	const TOGGLE_ROUTE_10_GREEN                ; E5
+
 DEF NUM_TOGGLEABLE_OBJECTS EQU const_value
