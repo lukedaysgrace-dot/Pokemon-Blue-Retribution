@@ -57,30 +57,33 @@ ENDM
 	toggle_consts_for ROUTE_4
 	const TOGGLE_ROUTE_4_ITEM                  ; 1C X
 
+	toggle_consts_for ROUTE_5
+	const TOGGLE_ROUTE_5_GREEN                 ; 1D
+
 	toggle_consts_for ROUTE_9
-	const TOGGLE_ROUTE_9_ITEM                  ; 1D X
+	const TOGGLE_ROUTE_9_ITEM                  ; 1E X
 
 	toggle_consts_for ROUTE_12
-	const TOGGLE_ROUTE_12_SNORLAX              ; 1E
-	const TOGGLE_ROUTE_12_ITEM_1               ; 1F X
-	const TOGGLE_ROUTE_12_ITEM_2               ; 20 X
+	const TOGGLE_ROUTE_12_SNORLAX              ; 1F
+	const TOGGLE_ROUTE_12_ITEM_1               ; 20 X
+	const TOGGLE_ROUTE_12_ITEM_2               ; 21 X
 
 	toggle_consts_for ROUTE_15
-	const TOGGLE_ROUTE_15_ITEM                 ; 21 X
+	const TOGGLE_ROUTE_15_ITEM                 ; 22 X
 
 	toggle_consts_for ROUTE_16
-	const TOGGLE_ROUTE_16_SNORLAX              ; 22
+	const TOGGLE_ROUTE_16_SNORLAX              ; 23
 
 	toggle_consts_for ROUTE_22
-	const TOGGLE_ROUTE_22_RIVAL_1              ; 23
-	const TOGGLE_ROUTE_22_RIVAL_2              ; 24
+	const TOGGLE_ROUTE_22_RIVAL_1              ; 24
+	const TOGGLE_ROUTE_22_RIVAL_2              ; 25
 
 	toggle_consts_for ROUTE_24
-	const TOGGLE_NUGGET_BRIDGE_GUY             ; 25
-	const TOGGLE_ROUTE_24_ITEM                 ; 26 X
+	const TOGGLE_NUGGET_BRIDGE_GUY             ; 26
+	const TOGGLE_ROUTE_24_ITEM                 ; 27 X
 
 	toggle_consts_for ROUTE_25
-	const TOGGLE_ROUTE_25_ITEM                 ; 27 X
+	const TOGGLE_ROUTE_25_ITEM                 ; 28 X
 
 	toggle_consts_for BLUES_HOUSE
 	const TOGGLE_DAISY_SITTING                 ; 28

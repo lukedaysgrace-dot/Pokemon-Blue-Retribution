@@ -59,5 +59,6 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1, 3    ; AGATHA
 	move_choices 1, 3    ; LANCE
 	move_choices 1, 3    ; BLUE_CLOAK
+	move_choices 1, 3    ; GREEN
 	assert __move_choices__ == NUM_TRAINERS, \
 		"TrainerClassMoveChoiceModifications: expected {d:NUM_TRAINERS} entries, got {d:__move_choices__}"

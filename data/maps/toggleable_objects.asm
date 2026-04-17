@@ -84,6 +84,9 @@ ToggleableObjectStates:
 	toggleable_objects_for ROUTE_4
 	toggle_object_state ROUTE4_TM_CRUNCH, ON
 
+	toggleable_objects_for ROUTE_5
+	toggle_object_state ROUTE5_GREEN, ON
+
 	toggleable_objects_for ROUTE_9
 	toggle_object_state ROUTE9_TM_TELEPORT, ON
 

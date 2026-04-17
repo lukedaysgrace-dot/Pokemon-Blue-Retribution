@@ -248,6 +248,10 @@
 	const_skip 12
 	const EVENT_BOUGHT_MAGIKARP
 
+; Route 5 events
+	const_next $400
+	const EVENT_BEAT_ROUTE5_GREEN
+
 ; Route 6 events
 	const_next $410
 	const_skip

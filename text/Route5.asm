@@ -1,3 +1,63 @@
+_Route5GreenBeforeBattleText::
+	text "Hey! You're"
+	line "'<PLAYER>', right?"
+
+	para "I remember seeing"
+	line "you in the old"
+	cont "man's lab, must"
+	cont "be nice to get"
+	cont "special treatment"
+	cont "by him."
+
+	para "I see you already"
+	line "have a badge or"
+	cont "two, how"
+	cont "impressive!"
+
+	para "Actually, I've"
+	line "been trying out a"
+	cont "few... tricks,"
+	cont "and I need some-"
+	cont "one to test them"
+	cont "on."
+
+	para "C'mon, it'll be"
+	line "quick. Unless"
+	cont "you're not"
+	cont "confident yet?"
+
+	para "...I mean, you"
+	line "are a trainer,"
+	cont "right?"
+	done
+
+_Route5GreenEndBattleText::
+	text "Phew!"
+
+	para "Those BADGEs"
+	line "weren't just for"
+	cont "show, I see!"
+	prompt
+
+_Route5GreenPlayerLoseText::
+	text "Looks like those"
+	line "tricks worked"
+	cont "just fine!"
+	prompt
+
+_Route5GreenAfterBattleText::
+	text "Well, I've got to"
+	line "admit, I under-"
+	cont "estimated you,"
+	cont "I thought you'd"
+	cont "be a pushover."
+
+	para "You're pretty"
+	line "tough, cutie."
+
+	para "See you around!"
+	done
+
 _Route5UndergroundPathSignText::
 	text "UNDERGROUND PATH"
 	line "CERULEAN CITY -"

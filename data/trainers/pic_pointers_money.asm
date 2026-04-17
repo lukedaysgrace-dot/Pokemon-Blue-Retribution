@@ -55,4 +55,5 @@ TrainerPicAndMoneyPointers::
 	pic_money AgathaPic,       9900
 	pic_money LancePic,        9900
 	pic_money BlueCloakPic,     9900
+	pic_money JrTrainerFPic,   2000
 	assert_table_length NUM_TRAINERS

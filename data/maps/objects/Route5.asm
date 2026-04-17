@@ -1,3 +1,6 @@
+object_const_def
+	const_export ROUTE5_GREEN
+
 Route5_Object:
 	db $a ; border block
 
@@ -12,5 +15,6 @@ Route5_Object:
 	bg_event 17, 29, TEXT_ROUTE5_UNDERGROUND_PATH_SIGN
 
 	def_object_events
+	object_event 17, 28, SPRITE_UNUSED_SCIENTIST, STAY, NONE, TEXT_ROUTE5_GREEN
 
 	def_warps_to ROUTE_5

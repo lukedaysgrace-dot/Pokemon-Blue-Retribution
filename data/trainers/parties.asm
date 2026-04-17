@@ -48,6 +48,7 @@ TrainerDataPointers:
 	dw AgathaData
 	dw LanceData
 	dw BlueCloakData
+	dw GreenData
 	assert_table_length NUM_TRAINERS
 
 ; if first byte != $FF, then
@@ -734,3 +735,12 @@ BlueCloakData:
 	db $FF, 100, PIDGEOT, 100, ARCANINE, 100, EXEGGUTOR, 100, MACHAMP, 100, SCIZOR, 100, BLASTOISE, 0
 	db $FF, 100, PIDGEOT, 100, ARCANINE, 100, GOLDUCK, 100, MACHAMP, 100, SCIZOR, 100, VENUSAUR, 0
 	db $FF, 100, PIDGEOT, 100, EXEGGUTOR, 100, GOLDUCK, 100, MACHAMP, 100, SCIZOR, 100, CHARIZARD, 0
+
+GreenData:
+; Route 5 Green battle
+; #1 (player picked Charmander -> Green has Bulbasaur)
+	db 20, JIGGLYPUFF, NIDORINA, EEVEE, BULBASAUR, 0
+; #2 (player picked Squirtle -> Green has Charmander)
+	db 20, JIGGLYPUFF, NIDORINA, EEVEE, CHARMANDER, 0
+; #3 (player picked Bulbasaur -> Green has Squirtle)
+	db 20, JIGGLYPUFF, NIDORINA, EEVEE, SQUIRTLE, 0

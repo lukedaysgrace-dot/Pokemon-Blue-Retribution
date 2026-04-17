@@ -6938,6 +6938,13 @@ _LoadTrainerPic:
 	ld e, a
 	ld a, [wTrainerPicPointer + 1]
 	ld d, a ; de contains pointer to trainer pic
+	ld a, [wTrainerClass]
+	cp GREEN
+	jr nz, .bankCheckLink
+	ld de, GreenPicFront
+	ld a, BANK(GreenPicFront)
+	jr .loadSprite
+.bankCheckLink
 	ld a, [wLinkState]
 	and a
 	ld a, BANK("Trainer Pics")
