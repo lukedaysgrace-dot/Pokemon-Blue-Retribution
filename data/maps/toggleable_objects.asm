@@ -429,6 +429,9 @@ ToggleableObjectStates:
 	toggleable_objects_for ROUTE_10
 	toggle_object_state ROUTE10_GREEN, ON
 
+	toggleable_objects_for FUCHSIA_GYM
+	toggle_object_state FUCHSIAGYM_JANINE, OFF
+
 	assert_table_length NUM_TOGGLEABLE_OBJECTS
 
 	db -1, 1, ON ; end

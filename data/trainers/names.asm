@@ -50,4 +50,6 @@ TrainerNames::
 	li "BLUE"
 	li "GREEN"
 	li "GREEN"
+	li "NINJA"
+	li "JANINE"
 	assert_list_length NUM_TRAINERS

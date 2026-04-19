@@ -26,3 +26,9 @@ GreenPicBack:: INCBIN "gfx/player/greenb.pic"
 SECTION "Green Rocket Trainer Pic", ROMX
 
 GreenRocketPic:: INCBIN "gfx/trainers/greenrocket.pic"
+
+
+SECTION "Ninja Janine Trainer Pics", ROMX
+
+NinjaPic::  INCBIN "gfx/trainers/ninja.pic"
+JaninePic:: INCBIN "gfx/trainers/janine.pic"

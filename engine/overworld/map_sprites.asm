@@ -102,6 +102,10 @@ LoadMapSpriteTilePatterns:
 	jr z, .notFourTileSprite
 	cp SPRITE_GREEN_ROCKET ; same (see data/sprites/sprites.asm: 12 + 12 tile sheet)
 	jr z, .notFourTileSprite
+	cp SPRITE_NINJA ; same
+	jr z, .notFourTileSprite
+	cp SPRITE_JANINE ; same
+	jr z, .notFourTileSprite
 	cp FIRST_STILL_SPRITE ; is it a 4-tile sprite?
 	jr c, .notFourTileSprite
 	pop af

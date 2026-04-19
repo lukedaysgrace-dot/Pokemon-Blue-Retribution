@@ -138,7 +138,7 @@ _FuchsiaGymRocker5BattleText::
 	done
 
 _FuchsiaGymRocker5EndBattleText::
-	text "Awoo!"
+	text "Damn!"
 	prompt
 
 _FuchsiaGymRocker5AfterBattleText::
@@ -147,28 +147,33 @@ _FuchsiaGymRocker5AfterBattleText::
 	done
 
 _FuchsiaGymRocker6BattleText::
-	text "Master KOGA comes"
-	line "from a long line"
-	cont "of ninjas!"
-
-	para "What did you"
-	line "descend from?"
+	text "Boo! Ha, you"
+	line "didn't even see"
+	cont "me did you? I am"
+	cont "Janine, Kogas"
+	cont "daughter, one day"
+	cont "i'll be running"
+	cont "this place, lets"
+	cont "see if you're good"
+	cont "enough to face my"
+	cont "dad!"
 	done
 
 _FuchsiaGymRocker6EndBattleText::
-	text "Dropped"
-	line "my balls!"
+	text "Ohoho! You"
+	line "may have"
+	cont "what it takes!"
+	cont "Can't wait to"
+	cont "watch you fight"
+	cont "my dad!"
 	prompt
 
 _FuchsiaGymRocker6AfterBattleText::
-	text "Where there is"
-	line "light, there is"
-	cont "shadow!"
-
-	para "Light and shadow!"
-	line "Which do you"
-	cont "choose?"
+	text "Go on, he'll"
+	line "be expecting"
+	cont "you."
 	done
+	
 
 _FuchsiaGymGymGuideChampInMakingText::
 	text "Yo! Champ in"

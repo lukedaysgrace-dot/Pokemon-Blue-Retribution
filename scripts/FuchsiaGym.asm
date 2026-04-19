@@ -1,5 +1,6 @@
 FuchsiaGym_Script:
 	call .LoadNames
+	call FuchsiaGymMaybeRevealJanine
 	call EnableAutoTextBoxDrawing
 	ld hl, FuchsiaGymTrainerHeaders
 	ld de, FuchsiaGym_ScriptPointers
@@ -23,6 +24,21 @@ FuchsiaGym_Script:
 
 .LeaderName:
 	db "KOGA@"
+
+FuchsiaGymMaybeRevealJanine:
+	CheckEvent EVENT_FUCHSIA_JANINE_REVEALED
+	ret nz
+	ld hl, .JanineRevealCoords
+	call ArePlayerCoordsInArray
+	ret nc
+	SetEvent EVENT_FUCHSIA_JANINE_REVEALED
+	ld a, TOGGLE_FUCHSIA_GYM_JANINE
+	ld [wToggleableObjectIndex], a
+	predef ShowObject
+	ret
+.JanineRevealCoords:
+	dbmapcoord 1, 7
+	db -1 ; end
 
 FuchsiaGymResetScripts:
 	xor a ; SCRIPT_FUCHSIAGYM_DEFAULT

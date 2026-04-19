@@ -65,4 +65,6 @@ ENDM
 	trainer_const BLUE_CLOAK     ; $30
 	trainer_const GREEN          ; $31
 	trainer_const GREEN_ROCKET   ; $32
+	trainer_const NINJA          ; $33
+	trainer_const JANINE         ; $34
 DEF NUM_TRAINERS EQU const_value - 1

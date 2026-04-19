@@ -54,4 +54,6 @@ TrainerAIPointers:
 	dbw 1, Rival3AI ; blue_cloak (final rival)
 	dbw 1, Rival2AI ; green
 	dbw 1, Rival2AI ; green_rocket
+	dbw 3, GenericAI ; ninja
+	dbw 1, CooltrainerFAI ; janine
 	assert_table_length NUM_TRAINERS

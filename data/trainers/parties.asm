@@ -50,6 +50,8 @@ TrainerDataPointers:
 	dw BlueCloakData
 	dw GreenData
 	dw GreenRocketData
+	dw NinjaData
+	dw JanineData
 	assert_table_length NUM_TRAINERS
 
 ; if first byte != $FF, then
@@ -602,8 +604,6 @@ CooltrainerFData:
 	db 43, PARASECT, DEWGONG, CHANSEY, 0
 ; Victory Road 1F
 	db 44, PERSIAN, NINETALES, 0
-; Fuschia Gym	;joenote - added Janine
-	db 34, GOLBAT, VENOMOTH, 0	;db 36, VILEPLUME, BUTTERFREE, 0
 ; Unused
 	;db 45,IVYSAUR,VENUSAUR,0
 	;db 45,NIDORINA,NIDOQUEEN,0
@@ -758,3 +758,15 @@ GreenRocketData:
 	db $FF, 30, WIGGLYTUFF, 30, UMBREON, 30, NIDOQUEEN, 30, JYNX, 30, CHARMANDER, 0
 ; #3 player picked Bulbasaur → Green has Squirtle
 	db $FF, 30, WIGGLYTUFF, 30, UMBREON, 30, NIDOQUEEN, 30, JYNX, 30, SQUIRTLE, 0
+
+NinjaData:
+; Fuchsia Gym (former juggler/tamer teams)
+	db 33, GLOOM, HAUNTER, VENOMOTH, KOFFING, 0
+	db 48, TANGELA, GOLEM, 0
+	db 38, EXEGGCUTE, EXEGGUTOR, 0
+	db 34, SANDSLASH, ARBOK, 0
+	db 33, ARBOK, SANDSLASH, ARBOK, 0
+
+JanineData:
+; Fuchsia Gym
+	db 34, GOLBAT, VENOMOTH, 0

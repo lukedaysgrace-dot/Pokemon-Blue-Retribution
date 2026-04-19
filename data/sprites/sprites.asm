@@ -86,4 +86,6 @@ SpriteSheetPointerTable:
 	overworld_sprite BlueCloakWorldSprite, 12   ; SPRITE_BLUE_CLOAK
 	overworld_sprite GamblerAsleepSprite, 4     ; SPRITE_UNUSED_GAMBLER_ASLEEP_2
 	overworld_sprite GamblerAsleepSprite, 4     ; SPRITE_GAMBLER_ASLEEP
+	overworld_sprite NinjaSprite, 12            ; SPRITE_NINJA
+	overworld_sprite JanineSprite, 12           ; SPRITE_JANINE
 	assert_table_length NUM_SPRITES

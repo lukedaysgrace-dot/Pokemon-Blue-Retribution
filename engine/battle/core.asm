@@ -6942,9 +6942,21 @@ _LoadTrainerPic:
 	cp GREEN
 	jr z, .greenTrainerPic
 	cp GREEN_ROCKET
-	jr nz, .bankCheckLink
+	jr nz, .checkNinjaJanine
 	ld de, GreenRocketPic
 	ld a, BANK(GreenRocketPic)
+	jr .loadSprite
+.checkNinjaJanine
+	cp NINJA
+	jr z, .ninjaTrainerPic
+	cp JANINE
+	jr nz, .bankCheckLink
+	ld de, JaninePic
+	ld a, BANK(JaninePic)
+	jr .loadSprite
+.ninjaTrainerPic
+	ld de, NinjaPic
+	ld a, BANK(NinjaPic)
 	jr .loadSprite
 .greenTrainerPic
 	ld de, GreenPicFront

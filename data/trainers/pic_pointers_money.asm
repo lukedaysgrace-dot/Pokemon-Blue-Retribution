@@ -57,4 +57,6 @@ TrainerPicAndMoneyPointers::
 	pic_money BlueCloakPic,     9900
 	pic_money JrTrainerFPic,   2000
 	pic_money GreenRocketPic,  3500
+	pic_money NinjaPic,        3500
+	pic_money JaninePic,       3500
 	assert_table_length NUM_TRAINERS

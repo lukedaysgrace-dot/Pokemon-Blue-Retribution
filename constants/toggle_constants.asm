@@ -402,4 +402,7 @@ ENDM
 	toggle_consts_for ROUTE_10
 	const TOGGLE_ROUTE_10_GREEN                ; E5
 
+	toggle_consts_for FUCHSIA_GYM
+	const TOGGLE_FUCHSIA_GYM_JANINE            ; E6
+
 DEF NUM_TOGGLEABLE_OBJECTS EQU const_value
