@@ -100,6 +100,8 @@ LoadMapSpriteTilePatterns:
 	ld b, a ; b = current sprite picture ID
 	cp SPRITE_BLUE_CLOAK ; 12-tile NPC but const is after FIRST_STILL_SPRITE
 	jr z, .notFourTileSprite
+	cp SPRITE_GREEN_ROCKET ; same (see data/sprites/sprites.asm: 12 + 12 tile sheet)
+	jr z, .notFourTileSprite
 	cp FIRST_STILL_SPRITE ; is it a 4-tile sprite?
 	jr c, .notFourTileSprite
 	pop af

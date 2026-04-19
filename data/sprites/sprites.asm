@@ -82,6 +82,7 @@ SpriteSheetPointerTable:
 	overworld_sprite SnorlaxSprite, 4           ; SPRITE_SNORLAX
 	overworld_sprite OldAmberSprite, 4          ; SPRITE_UNUSED_OLD_AMBER
 	overworld_sprite OldAmberSprite, 4          ; SPRITE_OLD_AMBER
+	overworld_sprite GreenRocketSprite, 12      ; SPRITE_GREEN_ROCKET
 	overworld_sprite BlueCloakWorldSprite, 12   ; SPRITE_BLUE_CLOAK
 	overworld_sprite GamblerAsleepSprite, 4     ; SPRITE_UNUSED_GAMBLER_ASLEEP_2
 	overworld_sprite GamblerAsleepSprite, 4     ; SPRITE_GAMBLER_ASLEEP

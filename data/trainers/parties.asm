@@ -49,6 +49,7 @@ TrainerDataPointers:
 	dw LanceData
 	dw BlueCloakData
 	dw GreenData
+	dw GreenRocketData
 	assert_table_length NUM_TRAINERS
 
 ; if first byte != $FF, then
@@ -748,3 +749,12 @@ GreenData:
 	db $FF, 23, WIGGLYTUFF, 22, NIDORINA, 23, UMBREON, 23, JYNX, 23, BULBASAUR, 0
 	db $FF, 23, WIGGLYTUFF, 22, NIDORINA, 23, UMBREON, 23, JYNX, 23, CHARMANDER, 0
 	db $FF, 23, WIGGLYTUFF, 22, NIDORINA, 23, UMBREON, 23, JYNX, 23, SQUIRTLE, 0
+
+GreenRocketData:
+; Rocket Hideout B2F — wTrainerNo 1–3 (mirror Route 5 / Route 10 starter mapping)
+; #1 player picked Charmander → Green has Bulbasaur
+	db $FF, 30, WIGGLYTUFF, 30, UMBREON, 30, NIDOQUEEN, 30, JYNX, 30, BULBASAUR, 0
+; #2 player picked Squirtle → Green has Charmander
+	db $FF, 30, WIGGLYTUFF, 30, UMBREON, 30, NIDOQUEEN, 30, JYNX, 30, CHARMANDER, 0
+; #3 player picked Bulbasaur → Green has Squirtle
+	db $FF, 30, WIGGLYTUFF, 30, UMBREON, 30, NIDOQUEEN, 30, JYNX, 30, SQUIRTLE, 0

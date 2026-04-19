@@ -25,6 +25,9 @@ InitPlayerData2:
 	lb bc, HM_SURF, 1
 	call GiveItem
 
+	lb bc, FRESH_WATER, 1
+	call GiveItem
+
 DEF START_MONEY EQU $3000
 	ld hl, wPlayerMoney + 1
 	ld a, HIGH(START_MONEY)

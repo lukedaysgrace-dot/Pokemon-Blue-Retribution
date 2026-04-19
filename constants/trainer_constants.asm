@@ -64,4 +64,5 @@ ENDM
 	trainer_const LANCE          ; $2F
 	trainer_const BLUE_CLOAK     ; $30
 	trainer_const GREEN          ; $31
+	trainer_const GREEN_ROCKET   ; $32
 DEF NUM_TRAINERS EQU const_value - 1

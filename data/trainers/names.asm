@@ -49,4 +49,5 @@ TrainerNames::
 	li "LANCE"
 	li "BLUE"
 	li "GREEN"
+	li "GREEN"
 	assert_list_length NUM_TRAINERS

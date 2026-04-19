@@ -1,6 +1,6 @@
 _Route5GreenBeforeBattleText::
 	text "Hey! You're"
-	line "'<PLAYER>', right?"
+	line "<PLAYER>, right?"
 
 	para "I remember seeing"
 	line "you in the old"
@@ -15,11 +15,11 @@ _Route5GreenBeforeBattleText::
 	cont "impressive!"
 
 	para "Actually, I've"
-	line "been trying out a"
-	cont "few... tricks,"
-	cont "and I need some-"
-	cont "one to test them"
-	cont "on."
+	line "been wanting to"
+	cont "try out my new,"
+	cont "pokemon and i"
+	cont "need someone"
+	cont "to test them on"
 
 	para "C'mon, it'll be"
 	line "quick. Unless"
@@ -40,9 +40,9 @@ _Route5GreenEndBattleText::
 	prompt
 
 _Route5GreenPlayerLoseText::
-	text "Looks like those"
-	line "tricks worked"
-	cont "just fine!"
+	text "Looks like my"
+	line "new pokemon"
+	cont "did great! hehe"
 	prompt
 
 _Route5GreenAfterBattleText::

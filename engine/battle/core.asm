@@ -6940,7 +6940,13 @@ _LoadTrainerPic:
 	ld d, a ; de contains pointer to trainer pic
 	ld a, [wTrainerClass]
 	cp GREEN
+	jr z, .greenTrainerPic
+	cp GREEN_ROCKET
 	jr nz, .bankCheckLink
+	ld de, GreenRocketPic
+	ld a, BANK(GreenRocketPic)
+	jr .loadSprite
+.greenTrainerPic
 	ld de, GreenPicFront
 	ld a, BANK(GreenPicFront)
 	jr .loadSprite

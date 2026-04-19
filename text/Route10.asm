@@ -130,7 +130,7 @@ _Route10GreenEndBattleText::
 	prompt
 
 _Route10GreenPlayerLoseText::
-	text "Hehe... maybe I"
+	text "ohoho! maybe I"
 	line "was more ready"
 	cont "than I thought!"
 	prompt

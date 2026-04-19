@@ -2004,6 +2004,8 @@ wPokemonTower6FCurScript:: db
 wPokemonTower7FCurScript:: db
 wRocketHideoutB1FCurScript:: db
 wRocketHideoutB2FCurScript:: db
+; 1 = triggered from tile (24,18), 2 = from (25,18); used for exit movement
+wRocketHideoutB2FGreenVariant:: db
 wRocketHideoutB3FCurScript:: db
 wRocketHideoutB4FCurScript:: db
 	ds 1

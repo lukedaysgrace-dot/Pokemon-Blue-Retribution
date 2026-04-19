@@ -510,6 +510,15 @@ CheckSpriteAvailability:
 	cp b
 	jr c, .spriteInvisible  ; right of screen region
 .skipXVisibilityTest
+; Scripted steps use sub-tile pixel motion; the four-corner UI tile test can alternate
+; and keep forcing IMAGEINDEX to $ff (blink). Skip it while MoveSprite_ runs.
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_NPC_MOVEMENT, a
+	jr z, .foregroundTileChecks
+	call GetTileSpriteStandsOn
+	ld a, [hl]
+	jr .spriteVisible
+.foregroundTileChecks
 ; make the sprite invisible if a text box is in front of it
 ; $5F is the maximum number for map tiles
 	call GetTileSpriteStandsOn

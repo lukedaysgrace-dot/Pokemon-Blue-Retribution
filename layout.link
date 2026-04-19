@@ -182,7 +182,9 @@ ROMX $2C
 	"Custom Trainer Moves Data"
 	"Green Fishing Tiles"
 	"Green Player OW Sprites"
+	"Green Rocket OW Sprite"
 	"Green Pic Back"
+	"Green Rocket Trainer Pic"
 ROMX $2D
 	"Base Stats Data"
 ROMX $2E

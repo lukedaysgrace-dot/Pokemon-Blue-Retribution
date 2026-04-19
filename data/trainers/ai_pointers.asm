@@ -53,4 +53,5 @@ TrainerAIPointers:
 	dbw 1, LanceAI ; lance
 	dbw 1, Rival3AI ; blue_cloak (final rival)
 	dbw 1, Rival2AI ; green
+	dbw 1, Rival2AI ; green_rocket
 	assert_table_length NUM_TRAINERS

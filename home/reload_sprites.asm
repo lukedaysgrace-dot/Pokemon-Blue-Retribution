@@ -14,6 +14,9 @@ ReloadMapSpriteTilePatterns::
 	pop hl
 	pop af
 	ld [hl], a
+	push af
 	call LoadPlayerSpriteGraphics
-	call LoadFontTilePatterns
+	pop af
+	bit BIT_FONT_LOADED, a
+	call nz, LoadFontTilePatterns
 	jp UpdateSprites

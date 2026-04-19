@@ -267,6 +267,7 @@ ToggleableObjectStates:
 	toggle_object_state ROCKETHIDEOUTB2F_NUGGET,        ON
 	toggle_object_state ROCKETHIDEOUTB2F_TM_HORN_DRILL, ON
 	toggle_object_state ROCKETHIDEOUTB2F_SUPER_POTION,  ON
+	toggle_object_state ROCKETHIDEOUTB2F_GREEN,         OFF
 
 	toggleable_objects_for ROCKET_HIDEOUT_B3F
 	toggle_object_state ROCKETHIDEOUTB3F_TM_DOUBLE_EDGE, ON

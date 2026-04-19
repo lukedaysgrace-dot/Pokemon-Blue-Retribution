@@ -3,6 +3,11 @@ RocketHideoutB2F_Script:
 	ld hl, RocketHideout2TrainerHeaders
 	ld de, RocketHideoutB2F_ScriptPointers
 	ld a, [wRocketHideoutB2FCurScript]
+	cp SCRIPT_ROCKETHIDEOUTB2F_GREEN_EXIT + 1
+	jr c, .scriptIndexOk
+	xor a
+	ld [wRocketHideoutB2FCurScript], a
+.scriptIndexOk:
 	call ExecuteCurMapScriptInTable
 	ld [wRocketHideoutB2FCurScript], a
 	ret
@@ -13,8 +18,65 @@ RocketHideoutB2F_ScriptPointers:
 	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_ROCKETHIDEOUTB2F_START_BATTLE
 	dw_const EndTrainerBattle,                      SCRIPT_ROCKETHIDEOUTB2F_END_BATTLE
 	dw_const RocketHideoutB2FPlayerSpinningScript,  SCRIPT_ROCKETHIDEOUTB2F_PLAYER_SPINNING
+	dw_const RocketHideoutB2FGreenBattleScript,      SCRIPT_ROCKETHIDEOUTB2F_GREEN_BATTLE
+	dw_const RocketHideoutB2FGreenAfterBattleScript, SCRIPT_ROCKETHIDEOUTB2F_GREEN_AFTER_BATTLE
+	dw_const RocketHideoutB2FGreenExitScript,       SCRIPT_ROCKETHIDEOUTB2F_GREEN_EXIT
 
 RocketHideoutB2FDefaultScript:
+	CheckEvent EVENT_BEAT_ROCKET_HIDEOUT_B2F_GREEN
+	jp nz, .skip_green_trigger
+	ld hl, RocketHideoutB2FGreenTriggerCoords
+	call ArePlayerCoordsInArray
+	jp nc, .skip_green_trigger
+	ld a, [wCoordIndex]
+	ld [wRocketHideoutB2FGreenVariant], a
+	ld a, [wWalkBikeSurfState]
+	and a
+	jr z, .green_music_ok
+	ld a, SFX_STOP_ALL_MUSIC
+	ld [wNewSoundID], a
+	call PlaySound
+.green_music_ok
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+; Show Green before emotion bubble (bubble needs a visible sprite — Route 10 runs bubble after sprite exists).
+	ld a, TOGGLE_ROCKET_HIDEOUT_B2F_GREEN
+	ld [wToggleableObjectIndex], a
+	predef ShowObject
+	call RocketHideoutB2FGreenFacePlayer
+	call UpdateSprites
+	ld c, 12
+	call DelayFrames
+; Bubble over the player (sprite index 0): emotion_bubbles indexes wSpritePlayerStateData1 plus (index)*$10 via swap — see PalletTownOakWalksDown.
+	xor a
+	ld [wEmotionBubbleSpriteIndex], a
+	ld [wWhichEmotionBubble], a ; EXCLAMATION_BUBBLE
+	predef EmotionBubble
+	call ReloadMapSpriteTilePatterns
+	call UpdateSprites
+	ld a, SFX_STOP_ALL_MUSIC
+	ld [wNewSoundID], a
+	call PlaySound
+	ld c, BANK(Music_MeetEvilTrainer)
+	ld a, MUSIC_MEET_EVIL_TRAINER
+	call PlayMusic
+	ld a, PLAYER_DIR_UP
+	ld [wPlayerMovingDirection], a
+; Scripted path from hidden position (21,22); ROM table + MoveSprite (trainer-style walk frames).
+	ld a, [wRocketHideoutB2FGreenVariant]
+	cp 2 ; wCoordIndex 2 = trigger (25,18)
+	ld de, RocketHideoutB2FGreenApproachFrom25
+	jr z, .greenDoApproach
+	ld de, RocketHideoutB2FGreenApproachFrom24 ; wCoordIndex 1 = (24,18)
+.greenDoApproach
+	ld a, ROCKETHIDEOUTB2F_GREEN
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	ld a, SCRIPT_ROCKETHIDEOUTB2F_GREEN_BATTLE
+	ld [wRocketHideoutB2FCurScript], a
+	ld [wCurMapScript], a
+	ret
+.skip_green_trigger
 	ld a, [wYCoord]
 	ld b, a
 	ld a, [wXCoord]
@@ -256,6 +318,190 @@ RocketHideout2ArrowMovement36:
 	db PAD_LEFT, 5
 	db -1 ; end
 
+RocketHideoutB2FGreenTriggerCoords:
+	dbmapcoord 24, 18
+	dbmapcoord 25, 18
+	db -1 ; end
+
+; From object at (21,22) toward player on trigger row (variant sets final east count).
+RocketHideoutB2FGreenApproachFrom24:
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db -1 ; end
+
+RocketHideoutB2FGreenApproachFrom25:
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db -1 ; end
+
+RocketHideoutB2FGreenBattleScript:
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_NPC_MOVEMENT, a
+	ret nz
+	call RocketHideoutB2FGreenFacePlayer
+	xor a
+	ld [wJoyIgnore], a
+	ld a, TEXT_ROCKETHIDEOUTB2F_GREEN_BATTLE_INTRO
+	ldh [hTextID], a
+	call DisplayTextID
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, RocketHideoutB2FGreenEndBattleText
+	ld de, RocketHideoutB2FGreenPlayerLoseText
+	call SaveEndBattleTextPointers
+	ld a, [wPlayerStarter]
+	cp STARTER1
+	jr z, .picked_charmander
+	cp STARTER2
+	jr z, .picked_squirtle
+	ld a, 3
+	jr .got_team
+.picked_charmander
+	ld a, 1
+	jr .got_team
+.picked_squirtle
+	ld a, 2
+.got_team
+	ld [wTrainerNo], a
+	ld a, OPP_GREEN_ROCKET
+	ld [wCurOpponent], a
+	ld [wEnemyMonOrTrainerClass], a
+	ld a, SCRIPT_ROCKETHIDEOUTB2F_GREEN_AFTER_BATTLE
+	ld [wRocketHideoutB2FCurScript], a
+	ld [wCurMapScript], a
+	ld hl, wStatusFlags7
+	set BIT_USE_CUR_MAP_SCRIPT, [hl]
+	xor a
+	ldh [hJoyHeld], a
+	ret
+
+RocketHideoutB2FGreenAfterBattleScript:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, RocketHideoutB2FGreenBattleCancelled
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	call RocketHideoutB2FGreenFacePlayer
+	SetEvent EVENT_BEAT_ROCKET_HIDEOUT_B2F_GREEN
+	ld a, TEXT_ROCKETHIDEOUTB2F_GREEN_POST_BATTLE
+	ldh [hTextID], a
+	call DisplayTextID
+	ld a, [wRocketHideoutB2FGreenVariant]
+	cp 1
+	jr z, .greenExitFrom24
+	cp 2
+	jr z, .greenExitFrom25
+	ld de, RocketHideoutB2FGreenExitFrom25
+	jr .greenDoExit
+.greenExitFrom24
+	ld de, RocketHideoutB2FGreenExitFrom24
+	jr .greenDoExit
+.greenExitFrom25
+	ld de, RocketHideoutB2FGreenExitFrom25
+.greenDoExit
+	ld a, ROCKETHIDEOUTB2F_GREEN
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	ld a, SCRIPT_ROCKETHIDEOUTB2F_GREEN_EXIT
+	ld [wRocketHideoutB2FCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+; After battle when triggered from (24,18)
+RocketHideoutB2FGreenExitFrom24:
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db -1 ; end
+
+; After battle when triggered from (25,18)
+RocketHideoutB2FGreenExitFrom25:
+	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db -1 ; end
+
+RocketHideoutB2FGreenBattleCancelled:
+	xor a
+	ld [wJoyIgnore], a
+	ld [wRocketHideoutB2FCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+RocketHideoutB2FGreenExitScript:
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_NPC_MOVEMENT, a
+	ret nz
+	ld a, TOGGLE_ROCKET_HIDEOUT_B2F_GREEN
+	ld [wToggleableObjectIndex], a
+	predef HideObject
+	xor a
+	ld [wJoyIgnore], a
+	call PlayDefaultMusic
+	ld [wRocketHideoutB2FCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+RocketHideoutB2FGreenFacePlayer:
+; Face the player using map coords (works from (21,22) and after scripted approach).
+	ld hl, wSpriteStateData2
+	ld a, ROCKETHIDEOUTB2F_GREEN
+	swap a
+	add l
+	ld l, a
+	ld a, h
+	adc 0
+	ld h, a
+	ld de, SPRITESTATEDATA2_MAPY
+	add hl, de
+	ld a, [hl]
+	sub 4
+	ld b, a
+	ld a, [wYCoord]
+	cp b
+	jr z, .greenFaceSameMapY
+	jr c, .greenFacePlayerNorth
+	ld a, SPRITE_FACING_DOWN
+	jr RocketHideoutB2FGreenSetFacing
+.greenFacePlayerNorth
+	ld a, SPRITE_FACING_UP
+	jr RocketHideoutB2FGreenSetFacing
+.greenFaceSameMapY
+	inc hl
+	ld a, [hl]
+	sub 4
+	ld b, a
+	ld a, [wXCoord]
+	cp b
+	jr z, .greenFaceSameTile
+	jr c, .greenFacePlayerWest
+	ld a, SPRITE_FACING_RIGHT
+	jr RocketHideoutB2FGreenSetFacing
+.greenFacePlayerWest
+	ld a, SPRITE_FACING_LEFT
+	jr RocketHideoutB2FGreenSetFacing
+.greenFaceSameTile
+	ld a, SPRITE_FACING_DOWN
+RocketHideoutB2FGreenSetFacing:
+	ldh [hSpriteFacingDirection], a
+	ld a, ROCKETHIDEOUTB2F_GREEN
+	ldh [hSpriteIndex], a
+	jp SetSpriteFacingDirectionAndDelay
+
 RocketHideoutB2FPlayerSpinningScript:
 	ld a, [wSimulatedJoypadStatesIndex]
 	and a
@@ -266,6 +512,7 @@ RocketHideoutB2FPlayerSpinningScript:
 	res BIT_SPINNING, [hl]
 	ld a, SCRIPT_ROCKETHIDEOUTB2F_DEFAULT
 	ld [wCurMapScript], a
+	ld [wRocketHideoutB2FCurScript], a
 	ret
 
 INCLUDE "engine/overworld/spinners.asm"
@@ -277,6 +524,9 @@ RocketHideoutB2F_TextPointers:
 	dw_const PickUpItemText,             TEXT_ROCKETHIDEOUTB2F_NUGGET
 	dw_const PickUpItemText,             TEXT_ROCKETHIDEOUTB2F_TM_HORN_DRILL
 	dw_const PickUpItemText,             TEXT_ROCKETHIDEOUTB2F_SUPER_POTION
+	dw_const RocketHideoutB2FGreenPlaceholderText, TEXT_ROCKETHIDEOUTB2F_GREEN
+	dw_const RocketHideoutB2FGreenPostBattleDisplayText, TEXT_ROCKETHIDEOUTB2F_GREEN_POST_BATTLE
+	dw_const RocketHideoutB2FGreenBattleIntroText, TEXT_ROCKETHIDEOUTB2F_GREEN_BATTLE_INTRO
 
 RocketHideout2TrainerHeaders:
 	def_trainers
@@ -300,4 +550,31 @@ RocketHideoutB2FRocketEndBattleText:
 
 RocketHideoutB2FRocketAfterBattleText:
 	text_far _RocketHideoutB2FRocketAfterBattleText
+	text_end
+
+RocketHideoutB2FGreenPlaceholderText:
+	text_asm
+	jp TextScriptEnd
+
+RocketHideoutB2FGreenBattleIntroText:
+	text_asm
+	call EnableAutoTextBoxDrawing
+	ld hl, RocketHideoutB2FGreenBeforeBattleText
+	call PrintText
+	jp TextScriptEnd
+
+RocketHideoutB2FGreenPostBattleDisplayText:
+	text_far _RocketHideoutB2FGreenPostBattleText
+	text_end
+
+RocketHideoutB2FGreenBeforeBattleText:
+	text_far _RocketHideoutB2FGreenBeforeBattleText
+	text_end
+
+RocketHideoutB2FGreenEndBattleText:
+	text_far _RocketHideoutB2FGreenEndBattleText
+	text_end
+
+RocketHideoutB2FGreenPlayerLoseText:
+	text_far _RocketHideoutB2FGreenPlayerLoseText
 	text_end
