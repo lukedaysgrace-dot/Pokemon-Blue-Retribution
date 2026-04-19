@@ -271,13 +271,7 @@ Route10GreenSetFacingDirection:
 	ldh [hSpriteFacingDirection], a
 	ld a, ROUTE10_GREEN
 	ldh [hSpriteIndex], a
-	call SetSpriteFacingDirectionAndDelay
-	ld a, SPRITESTATEDATA1_IMAGEINDEX
-	ldh [hSpriteDataOffset], a
-	call GetPointerWithinSpriteStateData1
-	ldh a, [hSpriteFacingDirection]
-	ld [hl], a
-	ret
+	jp SetSpriteFacingDirectionAndDelay
 
 Route10GreenExclamation:
 	ld a, ROUTE10_GREEN
@@ -285,6 +279,7 @@ Route10GreenExclamation:
 	xor a ; EXCLAMATION_BUBBLE
 	ld [wWhichEmotionBubble], a
 	predef EmotionBubble
+	call ReloadMapSpriteTilePatterns
 	ret
 
 Route10GreenBeforeBattleText:
