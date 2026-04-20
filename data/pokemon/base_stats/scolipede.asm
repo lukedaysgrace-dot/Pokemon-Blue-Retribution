@@ -1,6 +1,6 @@
 	db DEX_SCOLIPEDE ; pokedex id
 
-	db   60, 100,  89, 112,  62
+	db   60, 100,  89, 112, 74
 	;   hp  atk  def  spd  spc
 
 	db BUG, POISON ; type

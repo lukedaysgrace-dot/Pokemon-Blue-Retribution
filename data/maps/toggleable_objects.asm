@@ -366,6 +366,9 @@ ToggleableObjectStates:
 	toggle_object_state POKEMONMANSIONB1F_TM_BLIZZARD,  ON
 	toggle_object_state POKEMONMANSIONB1F_TM_SOLARBEAM, ON
 	toggle_object_state POKEMONMANSIONB1F_SECRET_KEY,   ON
+	toggle_object_state POKEMONMANSIONB1F_GREEN,        OFF
+	toggle_object_state POKEMONMANSIONB1F_MEW,          OFF
+	toggle_object_state POKEMONMANSIONB1F_BALL,         OFF
 
 	toggleable_objects_for SAFARI_ZONE_EAST
 	toggle_object_state SAFARIZONEEAST_FULL_RESTORE, ON

@@ -29,6 +29,7 @@ OldAmberSprite::         INCBIN "gfx/sprites/old_amber.2bpp"
 GamblerAsleepSprite::    INCBIN "gfx/sprites/gambler_asleep.2bpp"
 NinjaSprite::            INCBIN "gfx/sprites/ninja.2bpp"
 JanineSprite::           INCBIN "gfx/sprites/janine.2bpp"
+MewSprite::              INCBIN "gfx/icons/mew.2bpp"
 
 
 SECTION "NPC Sprites 2", ROMX

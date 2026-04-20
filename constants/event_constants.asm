@@ -194,6 +194,7 @@
 	const EVENT_LAB_HANDING_OVER_FOSSIL_MON
 	const_skip 6 ; align EVENT_BEAT_CINNABAR_ISLAND_BLUE_CLOAK to trainer bit 1 (see trainer macro assert)
 	const EVENT_BEAT_CINNABAR_ISLAND_BLUE_CLOAK
+	const EVENT_BEAT_MANSION_B1F_GREEN
 
 ; Saffron City events
 	const_next $340
