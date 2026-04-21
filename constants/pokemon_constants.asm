@@ -197,32 +197,65 @@
 	const BELLSPROUT         ; $BC
 	const WEEPINBELL         ; $BD
 	const VICTREEBEL         ; $BE
-	const ANNIHILAPE         ; $BF
-	const BLISSEY            ; $C0
-	const CROBAT             ; $C1
-	const ELECTIVIRE         ; $C2
-	const ESPEON             ; $C3
-	const GLACEON            ; $C4
-	const KINGDRA            ; $C5
-	const LEAFEON            ; $C6
-	const LICKILICKY         ; $C7
-	const MAGMORTAR          ; $C8
-	const MAGNEZONE          ; $C9
-	const PORYGON_Z          ; $CA
-	const PORYGON2           ; $CB
-	const RHYPERIOR          ; $CC
-	const SCIZOR             ; $CD
-	const SCOLIPEDE          ; $CE
-	const SNEASEL            ; $CF
-	const STEELIX            ; $D0
-	const TANGROWTH          ; $D1
-	const UMBREON            ; $D2
-	const VENIPEDE           ; $D3
-	const WEAVILE            ; $D4
-	const WHIRLIPEDE         ; $D5
-	const MESMERIA           ; $D6
+	const CHIKORITA          ; $BF
+	const BAYLEEF            ; $C0
+	const MEGANIUM           ; $C1
+	const CYNDAQUIL          ; $C2
+	const QUILAVA            ; $C3
+	const TYPHLOSION         ; $C4
+	const TOTODILE           ; $C5
+	const CROCONAW           ; $C6
+	const FERALIGATR         ; $C7
+	const MURKROW            ; $C8
+	const HONCHKROW          ; $C9
+	const MISDREAVUS         ; $CA
+	const MISMAGIUS          ; $CB
+	const SWINUB             ; $CC
+	const PILOSWINE          ; $CD
+	const MAMOSWINE          ; $CE
+	const LARVITAR           ; $CF
+	const PUPITAR            ; $D0
+	const TYRANITAR          ; $D1
+	const RALTS              ; $D2
+	const KIRLIA             ; $D3
+	const GARDEVOIR          ; $D4
+	const RIOLU              ; $D5
+	const LUCARIO            ; $D6
+	const BAGON              ; $D7
+	const SHELGON            ; $D8
+	const SALAMENCE          ; $D9
+	const DUSKULL            ; $DA
+	const DUSCLOPS           ; $DB
+	const DUSKNOIR           ; $DC
+	const GOLETT             ; $DD
+	const GOLURK             ; $DE
+	const HERACROSS          ; $DF
+	const ESPEON             ; $E0
+	const UMBREON            ; $E1
+	const GLACEON            ; $E2
+	const LEAFEON            ; $E3
+	const ANNIHILAPE         ; $E4
+	const BLISSEY            ; $E5
+	const CROBAT             ; $E6
+	const ELECTIVIRE         ; $E7
+	const KINGDRA            ; $E8
+	const LICKILICKY         ; $E9
+	const MAGMORTAR          ; $EA
+	const MAGNEZONE          ; $EB
+	const PORYGON2           ; $EC
+	const PORYGON_Z          ; $ED
+	const RHYPERIOR          ; $EE
+	const SCIZOR             ; $EF
+	const STEELIX            ; $F0
+	const TANGROWTH          ; $F1
+	const VENIPEDE           ; $F2
+	const WHIRLIPEDE         ; $F3
+	const SCOLIPEDE          ; $F4
+	const SNEASEL            ; $F5
+	const WEAVILE            ; $F6
+	const MESMERIA           ; $F7
 
-; Extended species ($BF–$D6): same sequence in every species-indexed table (EvosMovesPointerTable,
+; Extended species ($BF–$F7): same sequence in every species-indexed table (EvosMovesPointerTable,
 ; CryData, names.asm, dex_order.asm, dex_entries PokedexEntryPointers). MonPartyData and
 ; MonsterPalettes are indexed by National Dex number instead (see engine/gfx/mon_icons.asm).
 

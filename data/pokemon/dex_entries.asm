@@ -190,29 +190,62 @@ PokedexEntryPointers:
 	dw BellsproutDexEntry
 	dw WeepinbellDexEntry
 	dw VictreebelDexEntry
+	dw ChikoritaDexEntry
+	dw BayleefDexEntry
+	dw MeganiumDexEntry
+	dw CyndaquilDexEntry
+	dw QuilavaDexEntry
+	dw TyphlosionDexEntry
+	dw TotodileDexEntry
+	dw CroconawDexEntry
+	dw FeraligatrDexEntry
+	dw MurkrowDexEntry
+	dw HonchkrowDexEntry
+	dw MisdreavusDexEntry
+	dw MismagiusDexEntry
+	dw SwinubDexEntry
+	dw PiloswineDexEntry
+	dw MamoswineDexEntry
+	dw LarvitarDexEntry
+	dw PupitarDexEntry
+	dw TyranitarDexEntry
+	dw RaltsDexEntry
+	dw KirliaDexEntry
+	dw GardevoirDexEntry
+	dw RioluDexEntry
+	dw LucarioDexEntry
+	dw BagonDexEntry
+	dw ShelgonDexEntry
+	dw SalamenceDexEntry
+	dw DuskullDexEntry
+	dw DusclopsDexEntry
+	dw DusknoirDexEntry
+	dw GolettDexEntry
+	dw GolurkDexEntry
+	dw HeracrossDexEntry
+	dw EspeonDexEntry
+	dw UmbreonDexEntry
+	dw GlaceonDexEntry
+	dw LeafeonDexEntry
 	dw AnnihilapeDexEntry
 	dw BlisseyDexEntry
 	dw CrobatDexEntry
 	dw ElectivireDexEntry
-	dw EspeonDexEntry
-	dw GlaceonDexEntry
 	dw KingdraDexEntry
-	dw LeafeonDexEntry
 	dw LickilickyDexEntry
 	dw MagmortarDexEntry
 	dw MagnezoneDexEntry
-	dw PorygonZDexEntry
 	dw Porygon2DexEntry
+	dw PorygonZDexEntry
 	dw RhyperiorDexEntry
 	dw ScizorDexEntry
-	dw ScolipedeDexEntry
-	dw SneaselDexEntry
 	dw SteelixDexEntry
 	dw TangrowthDexEntry
-	dw UmbreonDexEntry
 	dw VenipedeDexEntry
-	dw WeavileDexEntry
 	dw WhirlipedeDexEntry
+	dw ScolipedeDexEntry
+	dw SneaselDexEntry
+	dw WeavileDexEntry
 	dw MesmeriaDexEntry
 	assert_table_length NUM_POKEMON_INDEXES
 
@@ -1276,6 +1309,237 @@ VictreebelDexEntry:
 	db 5,7
 	dw 340
 	text_far _VictreebelDexEntry
+	text_end
+
+ChikoritaDexEntry:
+	db "LEAF@"
+	db 2,11
+	dw 141
+	text_far _ChikoritaDexEntry
+	text_end
+
+BayleefDexEntry:
+	db "LEAF@"
+	db 7,11
+	dw 348
+	text_far _BayleefDexEntry
+	text_end
+
+MeganiumDexEntry:
+	db "HERB@"
+	db 5,11
+	dw 2165
+	text_far _MeganiumDexEntry
+	text_end
+
+CyndaquilDexEntry:
+	db "FIRE MOUSE@"
+	db 2,11
+	dw 173
+	text_far _CyndaquilDexEntry
+	text_end
+
+QuilavaDexEntry:
+	db "VOLCANO@"
+	db 2,11
+	dw 417
+	text_far _QuilavaDexEntry
+	text_end
+
+TyphlosionDexEntry:
+	db "VOLCANO@"
+	db 5,7
+	dw 1753
+	text_far _TyphlosionDexEntry
+	text_end
+
+TotodileDexEntry:
+	db "BIG JAW@"
+	db 2,0
+	dw 209
+	text_far _TotodileDexEntry
+	text_end
+
+CroconawDexEntry:
+	db "BIG JAW@"
+	db 3,7
+	dw 551
+	text_far _CroconawDexEntry
+	text_end
+
+FeraligatrDexEntry:
+	db "BIG JAW@"
+	db 7,7
+	dw 1984
+	text_far _FeraligatrDexEntry
+	text_end
+
+MurkrowDexEntry:
+	db "DARKNESS@"
+	db 1,8
+	dw 461
+	text_far _MurkrowDexEntry
+	text_end
+
+HonchkrowDexEntry:
+	db "BIG BOSS@"
+	db 2,11
+	dw 603
+	text_far _HonchkrowDexEntry
+	text_end
+
+MisdreavusDexEntry:
+	db "SCREECH@"
+	db 2,4
+	dw 220
+	text_far _MisdreavusDexEntry
+	text_end
+
+MismagiusDexEntry:
+	db "MAGICAL@"
+	db 2,11
+	dw 971
+	text_far _MismagiusDexEntry
+	text_end
+
+SwinubDexEntry:
+	db "PIG@"
+	db 1,4
+	dw 143
+	text_far _SwinubDexEntry
+	text_end
+
+PiloswineDexEntry:
+	db "SWINE@"
+	db 3,7
+	dw 1107
+	text_far _PiloswineDexEntry
+	text_end
+
+MamoswineDexEntry:
+	db "TWIN TUSK@"
+	db 8,2
+	dw 6415
+	text_far _MamoswineDexEntry
+	text_end
+
+LarvitarDexEntry:
+	db "ROCK SKIN@"
+	db 2,0
+	dw 1588
+	text_far _LarvitarDexEntry
+	text_end
+
+PupitarDexEntry:
+	db "HARD SHELL@"
+	db 3,11
+	dw 3318
+	text_far _PupitarDexEntry
+	text_end
+
+TyranitarDexEntry:
+	db "ARMOR@"
+	db 8,2
+	dw 4453
+	text_far _TyranitarDexEntry
+	text_end
+
+RaltsDexEntry:
+	db "FEELING@"
+	db 1,4
+	dw 148
+	text_far _RaltsDexEntry
+	text_end
+
+KirliaDexEntry:
+	db "EMOTION@"
+	db 2,7
+	dw 448
+	text_far _KirliaDexEntry
+	text_end
+
+GardevoirDexEntry:
+	db "EMBRACE@"
+	db 5,3
+	dw 1069
+	text_far _GardevoirDexEntry
+	text_end
+
+RioluDexEntry:
+	db "EMANATION@"
+	db 2,7
+	dw 441
+	text_far _RioluDexEntry
+	text_end
+
+LucarioDexEntry:
+	db "AURA@"
+	db 3,11
+	dw 1190
+	text_far _LucarioDexEntry
+	text_end
+
+BagonDexEntry:
+	db "ROCK HEAD@"
+	db 2,0
+	dw 903
+	text_far _BagonDexEntry
+	text_end
+
+ShelgonDexEntry:
+	db "ENDURANCE@"
+	db 3,7
+	dw 2436
+	text_far _ShelgonDexEntry
+	text_end
+
+SalamenceDexEntry:
+	db "DRAGON@"
+	db 4,11
+	dw 2262
+	text_far _SalamenceDexEntry
+	text_end
+
+DuskullDexEntry:
+	db "REQUIEM@"
+	db 2,7
+	dw 330
+	text_far _DuskullDexEntry
+	text_end
+
+DusclopsDexEntry:
+	db "BECKON@"
+	db 5,3
+	dw 675
+	text_far _DusclopsDexEntry
+	text_end
+
+DusknoirDexEntry:
+	db "GRIPPER@"
+	db 7,3
+	dw 2358
+	text_far _DusknoirDexEntry
+	text_end
+
+GolettDexEntry:
+	db "AUTOMATION@"
+	db 3,3
+	dw 2003
+	text_far _GolettDexEntry
+	text_end
+
+GolurkDexEntry:
+	db "AUTOMATION@"
+	db 9,2
+	dw 7275
+	text_far _GolurkDexEntry
+	text_end
+
+HeracrossDexEntry:
+	db "SINGLE@"
+	db 4,7
+	dw 1184
+	text_far _HeracrossDexEntry
 	text_end
 
 AnnihilapeDexEntry:

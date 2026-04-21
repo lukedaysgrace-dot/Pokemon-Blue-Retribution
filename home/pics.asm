@@ -15,8 +15,9 @@ UncompressMonSprite::
 ; $1F ≤ index < $4A:       bank $A ("Pics 2")
 ; $4A ≤ index < $74:       bank $B ("Pics 3")
 ; $74 ≤ index < $99:       bank $C ("Pics 4")
-; $99 ≤ index < $BF:       bank $D ("Pics 5")
-; $BF ≤ index:             bank with "Pics 6" (extended dex placeholders)
+; $99 ≤ index < CHIKORITA: bank $D ("Pics 5")
+; CHIKORITA ≤ index < GOLETT: bank with "Pics 6"
+; GOLETT ≤ index:         bank with "Pics 7"
 	ld a, [wCurPartySpecies]
 	ld b, a
 	cp MEW
@@ -43,7 +44,11 @@ UncompressMonSprite::
 	ld a, BANK("Pics 4")
 	jr c, .GotBank
 	ld a, b
-	cp ANNIHILAPE
+	cp GOLETT
+	ld a, BANK("Pics 7")
+	jr nc, .GotBank
+	ld a, b
+	cp CHIKORITA
 	ld a, BANK("Pics 6")
 	jr nc, .GotBank
 	ld a, BANK("Pics 5")

@@ -150,29 +150,62 @@ MonPartyData:
 	db ICON_DRAGONITE     ; Dragonite
 	db ICON_MEWTWO        ; Mewtwo
 	db ICON_MEW           ; Mew
+	db ICON_BULBASAUR     ; Chikorita
+	db ICON_IVYSAUR       ; Bayleef
+	db ICON_VENUSAUR      ; Meganium
+	db ICON_CHARMANDER    ; Cyndaquil
+	db ICON_CHARMELEON    ; Quilava
+	db ICON_CHARIZARD     ; Typhlosion
+	db ICON_SQUIRTLE      ; Totodile
+	db ICON_WARTORTLE     ; Croconaw
+	db ICON_BLASTOISE     ; Feraligatr
+	db ICON_MEOWTH        ; Murkrow
+	db ICON_SPEAROW       ; Honchkrow
+	db ICON_GASTLY        ; Misdreavus
+	db ICON_GENGAR        ; Mismagius
+	db ICON_SEEL          ; Swinub
+	db ICON_SEEL          ; Piloswine
+	db ICON_SEEL          ; Mamoswine
+	db ICON_ONIX          ; Larvitar
+	db ICON_ONIX          ; Pupitar
+	db ICON_ONIX          ; Tyranitar
+	db ICON_ABRA          ; Ralts
+	db ICON_ABRA          ; Kirlia
+	db ICON_ABRA          ; Gardevoir
+	db ICON_MACHOP        ; Riolu
+	db ICON_MACHOP        ; Lucario
+	db ICON_DRATINI       ; Bagon
+	db ICON_DRAGONAIR     ; Shelgon
+	db ICON_DRAGONITE     ; Salamence
+	db ICON_GASTLY        ; Duskull
+	db ICON_GASTLY        ; Dusclops
+	db ICON_GENGAR        ; Dusknoir
+	db ICON_GEODUDE       ; Golett
+	db ICON_GOLEM         ; Golurk
+	db ICON_PINSIR        ; Heracross
+	db ICON_EEVEE         ; Espeon
+	db ICON_EEVEE         ; Umbreon
+	db ICON_ARTICUNO      ; Glaceon
+	db ICON_VILEPLUME     ; Leafeon
 	db ICON_PRIMEAPE      ; Annihilape
 	db ICON_CHANSEY       ; Blissey
 	db ICON_GOLBAT        ; Crobat
 	db ICON_ELECTABUZZ    ; Electivire
-	db ICON_EEVEE         ; Espeon
-	db ICON_ARTICUNO      ; Glaceon
 	db ICON_SEADRA        ; Kingdra
-	db ICON_VILEPLUME     ; Leafeon
 	db ICON_LICKITUNG     ; Lickilicky
 	db ICON_MAGMAR        ; Magmortar
 	db ICON_MAGNETON      ; Magnezone
-	db ICON_PORYGON       ; Porygon-Z
 	db ICON_PORYGON       ; Porygon2
+	db ICON_PORYGON       ; Porygon-Z
 	db ICON_RHYDON        ; Rhyperior
 	db ICON_PINSIR        ; Scizor
-	db ICON_PARAS         ; Scolipede
-	db ICON_MEOWTH        ; Sneasel
 	db ICON_ONIX          ; Steelix
 	db ICON_TANGELA       ; Tangrowth
-	db ICON_EEVEE         ; Umbreon
 	db ICON_WEEDLE        ; Venipede
-	db ICON_MEOWTH        ; Weavile
 	db ICON_KAKUNA        ; Whirlipede
+	db ICON_PARAS         ; Scolipede
+	db ICON_MEOWTH        ; Sneasel
+	db ICON_MEOWTH        ; Weavile
 	db ICON_JYNX          ; Mesmeria
 
 ASSERT @ - MonPartyData == NUM_POKEMON

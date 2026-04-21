@@ -1508,6 +1508,305 @@ _VictreebelDexEntry::
 	next "from there"
 	dex
 
+SECTION "Pokédex Text 2", ROMX
+
+_ChikoritaDexEntry::
+	text "A sweet aroma wafts"
+	next "from the leaf on"
+	next "its head"
+
+	page "while it soaks up"
+	next "sunlight"
+	dex
+
+_BayleefDexEntry::
+	text "Spicy aromas swirl"
+	next "around its neck"
+	next "when it walks"
+
+	page "Leaves seem to warm"
+	next "those nearby"
+	dex
+
+_MeganiumDexEntry::
+	text "Its breath revives"
+	next "dead patches of"
+	next "grass and flowers"
+
+	page "Its petals soothe"
+	next "friends in battle"
+	dex
+
+_CyndaquilDexEntry::
+	text "When threatened it"
+	next "feeds flame from its"
+	next "back to scare foes"
+
+	page "If healthy the fire"
+	next "burns brighter"
+	dex
+
+_QuilavaDexEntry::
+	text "It turns its back"
+	next "to foes to show"
+	next "blazing quills"
+
+	page "Heat waves shimmer"
+	next "around its body"
+	dex
+
+_TyphlosionDexEntry::
+	text "It hides behind"
+	next "blazing heat that"
+	next "melts nearby air"
+
+	page "Hidden in the blur"
+	next "it charges foes"
+	dex
+
+_TotodileDexEntry::
+	text "Its huge jaws can"
+	next "crush rock. It may"
+	next "snap at anything"
+
+	page "Even its trainer"
+	next "must stay alert"
+	dex
+
+_CroconawDexEntry::
+	text "Once it bites down"
+	next "it will not release"
+	next "until it wins"
+
+	page "Its fangs leave"
+	next "ragged scars"
+	dex
+
+_FeraligatrDexEntry::
+	text "When it opens its"
+	next "massive jaws it can"
+	next "shake the ground"
+
+	page "It hauls prey from"
+	next "water with ease"
+	dex
+
+_MurkrowDexEntry::
+	text "It seeks shiny"
+	next "things at night"
+	next "and hides them away"
+
+	page "Flocks gather where"
+	next "treasure glints"
+	dex
+
+_HonchkrowDexEntry::
+	text "It commands smaller"
+	next "MURKROW and builds"
+	next "nests of stolen loot"
+
+	page "Its cry warns"
+	next "its followers"
+	dex
+
+_MisdreavusDexEntry::
+	text "It startles foes"
+	next "with eerie cries"
+	next "that echo at night"
+
+	page "Round gems glow"
+	next "where its neck was"
+	dex
+
+_MismagiusDexEntry::
+	text "Its muttered spells"
+	next "cause headaches or"
+	next "happiness by luck"
+
+	page "Hat shapes vary"
+	next "between regions"
+	dex
+
+_SwinubDexEntry::
+	text "It roots for food"
+	next "with its nose even"
+	next "through snow and ice"
+
+	page "Often found near"
+	next "hot springs"
+	dex
+
+_PiloswineDexEntry::
+	text "Long fur hides its"
+	next "eyes yet it finds"
+	next "food by scent"
+
+	page "Its tusks chip"
+	next "through stone"
+	dex
+
+_MamoswineDexEntry::
+	text "Frozen tusks from"
+	next "the ice age prove"
+	next "its ancient roots"
+
+	page "It charges foes"
+	next "without sight"
+	dex
+
+_LarvitarDexEntry::
+	text "Born underground it"
+	next "eats mountains over"
+	next "years to grow"
+
+	page "It emerges only"
+	next "after gaining size"
+	dex
+
+_PupitarDexEntry::
+	text "Its shell is hard as"
+	next "bedrock yet it"
+	next "can still leap"
+
+	page "Gas vents power"
+	next "explosive growth"
+	dex
+
+_TyranitarDexEntry::
+	text "Mountains crumble"
+	next "where it walks"
+	next "as it hunts"
+
+	page "It cares only for"
+	next "strength and ruins"
+	dex
+
+_RaltsDexEntry::
+	text "The horns on its"
+	next "head sense friendly"
+	next "feelings nearby"
+
+	page "It hides when"
+	next "hostility is felt"
+	dex
+
+_KirliaDexEntry::
+	text "When joyful it spins"
+	next "like a dancer and"
+	next "amplifies emotions"
+
+	page "Its future power"
+	next "depends on bonds"
+	dex
+
+_GardevoirDexEntry::
+	text "To protect its"
+	next "trainer it bends"
+	next "space with will"
+
+	page "Its loyalty can"
+	next "warp reality"
+	dex
+
+_RioluDexEntry::
+	text "It reads auras even"
+	next "through walls and"
+	next "prefers quiet lands"
+
+	page "Its body responds"
+	next "to strong feelings"
+	dex
+
+_LucarioDexEntry::
+	text "It senses auras"
+	next "across great"
+	next "distances"
+
+	page "Metal on its limbs"
+	next "focuses aura blows"
+	dex
+
+_BagonDexEntry::
+	text "Its steel-hard head"
+	next "lets it smash rocks"
+	next "while dreaming"
+
+	page "It leaps cliffs"
+	next "to fly someday"
+	dex
+
+_ShelgonDexEntry::
+	text "Its armor shell"
+	next "cracks when new"
+	next "cells bulge inside"
+
+	page "Inside it awaits"
+	next "evolution heat"
+	dex
+
+_SalamenceDexEntry::
+	text "Joyful dreams of"
+	next "flight unlocked two"
+	next "great wings"
+
+	page "It burns forests"
+	next "when truly angered"
+	dex
+
+_DuskullDexEntry::
+	text "It hunts through"
+	next "thick walls by"
+	next "tracking targets"
+
+	page "One eye peers from"
+	next "its skull mask"
+	dex
+
+_DusclopsDexEntry::
+	text "Its hollow body is"
+	next "a black hole that"
+	next "can swallow victims"
+
+	page "Its single eye"
+	next "never blinks"
+	dex
+
+_DusknoirDexEntry::
+	text "It drags souls away"
+	next "through shadow"
+	next "hands unseen"
+
+	page "Its eye scans"
+	next "like a beacon"
+	dex
+
+_GolettDexEntry::
+	text "Ancient clay brought"
+	next "to life obeys"
+	next "orders forever"
+
+	page "It guards ruins"
+	next "without rest"
+	dex
+
+_GolurkDexEntry::
+	text "Its massive frame"
+	next "flies by venting"
+	next "energy below"
+
+	page "Runes glow when"
+	next "its power peaks"
+	dex
+
+_HeracrossDexEntry::
+	text "It lifts foes with"
+	next "its horn and flings"
+	next "them with ease"
+
+	page "Sap is its favorite"
+	next "meal from trees"
+	dex
+
 _AnnihilapeDexEntry::
 	text "When anger outlives"
 	next "its body, its"

@@ -200,29 +200,62 @@ EvosMovesPointerTable:
 	dw BellsproutEvosMoves
 	dw WeepinbellEvosMoves
 	dw VictreebelEvosMoves
+	dw ChikoritaEvosMoves
+	dw BayleefEvosMoves
+	dw MeganiumEvosMoves
+	dw CyndaquilEvosMoves
+	dw QuilavaEvosMoves
+	dw TyphlosionEvosMoves
+	dw TotodileEvosMoves
+	dw CroconawEvosMoves
+	dw FeraligatrEvosMoves
+	dw MurkrowEvosMoves
+	dw HonchkrowEvosMoves
+	dw MisdreavusEvosMoves
+	dw MismagiusEvosMoves
+	dw SwinubEvosMoves
+	dw PiloswineEvosMoves
+	dw MamoswineEvosMoves
+	dw LarvitarEvosMoves
+	dw PupitarEvosMoves
+	dw TyranitarEvosMoves
+	dw RaltsEvosMoves
+	dw KirliaEvosMoves
+	dw GardevoirEvosMoves
+	dw RioluEvosMoves
+	dw LucarioEvosMoves
+	dw BagonEvosMoves
+	dw ShelgonEvosMoves
+	dw SalamenceEvosMoves
+	dw DuskullEvosMoves
+	dw DusclopsEvosMoves
+	dw DusknoirEvosMoves
+	dw GolettEvosMoves
+	dw GolurkEvosMoves
+	dw HeracrossEvosMoves
+	dw EspeonEvosMoves
+	dw UmbreonEvosMoves
+	dw GlaceonEvosMoves
+	dw LeafeonEvosMoves
 	dw AnnihilapeEvosMoves
 	dw BlisseyEvosMoves
 	dw CrobatEvosMoves
 	dw ElectivireEvosMoves
-	dw EspeonEvosMoves
-	dw GlaceonEvosMoves
 	dw KingdraEvosMoves
-	dw LeafeonEvosMoves
 	dw LickilickyEvosMoves
 	dw MagmortarEvosMoves
 	dw MagnezoneEvosMoves
-	dw PorygonZEvosMoves
 	dw Porygon2EvosMoves
+	dw PorygonZEvosMoves
 	dw RhyperiorEvosMoves
 	dw ScizorEvosMoves
-	dw ScolipedeEvosMoves
-	dw SneaselEvosMoves
 	dw SteelixEvosMoves
 	dw TangrowthEvosMoves
-	dw UmbreonEvosMoves
 	dw VenipedeEvosMoves
-	dw WeavileEvosMoves
 	dw WhirlipedeEvosMoves
+	dw ScolipedeEvosMoves
+	dw SneaselEvosMoves
+	dw WeavileEvosMoves
 	dw MesmeriaEvosMoves
 	assert_table_length NUM_POKEMON_INDEXES
 
@@ -2184,6 +2217,392 @@ VictreebelEvosMoves:
 	db 13, WRAP
 	db 15, POISONPOWDER
 	db 18, SLEEP_POWDER
+	db 0
+
+ChikoritaEvosMoves:
+	db EVOLVE_LEVEL, 16, BAYLEEF
+	db 0
+	db 1, POUND
+	db 8, GROWL
+	db 15, RAZOR_LEAF
+	db 22, REFLECT
+	db 29, POISONPOWDER
+	db 36, BODY_SLAM
+	db 43, LIGHT_SCREEN
+	db 50, SOLARBEAM
+	db 0
+
+BayleefEvosMoves:
+	db EVOLVE_LEVEL, 32, MEGANIUM
+	db 0
+	db 1, POUND
+	db 8, GROWL
+	db 15, RAZOR_LEAF
+	db 22, REFLECT
+	db 31, POISONPOWDER
+	db 39, BODY_SLAM
+	db 46, LIGHT_SCREEN
+	db 54, SOLARBEAM
+	db 0
+
+MeganiumEvosMoves:
+	db 0
+	db 1, POUND
+	db 8, GROWL
+	db 15, RAZOR_LEAF
+	db 22, REFLECT
+	db 31, POISONPOWDER
+	db 41, BODY_SLAM
+	db 51, LIGHT_SCREEN
+	db 61, SOLARBEAM
+	db 0
+
+CyndaquilEvosMoves:
+	db EVOLVE_LEVEL, 14, QUILAVA
+	db 0
+	db 1, POUND
+	db 6, LEER
+	db 12, EMBER
+	db 19, QUICK_ATTACK
+	db 27, SMOKESCREEN
+	db 36, FLAMETHROWER
+	db 46, AGILITY
+	db 55, FIRE_BLAST
+	db 0
+
+QuilavaEvosMoves:
+	db EVOLVE_LEVEL, 36, TYPHLOSION
+	db 0
+	db 1, POUND
+	db 6, LEER
+	db 12, EMBER
+	db 21, QUICK_ATTACK
+	db 31, SMOKESCREEN
+	db 42, FLAMETHROWER
+	db 53, AGILITY
+	db 60, FIRE_BLAST
+	db 0
+
+TyphlosionEvosMoves:
+	db 0
+	db 1, POUND
+	db 6, LEER
+	db 12, EMBER
+	db 21, QUICK_ATTACK
+	db 31, SMOKESCREEN
+	db 43, FLAMETHROWER
+	db 54, AGILITY
+	db 66, FIRE_BLAST
+	db 0
+
+TotodileEvosMoves:
+	db EVOLVE_LEVEL, 18, CROCONAW
+	db 0
+	db 1, SCRATCH
+	db 6, LEER
+	db 13, WATER_GUN
+	db 20, BITE
+	db 27, RAGE
+	db 35, SLASH
+	db 43, CRABHAMMER
+	db 52, HYDRO_PUMP
+	db 0
+
+CroconawEvosMoves:
+	db EVOLVE_LEVEL, 30, FERALIGATR
+	db 0
+	db 1, SCRATCH
+	db 6, LEER
+	db 13, WATER_GUN
+	db 21, BITE
+	db 28, RAGE
+	db 37, SLASH
+	db 45, CRABHAMMER
+	db 56, HYDRO_PUMP
+	db 0
+
+FeraligatrEvosMoves:
+	db 0
+	db 1, SCRATCH
+	db 6, LEER
+	db 13, WATER_GUN
+	db 21, BITE
+	db 28, RAGE
+	db 37, SLASH
+	db 47, CRABHAMMER
+	db 58, HYDRO_PUMP
+	db 0
+
+MurkrowEvosMoves:
+	db EVOLVE_LEVEL, 40, HONCHKROW
+	db 0
+	db 1, PECK
+	db 11, BITE
+	db 21, QUICK_ATTACK
+	db 31, NIGHT_SHADE
+	db 41, DRILL_PECK
+	db 51, HYPER_BEAM
+	db 0
+
+HonchkrowEvosMoves:
+	db 0
+	db 1, PECK
+	db 15, BITE
+	db 25, QUICK_ATTACK
+	db 35, NIGHT_SHADE
+	db 45, DRILL_PECK
+	db 55, HYPER_BEAM
+	db 0
+
+MisdreavusEvosMoves:
+	db EVOLVE_ITEM, MOON_STONE, 1, MISMAGIUS
+	db 0
+	db 1, PSYWAVE
+	db 10, CONFUSE_RAY
+	db 18, PSYBEAM
+	db 26, NIGHT_SHADE
+	db 34, HYPNOSIS
+	db 42, DREAM_EATER
+	db 50, PSYCHIC_M
+	db 0
+
+MismagiusEvosMoves:
+	db 0
+	db 1, PSYWAVE
+	db 15, CONFUSE_RAY
+	db 25, PSYBEAM
+	db 35, NIGHT_SHADE
+	db 45, HYPNOSIS
+	db 55, PSYCHIC_M
+	db 0
+
+SwinubEvosMoves:
+	db EVOLVE_LEVEL, 33, PILOSWINE
+	db 0
+	db 1, POUND
+	db 10, AURORA_BEAM
+	db 19, BITE
+	db 28, TAKE_DOWN
+	db 37, BLIZZARD
+	db 46, EARTHQUAKE
+	db 0
+
+PiloswineEvosMoves:
+	db EVOLVE_LEVEL, 46, MAMOSWINE
+	db 0
+	db 1, POUND
+	db 12, AURORA_BEAM
+	db 22, BITE
+	db 33, FURY_ATTACK
+	db 44, BLIZZARD
+	db 54, EARTHQUAKE
+	db 0
+
+MamoswineEvosMoves:
+	db 0
+	db 1, POUND
+	db 15, AURORA_BEAM
+	db 26, BITE
+	db 37, FURY_ATTACK
+	db 48, BLIZZARD
+	db 58, EARTHQUAKE
+	db 0
+
+LarvitarEvosMoves:
+	db EVOLVE_LEVEL, 30, PUPITAR
+	db 0
+	db 1, BITE
+	db 8, SAND_ATTACK
+	db 15, ROCK_THROW
+	db 22, THRASH
+	db 29, ROCK_SLIDE
+	db 36, CRUNCH
+	db 43, EARTHQUAKE
+	db 0
+
+PupitarEvosMoves:
+	db EVOLVE_LEVEL, 55, TYRANITAR
+	db 0
+	db 1, BITE
+	db 10, SAND_ATTACK
+	db 20, ROCK_THROW
+	db 30, THRASH
+	db 41, ROCK_SLIDE
+	db 52, CRUNCH
+	db 0
+
+TyranitarEvosMoves:
+	db 0
+	db 1, BITE
+	db 10, SAND_ATTACK
+	db 20, ROCK_THROW
+	db 30, THRASH
+	db 41, ROCK_SLIDE
+	db 52, CRUNCH
+	db 61, HYPER_BEAM
+	db 0
+
+RaltsEvosMoves:
+	db EVOLVE_LEVEL, 20, KIRLIA
+	db 0
+	db 1, CONFUSION
+	db 6, DOUBLE_TEAM
+	db 11, TELEPORT
+	db 16, GROWTH
+	db 21, LIGHT_SCREEN
+	db 26, PSYBEAM
+	db 31, HEADBUTT
+	db 36, PSYCHIC_M
+	db 0
+
+KirliaEvosMoves:
+	db EVOLVE_LEVEL, 30, GARDEVOIR
+	db 0
+	db 1, CONFUSION
+	db 8, DOUBLE_TEAM
+	db 15, TELEPORT
+	db 22, PSYBEAM
+	db 29, LIGHT_SCREEN
+	db 36, BODY_SLAM
+	db 43, PSYCHIC_M
+	db 50, HYPNOSIS
+	db 0
+
+GardevoirEvosMoves:
+	db 0
+	db 1, CONFUSION
+	db 10, DOUBLE_TEAM
+	db 18, TELEPORT
+	db 26, PSYBEAM
+	db 34, LIGHT_SCREEN
+	db 42, BODY_SLAM
+	db 50, PSYCHIC_M
+	db 58, HYPNOSIS
+	db 0
+
+RioluEvosMoves:
+	db EVOLVE_LEVEL, 28, LUCARIO
+	db 0
+	db 1, QUICK_ATTACK
+	db 6, COUNTER
+	db 11, LOW_KICK
+	db 16, ROCK_THROW
+	db 21, METAL_CLAW
+	db 26, SWIFT
+	db 31, SLASH
+	db 36, BODY_SLAM
+	db 0
+
+LucarioEvosMoves:
+	db 0
+	db 1, QUICK_ATTACK
+	db 9, COUNTER
+	db 17, LOW_KICK
+	db 25, ROCK_THROW
+	db 33, METAL_CLAW
+	db 41, SWIFT
+	db 49, SLASH
+	db 57, BODY_SLAM
+	db 0
+
+BagonEvosMoves:
+	db EVOLVE_LEVEL, 30, SHELGON
+	db 0
+	db 1, BITE
+	db 10, LEER
+	db 20, HEADBUTT
+	db 30, EMBER
+	db 40, ROCK_SLIDE
+	db 50, DRAGON_RAGE
+	db 0
+
+ShelgonEvosMoves:
+	db EVOLVE_LEVEL, 50, SALAMENCE
+	db 0
+	db 1, BITE
+	db 12, LEER
+	db 23, HEADBUTT
+	db 34, EMBER
+	db 45, ROCK_SLIDE
+	db 56, DRAGON_RAGE
+	db 0
+
+SalamenceEvosMoves:
+	db 0
+	db 1, BITE
+	db 15, LEER
+	db 28, HEADBUTT
+	db 41, EMBER
+	db 54, WING_ATTACK
+	db 67, HYPER_BEAM
+	db 0
+
+DuskullEvosMoves:
+	db EVOLVE_LEVEL, 37, DUSCLOPS
+	db 0
+	db 1, CONFUSE_RAY
+	db 8, NIGHT_SHADE
+	db 15, DISABLE
+	db 22, CONFUSION
+	db 29, SHADOW_BALL
+	db 36, PSYBEAM
+	db 43, NIGHT_SHADE
+	db 0
+
+DusclopsEvosMoves:
+	db EVOLVE_LEVEL, 42, DUSKNOIR
+	db 0
+	db 1, CONFUSE_RAY
+	db 10, NIGHT_SHADE
+	db 19, DISABLE
+	db 28, CONFUSION
+	db 37, SHADOW_BALL
+	db 46, PSYBEAM
+	db 55, NIGHT_SHADE
+	db 0
+
+DusknoirEvosMoves:
+	db 0
+	db 1, CONFUSE_RAY
+	db 12, NIGHT_SHADE
+	db 23, DISABLE
+	db 34, CONFUSION
+	db 45, SHADOW_BALL
+	db 56, PSYBEAM
+	db 0
+
+GolettEvosMoves:
+	db EVOLVE_LEVEL, 43, GOLURK
+	db 0
+	db 1, POUND
+	db 9, ROCK_THROW
+	db 17, MEGA_PUNCH
+	db 25, METAL_CLAW
+	db 33, STRENGTH
+	db 41, SUBMISSION
+	db 49, EARTHQUAKE
+	db 0
+
+GolurkEvosMoves:
+	db 0
+	db 1, POUND
+	db 11, ROCK_THROW
+	db 21, MEGA_PUNCH
+	db 31, METAL_CLAW
+	db 41, STRENGTH
+	db 51, SUBMISSION
+	db 61, EARTHQUAKE
+	db 0
+
+HeracrossEvosMoves:
+	db 0
+	db 1, POUND
+	db 10, LEER
+	db 18, HORN_ATTACK
+	db 26, FURY_ATTACK
+	db 34, COUNTER
+	db 42, SUBMISSION
+	db 50, HORN_ATTACK
 	db 0
 
 AnnihilapeEvosMoves:
