@@ -30,7 +30,7 @@ CinnabarIslandMaybeShowBlueCloak:
 	ret z
 	CheckEvent EVENT_REMATCH_DEFEATED_LORELEI
 	ret z
-	CheckEvent EVENT_REMATCH_DEFEATED_BRUNO
+	CheckEvent EVENT_REMATCH_DEFEATED_KAREN
 	ret z
 	CheckEvent EVENT_REMATCH_DEFEATED_AGATHA
 	ret z
@@ -256,7 +256,7 @@ CinnabarIslandBlueCloakText:
 	jp z, .notYet
 	CheckEvent EVENT_REMATCH_DEFEATED_LORELEI
 	jp z, .notYet
-	CheckEvent EVENT_REMATCH_DEFEATED_BRUNO
+	CheckEvent EVENT_REMATCH_DEFEATED_KAREN
 	jp z, .notYet
 	CheckEvent EVENT_REMATCH_DEFEATED_AGATHA
 	jp z, .notYet

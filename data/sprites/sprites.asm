@@ -70,7 +70,7 @@ SpriteSheetPointerTable:
 	overworld_sprite GameboyKidSprite, 12       ; SPRITE_GAMEBOY_KID
 	overworld_sprite FairySprite, 12            ; SPRITE_FAIRY
 	overworld_sprite AgathaSprite, 12           ; SPRITE_AGATHA
-	overworld_sprite BrunoSprite, 12            ; SPRITE_BRUNO
+	overworld_sprite KarenSprite, 12            ; SPRITE_KAREN
 	overworld_sprite LoreleiSprite, 12          ; SPRITE_LORELEI
 	overworld_sprite SeelSprite, 12             ; SPRITE_SEEL
 	overworld_sprite PokeBallSprite, 4          ; SPRITE_POKE_BALL

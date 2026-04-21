@@ -274,7 +274,7 @@ LoreleiAI:
 	ret nc
 	jp AIUseSuperPotion
 
-BrunoAI:
+KarenAI:
 	cp 25 percent + 1
 	ret nc
 	jp AIUseXDefend

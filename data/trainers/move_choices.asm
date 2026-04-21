@@ -43,7 +43,7 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1       ; ROCKET
 	move_choices 1, 3    ; COOLTRAINER_M
 	move_choices 1, 3    ; COOLTRAINER_F
-	move_choices 1, 3    ; BRUNO
+	move_choices 1, 3    ; KAREN
 	move_choices 1, 3    ; BROCK
 	move_choices 1, 3    ; MISTY
 	move_choices 1, 3    ; LT_SURGE

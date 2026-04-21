@@ -48,6 +48,8 @@ ENDM
 	trainer_const COOLTRAINER_M  ; $1F
 	trainer_const COOLTRAINER_F  ; $20
 	trainer_const BRUNO          ; $21
+DEF KAREN EQU BRUNO
+DEF OPP_KAREN EQU OPP_BRUNO
 	trainer_const BROCK          ; $22
 	trainer_const MISTY          ; $23
 	trainer_const LT_SURGE       ; $24

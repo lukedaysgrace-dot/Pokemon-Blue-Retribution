@@ -6113,9 +6113,9 @@ LoadEnemyMonData:
 	jr z, .perfectTrainerDVs
 	cp GIOVANNI
 	jr z, .perfectTrainerDVs
-	cp BRUNO
+	cp KAREN
 	jr c, .averageTrainerDVs
-	cp SABRINA + 1 ; $21–$28: Bruno, Brock, Misty, Lt.Surge, Erika, Koga, Blaine, Sabrina
+	cp SABRINA + 1 ; $21-$28: Karen, Brock, Misty, Lt.Surge, Erika, Koga, Blaine, Sabrina
 	jr c, .perfectTrainerDVs
 	cp LORELEI
 	jr z, .perfectTrainerDVs

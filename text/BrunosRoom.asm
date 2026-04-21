@@ -1,4 +1,4 @@
-_BrunoBeforeBattleText::
+_KarenBeforeBattleText::
 	text "You've come all"
 	line "this way..."
 
@@ -13,15 +13,16 @@ _BrunoBeforeBattleText::
 	cont "had."
 
 	para "People cling to"
-	line "strength"
-	cont "Power"
+	line "Strength.."
+	cont "Power.."
 
 	para "As if that's all"
 	line "that matters."
 
-	para "Even BRUNO..."
-	line "he relied on"
-	cont "that too much."
+	para "BRUNO relied"
+	line "on those foolish"
+	cont "ideals and look"
+	cont "where it got him."
 
 	para "So I have taken"
 	line "his place."
@@ -67,23 +68,21 @@ _BrunoBeforeBattleText::
 	cont "of you?"
 	done
 
-_BrunoEndBattleText::
+_KarenEndBattleText::
 	text "Your #MON"
 	line "really do"
-	cont "trust you."
+	cont "love you."
 	prompt
 
-_BrunoAfterBattleText::
+_KarenAfterBattleText::
 	text "...I see."
 
 	para "Your strength..."
 	line "It isn't forced."
 
-	para "You trust your"
-	line "#MON..."
-
-	para "And they trust"
-	line "you."
+	para "You and your"
+	line "#MON trust"
+	cont "each other."
 
 	para "That's why you"
 	line "won."
@@ -95,16 +94,17 @@ _BrunoAfterBattleText::
 	para "Go on."
 
 	para "Show the rest"
-	line "of the league"
+	line "of KANTO"
 	cont "your strength"
+	cont "TRAINER."
 	done
 
-_BrunosRoomBrunoDontRunAwayText::
+_KarensRoomKarenDontRunAwayText::
 	text "Someone's voice:"
 	line "Don't run away!"
 	done
 
-_BrunoRematchPreBattleText::
+_KarenRematchPreBattleText::
 	text "CHAMPION! I've"
 	line "changed my team"
 	cont "since your win."
@@ -114,7 +114,7 @@ _BrunoRematchPreBattleText::
 	cont "more!"
 	done
 
-_BrunoRematchDefeatText::
+_KarenRematchDefeatText::
 	text "Well done."
 	line "That was a good"
 	cont "battle."

@@ -32,7 +32,7 @@ TrainerDataPointers:
 	dw RocketData
 	dw CooltrainerMData
 	dw CooltrainerFData
-	dw BrunoData
+	dw KarenData
 	dw BrockData
 	dw MistyData
 	dw LtSurgeData
@@ -609,7 +609,7 @@ CooltrainerFData:
 	;db 45,NIDORINA,NIDOQUEEN,0
 	;db 43,PERSIAN,NINETALES,RAICHU,0
 
-BrunoData:
+KarenData:
 	db $FF, 46, UMBREON, 47, MURKROW, 47, SNEASEL, 47, TYRANITAR, 50, HONCHKROW, 48, WEAVILE, 0
 ; Post-Champion rematch (wTrainerNo 2)
 	db $FF, 58, UMBREON, 58, MURKROW, 58, SNEASEL, 58, TYRANITAR, 58, HONCHKROW, 58, WEAVILE, 0

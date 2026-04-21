@@ -66,6 +66,7 @@
 	const SPRITE_FAIRY                   ; $3e
 	const SPRITE_AGATHA                  ; $3f
 	const SPRITE_BRUNO                   ; $40
+DEF SPRITE_KAREN EQU SPRITE_BRUNO
 	const SPRITE_LORELEI                 ; $41
 	const SPRITE_SEEL                    ; $42
 DEF FIRST_STILL_SPRITE EQU const_value

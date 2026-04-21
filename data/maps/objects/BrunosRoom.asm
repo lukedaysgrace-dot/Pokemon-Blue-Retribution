@@ -1,5 +1,5 @@
 	object_const_def
-	const_export BRUNOSROOM_BRUNO
+	const_export KARENSROOM_KAREN
 
 BrunosRoom_Object:
 	db $3 ; border block
@@ -13,6 +13,6 @@ BrunosRoom_Object:
 	def_bg_events
 
 	def_object_events
-	object_event  5,  2, SPRITE_BRUNO, STAY, DOWN, TEXT_BRUNOSROOM_BRUNO, OPP_BRUNO, 1
+	object_event  5,  2, SPRITE_KAREN, STAY, DOWN, TEXT_KARENSROOM_KAREN, OPP_KAREN, 1
 
-	def_warps_to BRUNOS_ROOM
+	def_warps_to KARENS_ROOM

@@ -1,5 +1,5 @@
 BrunosRoom_Script:
-	call BrunoShowOrHideExitBlock
+	call KarenShowOrHideExitBlock
 	call EnableAutoTextBoxDrawing
 	ld hl, BrunosRoomTrainerHeaders
 	ld de, BrunosRoom_ScriptPointers
@@ -8,13 +8,13 @@ BrunosRoom_Script:
 	ld [wBrunosRoomCurScript], a
 	ret
 
-BrunoShowOrHideExitBlock:
+KarenShowOrHideExitBlock:
 ; Blocks or clears the exit to the next room.
 	ld hl, wCurrentMapScriptFlags
 	bit BIT_CUR_MAP_LOADED_1, [hl]
 	res BIT_CUR_MAP_LOADED_1, [hl]
 	ret z
-	CheckEvent EVENT_BEAT_BRUNOS_ROOM_TRAINER_0
+	CheckEvent EVENT_BEAT_KARENS_ROOM_TRAINER_0
 	jr z, .blockExitToNextRoom
 	ld a, $5
 	jp .setExitBlock
@@ -25,7 +25,7 @@ BrunoShowOrHideExitBlock:
 	lb bc, 0, 2
 	predef_jump ReplaceTileBlock
 
-ResetBrunoScript:
+ResetKarenScript:
 	xor a ; SCRIPT_BRUNOSROOM_DEFAULT
 	ld [wBrunosRoomCurScript], a
 	ret
@@ -33,16 +33,16 @@ ResetBrunoScript:
 BrunosRoom_ScriptPointers:
 	def_script_pointers
 	dw_const BrunosRoomDefaultScript,               SCRIPT_BRUNOSROOM_DEFAULT
-	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_BRUNOSROOM_BRUNO_START_BATTLE
-	dw_const BrunosRoomBrunoEndBattleScript,        SCRIPT_BRUNOSROOM_BRUNO_END_BATTLE
-	dw_const BrunosRoomBrunoRematchEndBattleScript,  SCRIPT_BRUNOSROOM_BRUNO_REMATCH_END_BATTLE
+	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_KARENSROOM_KAREN_START_BATTLE
+	dw_const KarensRoomKarenEndBattleScript,        SCRIPT_KARENSROOM_KAREN_END_BATTLE
+	dw_const KarensRoomKarenRematchEndBattleScript, SCRIPT_KARENSROOM_KAREN_REMATCH_END_BATTLE
 	dw_const BrunosRoomPlayerIsMovingScript,        SCRIPT_BRUNOSROOM_PLAYER_IS_MOVING
 	dw_const BrunosRoomNoopScript,                  SCRIPT_BRUNOSROOM_NOOP
 
 BrunosRoomNoopScript:
 	ret
 
-BrunoScriptWalkIntoRoom:
+KarenScriptWalkIntoRoom:
 ; Walk six steps upward.
 	ld hl, wSimulatedJoypadStatesEnd
 	ld a, PAD_UP
@@ -61,7 +61,7 @@ BrunoScriptWalkIntoRoom:
 	ret
 
 BrunosRoomDefaultScript:
-	ld hl, BrunoEntranceCoords
+	ld hl, KarenEntranceCoords
 	call ArePlayerCoordsInArray
 	jp nc, CheckFightingMapTrainers
 	xor a
@@ -72,10 +72,10 @@ BrunosRoomDefaultScript:
 	ld a, [wCoordIndex]
 	cp $3  ; Is player standing one tile above the exit?
 	jr c, .stopPlayerFromLeaving
-	CheckAndSetEvent EVENT_AUTOWALKED_INTO_BRUNOS_ROOM
-	jr z, BrunoScriptWalkIntoRoom
+	CheckAndSetEvent EVENT_AUTOWALKED_INTO_KARENS_ROOM
+	jr z, KarenScriptWalkIntoRoom
 .stopPlayerFromLeaving
-	ld a, TEXT_BRUNOSROOM_BRUNO_DONT_RUN_AWAY
+	ld a, TEXT_KARENSROOM_KAREN_DONT_RUN_AWAY
 	ldh [hTextID], a
 	call DisplayTextID  ; "Don't run away!"
 	ld a, PAD_UP
@@ -88,7 +88,7 @@ BrunosRoomDefaultScript:
 	ld [wCurMapScript], a
 	ret
 
-BrunoEntranceCoords:
+KarenEntranceCoords:
 	dbmapcoord  4, 10
 	dbmapcoord  5, 10
 	dbmapcoord  4, 11
@@ -106,47 +106,47 @@ BrunosRoomPlayerIsMovingScript:
 	ld [wCurMapScript], a
 	ret
 
-BrunosRoomBrunoEndBattleScript:
+KarensRoomKarenEndBattleScript:
 	call EndTrainerBattle
 	ld a, [wIsInBattle]
 	cp $ff
-	jp z, ResetBrunoScript
-	ld a, TEXT_BRUNOSROOM_BRUNO
+	jp z, ResetKarenScript
+	ld a, TEXT_KARENSROOM_KAREN
 	ldh [hTextID], a
 	jp DisplayTextID
 
-BrunosRoomBrunoRematchEndBattleScript:
+KarensRoomKarenRematchEndBattleScript:
 	call EndTrainerBattle
 	ld a, [wIsInBattle]
 	cp $ff
-	jp z, ResetBrunoScript
-	ld hl, BrunoRematchVictoryText
+	jp z, ResetKarenScript
+	ld hl, KarenRematchVictoryText
 	call PrintText
-	SetEvent EVENT_REMATCH_DEFEATED_BRUNO
-	jp ResetBrunoScript
+	SetEvent EVENT_REMATCH_DEFEATED_KAREN
+	jp ResetKarenScript
 
 BrunosRoom_TextPointers:
 	def_text_pointers
-	dw_const BrunosRoomBrunoText,            TEXT_BRUNOSROOM_BRUNO
-	dw_const BrunosRoomBrunoDontRunAwayText, TEXT_BRUNOSROOM_BRUNO_DONT_RUN_AWAY
+	dw_const KarensRoomKarenText,            TEXT_KARENSROOM_KAREN
+	dw_const KarensRoomKarenDontRunAwayText, TEXT_KARENSROOM_KAREN_DONT_RUN_AWAY
 
 BrunosRoomTrainerHeaders:
 	def_trainers
-BrunosRoomTrainerHeader0:
-	trainer EVENT_BEAT_BRUNOS_ROOM_TRAINER_0, 0, BrunoBeforeBattleText, BrunoEndBattleText, BrunoAfterBattleText
+KarensRoomTrainerHeader0:
+	trainer EVENT_BEAT_KARENS_ROOM_TRAINER_0, 0, KarenBeforeBattleText, KarenEndBattleText, KarenAfterBattleText
 	db -1 ; end
 
-BrunosRoomBrunoText:
+KarensRoomKarenText:
 	text_asm
 	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
 	jr z, .vanilla
-	ld hl, BrunoRematchPreBattleText
+	ld hl, KarenRematchPreBattleText
 	call PrintText
 	ld hl, wStatusFlags3
 	set BIT_TALKED_TO_TRAINER, [hl]
 	set BIT_PRINT_END_BATTLE_TEXT, [hl]
-	ld hl, BrunoRematchEndBattleText
-	ld de, BrunoRematchEndBattleText
+	ld hl, KarenRematchEndBattleText
+	ld de, KarenRematchEndBattleText
 	call SaveEndBattleTextPointers
 	ldh a, [hSpriteIndex]
 	ld [wSpriteIndex], a
@@ -156,39 +156,39 @@ BrunosRoomBrunoText:
 	call InitBattleEnemyParameters
 	xor a
 	ld [wGymLeaderNo], a
-	ld a, SCRIPT_BRUNOSROOM_BRUNO_REMATCH_END_BATTLE
+	ld a, SCRIPT_KARENSROOM_KAREN_REMATCH_END_BATTLE
 	ld [wBrunosRoomCurScript], a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 .vanilla
-	ld hl, BrunosRoomTrainerHeader0
+	ld hl, KarensRoomTrainerHeader0
 	call TalkToTrainer
 	jp TextScriptEnd
 
-BrunoRematchPreBattleText:
-	text_far _BrunoRematchPreBattleText
+KarenRematchPreBattleText:
+	text_far _KarenRematchPreBattleText
 	text_end
 
-BrunoRematchEndBattleText:
-	text_far _BrunoRematchDefeatText
+KarenRematchEndBattleText:
+	text_far _KarenRematchDefeatText
 	text_end
 
-BrunoRematchVictoryText:
-	text_far _BrunoRematchDefeatText
+KarenRematchVictoryText:
+	text_far _KarenRematchDefeatText
 	text_end
 
-BrunoBeforeBattleText:
-	text_far _BrunoBeforeBattleText
+KarenBeforeBattleText:
+	text_far _KarenBeforeBattleText
 	text_end
 
-BrunoEndBattleText:
-	text_far _BrunoEndBattleText
+KarenEndBattleText:
+	text_far _KarenEndBattleText
 	text_end
 
-BrunoAfterBattleText:
-	text_far _BrunoAfterBattleText
+KarenAfterBattleText:
+	text_far _KarenAfterBattleText
 	text_end
 
-BrunosRoomBrunoDontRunAwayText:
-	text_far _BrunosRoomBrunoDontRunAwayText
+KarensRoomKarenDontRunAwayText:
+	text_far _KarensRoomKarenDontRunAwayText
 	text_end

@@ -143,18 +143,18 @@ SetPal_Overworld:
 	cp CEMETERY
 	jr z, .PokemonTowerOrAgatha
 	cp CAVERN
-	jr z, .caveOrBruno
+	jr z, .caveOrKaren
 	ld a, [wCurMap]
 	cp FIRST_INDOOR_MAP
 	jr c, .townOrRoute
 	cp CERULEAN_CAVE_2F
 	jr c, .normalDungeonOrBuilding
 	cp CERULEAN_CAVE_1F + 1
-	jr c, .caveOrBruno
+	jr c, .caveOrKaren
 	cp LORELEIS_ROOM
 	jr z, .Lorelei
-	cp BRUNOS_ROOM
-	jr z, .CyanRoom
+	cp KARENS_ROOM
+	jr z, .KarenRoom
 .normalDungeonOrBuilding
 	ld a, [wLastMap] ; town or route that current dungeon or building is located
 .townOrRoute
@@ -172,10 +172,10 @@ SetPal_Overworld:
 .PokemonTowerOrAgatha
 	ld a, PAL_GRAYMON - 1
 	jr .town
-.caveOrBruno
+.caveOrKaren
 	ld a, PAL_CAVE - 1
 	jr .town
-.CyanRoom
+.KarenRoom
 	ld a, PAL_INDIGO - 1
 	jr .town
 .Lorelei

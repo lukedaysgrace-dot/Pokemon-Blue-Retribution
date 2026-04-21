@@ -89,9 +89,9 @@ _AddPartyMon::
 	jr z, .enemyPerfectDVs
 	cp GIOVANNI
 	jr z, .enemyPerfectDVs
-	cp BRUNO
+	cp KAREN
 	jr c, .enemyAverageDVs
-	cp SABRINA + 1 ; Bruno–Sabrina: gym leaders
+	cp SABRINA + 1 ; Karen-Sabrina: gym leaders
 	jr c, .enemyPerfectDVs
 	cp LORELEI
 	jr z, .enemyPerfectDVs
