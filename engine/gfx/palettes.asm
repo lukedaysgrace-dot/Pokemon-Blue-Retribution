@@ -154,7 +154,7 @@ SetPal_Overworld:
 	cp LORELEIS_ROOM
 	jr z, .Lorelei
 	cp BRUNOS_ROOM
-	jr z, .caveOrBruno
+	jr z, .CyanRoom
 .normalDungeonOrBuilding
 	ld a, [wLastMap] ; town or route that current dungeon or building is located
 .townOrRoute
@@ -174,6 +174,9 @@ SetPal_Overworld:
 	jr .town
 .caveOrBruno
 	ld a, PAL_CAVE - 1
+	jr .town
+.CyanRoom
+	ld a, PAL_INDIGO - 1
 	jr .town
 .Lorelei
 	xor a

@@ -32,7 +32,7 @@ TrainerNames::
 	li "ROCKET"
 	li "COOLTRAINER♂"
 	li "COOLTRAINER♀"
-	li "BRUNO"
+	li "KAREN"
 	li "BROCK"
 	li "MISTY"
 	li "LT.SURGE"

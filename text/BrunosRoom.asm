@@ -1,34 +1,102 @@
 _BrunoBeforeBattleText::
-	text "I am BRUNO of"
-	line "the ELITE FOUR!"
+	text "You've come all"
+	line "this way..."
 
-	para "Through rigorous"
-	line "training, people"
-	cont "and #MON can"
-	cont "become stronger!"
+	para "That already"
+	line "tells me"
+	cont "something about"
+	cont "you."
 
-	para "I've weight"
-	line "trained with"
-	cont "my #MON!"
+	para "But this isn't"
+	line "the same ELITE"
+	cont "FOUR KANTO once"
+	cont "had."
 
-	para "<PLAYER>!"
+	para "People cling to"
+	line "strength"
+	cont "Power"
 
-	para "We will grind you"
-	line "down with our"
-	cont "superior power!"
+	para "As if that's all"
+	line "that matters."
 
-	para "Hoo hah!"
+	para "Even BRUNO..."
+	line "he relied on"
+	cont "that too much."
+
+	para "So I have taken"
+	line "his place."
+
+	para "Strong #MON..."
+	line "Weak #MON..."
+
+	para "That's only the"
+	line "selfish view"
+	cont "of people."
+
+	para "A truly skilled"
+	line "trainer brings"
+	cont "out the best in"
+	cont "the #MON they"
+	cont "love."
+
+	para "No matter what"
+	line "others think."
+
+	para "I came to KANTO"
+	line "to show them"
+	cont "that."
+
+	para "Darkness"
+	line "Fear..."
+
+	para "The things"
+	line "people avoid"
+
+	para "Those are the"
+	line "things I trust."
+
+	para "Now..."
+	line "tell me."
+
+	para "Are you strong"
+	line "because of your"
+	cont "#MON?"
+
+	para "Or are they"
+	line "strong because"
+	cont "of you?"
 	done
 
 _BrunoEndBattleText::
-	text "Why?"
-	line "How could I lose?"
+	text "Your #MON"
+	line "really do"
+	cont "trust you."
 	prompt
 
 _BrunoAfterBattleText::
-	text "My job is done!"
-	line "Go face your next"
-	cont "challenge!"
+	text "...I see."
+
+	para "Your strength..."
+	line "It isn't forced."
+
+	para "You trust your"
+	line "#MON..."
+
+	para "And they trust"
+	line "you."
+
+	para "That's why you"
+	line "won."
+
+	para "What matters is"
+	line "the bond you've"
+	cont "built."
+
+	para "Go on."
+
+	para "Show the rest"
+	line "of the league"
+	cont "your strength"
 	done
 
 _BrunosRoomBrunoDontRunAwayText::
@@ -38,17 +106,16 @@ _BrunosRoomBrunoDontRunAwayText::
 
 _BrunoRematchPreBattleText::
 	text "CHAMPION! I've"
-	line "trained harder"
+	line "changed my team"
 	cont "since your win."
 
 	para "Let's test our"
-	line "strength once"
+	line "skill once"
 	cont "more!"
 	done
 
 _BrunoRematchDefeatText::
-	text "Hah!"
-	line "Your strength is"
-	cont "undeniable!"
-	cont "I'll train harder!"
+	text "Well done."
+	line "That was a good"
+	cont "battle."
 	prompt

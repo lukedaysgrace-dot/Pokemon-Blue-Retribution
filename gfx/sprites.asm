@@ -71,7 +71,7 @@ LittleBoySprite::        INCBIN "gfx/sprites/little_boy.2bpp"
 GameboyKidSprite::       INCBIN "gfx/sprites/gameboy_kid.2bpp"
 FairySprite::            INCBIN "gfx/sprites/fairy.2bpp"
 AgathaSprite::           INCBIN "gfx/sprites/agatha.2bpp"
-BrunoSprite::            INCBIN "gfx/sprites/bruno.2bpp"
+BrunoSprite::            INCBIN "gfx/sprites/karen.2bpp"
 LoreleiSprite::          INCBIN "gfx/sprites/lorelei.2bpp"
 SeelSprite::             INCBIN "gfx/sprites/seel.2bpp"
 
