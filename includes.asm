@@ -13,6 +13,10 @@ INCLUDE "macros/scripts/maps.asm"
 INCLUDE "macros/scripts/events.asm"
 INCLUDE "macros/scripts/text.asm"
 
+DEF GEN_2_GRAPHICS EQU 0
+
+INCLUDE "macros/color.asm"
+
 INCLUDE "constants/charmap.asm"
 INCLUDE "constants/hardware.inc"
 INCLUDE "constants/oam_constants.asm"
@@ -50,6 +54,9 @@ INCLUDE "constants/tileset_constants.asm"
 INCLUDE "constants/event_constants.asm"
 INCLUDE "constants/text_constants.asm"
 INCLUDE "constants/menu_constants.asm"
+
+INCLUDE "color/wram.asm"
+INCLUDE "color/data/map_palette_constants.asm"
 
 IF DEF(_RED_VC)
 INCLUDE "vc/pokered.constants.asm"

@@ -1,4 +1,4 @@
-SoftReset::
+SoftReset_orig::
 	call StopAllSounds
 	call GBPalWhiteOut
 	ld c, 32

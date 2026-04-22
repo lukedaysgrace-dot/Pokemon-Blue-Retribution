@@ -397,6 +397,10 @@ hJoyInput:: db
 
 hDisableJoypadPolling:: db
 
-	ds 5
+hDelayFrameHookBank:: db
+
+hColorHackTmp:: db
+
+	ds 3
 
 ENDSECTION

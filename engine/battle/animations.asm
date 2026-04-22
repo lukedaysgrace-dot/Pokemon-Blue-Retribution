@@ -370,7 +370,9 @@ LoadMoveAnimationTiles:
 	ld b, BANK(MoveAnimationTiles0) ; ROM bank
 	ld a, [wTempTilesetNumTiles]
 	ld c, a ; number of tiles
-	jp CopyVideoData ; load tileset
+	call CopyVideoData ; load tileset
+	CALL_INDIRECT LoadAnimationTilesetPalettes
+	ret
 
 MACRO anim_tileset
 	db \1

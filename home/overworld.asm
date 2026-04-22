@@ -2301,31 +2301,12 @@ LoadMapData::
 	call LoadTileBlockMap
 	call LoadTilesetTilePatternData
 	call LoadCurrentMapView
-; copy current map view to VRAM
-	hlcoord 0, 0
-	ld de, vBGMap0
-	ld b, SCREEN_HEIGHT
-.vramCopyLoop
-	ld c, SCREEN_WIDTH
-.vramCopyInnerLoop
-	ld a, [hli]
-	ld [de], a
-	inc e
-	dec c
-	jr nz, .vramCopyInnerLoop
-	ld a, TILEMAP_WIDTH - SCREEN_WIDTH
-	add e
-	ld e, a
-	jr nc, .noCarry
-	inc d
-.noCarry
-	dec b
-	jr nz, .vramCopyLoop
+	ld b, SET_PAL_OVERWORLD
+	call RunPaletteCommand
+	call _LoadMapVramAndColors
 	ld a, $01
 	ld [wUpdateSpritesEnabled], a
 	call EnableLCD
-	ld b, SET_PAL_OVERWORLD
-	call RunPaletteCommand
 	call LoadPlayerSpriteGraphics
 	ld a, [wStatusFlags6]
 	and (1 << BIT_FLY_WARP) | (1 << BIT_DUNGEON_WARP)

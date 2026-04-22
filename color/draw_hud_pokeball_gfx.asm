@@ -1,0 +1,70 @@
+; Hooks for engine/battle/draw_hud_pokeball_gfx.asm
+
+
+; Called whenever the pokeball graphics for listing your party are loaded.
+; Also need to load the palettes for them.
+; Note: this uses overworld palette 0, but palette 2 of the attack palettes would also be
+; suitable.
+LoadPartyPokeballGfx:
+	CALL_INDIRECT LoadOverworldSpritePalettes
+
+	ld a, 2
+	ldh [rWBK], a
+
+	ld d, PAL_REDBAR
+	ld e, 2 ; CGB OBJ slot 2 (ATK "red" bar — SetPal also patches this each refresh)
+	farcall LoadSGBPalette_Sprite
+
+	; Map pokeball tile ids to CGB pal 2
+	ld hl, W2_SpritePaletteMap + $31
+	ld a, 2
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+
+	ld a, 1
+	ld [W2_ForceOBPUpdate], a
+
+	xor a
+	ldh [rWBK], a
+
+	jp LoadPartyPokeballGfx_orig
+
+
+IF GEN_2_GRAPHICS
+
+PlayerHUDHAX:
+	ld hl, PlayerHUDTileMap
+	jp PlayerHUDUpdateDone
+
+PlayerHUDTileMap:
+	db $73, $75, $6F
+
+EnemyHUDHAX:
+	ld [hl], $72
+	ld a, [wIsInBattle]
+	dec a
+	jr  nz, .notWildBattle
+	push hl
+	ld a, [wEnemyMonSpecies2]
+	ld [wPokedexNum], a
+	callfar IndexToPokedex
+	ld a, [wPokedexNum]
+	dec a
+	ld c, a
+	ld b, $2
+	ld hl, wPokedexOwned
+	predef FlagActionPredef
+	ld a, c
+	and a
+	jr z, .notOwned
+	hlcoord 1, 1
+	ld [hl], $E9
+.notOwned
+	pop hl
+.notWildBattle
+	ld de, $0001
+	jp EnemyHUDUpdateDone
+
+ENDC

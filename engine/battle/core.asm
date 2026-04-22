@@ -6393,7 +6393,8 @@ LoadPlayerBackPic:
 	ld [hli], a ; OAM tile number
 	inc a ; increment tile number
 	ldh [hOAMTile], a
-	inc hl
+	xor a
+	ld [hli], a ; OAM attributes (palette 0 until GBC coloring runs)
 	dec c
 	jr nz, .innerLoop
 	ldh a, [hOAMTile]

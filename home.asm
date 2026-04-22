@@ -11,6 +11,39 @@ INCLUDE "home/clear_sprites.asm"
 INCLUDE "home/copy.asm"
 
 
+SECTION "ColorizationHome", ROM0
+
+InitializeColor:
+	cp BOOTUP_A_CGB
+	jr nz, .notGBC
+	call _InitGbcMode
+	jp _Start
+
+.notGBC
+	jpfar RunDmgError
+
+_InitGbcMode:
+	jpfar InitGbcMode
+
+_ColorOverworldSprite::
+	ldh [hColorHackTmp], a
+	ldh a, [hLoadedROMBank]
+	push af
+	ld a, BANK(ColorOverworldSprite)
+	call SetRomBank
+	ldh a, [hColorHackTmp]
+	call ColorOverworldSprite
+	ldh [hColorHackTmp], a
+	pop af
+	call SetRomBank
+	ldh a, [hColorHackTmp]
+	ret
+
+SoftReset::
+	CALL_INDIRECT ClearGbcMemory
+	jp SoftReset_orig
+
+
 SECTION "Home", ROM0
 
 INCLUDE "home/start.asm"
@@ -82,3 +115,61 @@ INCLUDE "home/random.asm"
 INCLUDE "home/predef.asm"
 INCLUDE "home/hidden_events.asm"
 INCLUDE "home/predef_text.asm"
+
+
+InterruptWrapper:
+	push af
+	push bc
+	push de
+	ldh a, [rWBK]
+	ld b, a
+	ldh a, [hLoadedROMBank]
+	ld c, a
+	ldh a, [hDelayFrameHookBank]
+	and a
+	jr z, .notInDelayFrame
+	dec a
+	call SetRomBank
+.notInDelayFrame
+	xor a
+	ldh [rWBK], a
+	ld de, .ret
+	push de
+	jp hl
+.ret
+	ld a, b
+	ldh [rWBK], a
+	ld a, c
+	call SetRomBank
+	pop de
+	pop bc
+	pop af
+	pop hl
+	reti
+
+DelayFrameHook:
+	push bc
+	push de
+	push hl
+	ldh a, [rWBK]
+	ld b, a
+	xor a
+	ldh [rWBK], a
+	push bc
+	ldh a, [hLoadedROMBank]
+	inc a
+	ldh [hDelayFrameHookBank], a
+	CALL_INDIRECT PrepareOAMData
+	jr z, .spritesDrawn
+	CALL_INDIRECT ColorNonOverworldSprites
+.spritesDrawn
+	xor a
+	ldh [hDelayFrameHookBank], a
+	pop af
+	ldh [rWBK], a
+	ld a, 1
+	ldh [hVBlankOccurred], a
+	pop hl
+	pop de
+	pop bc
+	ret

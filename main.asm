@@ -331,7 +331,18 @@ INCLUDE "engine/items/town_map.asm"
 INCLUDE "engine/gfx/mon_icons.asm"
 INCLUDE "engine/events/in_game_trades.asm"
 INCLUDE "engine/gfx/palettes.asm"
+
+SECTION "Engine Save", ROMX
+
 INCLUDE "engine/menus/save.asm"
+
+BlackTile:
+	REPT 16
+	db $ff
+	ENDR
+BlackTileEnd:
+
+INCLUDE "color/color.asm"
 
 
 SECTION "Itemfinder 1", ROMX

@@ -3,20 +3,20 @@ ROM0
 	"NULL"
 	org $0000
 	"rst0"
-	org $0008
-	"rst8"
+;	org $0008
+;	"rst8"
 	org $0010
 	"rst10"
 	org $0018
 	"rst18"
-	org $0020
-	"rst20"
-	org $0028
-	"rst28"
-	org $0030
-	"rst30"
-	org $0038
-	"rst38"
+;	org $0020
+;	"rst20"
+;	org $0028
+;	"rst28"
+;	org $0030
+;	"rst30"
+;	org $0038
+;	"rst38"
 	org $0040
 	"vblank"
 	org $0048
@@ -29,6 +29,8 @@ ROM0
 	"joypad"
 	; $0061
 	"High Home"
+	org $00be
+	"ColorizationHome"
 	org $100
 	"Header"
 	org $150
@@ -138,6 +140,10 @@ ROMX $1B
 	"Tilesets 3"
 ROMX $1C
 	"bank1C"
+	"InitPartyMenuBlkPacket"
+	"PrepareSuperNintendoVRAMTransfer"
+	"bank1C_extension"
+	"Engine Save"
 ROMX $1D
 	"Maps 19"
 	"Itemfinder 1"
@@ -178,6 +184,7 @@ ROMX $2A
 ROMX $2B
 	"Pokédex Text"
 ROMX $2C
+	"bank2C"
 	"Move Names"
 	"Custom Trainer Moves Data"
 	"Green Fishing Tiles"
@@ -189,6 +196,8 @@ ROMX $2D
 	"Base Stats Data"
 ROMX $2E
 	"Pics 6"
+ROMX $31
+	"bank31"
 WRAM0
 	"Audio RAM"
 	org $c100
