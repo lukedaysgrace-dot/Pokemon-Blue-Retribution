@@ -1849,6 +1849,7 @@ DrawPlayerHUDAndHPBar:
 	hlcoord 10, 7
 	call CenterMonName
 	call PlaceString
+	call PrintEXPBar
 	ld hl, wBattleMonSpecies
 	ld de, wLoadedMon
 	ld bc, wBattleMonDVs - wBattleMonSpecies
@@ -6618,8 +6619,195 @@ ApplyBadgeStatBoosts:
 ; (Boulder/Thunder/Soul/Volcano). No badge-based stat modifiers in battle.
 	ret
 
+PrintEXPBar:
+	call CalcEXPBarPixelLength
+	ldh a, [hQuotient + 3] ; pixel length
+	ld [wEXPBarPixelLength], a
+	ld b, a
+	ld c, 8
+	ld d, 8
+	hlcoord 17, 11
+.loop
+	ld a, b
+	sub c
+	jr nc, .skip
+	ld c, b
+	jr .loop
+.skip
+	ld b, a
+	ld a, $c0
+	add c
+.loop2
+	ld [hld], a
+	dec d
+	ret z
+	ld a, b
+	and a
+	jr nz, .loop
+	ld a, $c0
+	jr .loop2
+
+CalcEXPBarPixelLength:
+	ld hl, wEXPBarKeepFullFlag
+	bit 0, [hl]
+	jr z, .start
+	res 0, [hl]
+	ld a, $40
+	ldh [hQuotient + 3], a
+	ret
+
+.start
+	ld a, [wPlayerBattleStatus3]
+	ld hl, wBattleMonSpecies
+	bit TRANSFORMED, a
+	jr z, .gotSpecies
+	ld hl, wPartyMon1Species
+	call BattleMonPartyAttr
+.gotSpecies
+	ld a, [hl]
+	ld [wCurSpecies], a
+	call GetMonHeader
+	ld a, [wBattleMonLevel]
+	ld d, a
+	ld hl, CalcExperience
+	ld b, BANK(CalcExperience)
+	call Bankswitch
+	ld hl, hExperience
+	ld de, wEXPBarBaseEXP
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hl]
+	ld [de], a
+
+	ld a, [wBattleMonLevel]
+	ld d, a
+	inc d
+	ld hl, CalcExperience
+	ld b, BANK(CalcExperience)
+	call Bankswitch
+
+	ld hl, wPartyMon1Exp
+	call BattleMonPartyAttr
+
+	ld b, h
+	ld c, l
+	ld hl, wEXPBarBaseEXP
+	ld de, wEXPBarCurEXP
+	call SubThreeByteNum
+
+	ld bc, hExperience
+	ld hl, wEXPBarBaseEXP
+	ld de, wEXPBarNeededEXP
+	call SubThreeByteNum
+
+	ld hl, wEXPBarNeededEXP
+	ld de, wEXPBarCurEXP + 1
+	ld a, [hli]
+	and a
+	jr z, .twoBytes
+	ld a, [hli]
+	ld [hld], a
+	dec hl
+	ld a, [hli]
+	ld [hld], a
+	ld a, [de]
+	inc de
+	ld [de], a
+	dec de
+	dec de
+	ld a, [de]
+	inc de
+	ld [de], a
+	dec de
+	xor a
+	ld [hli], a
+	ld [de], a
+	inc de
+.twoBytes
+	ld a, [hl]
+	and a
+	jr z, .oneByte
+	srl a
+	ld [hli], a
+	ld a, [hl]
+	rr a
+	ld [hld], a
+	ld a, [de]
+	srl a
+	ld [de], a
+	inc de
+	ld a, [de]
+	rr a
+	ld [de], a
+	dec de
+	jr .twoBytes
+.oneByte
+	ld hl, hMultiplicand
+	ld de, wEXPBarCurEXP
+	ld a, [de]
+	inc de
+	ld [hli], a
+	ld a, [de]
+	inc de
+	ld [hli], a
+	ld a, [de]
+	ld [hl], a
+	ld a, $40
+	ldh [hMultiplier], a
+	call Multiply
+
+	ld a, [wEXPBarNeededEXP + 2]
+	ldh [hDivisor], a
+	ld b, 4
+	jp Divide
+
+; subtracts the three-byte number at hl from the one at bc and stores it at de
+SubThreeByteNum:
+	call .subByte
+	call .subByte
+.subByte
+	ld a, [bc]
+	inc bc
+	sub [hl]
+	inc hl
+	ld [de], a
+	jr nc, .noCarry
+	dec de
+	ld a, [de]
+	dec a
+	ld [de], a
+	inc de
+.noCarry
+	inc de
+	ret
+
+; return the address of the BattleMon's party struct attribute in hl
+BattleMonPartyAttr:
+	ld a, [wPlayerMonNumber]
+	ld bc, wPartyMon2 - wPartyMon1
+	jp AddNTimes
+
 LoadHudAndHpBarAndStatusTilePatterns:
 	call LoadHpBarAndStatusTilePatterns
+	ldh a, [rLCDC]
+	add a ; is LCD disabled?
+	jr c, .lcdEnabled
+; LCD disabled
+	ld hl, EXPBarGraphics
+	ld de, vChars1 tile $40
+	ld bc, EXPBarGraphicsEnd - EXPBarGraphics
+	ld a, BANK(EXPBarGraphics)
+	call FarCopyData2
+	jr LoadHudTilePatterns
+.lcdEnabled
+	ld de, EXPBarGraphics
+	ld hl, vChars1 tile $40
+	lb bc, BANK(EXPBarGraphics), (EXPBarGraphicsEnd - EXPBarGraphics) / TILE_SIZE
+	call CopyVideoData
 
 LoadHudTilePatterns:
 	ldh a, [rLCDC]

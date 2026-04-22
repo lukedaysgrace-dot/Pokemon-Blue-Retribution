@@ -151,6 +151,7 @@ GainExperience:
 	xor a ; PLAYER_PARTY_DATA
 	ld [wMonDataLocation], a
 	call LoadMonData
+	call AnimateEXPBar
 	pop hl
 	ld bc, MON_LEVEL - MON_EXP
 	add hl, bc
@@ -337,6 +338,62 @@ BoostExp:
 	ldh a, [hQuotient + 2]
 	adc b
 	ldh [hQuotient + 2], a
+	ret
+
+AnimateEXPBar:
+	call IsCurrentMonBattleMon
+	ret nz
+	ld a, SFX_HEAL_HP
+	call PlaySoundWaitForCurrent
+	ld hl, CalcEXPBarPixelLength
+	ld b, BANK(CalcEXPBarPixelLength)
+	call Bankswitch
+	ld hl, wEXPBarPixelLength
+	ld a, [hl]
+	ld b, a
+	ldh a, [hQuotient + 3]
+	ld [hl], a
+	sub b
+	jr z, .done
+	ld b, a
+	ld c, 8
+	hlcoord 17, 11
+.loop1
+	ld a, [hl]
+	cp $c8
+	jr nz, .loop2
+	dec hl
+	dec c
+	jr z, .done
+	jr .loop1
+.loop2
+	inc a
+	ld [hl], a
+	call DelayFrame
+	dec b
+	jr z, .done
+	jr .loop1
+.done
+	ld bc, 8
+	hlcoord 10, 11
+	ld de, wTileMapBackup + 10 + 11 * SCREEN_WIDTH
+	call CopyData
+	ld c, 32
+	jp DelayFrames
+
+KeepEXPBarFull:
+	call IsCurrentMonBattleMon
+	ret nz
+	ld a, [wEXPBarKeepFullFlag]
+	set 0, a
+	ld [wEXPBarKeepFullFlag], a
+	ret
+
+IsCurrentMonBattleMon:
+	ld a, [wPlayerMonNumber]
+	ld b, a
+	ld a, [wWhichPokemon]
+	cp b
 	ret
 
 GainedText:

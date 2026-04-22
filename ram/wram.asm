@@ -511,7 +511,13 @@ wPlayerMonMinimized:: db
 ; Set when the player switches out of an opponent's trapping move (Stadium-style: trap ends and that turn is wasted).
 wEnemySkipNextMoveSelectionAfterTrapSwitch:: db
 
-	ds 12
+wEXPBarPixelLength::  db
+wEXPBarBaseEXP::      ds 3
+wEXPBarCurEXP::       ds 3
+wEXPBarNeededEXP::    ds 3
+wEXPBarKeepFullFlag:: db
+
+	ds 1
 
 UNION
 ; the amount of damage accumulated by the enemy while biding
