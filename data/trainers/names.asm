@@ -12,7 +12,7 @@ TrainerNames::
 	li "BIKER"
 	li "BURGLAR"
 	li "ENGINEER"
-	li "JUGGLER"
+	li "ROCKET ADMIN"
 	li "FISHERMAN"
 	li "SWIMMER"
 	li "CUE BALL"
@@ -52,4 +52,7 @@ TrainerNames::
 	li "GREEN"
 	li "NINJA"
 	li "JANINE"
+	li "ROCKET ADMIN"
+	li "ROCKET ADMIN"
+	li "ROCKET ADMIN"
 	assert_list_length NUM_TRAINERS

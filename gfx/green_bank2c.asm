@@ -32,3 +32,11 @@ SECTION "Ninja Janine Trainer Pics", ROMX
 
 NinjaPic::  INCBIN "gfx/trainers/ninja.pic"
 JaninePic:: INCBIN "gfx/trainers/janine.pic"
+
+
+SECTION "Rocket Executive Trainer Pics", ROMX
+
+PetrelPic:: INCBIN "gfx/trainers/petrel.pic"
+ProtonPic:: INCBIN "gfx/trainers/proton.pic"
+ArcherPic:: INCBIN "gfx/trainers/archer.pic"
+ArianaPic:: INCBIN "gfx/trainers/ariana.pic"

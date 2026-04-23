@@ -84,26 +84,27 @@ ENDM
 
 	toggle_consts_for ROUTE_25
 	const TOGGLE_ROUTE_25_ITEM                 ; 28 X
+	const TOGGLE_ROUTE_25_GREEN                ; 29
 
 	toggle_consts_for BLUES_HOUSE
-	const TOGGLE_DAISY_SITTING                 ; 28
-	const TOGGLE_DAISY_WALKING                 ; 29
-	const TOGGLE_TOWN_MAP                      ; 2A
+	const TOGGLE_DAISY_SITTING                 ; 2A
+	const TOGGLE_DAISY_WALKING                 ; 2B
+	const TOGGLE_TOWN_MAP                      ; 2C
 
 	toggle_consts_for OAKS_LAB
-	const TOGGLE_OAKS_LAB_RIVAL                ; 2B
-	const TOGGLE_OAKS_LAB_GREEN                ; 2C
-	const TOGGLE_STARTER_BALL_1                ; 2D
-	const TOGGLE_STARTER_BALL_2                ; 2E
-	const TOGGLE_STARTER_BALL_3                ; 2F
-	const TOGGLE_OAKS_LAB_OAK_1                ; 30
-	const TOGGLE_POKEDEX_1                     ; 31
-	const TOGGLE_POKEDEX_2                     ; 32
-	const TOGGLE_OAKS_LAB_OAK_2                ; 33
+	const TOGGLE_OAKS_LAB_RIVAL                ; 2D
+	const TOGGLE_OAKS_LAB_GREEN                ; 2E
+	const TOGGLE_STARTER_BALL_1                ; 2F
+	const TOGGLE_STARTER_BALL_2                ; 30
+	const TOGGLE_STARTER_BALL_3                ; 31
+	const TOGGLE_OAKS_LAB_OAK_1                ; 32
+	const TOGGLE_POKEDEX_1                     ; 33
+	const TOGGLE_POKEDEX_2                     ; 34
+	const TOGGLE_OAKS_LAB_OAK_2                ; 35
 
 	toggle_consts_for VIRIDIAN_GYM
-	const TOGGLE_VIRIDIAN_GYM_GIOVANNI         ; 33
-	const TOGGLE_VIRIDIAN_GYM_ITEM             ; 34 X
+	const TOGGLE_VIRIDIAN_GYM_GIOVANNI         ; 35
+	const TOGGLE_VIRIDIAN_GYM_ITEM             ; 36 X
 
 	toggle_consts_for MUSEUM_1F
 	const TOGGLE_OLD_AMBER                     ; 35

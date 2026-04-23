@@ -23,7 +23,7 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1       ; BIKER
 	move_choices 1, 3    ; BURGLAR
 	move_choices 1, 3    ; ENGINEER
-	move_choices 1, 2    ; UNUSED_JUGGLER
+	move_choices 1, 3    ; UNUSED_JUGGLER
 	move_choices 1, 3    ; FISHER
 	move_choices 1, 3    ; SWIMMER
 	move_choices 1       ; CUE_BALL
@@ -63,5 +63,8 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1, 3    ; GREEN_ROCKET
 	move_choices 1, 3    ; NINJA
 	move_choices 1, 3    ; JANINE
+	move_choices 1, 3    ; PETREL
+	move_choices 1, 3    ; PROTON
+	move_choices 1, 3    ; ARCHER
 	assert __move_choices__ == NUM_TRAINERS, \
 		"TrainerClassMoveChoiceModifications: expected {d:NUM_TRAINERS} entries, got {d:__move_choices__}"

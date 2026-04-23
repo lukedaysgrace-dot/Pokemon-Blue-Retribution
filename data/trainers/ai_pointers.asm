@@ -16,7 +16,7 @@ TrainerAIPointers:
 	dbw 3, GenericAI
 	dbw 3, GenericAI
 	dbw 3, GenericAI
-	dbw 3, JugglerAI ; unused_juggler
+	dbw 3, GenericAI ; unused_juggler
 	dbw 3, GenericAI
 	dbw 3, GenericAI
 	dbw 3, GenericAI
@@ -56,4 +56,7 @@ TrainerAIPointers:
 	dbw 1, Rival2AI ; green_rocket
 	dbw 3, GenericAI ; ninja
 	dbw 1, CooltrainerFAI ; janine
+	dbw 3, GenericAI ; petrel
+	dbw 3, GenericAI ; proton
+	dbw 3, GenericAI ; archer
 	assert_table_length NUM_TRAINERS

@@ -167,7 +167,7 @@ TrainerPalettes: ; Gen II trainer sprites are given their own palettes
 	db PAL_BIKER
 	db PAL_BURGLAR
 	db PAL_ENGINEER
-	db PAL_JUGGLER
+	db PAL_ARIANA
 	db PAL_FISHERMAN
 	db PAL_SWIMMER
 	db PAL_CUEBALL
@@ -202,9 +202,14 @@ TrainerPalettes: ; Gen II trainer sprites are given their own palettes
 	db PAL_CHANNELER
 	db PAL_AGATHA
 	db PAL_LANCE
-	REPT NUM_POKEMON + 1 + NUM_TRAINERS + 1 - (@ - MonsterPalettes)
-	db PAL_MEWMON
-	ENDR
+	db PAL_GARY3
+	db PAL_JR_TRAINER_F
+	db PAL_ROCKET
+	db PAL_KOGA
+	db PAL_KOGA
+	db PAL_PETREL
+	db PAL_PROTON
+	db PAL_ARCHER
 	assert_table_length NUM_POKEMON + 1 + NUM_TRAINERS + 1
 ELSE
 	db PAL_MEWMON    ; MISSINGNO
@@ -434,7 +439,7 @@ TrainerPalettes:
 	db PAL_BIKER
 	db PAL_BURGLAR
 	db PAL_ENGINEER
-	db PAL_JUGGLER
+	db PAL_ARIANA ; UNUSED_JUGGLER = Ariana (e.g. Silph 11F); was PAL_JUGGLER (blue)
 	db PAL_FISHERMAN
 	db PAL_SWIMMER
 	db PAL_CUEBALL
@@ -474,5 +479,8 @@ TrainerPalettes:
 	db PAL_ROCKET
 	db PAL_KOGA
 	db PAL_KOGA
+	db PAL_PETREL
+	db PAL_PROTON
+	db PAL_ARCHER
 	assert_table_length NUM_TRAINERS + 1
 ENDC

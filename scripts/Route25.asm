@@ -1,6 +1,7 @@
 Route25_Script:
 	call Route25ToggleBillsScript
 	call EnableAutoTextBoxDrawing
+	call Route25GreenIdleLookAround
 	ld hl, Route25TrainerHeaders
 	ld de, Route25_ScriptPointers
 	ld a, [wRoute25CurScript]
@@ -13,6 +14,7 @@ Route25ToggleBillsScript:
 	bit BIT_CUR_MAP_LOADED_2, [hl]
 	res BIT_CUR_MAP_LOADED_2, [hl]
 	ret z
+	call Route25ToggleGreenObject
 	CheckEventHL EVENT_LEFT_BILLS_HOUSE_AFTER_HELPING
 	ret nz
 	CheckEventReuseHL EVENT_MET_BILL_2
@@ -35,11 +37,25 @@ Route25ToggleBillsScript:
 	ld [wToggleableObjectIndex], a
 	predef_jump ShowObject
 
+Route25ToggleGreenObject:
+	CheckEvent EVENT_REMATCH_DEFEATED_RIVAL_CHAMPION
+	jr z, .hide_green
+	ld a, TOGGLE_ROUTE_25_GREEN
+	ld [wToggleableObjectIndex], a
+	predef ShowObject
+	ret
+.hide_green
+	ld a, TOGGLE_ROUTE_25_GREEN
+	ld [wToggleableObjectIndex], a
+	predef HideObject
+	ret
+
 Route25_ScriptPointers:
 	def_script_pointers
 	dw_const CheckFightingMapTrainers,              SCRIPT_ROUTE25_DEFAULT
 	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_ROUTE25_START_BATTLE
 	dw_const EndTrainerBattle,                      SCRIPT_ROUTE25_END_BATTLE
+	dw_const Route25GreenAfterBattleScript,         SCRIPT_ROUTE25_GREEN_AFTER_BATTLE
 
 Route25_TextPointers:
 	def_text_pointers
@@ -53,7 +69,9 @@ Route25_TextPointers:
 	dw_const Route25Hiker2Text,        TEXT_ROUTE25_HIKER2
 	dw_const Route25Hiker3Text,        TEXT_ROUTE25_HIKER3
 	dw_const PickUpItemText,           TEXT_ROUTE25_TM_SEISMIC_TOSS
+	dw_const Route25GreenText,         TEXT_ROUTE25_GREEN
 	dw_const Route25BillSignText,      TEXT_ROUTE25_BILL_SIGN
+	dw_const Route25GreenAfterBattleDisplayText, TEXT_ROUTE25_GREEN_AFTER_BATTLE
 
 Route25TrainerHeaders:
 	def_trainers
@@ -130,6 +148,109 @@ Route25Hiker3Text:
 	ld hl, Route25TrainerHeader8
 	call TalkToTrainer
 	jp TextScriptEnd
+
+Route25GreenText:
+	text_asm
+	call Route25GreenFacePlayer
+	call UpdateSprites
+	CheckEvent EVENT_BEAT_ROUTE25_GREEN
+	jr z, .before_battle
+	ld hl, Route25GreenAfterBattleDisplayText
+	call PrintText
+	jr .done
+.before_battle
+	ld hl, Route25GreenBeforeBattleText
+	call PrintText
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, Route25GreenEndBattleText
+	ld de, Route25GreenPlayerLoseText
+	call SaveEndBattleTextPointers
+	ld a, OPP_GREEN
+	ld [wCurOpponent], a
+	ld a, [wPlayerStarter]
+	cp STARTER1
+	jr z, .picked_charmander
+	cp STARTER2
+	jr z, .picked_squirtle
+	ld a, 12 ; player picked Bulbasaur, Green has Squirtle
+	jr .got_team
+.picked_charmander
+	ld a, 10 ; player picked Charmander, Green has Bulbasaur
+	jr .got_team
+.picked_squirtle
+	ld a, 11 ; player picked Squirtle, Green has Charmander
+.got_team
+	ld [wTrainerNo], a
+	ld a, SCRIPT_ROUTE25_GREEN_AFTER_BATTLE
+	ld [wRoute25CurScript], a
+	ld [wCurMapScript], a
+	ld hl, wStatusFlags7
+	set BIT_USE_CUR_MAP_SCRIPT, [hl]
+.done
+	jp TextScriptEnd
+
+Route25GreenFacePlayer:
+	ld a, [wPlayerDirection]
+	bit PLAYER_DIR_BIT_UP, a
+	jr z, .not_facing_up
+	ld a, SPRITE_FACING_DOWN
+	jr .set_facing
+.not_facing_up
+	bit PLAYER_DIR_BIT_DOWN, a
+	jr z, .not_facing_down
+	ld a, SPRITE_FACING_UP
+	jr .set_facing
+.not_facing_down
+	bit PLAYER_DIR_BIT_LEFT, a
+	jr z, .not_facing_left
+	ld a, SPRITE_FACING_RIGHT
+	jr .set_facing
+.not_facing_left
+	ld a, SPRITE_FACING_LEFT
+.set_facing
+	ldh [hSpriteFacingDirection], a
+	ld a, ROUTE25_GREEN
+	ldh [hSpriteIndex], a
+	jp SetSpriteFacingDirectionAndDelay
+
+Route25GreenIdleLookAround:
+	ld a, [wRoute25CurScript]
+	and a
+	ret nz
+	ld a, [wFontLoaded]
+	bit BIT_FONT_LOADED, a
+	ret nz
+	ldh a, [hFrameCounter]
+	and $3f
+	ret nz
+	CheckEvent EVENT_REMATCH_DEFEATED_RIVAL_CHAMPION
+	ret z
+	call Random
+	and $c
+	ldh [hSpriteFacingDirection], a
+	ld a, ROUTE25_GREEN
+	ldh [hSpriteIndex], a
+	jp SetSpriteFacingDirection
+
+Route25GreenAfterBattleScript:
+	ld a, [wIsInBattle]
+	cp $ff
+	jr z, .reset
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	call Route25GreenFacePlayer
+	SetEvent EVENT_BEAT_ROUTE25_GREEN
+	ld a, TEXT_ROUTE25_GREEN_AFTER_BATTLE
+	ldh [hTextID], a
+	call DisplayTextID
+.reset
+	xor a
+	ld [wJoyIgnore], a
+	ld [wRoute25CurScript], a
+	ld [wCurMapScript], a
+	ret
 
 Route25Youngster1BattleText:
 	text_far _Route25Youngster1BattleText
@@ -241,4 +362,20 @@ Route25Hiker3AfterBattleText:
 
 Route25BillSignText:
 	text_far _Route25BillSignText
+	text_end
+
+Route25GreenBeforeBattleText:
+	text_far _Route25GreenBeforeBattleText
+	text_end
+
+Route25GreenEndBattleText:
+	text_far _Route25GreenEndBattleText
+	text_end
+
+Route25GreenPlayerLoseText:
+	text_far _Route25GreenPlayerLoseText
+	text_end
+
+Route25GreenAfterBattleDisplayText:
+	text_far _Route25GreenAfterBattleText
 	text_end

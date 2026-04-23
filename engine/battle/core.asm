@@ -7131,10 +7131,19 @@ _LoadTrainerPic:
 	cp GREEN
 	jr z, .greenTrainerPic
 	cp GREEN_ROCKET
-	jr nz, .checkNinjaJanine
+	jr nz, .checkSpecialRocketPics
 	ld de, GreenRocketPic
 	ld a, BANK(GreenRocketPic)
 	jr .loadSprite
+.checkSpecialRocketPics
+	cp PETREL
+	jr z, .petrelTrainerPic
+	cp PROTON
+	jr z, .protonTrainerPic
+	cp UNUSED_JUGGLER
+	jr z, .arianaTrainerPic
+	cp ARCHER
+	jr z, .archerTrainerPic
 .checkNinjaJanine
 	cp NINJA
 	jr z, .ninjaTrainerPic
@@ -7142,6 +7151,22 @@ _LoadTrainerPic:
 	jr nz, .bankCheckLink
 	ld de, JaninePic
 	ld a, BANK(JaninePic)
+	jr .loadSprite
+.petrelTrainerPic
+	ld de, PetrelPic
+	ld a, BANK(PetrelPic)
+	jr .loadSprite
+.protonTrainerPic
+	ld de, ProtonPic
+	ld a, BANK(ProtonPic)
+	jr .loadSprite
+.archerTrainerPic
+	ld de, ArcherPic
+	ld a, BANK(ArcherPic)
+	jr .loadSprite
+.arianaTrainerPic
+	ld de, ArianaPic
+	ld a, BANK(ArianaPic)
 	jr .loadSprite
 .ninjaTrainerPic
 	ld de, NinjaPic

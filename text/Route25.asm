@@ -154,3 +154,131 @@ _Route25BillSignText::
 	text "SEA COTTAGE"
 	line "BILL lives here!"
 	done
+
+_Route25GreenBeforeBattleText::
+	text "...Hey <PLAYER>."
+
+	para "Haven't seen you"
+	line "since CINNABAR."
+
+	para "Feels like a"
+	line "while ago."
+
+	para "...You remember"
+	line "MEW."
+
+	para "It showed up..."
+
+	para "And chose me."
+
+	para "Hehe... guess it"
+	line "has good taste."
+
+	para "It's still"
+	line "unpredictable."
+
+	para "Does whatever it"
+	line "wants sometimes..."
+
+	para "...but I'm"
+	line "getting used"
+	cont "to it."
+
+	para "I've been working"
+	line "with it."
+
+	para "...And yeah."
+
+	para "I went after the"
+	line "others too."
+
+	para "ARTICUNO."
+	line "ZAPDOS."
+	cont "MOLTRES."
+
+	para "...Don't look"
+	line "like that."
+
+	para "I'm still not a"
+	line "fan of birds."
+
+	para "...but I handled"
+	line "it."
+
+	para "They listen."
+
+	para "...Mostly."
+
+	para "Same as MEW."
+
+	para "..."
+
+	para "So what about"
+	line "you?"
+
+	para "I hear you beat"
+	line "the ELITE FOUR..."
+
+	para "And <RIVAL>"
+	line "twice."
+
+	para "You've come a"
+	line "long way."
+
+	para "...Let's see if"
+	line "you've still"
+	cont "got it."
+	done
+
+_Route25GreenEndBattleText::
+	text "Wow...even with"
+	line "MEW by my side!"
+	prompt
+
+_Route25GreenPlayerLoseText::
+	text "Hehe... guess"
+	line "I've still got it."
+	prompt
+
+_Route25GreenAfterBattleText::
+	text "Hehe... kinda"
+	line "unfair."
+
+	para "MEW chose me, I"
+	line "tracked down..."
+
+	para "ARTICUNO,"
+	line "ZAPDOS,"
+	cont "MOLTRES..."
+
+	para "...and you still"
+	line "beat me."
+
+	para "Guess I can't be"
+	line "mad."
+
+	para "...you're really"
+	line "that good."
+
+	para "...Oh, right."
+
+	para "I've heard"
+	line "rumors."
+
+	para "<RIVAL>'s"
+	line "training at"
+	cont "CINNABAR."
+
+	para "He looked serious"
+	line "last time."
+
+	para "As serious as"
+	line "<RIVAL> can be,"
+	cont "anyways. Hehe."
+
+	para "You should really"
+	line "go see him."
+
+	para "...Hope I see you"
+	line "around, <PLAYER>."
+	done

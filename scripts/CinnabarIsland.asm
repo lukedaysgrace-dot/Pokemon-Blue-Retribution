@@ -12,31 +12,7 @@ CinnabarIsland_Script:
 CinnabarIslandMaybeShowBlueCloak:
 	CheckEvent EVENT_BEAT_VIRIDIAN_BLUE_CLOAK
 	ret nz
-	CheckEvent EVENT_REMATCH_DEFEATED_BROCK
-	ret z
-	CheckEvent EVENT_REMATCH_DEFEATED_MISTY
-	ret z
-	CheckEvent EVENT_REMATCH_DEFEATED_LT_SURGE
-	ret z
-	CheckEvent EVENT_REMATCH_DEFEATED_ERIKA
-	ret z
-	CheckEvent EVENT_REMATCH_DEFEATED_KOGA
-	ret z
-	CheckEvent EVENT_REMATCH_DEFEATED_BLAINE
-	ret z
-	CheckEvent EVENT_REMATCH_DEFEATED_SABRINA
-	ret z
-	CheckEvent EVENT_REMATCH_DEFEATED_GIOVANNI
-	ret z
-	CheckEvent EVENT_REMATCH_DEFEATED_LORELEI
-	ret z
-	CheckEvent EVENT_REMATCH_DEFEATED_KAREN
-	ret z
-	CheckEvent EVENT_REMATCH_DEFEATED_AGATHA
-	ret z
-	CheckEvent EVENT_REMATCH_DEFEATED_LANCE
-	ret z
-	CheckEvent EVENT_REMATCH_DEFEATED_RIVAL_CHAMPION
+	CheckEvent EVENT_BEAT_ROUTE25_GREEN
 	ret z
 	ld a, TOGGLE_CINNABAR_ISLAND_BLUE_CLOAK
 	ld [wToggleableObjectIndex], a
@@ -238,31 +214,7 @@ CinnabarIslandBlueCloakText:
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 .needAllRematches
-	CheckEvent EVENT_REMATCH_DEFEATED_BROCK
-	jp z, .notYet
-	CheckEvent EVENT_REMATCH_DEFEATED_MISTY
-	jp z, .notYet
-	CheckEvent EVENT_REMATCH_DEFEATED_LT_SURGE
-	jp z, .notYet
-	CheckEvent EVENT_REMATCH_DEFEATED_ERIKA
-	jp z, .notYet
-	CheckEvent EVENT_REMATCH_DEFEATED_KOGA
-	jp z, .notYet
-	CheckEvent EVENT_REMATCH_DEFEATED_BLAINE
-	jp z, .notYet
-	CheckEvent EVENT_REMATCH_DEFEATED_SABRINA
-	jp z, .notYet
-	CheckEvent EVENT_REMATCH_DEFEATED_GIOVANNI
-	jp z, .notYet
-	CheckEvent EVENT_REMATCH_DEFEATED_LORELEI
-	jp z, .notYet
-	CheckEvent EVENT_REMATCH_DEFEATED_KAREN
-	jp z, .notYet
-	CheckEvent EVENT_REMATCH_DEFEATED_AGATHA
-	jp z, .notYet
-	CheckEvent EVENT_REMATCH_DEFEATED_LANCE
-	jp z, .notYet
-	CheckEvent EVENT_REMATCH_DEFEATED_RIVAL_CHAMPION
+	CheckEvent EVENT_BEAT_ROUTE25_GREEN
 	jp z, .notYet
 	ld hl, CinnabarIslandBlueCloakPreBattleText1
 	call PrintText

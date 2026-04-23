@@ -205,6 +205,11 @@ gfx/pokemon/%.2bpp: gfx/pokemon/%.png
 	$(if $(tools/gfx),\
 		tools/gfx $(tools/gfx) -o $@ $@ || $$($(RM) $@ && false))
 
+gfx/trainers/petrel.2bpp gfx/trainers/proton.2bpp gfx/trainers/archer.2bpp gfx/trainers/ariana.2bpp: gfx/trainers/%.2bpp: gfx/trainers/%.png
+	$(RGBGFX) --colors auto $(RGBGFXFLAGS) -o $@ $<
+	$(if $(tools/gfx),\
+		tools/gfx $(tools/gfx) -o $@ $@ || $$($(RM) $@ && false))
+
 %.2bpp: %.png
 	$(RGBGFX) --colors dmg $(RGBGFXFLAGS) -o $@ $<
 	$(if $(tools/gfx),\

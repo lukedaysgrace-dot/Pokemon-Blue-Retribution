@@ -15,7 +15,7 @@ TrainerNamePointers:
 	dw wTrainerName
 	dw .BurglarName
 	dw .EngineerName
-	dw .UnusedJugglerName
+	dw wTrainerName
 	dw wTrainerName
 	dw .SwimmerName
 	dw wTrainerName
@@ -35,6 +35,9 @@ TrainerNamePointers:
 	dw .RocketName
 	dw .CooltrainerMName
 	dw .CooltrainerFName
+	dw wTrainerName
+	dw wTrainerName
+	dw wTrainerName
 	dw wTrainerName
 	dw wTrainerName
 	dw wTrainerName

@@ -69,4 +69,7 @@ DEF OPP_KAREN EQU OPP_BRUNO
 	trainer_const GREEN_ROCKET   ; $32
 	trainer_const NINJA          ; $33
 	trainer_const JANINE         ; $34
+	trainer_const PETREL         ; $35
+	trainer_const PROTON         ; $36
+	trainer_const ARCHER         ; $37
 DEF NUM_TRAINERS EQU const_value - 1

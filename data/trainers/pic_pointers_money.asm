@@ -12,14 +12,14 @@ TrainerPicAndMoneyPointers::
 	pic_money LassPic,         1500
 	pic_money SailorPic,       3000
 	pic_money JrTrainerMPic,   2000
-	pic_money JrTrainerFPic,   2000
+	pic_money GreenPicFront,   2000
 	pic_money PokemaniacPic,   5000
 	pic_money SuperNerdPic,    2500
 	pic_money HikerPic,        3500
 	pic_money BikerPic,        2000
 	pic_money BurglarPic,      9000
 	pic_money EngineerPic,     5000
-	pic_money JugglerPic,      3500
+	pic_money ArianaPic,       4500
 	pic_money FisherPic,       3500
 	pic_money SwimmerPic,       500
 	pic_money CueBallPic,      2500
@@ -55,8 +55,11 @@ TrainerPicAndMoneyPointers::
 	pic_money AgathaPic,       9900
 	pic_money LancePic,        9900
 	pic_money BlueCloakPic,     9900
-	pic_money JrTrainerFPic,   2000
+	pic_money GreenPicFront,   2000
 	pic_money GreenRocketPic,  3500
 	pic_money NinjaPic,        3500
 	pic_money JaninePic,       3500
+	pic_money PetrelPic,       4000
+	pic_money ProtonPic,       4000
+	pic_money ArcherPic,       4500
 	assert_table_length NUM_TRAINERS

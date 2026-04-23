@@ -12,7 +12,7 @@ TrainerDataPointers:
 	dw BikerData
 	dw BurglarData
 	dw EngineerData
-	dw UnusedJugglerData
+	dw ArianaData
 	dw FisherData
 	dw SwimmerData
 	dw CueBallData
@@ -52,6 +52,9 @@ TrainerDataPointers:
 	dw GreenRocketData
 	dw NinjaData
 	dw JanineData
+	dw PetrelData
+	dw ProtonData
+	dw ArcherData
 	assert_table_length NUM_TRAINERS
 
 ; if first byte != $FF, then
@@ -753,6 +756,10 @@ GreenData:
 	db $FF, 40, WIGGLYTUFF, 40, NIDOQUEEN, 40, UMBREON, 40, MESMERIA, 40, VENUSAUR, 40, RAPIDASH, 0
 	db $FF, 40, WIGGLYTUFF, 40, NIDOQUEEN, 40, UMBREON, 40, MESMERIA, 40, CHARIZARD, 40, KINGDRA, 0
 	db $FF, 40, WIGGLYTUFF, 40, NIDOQUEEN, 40, UMBREON, 40, MESMERIA, 40, BLASTOISE, 40, VICTREEBEL, 0
+; Route 25 postgame - wTrainerNo 10-12; starter mapping mirrors earlier Green fights
+	db $FF, 65, VENUSAUR, 65, MESMERIA, 65, MOLTRES, 65, ARTICUNO, 65, ZAPDOS, 65, MEW, 0
+	db $FF, 65, CHARIZARD, 65, MESMERIA, 65, MOLTRES, 65, ARTICUNO, 65, ZAPDOS, 65, MEW, 0
+	db $FF, 65, BLASTOISE, 65, MESMERIA, 65, MOLTRES, 65, ARTICUNO, 65, ZAPDOS, 65, MEW, 0
 
 GreenRocketData:
 ; Rocket Hideout B2F — wTrainerNo 1–3 (mirror Route 5 / Route 10 starter mapping)
@@ -774,3 +781,19 @@ NinjaData:
 JanineData:
 ; Fuchsia Gym
 	db 34, GOLBAT, VENOMOTH, 0
+
+PetrelData:
+; Rocket Hideout B4F
+	db $FF, 22, KOFFING, 23, GOLBAT, 24, WEEZING, 0
+
+ProtonData:
+; Rocket Hideout B4F
+	db $FF, 22, GOLBAT, 23, KOFFING, 24, ARBOK, 0
+
+ArcherData:
+; Silph Co. 11F
+	db $FF, 31, GOLBAT, 31, ELECTRODE, 32, PERSIAN, 33, WEEZING, 0
+
+ArianaData:
+; Silph Co. 11F
+	db $FF, 31, ARBOK, 31, GLOOM, 32, MURKROW, 33, NINETALES, 0

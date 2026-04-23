@@ -9,6 +9,7 @@
 	const_export ROUTE25_HIKER2
 	const_export ROUTE25_HIKER3
 	const_export ROUTE25_TM_SEISMIC_TOSS
+	const_export ROUTE25_GREEN
 
 Route25_Object:
 	db $2c ; border block
@@ -30,5 +31,6 @@ Route25_Object:
 	object_event 23,  9, SPRITE_HIKER, STAY, UP, TEXT_ROUTE25_HIKER2, OPP_HIKER, 3
 	object_event 13,  7, SPRITE_HIKER, STAY, RIGHT, TEXT_ROUTE25_HIKER3, OPP_HIKER, 4
 	object_event 22,  2, SPRITE_POKE_BALL, STAY, NONE, TEXT_ROUTE25_TM_SEISMIC_TOSS, TM_SEISMIC_TOSS
+	object_event 47, 11, SPRITE_UNUSED_SCIENTIST, STAY, DOWN, TEXT_ROUTE25_GREEN, OPP_GREEN, 10
 
 	def_warps_to ROUTE_25

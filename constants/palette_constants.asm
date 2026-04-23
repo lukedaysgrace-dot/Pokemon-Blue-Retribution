@@ -262,7 +262,11 @@ IF GEN_2_GRAPHICS
 	const PAL_CHANNELER     ; $E8
 	const PAL_AGATHA        ; $E9
 	const PAL_LANCE         ; $EA
-	const PAL_HERO          ; $EB
+	const PAL_ARCHER        ; $EB
+	const PAL_ARIANA        ; $EC
+	const PAL_PETREL        ; $ED
+	const PAL_PROTON        ; $EE
+	const PAL_HERO          ; $EF
 ENDC
 IF !GEN_2_GRAPHICS
 	const PAL_YOUNGSTER     ; $25
@@ -312,6 +316,10 @@ IF !GEN_2_GRAPHICS
 	const PAL_CHANNELER     ; $51
 	const PAL_AGATHA        ; $52
 	const PAL_LANCE         ; $53
-	const PAL_HERO          ; $54
+	const PAL_ARCHER        ; $54
+	const PAL_ARIANA        ; $55
+	const PAL_PETREL        ; $56
+	const PAL_PROTON        ; $57
+	const PAL_HERO          ; $58
 ENDC
 DEF NUM_SGB_PALS EQU const_value

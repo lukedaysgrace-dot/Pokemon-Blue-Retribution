@@ -17,4 +17,7 @@ EvilTrainerList::
 	db OPP_ROCKET
 	db OPP_GREEN_ROCKET
 	db OPP_NINJA
+	db OPP_PETREL
+	db OPP_PROTON
+	db OPP_ARCHER
 	db -1 ; end
