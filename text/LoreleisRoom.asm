@@ -59,3 +59,19 @@ _LoreleisRoomLoreleiRematchDefeatText::
 	cont "The cold couldn't"
 	cont "stop you."
 	prompt
+
+; Same lines as defeat; overworld expects @ (done), not battle @ (prompt).
+_LoreleisRoomLoreleiRematchDefeatOverworldText::
+	text "Impressive..."
+	line "You didn't crack."
+	cont "The cold couldn't"
+	cont "stop you."
+	done
+
+_LoreleisRoomLoreleiRematchMustRestartText::
+	text "If you want another"
+	line "shot at me, you'll"
+	cont "have to enter the"
+	cont "LEAGUE from the"
+	cont "LOBBY again."
+	done

@@ -1,11 +1,11 @@
 Route1WildMons:
 	def_grass_wildmons 25 ; encounter rate
-	db  3, MISDREAVUS
-	db  3, MISMAGIUS
-	db  3, DUSKULL
-	db  2, DUSCLOPS
-	db  2, LARVITAR
-	db  3, PUPITAR
+	db  3, SALAMENCE
+	db  3, CROAGUNK
+	db  3, TOXICROAK
+	db  2, RHYPERIOR
+	db  2, WEAVILE
+	db  3, SNEASEL
 	db  3, PORYGON_Z
 	db  4, CROBAT
 	db  4, SCIZOR

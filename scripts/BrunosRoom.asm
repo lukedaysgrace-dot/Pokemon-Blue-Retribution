@@ -117,11 +117,14 @@ KarensRoomKarenEndBattleScript:
 
 KarensRoomKarenRematchEndBattleScript:
 	call EndTrainerBattle
+	xor a
+	ld [wJoyIgnore], a
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetKarenScript
-	ld hl, KarenRematchVictoryText
+	ld hl, KarenRematchVictoryOverworldText
 	call PrintText
+	SetEvent EVENT_BEAT_KARENS_ROOM_TRAINER_0
 	SetEvent EVENT_REMATCH_DEFEATED_KAREN
 	jp ResetKarenScript
 
@@ -140,6 +143,12 @@ KarensRoomKarenText:
 	text_asm
 	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
 	jr z, .vanilla
+	CheckEvent EVENT_BEAT_KARENS_ROOM_TRAINER_0
+	jr z, .rematch
+	ld hl, KarenRematchMustRestartText
+	call PrintText
+	jp TextScriptEnd
+.rematch
 	ld hl, KarenRematchPreBattleText
 	call PrintText
 	ld hl, wStatusFlags3
@@ -148,6 +157,10 @@ KarensRoomKarenText:
 	ld hl, KarenRematchEndBattleText
 	ld de, KarenRematchEndBattleText
 	call SaveEndBattleTextPointers
+	ld hl, KarensRoomTrainerHeader0
+	call StoreTrainerHeaderPointer
+	xor a
+	call ReadTrainerHeaderInfo
 	ldh a, [hSpriteIndex]
 	ld [wSpriteIndex], a
 	call EngageMapTrainer
@@ -173,8 +186,12 @@ KarenRematchEndBattleText:
 	text_far _KarenRematchDefeatText
 	text_end
 
-KarenRematchVictoryText:
-	text_far _KarenRematchDefeatText
+KarenRematchVictoryOverworldText:
+	text_far _KarenRematchDefeatOverworldText
+	text_end
+
+KarenRematchMustRestartText:
+	text_far _KarenRematchMustRestartText
 	text_end
 
 KarenBeforeBattleText:

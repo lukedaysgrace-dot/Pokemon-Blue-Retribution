@@ -167,3 +167,21 @@ _ChampionsRoomRivalRematchDefeatedText::
 	cont "I'll get my title"
 	cont "back, just wait!"
 	prompt
+
+_ChampionsRoomRivalRematchLobbyOnlyText::
+	text "Want another title"
+	line "match? You'll have"
+	cont "to challenge the"
+	cont "ELITE FOUR again"
+	cont "from the LOBBY."
+	done
+
+_ChampionsRoomRivalRematchAfterWinCutsceneText::
+	text "...No way..."
+	line "I still can't take"
+	cont "you down?!"
+	cont "Tch... fine."
+	cont "Stay CHAMPION."
+	cont "I'll get my title"
+	cont "back, just wait!"
+	done

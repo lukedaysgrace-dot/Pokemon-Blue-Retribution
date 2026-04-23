@@ -247,4 +247,6 @@ MonsterNames::
 	dname "SNEASEL"
 	dname "WEAVILE"
 	dname "MESMERIA"
+	dname "CROAGUNK"
+	dname "TOXICROAK"
 	assert_table_length NUM_POKEMON_INDEXES

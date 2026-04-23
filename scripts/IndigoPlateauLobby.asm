@@ -12,6 +12,8 @@ IndigoPlateauLobby_Script:
 	res BIT_STARTED_ELITE_4, [hl]
 	ret z
 	ResetEventRange INDIGO_PLATEAU_EVENTS_START, EVENT_LANCES_ROOM_LOCK_DOOR
+	; New run: allow passage to CHAMPIONS_ROOM after Lance until rival is beaten again
+	ResetEvent EVENT_REMATCH_DEFEATED_RIVAL_CHAMPION
 	ret
 
 IndigoPlateauLobby_TextPointers:

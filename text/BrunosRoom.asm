@@ -119,3 +119,16 @@ _KarenRematchDefeatText::
 	line "That was a good"
 	cont "battle."
 	prompt
+
+_KarenRematchDefeatOverworldText::
+	text "Well done."
+	line "That was a good"
+	cont "battle."
+	done
+
+_KarenRematchMustRestartText::
+	text "Challenge the ELITE"
+	line "FOUR again from"
+	cont "the LOBBY if you"
+	cont "want a rematch."
+	done

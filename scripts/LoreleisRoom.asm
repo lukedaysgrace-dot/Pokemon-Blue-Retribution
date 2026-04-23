@@ -119,11 +119,14 @@ LoreleisRoomLoreleiEndBattleScript:
 
 LoreleisRoomLoreleiRematchEndBattleScript:
 	call EndTrainerBattle
+	xor a
+	ld [wJoyIgnore], a
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetLoreleiScript
-	ld hl, LoreleiRematchVictoryText
+	ld hl, LoreleiRematchVictoryOverworldText
 	call PrintText
+	SetEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_0
 	SetEvent EVENT_REMATCH_DEFEATED_LORELEI
 	jp ResetLoreleiScript
 
@@ -142,6 +145,12 @@ LoreleisRoomLoreleiText:
 	text_asm
 	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
 	jr z, .vanilla
+	CheckEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_0
+	jr z, .rematch
+	ld hl, LoreleiRematchMustRestartText
+	call PrintText
+	jp TextScriptEnd
+.rematch
 	ld hl, LoreleiRematchPreBattleText
 	call PrintText
 	ld hl, wStatusFlags3
@@ -150,6 +159,10 @@ LoreleisRoomLoreleiText:
 	ld hl, LoreleiRematchEndBattleText
 	ld de, LoreleiRematchEndBattleText
 	call SaveEndBattleTextPointers
+	ld hl, LoreleisRoomTrainerHeader0
+	call StoreTrainerHeaderPointer
+	xor a
+	call ReadTrainerHeaderInfo
 	ldh a, [hSpriteIndex]
 	ld [wSpriteIndex], a
 	call EngageMapTrainer
@@ -175,8 +188,12 @@ LoreleiRematchEndBattleText:
 	text_far _LoreleisRoomLoreleiRematchDefeatText
 	text_end
 
-LoreleiRematchVictoryText:
-	text_far _LoreleisRoomLoreleiRematchDefeatText
+LoreleiRematchVictoryOverworldText:
+	text_far _LoreleisRoomLoreleiRematchDefeatOverworldText
+	text_end
+
+LoreleiRematchMustRestartText:
+	text_far _LoreleisRoomLoreleiRematchMustRestartText
 	text_end
 
 LoreleisRoomLoreleiBeforeBattleText:

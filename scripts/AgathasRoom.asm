@@ -120,12 +120,17 @@ AgathasRoomAgathaEndBattleScript:
 
 AgathasRoomAgathaRematchEndBattleScript:
 	call EndTrainerBattle
+	xor a
+	ld [wJoyIgnore], a
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetAgathaScript
-	ld hl, AgathaRematchVictoryText
+	ld hl, AgathaRematchVictoryOverworldText
 	call PrintText
+	SetEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_0
 	SetEvent EVENT_REMATCH_DEFEATED_AGATHA
+	ld a, SCRIPT_CHAMPIONSROOM_PLAYER_ENTERS
+	ld [wChampionsRoomCurScript], a
 	jp ResetAgathaScript
 
 AgathasRoom_TextPointers:
@@ -143,6 +148,12 @@ AgathasRoomAgathaText:
 	text_asm
 	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
 	jr z, .vanilla
+	CheckEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_0
+	jr z, .rematch
+	ld hl, AgathaRematchMustRestartText
+	call PrintText
+	jp TextScriptEnd
+.rematch
 	ld hl, AgathaRematchPreBattleText
 	call PrintText
 	ld hl, wStatusFlags3
@@ -151,6 +162,10 @@ AgathasRoomAgathaText:
 	ld hl, AgathaRematchEndBattleText
 	ld de, AgathaRematchEndBattleText
 	call SaveEndBattleTextPointers
+	ld hl, AgathasRoomTrainerHeader0
+	call StoreTrainerHeaderPointer
+	xor a
+	call ReadTrainerHeaderInfo
 	ldh a, [hSpriteIndex]
 	ld [wSpriteIndex], a
 	call EngageMapTrainer
@@ -176,8 +191,12 @@ AgathaRematchEndBattleText:
 	text_far _AgathaRematchDefeatText
 	text_end
 
-AgathaRematchVictoryText:
-	text_far _AgathaRematchDefeatText
+AgathaRematchVictoryOverworldText:
+	text_far _AgathaRematchDefeatOverworldText
+	text_end
+
+AgathaRematchMustRestartText:
+	text_far _AgathaRematchMustRestartText
 	text_end
 
 AgathaBeforeBattleText:

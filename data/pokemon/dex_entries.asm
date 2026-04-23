@@ -247,6 +247,8 @@ PokedexEntryPointers:
 	dw SneaselDexEntry
 	dw WeavileDexEntry
 	dw MesmeriaDexEntry
+	dw CroagunkDexEntry
+	dw ToxicroakDexEntry
 	assert_table_length NUM_POKEMON_INDEXES
 
 ; string: species name
@@ -1708,6 +1710,20 @@ MesmeriaDexEntry:
 	db 4, 7
 	dw 890
 	text_far _MesmeriaDexEntry
+	text_end
+
+CroagunkDexEntry:
+	db "VENOM@"
+	db 2, 7
+	dw 507
+	text_far _CroagunkDexEntry
+	text_end
+
+ToxicroakDexEntry:
+	db "TOXIC@"
+	db 4, 3
+	dw 979
+	text_far _ToxicroakDexEntry
 	text_end
 
 MissingNoDexEntry:

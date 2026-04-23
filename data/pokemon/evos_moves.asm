@@ -257,6 +257,8 @@ EvosMovesPointerTable:
 	dw SneaselEvosMoves
 	dw WeavileEvosMoves
 	dw MesmeriaEvosMoves
+	dw CroagunkEvosMoves
+	dw ToxicroakEvosMoves
 	assert_table_length NUM_POKEMON_INDEXES
 
 RhydonEvosMoves:
@@ -2940,4 +2942,36 @@ MesmeriaEvosMoves:
 	db 39, BODY_SLAM
 	db 47, THRASH
 	db 58, BLIZZARD
+	db 0
+
+CroagunkEvosMoves:
+; Evolutions
+	db EVOLVE_LEVEL, 37, TOXICROAK
+	db 0
+; Learnset
+	db 1, POISON_STING
+	db 6, POUND
+	db 10, BITE
+	db 14, KARATE_CHOP
+	db 18, ACID
+	db 22, HEADBUTT
+	db 26, MACH_PUNCH
+	db 30, SLUDGE
+	db 33, LOW_KICK
+	db 36, SLUDGE_BOMB
+	db 0
+
+ToxicroakEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 1, POISON_STING
+	db 8, BITE
+	db 15, KARATE_CHOP
+	db 22, HEADBUTT
+	db 29, SLUDGE
+	db 36, SUBMISSION
+	db 43, SLUDGE_BOMB
+	db 50, HI_JUMP_KICK
+	db 57, CRUNCH
 	db 0

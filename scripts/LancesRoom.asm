@@ -100,11 +100,14 @@ LancesRoomLanceEndBattleScript:
 
 LancesRoomLanceRematchEndBattleScript:
 	call EndTrainerBattle
+	xor a
+	ld [wJoyIgnore], a
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetLanceScript
-	ld hl, LanceRematchVictoryText
+	ld hl, LanceRematchVictoryOverworldText
 	call PrintText
+	SetEvent EVENT_BEAT_LANCES_ROOM_TRAINER_0
 	SetEvent EVENT_REMATCH_DEFEATED_LANCE
 	jp ResetLanceScript
 
@@ -155,6 +158,19 @@ LancesRoomLanceText:
 	text_asm
 	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
 	jr z, .vanilla
+	CheckEvent EVENT_BEAT_LANCES_ROOM_TRAINER_0
+	jr z, .rematch
+; Beat Lance this run — must not block CHAMPIONS_ROOM until the rival rematch is won.
+	CheckEvent EVENT_REMATCH_DEFEATED_RIVAL_CHAMPION
+	jr nz, .rematchFinishedThisRun
+	ld hl, LanceGoFightChampionReminderText
+	call PrintText
+	jp TextScriptEnd
+.rematchFinishedThisRun
+	ld hl, LanceRematchMustRestartText
+	call PrintText
+	jp TextScriptEnd
+.rematch
 	ld hl, LanceRematchPreBattleText
 	call PrintText
 	ld hl, wStatusFlags3
@@ -163,6 +179,10 @@ LancesRoomLanceText:
 	ld hl, LanceRematchEndBattleText
 	ld de, LanceRematchEndBattleText
 	call SaveEndBattleTextPointers
+	ld hl, LancesRoomTrainerHeader0
+	call StoreTrainerHeaderPointer
+	xor a
+	call ReadTrainerHeaderInfo
 	ldh a, [hSpriteIndex]
 	ld [wSpriteIndex], a
 	call EngageMapTrainer
@@ -188,8 +208,16 @@ LanceRematchEndBattleText:
 	text_far _LancesRoomLanceRematchDefeatText
 	text_end
 
-LanceRematchVictoryText:
-	text_far _LancesRoomLanceRematchDefeatText
+LanceRematchVictoryOverworldText:
+	text_far _LancesRoomLanceRematchDefeatOverworldText
+	text_end
+
+LanceRematchMustRestartText:
+	text_far _LancesRoomLanceRematchMustRestartText
+	text_end
+
+LanceGoFightChampionReminderText:
+	text_far _LancesRoomLanceGoFightChampionReminderText
 	text_end
 
 LancesRoomLanceBeforeBattleText:

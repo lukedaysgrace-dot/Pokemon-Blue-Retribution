@@ -212,5 +212,7 @@
 	const DEX_SNEASEL    ; 206
 	const DEX_WEAVILE    ; 207
 	const DEX_MESMERIA   ; 208
+	const DEX_CROAGUNK   ; 209
+	const DEX_TOXICROAK  ; 210
 
 DEF NUM_POKEMON EQU const_value - 1

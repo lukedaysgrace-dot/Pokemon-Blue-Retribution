@@ -448,6 +448,14 @@ WhirlipedePicBack::    INCBIN "gfx/pokemon/back/whirlipedeb.pic"
 MesmeriaPicFront::     INCBIN "gfx/pokemon/front/mesmeria.pic"
 MesmeriaPicBack::      INCBIN "gfx/pokemon/back/mesmeriab.pic"
 
+; Croagunk/Toxicroak in their own bank — "Pics 7" was at the $4000 ROM bank limit.
+SECTION "Pics 8", ROMX
+
+CroagunkPicFront::     INCBIN "gfx/pokemon/front/croagunk.pic"
+CroagunkPicBack::      INCBIN "gfx/pokemon/back/croagunkb.pic"
+ToxicroakPicFront::    INCBIN "gfx/pokemon/front/toxicroak.pic"
+ToxicroakPicBack::     INCBIN "gfx/pokemon/back/toxicroakb.pic"
+
 
 SECTION "Trainer Pics", ROMX
 

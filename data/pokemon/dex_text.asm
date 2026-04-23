@@ -2031,3 +2031,22 @@ _MesmeriaDexEntry::
 	page "with a cold, sly"
 	next "smile."
 	dex
+
+_CroagunkDexEntry::
+	text "The poison sacs on"
+	next "its cheeks inflate"
+	next "when it senses a"
+
+	page "fight, then it"
+	next "strikes with jabs"
+	next "to fluster foes."
+	dex
+
+_ToxicroakDexEntry::
+	text "It knocks foes over"
+	next "with sweeping kicks,"
+	next "then coats them with"
+
+	page "potent toxin from"
+	next "its knuckle spines."
+	dex

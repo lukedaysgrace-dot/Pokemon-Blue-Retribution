@@ -281,22 +281,49 @@ ChampionsRoom_TextPointers:
 
 ChampionsRoomRivalText:
 	text_asm
+; SCRIPT_* tells cutscene vs free roam; flags alone can't (first-title win sets BEAT_CHAMPION
+; with REMATCH clear, same as rematch pending).
+	ld a, [wChampionsRoomCurScript]
+	cp SCRIPT_CHAMPIONSROOM_RIVAL_READY_TO_BATTLE
+	jr z, .cutscenePreBattle
+	cp SCRIPT_CHAMPIONSROOM_RIVAL_DEFEATED
+	jr z, .cutscenePostBattle
+; Free roam (talking to rival on the map)
 	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
-	jr z, .beforeChampionBattle
-	CheckEvent EVENT_HEARD_CHAMPION_RIVAL_POST_LOSS_DIALOGUE
-	jr nz, .rivalRematchTalk
-	ld hl, ChampionsRoomRivalAfterBattleText
-	call PrintText
-	SetEvent EVENT_HEARD_CHAMPION_RIVAL_POST_LOSS_DIALOGUE
-	jp TextScriptEnd
-
-.rivalRematchTalk
+	jr z, .freeRoamFirstTitleStill
+	CheckEvent EVENT_REMATCH_DEFEATED_RIVAL_CHAMPION
+	jr nz, .freeRoamIdleLobby
 	ld hl, ChampionsRoomRivalRematchPreBattleTextScript
 	call PrintText
 	jp TextScriptEnd
-
-.beforeChampionBattle
+.freeRoamFirstTitleStill
 	ld hl, ChampionsRoomRivalIntroTextScript
+	call PrintText
+	jp TextScriptEnd
+.freeRoamIdleLobby
+	ld hl, ChampionsRoomRivalRematchLobbyOnlyText
+	call PrintText
+	jp TextScriptEnd
+
+.cutscenePreBattle
+	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	jr z, .introFirstTitle
+	ld hl, ChampionsRoomRivalRematchPreBattleTextScript
+	call PrintText
+	jp TextScriptEnd
+.introFirstTitle
+	ld hl, ChampionsRoomRivalIntroTextScript
+	call PrintText
+	jp TextScriptEnd
+
+.cutscenePostBattle
+	CheckEvent EVENT_REMATCH_DEFEATED_RIVAL_CHAMPION
+	jr nz, .postRematchWin
+	ld hl, ChampionsRoomRivalAfterBattleText
+	call PrintText
+	jp TextScriptEnd
+.postRematchWin
+	ld hl, ChampionsRoomRivalRematchAfterWinCutsceneText
 	call PrintText
 	jp TextScriptEnd
 
@@ -322,6 +349,14 @@ RivalVictoryText:
 
 ChampionsRoomRivalAfterBattleText:
 	text_far _ChampionsRoomRivalAfterBattleText
+	text_end
+
+ChampionsRoomRivalRematchLobbyOnlyText:
+	text_far _ChampionsRoomRivalRematchLobbyOnlyText
+	text_end
+
+ChampionsRoomRivalRematchAfterWinCutsceneText:
+	text_far _ChampionsRoomRivalRematchAfterWinCutsceneText
 	text_end
 
 ChampionsRoomOakText:

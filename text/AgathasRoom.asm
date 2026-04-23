@@ -60,3 +60,19 @@ _AgathaRematchDefeatText::
 	cont "That title suits"
 	cont "you after all..."
 	prompt
+
+_AgathaRematchDefeatOverworldText::
+	text "Ha!"
+	line "Even now, you"
+	cont "don't falter."
+	cont "That title suits"
+	cont "you after all..."
+	done
+
+_AgathaRematchMustRestartText::
+	text "Want another bout?"
+	line "You'll have to"
+	cont "restart from the"
+	cont "#MON LEAGUE"
+	cont "LOBBY."
+	done

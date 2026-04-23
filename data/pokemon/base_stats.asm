@@ -208,4 +208,6 @@ INCLUDE "data/pokemon/base_stats/scolipede.asm"
 INCLUDE "data/pokemon/base_stats/sneasel.asm"
 INCLUDE "data/pokemon/base_stats/weavile.asm"
 INCLUDE "data/pokemon/base_stats/mesmeria.asm"
+INCLUDE "data/pokemon/base_stats/croagunk.asm"
+INCLUDE "data/pokemon/base_stats/toxicroak.asm"
 	assert_table_length NUM_POKEMON

@@ -253,4 +253,6 @@ CryData::
 	mon_cry SFX_CRY_0A, $DD, $60 ; Sneasel
 	mon_cry SFX_CRY_10, $DD, $01 ; Weavile
 	mon_cry SFX_CRY_0D, $FF, $FF ; Mesmeria
+	mon_cry SFX_CRY_1D, $40, $70 ; Croagunk
+	mon_cry SFX_CRY_1D, $20, $90 ; Toxicroak
 	assert_table_length NUM_POKEMON_INDEXES

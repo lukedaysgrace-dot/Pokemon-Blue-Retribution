@@ -207,5 +207,7 @@ MonPartyData:
 	db ICON_MEOWTH        ; Sneasel
 	db ICON_MEOWTH        ; Weavile
 	db ICON_JYNX          ; Mesmeria
+	db ICON_POLIWAG       ; Croagunk
+	db ICON_POLIWHIRL     ; Toxicroak
 
 ASSERT @ - MonPartyData == NUM_POKEMON

@@ -17,7 +17,8 @@ UncompressMonSprite::
 ; $74 ≤ index < $99:       bank $C ("Pics 4")
 ; $99 ≤ index < CHIKORITA: bank $D ("Pics 5")
 ; CHIKORITA ≤ index < GOLETT: bank with "Pics 6"
-; GOLETT ≤ index:         bank with "Pics 7"
+; GOLETT ≤ index < CROAGUNK: bank with "Pics 7"
+; CROAGUNK ≤ index:         bank with "Pics 8"
 	ld a, [wCurPartySpecies]
 	ld b, a
 	cp MEW
@@ -43,6 +44,10 @@ UncompressMonSprite::
 	cp STARMIE + 1
 	ld a, BANK("Pics 4")
 	jr c, .GotBank
+	ld a, b
+	cp CROAGUNK
+	ld a, BANK("Pics 8")
+	jr nc, .GotBank
 	ld a, b
 	cp GOLETT
 	ld a, BANK("Pics 7")

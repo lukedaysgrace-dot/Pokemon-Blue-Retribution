@@ -247,4 +247,6 @@ PokedexOrder:
 	db DEX_SNEASEL
 	db DEX_WEAVILE
 	db DEX_MESMERIA
+	db DEX_CROAGUNK
+	db DEX_TOXICROAK
 	assert_table_length NUM_POKEMON_INDEXES

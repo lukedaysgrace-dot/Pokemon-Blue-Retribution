@@ -254,8 +254,10 @@
 	const SNEASEL            ; $F5
 	const WEAVILE            ; $F6
 	const MESMERIA           ; $F7
+	const CROAGUNK           ; $F8
+	const TOXICROAK          ; $F9
 
-; Extended species ($BF–$F7): same sequence in every species-indexed table (EvosMovesPointerTable,
+; Extended species ($BF–$F9): same sequence in every species-indexed table (EvosMovesPointerTable,
 ; CryData, names.asm, dex_order.asm, dex_entries PokedexEntryPointers). MonPartyData and
 ; MonsterPalettes are indexed by National Dex number instead (see engine/gfx/mon_icons.asm).
 

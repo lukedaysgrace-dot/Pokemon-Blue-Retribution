@@ -79,3 +79,26 @@ _LancesRoomLanceRematchDefeatText::
 	cont "A CHAMPION in"
 	cont "more than name!"
 	prompt
+
+_LancesRoomLanceRematchDefeatOverworldText::
+	text "...You've grown"
+	line "stronger since"
+	cont "your last fight."
+	cont "A CHAMPION in"
+	cont "more than name!"
+	done
+
+_LancesRoomLanceRematchMustRestartText::
+	text "Face the ELITE"
+	line "FOUR from the"
+	cont "start through the"
+	cont "LOBBY if you wish"
+	cont "to battle again."
+	done
+
+_LancesRoomLanceGoFightChampionReminderText::
+	text "The CHAMPION is"
+	line "waiting past those"
+	cont "doors—don't keep"
+	cont "them waiting!"
+	done
