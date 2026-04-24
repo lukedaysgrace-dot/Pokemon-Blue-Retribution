@@ -7140,7 +7140,7 @@ _LoadTrainerPic:
 	jr z, .petrelTrainerPic
 	cp PROTON
 	jr z, .protonTrainerPic
-	cp UNUSED_JUGGLER
+	cp ARIANA
 	jr z, .arianaTrainerPic
 	cp ARCHER
 	jr z, .archerTrainerPic

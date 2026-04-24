@@ -1,7 +1,6 @@
 Route25_Script:
 	call Route25ToggleBillsScript
 	call EnableAutoTextBoxDrawing
-	call Route25GreenIdleLookAround
 	ld hl, Route25TrainerHeaders
 	ld de, Route25_ScriptPointers
 	ld a, [wRoute25CurScript]
@@ -152,7 +151,6 @@ Route25Hiker3Text:
 Route25GreenText:
 	text_asm
 	call Route25GreenFacePlayer
-	call UpdateSprites
 	CheckEvent EVENT_BEAT_ROUTE25_GREEN
 	jr z, .before_battle
 	ld hl, Route25GreenAfterBattleDisplayText
@@ -191,48 +189,65 @@ Route25GreenText:
 .done
 	jp TextScriptEnd
 
+; Do not call TalkToTrainer without ld hl, trainer_header — it corrupts state and causes "<NULL>" text
+; (shows "11 ERROR." — 11 is hTextID / sprite slot). Facing skips CheckSpriteAvailability so water tiles work.
 Route25GreenFacePlayer:
+	ld a, [wSpriteIndex]
+	and a
+	jr nz, .have_slot
+	call Route25FindGreenSpriteIndex
+	ret c
+.have_slot
+	ld a, [wStatusFlags3]
+	bit BIT_NO_NPC_FACE_PLAYER, a
+	ret nz
 	ld a, [wPlayerDirection]
 	bit PLAYER_DIR_BIT_UP, a
-	jr z, .not_facing_up
+	jr z, .pd1
 	ld a, SPRITE_FACING_DOWN
 	jr .set_facing
-.not_facing_up
+.pd1
 	bit PLAYER_DIR_BIT_DOWN, a
-	jr z, .not_facing_down
+	jr z, .pd2
 	ld a, SPRITE_FACING_UP
 	jr .set_facing
-.not_facing_down
+.pd2
 	bit PLAYER_DIR_BIT_LEFT, a
-	jr z, .not_facing_left
+	jr z, .pd3
 	ld a, SPRITE_FACING_RIGHT
 	jr .set_facing
-.not_facing_left
+.pd3
 	ld a, SPRITE_FACING_LEFT
 .set_facing
 	ldh [hSpriteFacingDirection], a
-	ld a, ROUTE25_GREEN
-	ldh [hSpriteIndex], a
+	ldh a, [hSpriteIndex]
 	jp SetSpriteFacingDirectionAndDelay
 
-Route25GreenIdleLookAround:
-	ld a, [wRoute25CurScript]
+Route25FindGreenSpriteIndex:
+	ld hl, wMapSpriteData + 1
+	ld a, [wNumSprites]
+	ld b, a
+	ld c, 1
+.loop
+	ld a, b
 	and a
-	ret nz
-	ld a, [wFontLoaded]
-	bit BIT_FONT_LOADED, a
-	ret nz
-	ldh a, [hFrameCounter]
-	and $3f
-	ret nz
-	CheckEvent EVENT_REMATCH_DEFEATED_RIVAL_CHAMPION
-	ret z
-	call Random
-	and $c
-	ldh [hSpriteFacingDirection], a
-	ld a, ROUTE25_GREEN
+	jr z, .not_found
+	ld a, [hl]
+	cp TEXT_ROUTE25_GREEN
+	jr z, .found
+	inc hl
+	inc hl
+	inc c
+	dec b
+	jr .loop
+.found
+	ld a, c
 	ldh [hSpriteIndex], a
-	jp SetSpriteFacingDirection
+	and a
+	ret
+.not_found
+	scf
+	ret
 
 Route25GreenAfterBattleScript:
 	ld a, [wIsInBattle]

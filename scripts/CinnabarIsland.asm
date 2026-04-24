@@ -62,8 +62,6 @@ CinnabarIslandBlueCloakAfterBattleScript:
 	ld a, SCRIPT_CINNABARISLAND_DEFAULT
 	ld [wCinnabarIslandCurScript], a
 	ld [wCurMapScript], a
-	xor a
-	ld [wStatusFlags3], a
 	ld a, PALLET_TOWN
 	ld [wLastBlackoutMap], a
 	ld [wDestinationMap], a

@@ -204,7 +204,7 @@ TrainerPalettes: ; Gen II trainer sprites are given their own palettes
 	db PAL_LANCE
 	db PAL_GARY3
 	db PAL_JR_TRAINER_F
-	db PAL_ROCKET
+	db PAL_JR_TRAINER_F
 	db PAL_KOGA
 	db PAL_KOGA
 	db PAL_PETREL
@@ -476,7 +476,7 @@ TrainerPalettes:
 	db PAL_LANCE
 	db PAL_GARY3
 	db PAL_JR_TRAINER_F
-	db PAL_ROCKET
+	db PAL_JR_TRAINER_F
 	db PAL_KOGA
 	db PAL_KOGA
 	db PAL_PETREL

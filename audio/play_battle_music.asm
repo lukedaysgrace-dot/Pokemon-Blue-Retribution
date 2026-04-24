@@ -20,6 +20,8 @@ PlayBattleMusic::
 	jr z, .finalBattle
 	cp OPP_BLUE_CLOAK
 	jr z, .finalBattle
+	cp OPP_GREEN
+	jr z, .finalBattle
 	cp OPP_LANCE
 	jr nz, .normalTrainerBattle
 	ld a, MUSIC_GYM_LEADER_BATTLE ; lance also plays gym leader theme

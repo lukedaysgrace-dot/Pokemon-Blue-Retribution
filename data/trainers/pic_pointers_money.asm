@@ -12,7 +12,7 @@ TrainerPicAndMoneyPointers::
 	pic_money LassPic,         1500
 	pic_money SailorPic,       3000
 	pic_money JrTrainerMPic,   2000
-	pic_money GreenPicFront,   2000
+	pic_money JrTrainerFPic,   2000
 	pic_money PokemaniacPic,   5000
 	pic_money SuperNerdPic,    2500
 	pic_money HikerPic,        3500

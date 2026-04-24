@@ -16,7 +16,7 @@ TrainerAIPointers:
 	dbw 3, GenericAI
 	dbw 3, GenericAI
 	dbw 3, GenericAI
-	dbw 3, GenericAI ; unused_juggler
+	dbw 3, GenericAI ; ariana
 	dbw 3, GenericAI
 	dbw 3, GenericAI
 	dbw 3, GenericAI

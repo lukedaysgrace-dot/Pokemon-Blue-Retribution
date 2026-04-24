@@ -443,7 +443,7 @@ SpritePaletteAssignments: ; Characters on the overworld
 	db SPR_PAL_ORANGE
 
 	; 0x1f: SPRITE_OAK_SCIENTIST_AIDE
-	db SPR_PAL_BROWN
+	db SPR_PAL_GREEN
 
 	; 0x20: SPRITE_OAK_AIDE
 	db SPR_PAL_BROWN

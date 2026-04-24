@@ -111,7 +111,7 @@ ToggleableObjectStates:
 
 	toggleable_objects_for ROUTE_25
 	toggle_object_state ROUTE25_TM_SEISMIC_TOSS, ON
-	toggle_object_state ROUTE25_GREEN,           OFF
+	toggle_object_state ROUTE25_GREEN,           ON
 
 	toggleable_objects_for BLUES_HOUSE
 	toggle_object_state BLUESHOUSE_DAISY1,   ON
