@@ -89,4 +89,8 @@ SpriteSheetPointerTable:
 	overworld_sprite NinjaSprite, 12            ; SPRITE_NINJA
 	overworld_sprite JanineSprite, 12           ; SPRITE_JANINE
 	overworld_sprite MewSprite, 4               ; SPRITE_MEW
+	overworld_sprite ArianaSprite, 12           ; SPRITE_ARIANA
+	overworld_sprite ArcherSprite, 12           ; SPRITE_ARCHER
+	overworld_sprite PetrelSprite, 12           ; SPRITE_PETREL
+	overworld_sprite ProtonSprite, 12           ; SPRITE_PROTON
 	assert_table_length NUM_SPRITES

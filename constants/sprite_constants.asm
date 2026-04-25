@@ -86,4 +86,8 @@ DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_NINJA                   ; $50
 	const SPRITE_JANINE                  ; $51
 	const SPRITE_MEW                     ; $52
+	const SPRITE_ARIANA                 ; $53
+	const SPRITE_ARCHER                 ; $54
+	const SPRITE_PETREL                 ; $55
+	const SPRITE_PROTON                 ; $56
 DEF NUM_SPRITES EQU const_value - 1

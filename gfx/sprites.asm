@@ -16,8 +16,6 @@ SilphWorkerMSprite::     INCBIN "gfx/sprites/silph_worker_m.2bpp"
 WardenSprite::           INCBIN "gfx/sprites/warden.2bpp"
 CaptainSprite::          INCBIN "gfx/sprites/captain.2bpp"
 FisherSprite::           INCBIN "gfx/sprites/fisher.2bpp"
-KogaSprite::             INCBIN "gfx/sprites/koga.2bpp"
-GuardSprite::            INCBIN "gfx/sprites/guard.2bpp"
 PokeBallSprite::         INCBIN "gfx/sprites/poke_ball.2bpp"
 FossilSprite::           INCBIN "gfx/sprites/fossil.2bpp"
 BoulderSprite::          INCBIN "gfx/sprites/boulder.2bpp"
@@ -27,8 +25,6 @@ ClipboardSprite::        INCBIN "gfx/sprites/clipboard.2bpp"
 SnorlaxSprite::          INCBIN "gfx/sprites/snorlax.2bpp"
 OldAmberSprite::         INCBIN "gfx/sprites/old_amber.2bpp"
 GamblerAsleepSprite::    INCBIN "gfx/sprites/gambler_asleep.2bpp"
-NinjaSprite::            INCBIN "gfx/sprites/ninja.2bpp"
-JanineSprite::           INCBIN "gfx/sprites/janine.2bpp"
 MewSprite::              INCBIN "gfx/icons/mew.2bpp"
 
 
@@ -84,6 +80,24 @@ LtSurgeSprite::          INCBIN "gfx/sprites/surge.2bpp"
 ErikaSprite::            INCBIN "gfx/sprites/erika.2bpp"
 SabrinaSprite::          INCBIN "gfx/sprites/sabrina.2bpp"
 BlaineSprite::           INCBIN "gfx/sprites/blaine.2bpp"
+
+
+; Bank 4 (with NPC Sprites 1 + Font + Battle Engine 1) is full — same pattern as
+; Blue Cloak. These 12-tile sheets (~1.5KB) live in a spare slot in bank 1.
+SECTION "Koga Guard and Admin OW Sprites", ROMX
+
+KogaSprite::             INCBIN "gfx/sprites/koga.2bpp"
+GuardSprite::            INCBIN "gfx/sprites/guard.2bpp"
+NinjaSprite::            INCBIN "gfx/sprites/ninja.2bpp"
+JanineSprite::           INCBIN "gfx/sprites/janine.2bpp"
+
+
+SECTION "Rocket Admin OW Sprites", ROMX
+
+ArianaSprite::           INCBIN "gfx/sprites/ariana.2bpp"
+ArcherSprite::            INCBIN "gfx/sprites/archer.2bpp"
+PetrelSprite::            INCBIN "gfx/sprites/petrel.2bpp"
+ProtonSprite::            INCBIN "gfx/sprites/proton.2bpp"
 
 
 ; Separate ROM bank: Battle Engine 2 cannot fit this 12-tile sheet (linker overflow).

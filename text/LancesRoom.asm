@@ -99,6 +99,6 @@ _LancesRoomLanceRematchMustRestartText::
 _LancesRoomLanceGoFightChampionReminderText::
 	text "The CHAMPION is"
 	line "waiting past those"
-	cont "doors—don't keep"
+	cont "doors don't keep"
 	cont "them waiting!"
 	done

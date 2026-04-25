@@ -38,6 +38,7 @@ ROM0
 ROMX $1
 	"bank1"
 	"Blue Cloak OW Sprite"
+	"Green Pic Back"
 ROMX $2
 	"Sound Effect Headers 1"
 	"Music Headers 1"
@@ -189,11 +190,12 @@ ROMX $2C
 	"Custom Trainer Moves Data"
 	"Green Fishing Tiles"
 	"Green Player OW Sprites"
-	"Green Rocket OW Sprite"
-	"Green Pic Back"
-	"Green Rocket Trainer Pic"
+	"Koga Guard and Admin OW Sprites"
+	"Rocket Admin OW Sprites"
 ROMX $2D
 	"Base Stats Data"
+	"Green Rocket OW Sprite"
+	"Green Rocket Trainer Pic"
 ROMX $2E
 	"Pics 6"
 ROMX $2F

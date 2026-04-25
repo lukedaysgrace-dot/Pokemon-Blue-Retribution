@@ -106,6 +106,14 @@ LoadMapSpriteTilePatterns:
 	jr z, .notFourTileSprite
 	cp SPRITE_JANINE ; same
 	jr z, .notFourTileSprite
+	cp SPRITE_ARIANA
+	jr z, .notFourTileSprite
+	cp SPRITE_ARCHER
+	jr z, .notFourTileSprite
+	cp SPRITE_PETREL
+	jr z, .notFourTileSprite
+	cp SPRITE_PROTON
+	jr z, .notFourTileSprite
 	cp FIRST_STILL_SPRITE ; is it a 4-tile sprite?
 	jr c, .notFourTileSprite
 	pop af

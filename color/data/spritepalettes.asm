@@ -9,13 +9,13 @@ SpritePalettes: ; Taken from pokemon GSC.
 ; PAL_OW_BLUE
 	RGB 27,31,27
 	RGB 31,19,10
-	RGB 6,8,31
+	RGB 10,7,31
 	RGB 0,0,0
 
 ; PAL_OW_GREEN
 	RGB 27,31,27
 	RGB 31,19,10
-	RGB 7,23,3
+	RGB 0,17,5
 	RGB 0,0,0
 
 ; PAL_OW_BROWN
@@ -27,7 +27,7 @@ SpritePalettes: ; Taken from pokemon GSC.
 ; PAL_OW_PURPLE
 	RGB 27,31,27
 	RGB 31,19,10
-	RGB 18,4,18
+	RGB 22,9,24
 	RGB 0,0,0
 
 ; PAL_OW_EMOJI
@@ -59,13 +59,13 @@ SpritePalettesNite: ; Taken from pokemon GSC.
 ; PAL_OW_BLUE
 	RGB 27,31,27
 	RGB 31,19,10
-	RGB 6,8,31
+	RGB 10,7,31
 	RGB 0,0,0
 
 ; PAL_OW_GREEN
 	RGB 27,31,27
 	RGB 31,19,10
-	RGB 7,23,3
+	RGB 0,17,5
 	RGB 0,0,0
 
 ; PAL_OW_BROWN
@@ -77,7 +77,7 @@ SpritePalettesNite: ; Taken from pokemon GSC.
 ; PAL_OW_PURPLE
 	RGB 27,31,27
 	RGB 31,19,10
-	RGB 18,4,18
+	RGB 22,9,24
 	RGB 0,0,0
 
 ; PAL_OW_EMOJI
@@ -109,13 +109,13 @@ SpritePalettesPokecenter: ; Taken from pokemon GSC.
 ; PAL_OW_BLUE
 	RGB 27,31,27
 	RGB 31,19,10
-	RGB 6,8,31
+	RGB 10,7,31
 	RGB 0,0,0
 
 ; PAL_OW_GREEN
 	RGB 27,31,27
 	RGB 31,19,10
-	RGB 7,23,3
+	RGB 0,17,5
 	RGB 0,0,0
 
 ; PAL_OW_BROWN

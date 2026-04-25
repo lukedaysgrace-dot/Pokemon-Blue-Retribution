@@ -598,6 +598,18 @@ SpritePaletteAssignments: ; Characters on the overworld
 	; 0x52: SPRITE_MEW
 	db SPR_PAL_PURPLE
 
+	; 0x53: SPRITE_ARIANA
+	db SPR_PAL_ORANGE
+
+	; 0x54: SPRITE_ARCHER
+	db SPR_PAL_BLUE
+
+	; 0x55: SPRITE_PETREL
+	db SPR_PAL_PURPLE
+
+	; 0x56: SPRITE_PROTON
+	db SPR_PAL_GREEN
+
 	assert_table_length NUM_SPRITES
 
 
