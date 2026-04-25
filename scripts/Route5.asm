@@ -34,6 +34,10 @@ Route5AfterBattleScript:
 	ld a, TEXT_ROUTE5_GREEN
 	ldh [hTextID], a
 	call DisplayTextID
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ld a, ROUTE5_GREEN
 	ldh [hSpriteIndex], a
 	ld de, Route5GreenExitMovement

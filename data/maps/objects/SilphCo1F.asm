@@ -1,5 +1,6 @@
 	object_const_def
 	const_export SILPHCO1F_LINK_RECEPTIONIST
+	const_export SILPHCO1F_PETREL
 
 SilphCo1F_Object:
 	db $2e ; border block
@@ -15,5 +16,6 @@ SilphCo1F_Object:
 
 	def_object_events
 	object_event  4,  2, SPRITE_LINK_RECEPTIONIST, STAY, DOWN, TEXT_SILPHCO1F_LINK_RECEPTIONIST
+	object_event 10, 10, SPRITE_PETREL, STAY, DOWN, TEXT_SILPHCO1F_PETREL
 
 	def_warps_to SILPH_CO_1F

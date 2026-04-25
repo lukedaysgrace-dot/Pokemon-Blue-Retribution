@@ -37,7 +37,7 @@ RocketHideoutB2FDefaultScript:
 	ld [wNewSoundID], a
 	call PlaySound
 .green_music_ok
-	ld a, PAD_CTRL_PAD
+	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 ; Show Green before emotion bubble (bubble needs a visible sprite — Route 10 runs bubble after sprite exists).
 	ld a, TOGGLE_ROCKET_HIDEOUT_B2F_GREEN
@@ -352,11 +352,15 @@ RocketHideoutB2FGreenBattleScript:
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	call RocketHideoutB2FGreenFacePlayer
-	xor a
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, TEXT_ROCKETHIDEOUTB2F_GREEN_BATTLE_INTRO
 	ldh [hTextID], a
 	call DisplayTextID
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ld hl, wStatusFlags3
 	set BIT_TALKED_TO_TRAINER, [hl]
 	set BIT_PRINT_END_BATTLE_TEXT, [hl]
@@ -400,6 +404,10 @@ RocketHideoutB2FGreenAfterBattleScript:
 	ld a, TEXT_ROCKETHIDEOUTB2F_GREEN_POST_BATTLE
 	ldh [hTextID], a
 	call DisplayTextID
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ld a, [wRocketHideoutB2FGreenVariant]
 	cp 1
 	jr z, .greenExitFrom24

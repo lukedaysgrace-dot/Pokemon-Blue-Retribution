@@ -72,7 +72,7 @@ Mansion4Script_Switches::
 	jp DisplayTextID
 
 PokemonMansionB1FGreenAppearsScript:
-	ld a, PAD_CTRL_PAD
+	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	call PokemonMansionB1FSetGreenStartCoords
 	ld a, TOGGLE_POKEMON_MANSION_B1F_GREEN
@@ -121,11 +121,15 @@ PokemonMansionB1FGreenApproachScript:
 	call PokemonMansionB1FClearGreenMovement
 .movementDone
 	call PokemonMansionB1FGreenFacePlayer
-	xor a
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, TEXT_POKEMONMANSIONB1F_GREEN_BATTLE_INTRO
 	ldh [hTextID], a
 	call DisplayTextID
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ld hl, wStatusFlags3
 	set BIT_TALKED_TO_TRAINER, [hl]
 	set BIT_PRINT_END_BATTLE_TEXT, [hl]
@@ -166,12 +170,14 @@ PokemonMansionB1FGreenAfterBattleScript:
 	ld [wJoyIgnore], a
 	call PokemonMansionB1FGreenFacePlayer
 	SetEvent EVENT_BEAT_MANSION_B1F_GREEN
-	xor a
-	ld [wJoyIgnore], a
 	ld a, TEXT_POKEMONMANSIONB1F_GREEN_AFTER_BATTLE
 	ldh [hTextID], a
 	call DisplayTextID
-	ld a, PAD_CTRL_PAD
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
+	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, POKEMONMANSIONB1F_GREEN
 	ld [wEmotionBubbleSpriteIndex], a
@@ -202,12 +208,16 @@ PokemonMansionB1FMewApproachScript:
 	ld a, MEW
 	call PlayCry
 	call WaitForSoundToFinish
-	xor a
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, TEXT_POKEMONMANSIONB1F_MEW_CRY
 	ldh [hTextID], a
 	call DisplayTextID
-	ld a, PAD_CTRL_PAD
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
+	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, [wSavedCoordIndex]
 	cp 2
@@ -243,7 +253,7 @@ PokemonMansionB1FGreenReactsToMewScript:
 	ld a, POKEMONMANSIONB1F_GREEN
 	ldh [hSpriteIndex], a
 	call SetSpriteFacingDirectionAndDelay
-	xor a
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, TEXT_POKEMONMANSIONB1F_GREEN_MEW_APPEARS
 	ldh [hTextID], a
@@ -257,12 +267,16 @@ PokemonMansionB1FGreenReactsToMewScript:
 	ld a, TEXT_POKEMONMANSIONB1F_GREEN_FRIEND_MEW
 	ldh [hTextID], a
 	call DisplayTextID
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ld a, SPRITE_FACING_UP
 	ldh [hSpriteFacingDirection], a
 	ld a, POKEMONMANSIONB1F_GREEN
 	ldh [hSpriteIndex], a
 	call SetSpriteFacingDirectionAndDelay
-	ld a, PAD_CTRL_PAD
+	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, TOGGLE_POKEMON_MANSION_B1F_MEW
 	ld [wToggleableObjectIndex], a
@@ -292,12 +306,16 @@ PokemonMansionB1FBallMovingScript:
 	ld [wToggleableObjectIndex], a
 	predef HideObject
 	call UpdateSprites
-	xor a
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, TEXT_POKEMONMANSIONB1F_GREEN_CAUGHT_MEW
 	ldh [hTextID], a
 	call DisplayTextID
-	ld a, PAD_CTRL_PAD
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
+	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld de, PokemonMansionB1FGreenExitMovement
 	ld a, POKEMONMANSIONB1F_GREEN

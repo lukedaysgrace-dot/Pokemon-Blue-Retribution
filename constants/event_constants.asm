@@ -220,7 +220,9 @@
 	const EVENT_BEAT_SAFFRON_GYM_TRAINER_6
 	const_skip 46
 	const EVENT_SILPH_CO_RECEPTIONIST_AT_DESK
-	const_skip 24
+	const EVENT_BEAT_SILPH_CO_1F_PETREL
+	const EVENT_BEAT_SILPH_CO_3F_PROTON
+	const_skip 22
 	const EVENT_GOT_TM29
 
 ; Route 1 events

@@ -785,10 +785,14 @@ JanineData:
 PetrelData:
 ; Rocket Hideout B4F
 	db $FF, 22, KOFFING, 23, GOLBAT, 24, WEEZING, 0
+; Silph Co. 1F
+	db $FF, 27, KOFFING, 28, GOLBAT, 28, RATICATE, 29, HYPNO, 30, WEEZING, 0
 
 ProtonData:
 ; Rocket Hideout B4F
 	db $FF, 22, GOLBAT, 23, KOFFING, 24, ARBOK, 0
+; Silph Co. 2F
+	db $FF, 28, GOLBAT, 28, KOFFING, 29, ARBOK, 29, PERSIAN, 30, WEEZING, 0
 
 ArcherData:
 ; Silph Co. 11F

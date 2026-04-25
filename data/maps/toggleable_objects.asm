@@ -190,6 +190,7 @@ ToggleableObjectStates:
 
 	toggleable_objects_for SILPH_CO_1F
 	toggle_object_state SILPHCO1F_LINK_RECEPTIONIST, OFF
+	toggle_object_state SILPHCO1F_PETREL,            OFF
 
 	toggleable_objects_for POWER_PLANT
 	toggle_object_state POWERPLANT_VOLTORB1,   ON
@@ -293,6 +294,7 @@ ToggleableObjectStates:
 	toggle_object_state SILPHCO3F_ROCKET,       ON
 	toggle_object_state SILPHCO3F_SCIENTIST,    ON
 	toggle_object_state SILPHCO3F_HYPER_POTION, ON
+	toggle_object_state SILPHCO3F_PROTON,       OFF
 
 	toggleable_objects_for SILPH_CO_4F
 	toggle_object_state SILPHCO4F_ROCKET1,     ON

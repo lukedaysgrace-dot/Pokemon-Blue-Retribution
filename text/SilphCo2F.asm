@@ -95,3 +95,23 @@ _SilphCo2FRocket2AfterBattleText::
 	line "be merged with"
 	cont "TEAM ROCKET!"
 	done
+
+_SilphCo2FProtonText::
+	text "You're nosing"
+	line "around the wrong"
+	cont "floor."
+
+	para "I'll remove you"
+	line "myself!"
+	done
+
+_SilphCo2FProtonEndBattleText::
+	text "Tch!"
+	line "I slipped up."
+	prompt
+
+_SilphCo2FProtonAfterBattleText::
+	text "This isn't over."
+	line "TEAM ROCKET has"
+	cont "plans upstairs!"
+	done

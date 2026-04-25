@@ -260,6 +260,10 @@ Route25GreenAfterBattleScript:
 	ld a, TEXT_ROUTE25_GREEN_AFTER_BATTLE
 	ldh [hTextID], a
 	call DisplayTextID
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 .reset
 	xor a
 	ld [wJoyIgnore], a

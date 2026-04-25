@@ -48,6 +48,10 @@ CinnabarIslandBlueCloakAfterBattleScript:
 	ldh [hTextID], a
 	call DisplayTextID
 	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
+	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, TOGGLE_CINNABAR_ISLAND_BLUE_CLOAK
 	ld [wToggleableObjectIndex], a

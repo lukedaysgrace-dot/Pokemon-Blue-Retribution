@@ -189,11 +189,11 @@ ROMX $2C
 	"Move Names"
 	"Custom Trainer Moves Data"
 	"Green Fishing Tiles"
-	"Green Player OW Sprites"
 	"Koga Guard and Admin OW Sprites"
 	"Rocket Admin OW Sprites"
 ROMX $2D
 	"Base Stats Data"
+	"Green Player OW Sprites"
 	"Green Rocket OW Sprite"
 	"Green Rocket Trainer Pic"
 ROMX $2E

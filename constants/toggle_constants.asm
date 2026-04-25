@@ -163,6 +163,7 @@ ENDM
 
 	toggle_consts_for SILPH_CO_1F
 	const TOGGLE_SILPH_CO_1F_RECEPTIONIST      ; 4D
+	const TOGGLE_SILPH_CO_1F_PETREL
 
 	toggle_consts_for POWER_PLANT
 	const TOGGLE_VOLTORB_1                     ; 4E X
@@ -266,6 +267,7 @@ ENDM
 	const TOGGLE_SILPH_CO_3F_1                 ; 8F
 	const TOGGLE_SILPH_CO_3F_2                 ; 90
 	const TOGGLE_SILPH_CO_3F_ITEM              ; 91 X
+	const TOGGLE_SILPH_CO_3F_PROTON
 
 	toggle_consts_for SILPH_CO_4F
 	const TOGGLE_SILPH_CO_4F_1                 ; 92

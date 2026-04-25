@@ -173,6 +173,10 @@ Route10GreenAfterBattleScript:
 	ld a, TEXT_ROUTE10_GREEN_AFTER_BATTLE
 	ldh [hTextID], a
 	call DisplayTextID
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ld a, SPRITE_FACING_UP
 	call Route10GreenSetFacingDirection
 	ld de, Route10GreenExitMovement
