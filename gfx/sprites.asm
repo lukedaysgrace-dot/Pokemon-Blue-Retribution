@@ -31,6 +31,7 @@ MewSprite::              INCBIN "gfx/icons/mew.2bpp"
 SECTION "NPC Sprites 2", ROMX
 
 RedBikeSprite::          INCBIN "gfx/sprites/red_bike.2bpp"
+RedSkateboardSprite::    INCBIN "gfx/sprites/red_skateboard.2bpp"
 RedSprite::              INCBIN "gfx/sprites/red.2bpp"
 BlueSprite::             INCBIN "gfx/sprites/blue.2bpp"
 OakSprite::              INCBIN "gfx/sprites/oak.2bpp"
@@ -98,6 +99,7 @@ ArianaSprite::           INCBIN "gfx/sprites/ariana.2bpp"
 ArcherSprite::            INCBIN "gfx/sprites/archer.2bpp"
 PetrelSprite::            INCBIN "gfx/sprites/petrel.2bpp"
 ProtonSprite::            INCBIN "gfx/sprites/proton.2bpp"
+SoldierSprite::           INCBIN "gfx/sprites/soldier.2bpp"
 
 
 ; Separate ROM bank: Battle Engine 2 cannot fit this 12-tile sheet (linker overflow).

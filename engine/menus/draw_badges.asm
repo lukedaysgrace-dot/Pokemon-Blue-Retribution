@@ -113,7 +113,7 @@ DrawBadges:
 	ret
 
 .FaceBadgeTiles
-	db $20, $28, $30, $38, $40, $48, $50, $58
+	db $31, $39, $41, $49, $51, $59, $61, $69 ; TRAINER_CARD_BADGE_GFX_BASE + original spacing
 
 GymLeaderFaceAndBadgeTileGraphics:
 	INCBIN "gfx/trainer_card/badges.2bpp"

@@ -64,6 +64,19 @@ CheckForceBikeOrSurf::
 	ld a, SCRIPT_SEAFOAMISLANDSB4F_MOVE_OBJECT
 	ld [wSeafoamIslandsB4FCurScript], a
 	jr z, .forceSurfing
+	ld a, [wCurrentRideItem]
+	cp SKATEBOARD
+	jr z, .setForcedBikeState
+	ld b, SKATEBOARD
+	call IsItemInBag
+	jr z, .useBicycle
+	ld a, SKATEBOARD
+	ld [wCurrentRideItem], a
+	jr .setForcedBikeState
+.useBicycle
+	ld a, BICYCLE
+	ld [wCurrentRideItem], a
+.setForcedBikeState
 	ld hl, wStatusFlags6
 	set BIT_ALWAYS_ON_BIKE, [hl]
 	ld a, $1

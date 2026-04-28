@@ -55,18 +55,19 @@ _VermilionGymLTSurgeReceivedThunderBadgeText::
 	line "the THUNDERBADGE!"
 	prompt
 
-_VermilionGymGentlemanBattleText::
-	text "When I was in the"
-	line "Army, LT.SURGE"
-	cont "was my strict CO!"
+_VermilionGymSoldier1BattleText::
+	text "Reporting for duty!"
+	line "LT.SURGE runs a"
+	cont "tight circuit here!"
 	done
 
-_VermilionGymGentlemanEndBattleText::
-	text "Stop!"
-	line "You're very good!"
+_VermilionGymSoldier1EndBattleText::
+	text "Stand down!"
+	line "Strong"
+	cont "tactics!"
 	prompt
 
-_VermilionGymGentlemanAfterBattleText::
+_VermilionGymSoldier1AfterBattleText::
 	text "The door won't"
 	line "open?"
 
@@ -74,35 +75,37 @@ _VermilionGymGentlemanAfterBattleText::
 	line "was cautious!"
 	done
 
-_VermilionGymSuperNerdBattleText::
-	text "I'm a lightweight,"
-	line "but I'm good with"
-	cont "electricity!"
+_VermilionGymSoldier2BattleText::
+	text "Lightweight gear,"
+	line "heavy voltage!"
+	cont "Enlist in pain!"
 	done
 
-_VermilionGymSuperNerdEndBattleText::
-	text "Fried!"
+_VermilionGymSoldier2EndBattleText::
+	text "S!"
 	prompt
 
-_VermilionGymSuperNerdAfterBattleText::
-	text "OK, I'll talk!"
+_VermilionGymSoldier2AfterBattleText::
+	text "Fine, recruit!"
 
 	para "LT.SURGE said he"
 	line "hid door switches"
 	cont "inside something!"
 	done
 
-_VermilionGymSailorBattleText::
-	text "This is no place"
-	line "for kids!"
+_VermilionGymSoldier3BattleText::
+	text "SURGE saved me"
+	line "during the war"
+	cont "kid!"
 	done
 
-_VermilionGymSailorEndBattleText::
-	text "Wow!"
-	line "Surprised me!"
+_VermilionGymSoldier3EndBattleText::
+	text "Shocking!"
+	line "good!"
+	cont "Carry on."
 	prompt
 
-_VermilionGymSailorAfterBattleText::
+_VermilionGymSoldier3AfterBattleText::
 	text "LT.SURGE set up"
 	line "double locks!"
 	cont "Here's a hint!"

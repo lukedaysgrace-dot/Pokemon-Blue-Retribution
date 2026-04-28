@@ -266,6 +266,19 @@ Rival3AI:
 	ret nc
 	jp AIUseFullRestore
 
+BlueCloakAI:
+	call BlueCloakTryBadMatchupSwitch
+	ret c
+	call Random
+	cp 30 percent
+	ret nc
+	call BlueCloakTryDireHit
+	ret c
+	jp BlueCloakTryGuardSpec
+
+BlueAI:
+	jp BlueCloakTryBadMatchupSwitch
+
 LoreleiAI:
 	cp 50 percent + 1
 	ret nc
@@ -299,6 +312,43 @@ LanceAI:
 
 GenericAI:
 	and a ; clear carry
+	ret
+
+BlueCloakTryBadMatchupSwitch:
+	ld a, [wActionResultOrTookBattleTurn]
+	and a
+	ret nz
+	ld a, [wPlayerMovePower]
+	and a
+	ret z
+	callfar AIGetPlayerTypeEffectiveness
+	ld a, [wTypeEffectiveness]
+	cp SUPER_EFFECTIVE
+	jr c, .noAction
+	jp AISwitchIfEnoughMons
+.noAction
+	and a
+	ret
+
+BlueCloakTryDireHit:
+	ld a, [wEnemyBattleStatus2]
+	bit GETTING_PUMPED, a
+	jr nz, .noAction
+	ld a, [wEnemyMovePower]
+	and a
+	ret z
+	jp AIUseDireHit
+.noAction
+	and a
+	ret
+
+BlueCloakTryGuardSpec:
+	ld a, [wEnemyBattleStatus2]
+	bit PROTECTED_BY_MIST, a
+	jr nz, .noAction
+	jp AIUseGuardSpec
+.noAction
+	and a
 	ret
 
 ; end of individual trainer AI routines

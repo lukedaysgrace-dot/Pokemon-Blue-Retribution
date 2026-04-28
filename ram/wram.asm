@@ -1267,8 +1267,8 @@ wCurOpponent:: db
 ; in safari battle, this is 2
 wBattleType:: db
 
-; $00 = next battle decided only by wEnemyMonSpecies2 vs OPP_ID_OFFSET (fails for species id >= 200).
-; $01 = wild grass/fishing: species id may be 200+ (extended dex); must use InitWildBattle, not trainer.
+; $00 = next battle decided only by wEnemyMonSpecies2 vs OPP_ID_OFFSET (fails for species id >= OPP_ID_OFFSET).
+; $01 = wild grass/fishing: species id may be OPP_ID_OFFSET+ (extended dex); must use InitWildBattle, not trainer.
 wBattleSpeciesIsWild:: db
 
 ; bits 0-6: Effectiveness
@@ -2081,6 +2081,7 @@ wObtainedHiddenCoinsFlags:: flag_array MAX_HIDDEN_COINS
 ; $01 = biking
 ; $02 = surfing
 wWalkBikeSurfState:: db
+wCurrentRideItem:: db
 
 	ds 10
 

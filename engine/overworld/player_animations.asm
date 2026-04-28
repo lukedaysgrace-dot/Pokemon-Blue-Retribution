@@ -385,8 +385,8 @@ FishingAnim:
 	ld a, [wPlayerGender]
 	and a
 	jr z, .fishingSpriteGfxReady
-	ld de, GreenSprite
-	ld b, BANK(GreenSprite)
+	ld de, MintSprite
+	ld b, BANK(MintSprite)
 .fishingSpriteGfxReady
 	ld hl, vNPCSprites tile $00
 	ld c, 12
@@ -395,7 +395,7 @@ FishingAnim:
 	ld a, [wPlayerGender]
 	and a
 	jr z, .fishingTilesNotGirl
-	ld hl, GreenFishingTiles
+	ld hl, MintFishingTiles
 .fishingTilesNotGirl
 	ld a, $4
 	call LoadAnimSpriteGfx
@@ -500,10 +500,10 @@ RedFishingTiles:
 	fishing_gfx RedFishingTilesSide,  2, $0a
 	fishing_gfx RedFishingRodTiles,   3, $fd
 
-GreenFishingTiles:
-	fishing_gfx GreenFishingTilesFront, 2, $02
-	fishing_gfx GreenFishingTilesBack,  2, $06
-	fishing_gfx GreenFishingTilesSide,  2, $0a
+MintFishingTiles:
+	fishing_gfx MintFishingTilesFront, 2, $02
+	fishing_gfx MintFishingTilesBack,  2, $06
+	fishing_gfx MintFishingTilesSide,  2, $0a
 	fishing_gfx RedFishingRodTiles,   3, $fd
 
 _HandleMidJump::

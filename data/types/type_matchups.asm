@@ -94,7 +94,6 @@ TypeEffects:
 	db STEEL,        WATER,        NOT_VERY_EFFECTIVE
 	db STEEL,        ELECTRIC,     NOT_VERY_EFFECTIVE
 	db STEEL,        STEEL,        NOT_VERY_EFFECTIVE
-	db STEEL,        DARK,         NOT_VERY_EFFECTIVE
 	; Hitting Dark-type Pokémon
 	db PSYCHIC_TYPE, DARK,         NO_EFFECT
 	db BUG,          DARK,         SUPER_EFFECTIVE
@@ -115,6 +114,4 @@ TypeEffects:
 	db GHOST,        STEEL,        NOT_VERY_EFFECTIVE
 	db DRAGON,       STEEL,        NOT_VERY_EFFECTIVE
 	db DARK,         STEEL,        NOT_VERY_EFFECTIVE
-	db ELECTRIC,     STEEL,        NOT_VERY_EFFECTIVE
-	db WATER,        STEEL,        NOT_VERY_EFFECTIVE
 	db -1 ; end

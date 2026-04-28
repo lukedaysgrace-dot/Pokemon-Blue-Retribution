@@ -2085,6 +2085,7 @@ SquirtleEvosMoves:
 	db 28, WITHDRAW
 	db 35, SKULL_BASH
 	db 42, HYDRO_PUMP
+	db 70, FOCUS_ENERGY
 	db 0
 
 CharmeleonEvosMoves:

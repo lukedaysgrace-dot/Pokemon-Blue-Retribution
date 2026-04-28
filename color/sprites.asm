@@ -18,6 +18,7 @@ DEF SPR_PAL_GREEN   EQU 2
 DEF SPR_PAL_BROWN   EQU 3
 DEF SPR_PAL_PURPLE  EQU 4
 DEF SPR_PAL_EMOJI   EQU 5
+DEF SPR_PAL_OW_DEEP_BLUE EQU 5 ; slot 5 = PAL_OW_MINT peach + blue + black (female Mint)
 DEF SPR_PAL_TREE    EQU 6
 DEF SPR_PAL_ROCK    EQU 7
 DEF SPR_PAL_RANDOM  EQU 8
@@ -97,6 +98,21 @@ ColorOverworldSprite::
 	inc d
 .noCarry
 	ld a, [de] ; Get the picture ID's palette
+	ld c, a
+
+	; Female Mint player: deep blue OW palette (slot 5), not orange (Red).
+	ldh a, [hSpriteOffset2]
+	and a
+	jr nz, .notMintPlayerOW
+	ld a, [wPlayerGender]
+	and a
+	jr z, .notMintPlayerOW
+	ld a, c
+	cp SPR_PAL_ORANGE
+	jr nz, .notMintPlayerOW
+	ld c, SPR_PAL_OW_DEEP_BLUE
+.notMintPlayerOW:
+	ld a, c
 
 	; If it's 8, that means no particular palette is assigned
 	cp SPR_PAL_RANDOM
@@ -493,26 +509,26 @@ SpritePaletteAssignments: ; Characters on the overworld
 	; 0x2f: SPRITE_FISHER2
 	db SPR_PAL_RANDOM
 
-	; 0x30: SPRITE_BLACKBELT
-	db SPR_PAL_RANDOM
+	; 0x30: SPRITE_KOGA
+	db SPR_PAL_PURPLE
 
-	; 0x31: SPRITE_GUARD ($30)
-	db SPR_PAL_BLUE
+	; 0x31: SPRITE_BROCK
+	db SPR_PAL_BROWN
 
-	; 0x32: $32
-	db SPR_PAL_RANDOM
-
-	; 0x33: SPRITE_MOM
+	; 0x32: SPRITE_MISTY
 	db SPR_PAL_ORANGE
 
-	; 0x34: SPRITE_BALDING_GUY
-	db SPR_PAL_RANDOM
+	; 0x33: SPRITE_LT_SURGE
+	db SPR_PAL_ORANGE
 
-	; 0x35: SPRITE_YOUNG_BOY
-	db SPR_PAL_RANDOM
+	; 0x34: SPRITE_ERIKA
+	db SPR_PAL_GREEN
 
-	; 0x36: SPRITE_GAMEBOY_KID
-	db SPR_PAL_RANDOM
+	; 0x35: SPRITE_SABRINA
+	db SPR_PAL_ORANGE
+
+	; 0x36: SPRITE_BLAINE
+	db SPR_PAL_ORANGE
 
 	; 0x37: SPRITE_GAMEBOY_KID_COPY
 	db SPR_PAL_RANDOM
@@ -608,6 +624,9 @@ SpritePaletteAssignments: ; Characters on the overworld
 	db SPR_PAL_PURPLE
 
 	; 0x56: SPRITE_PROTON
+	db SPR_PAL_GREEN
+
+	; 0x57: SPRITE_SOLDIER (same overworld green tint as GREEN / unused scientist)
 	db SPR_PAL_GREEN
 
 	assert_table_length NUM_SPRITES

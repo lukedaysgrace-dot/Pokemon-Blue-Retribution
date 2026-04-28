@@ -262,7 +262,7 @@
 ; MonsterPalettes are indexed by National Dex number instead (see engine/gfx/mon_icons.asm).
 
 DEF NUM_POKEMON_INDEXES EQU const_value - 1
-; Internal ids $C8+ collide with OPP_ID_OFFSET (200) in InitBattle; grass/fishing set wBattleSpeciesIsWild.
+; Internal ids at/above OPP_ID_OFFSET collide with trainer OPP_* in InitBattle; grass/fishing set wBattleSpeciesIsWild.
 
 ; starters
 DEF STARTER1 EQU CHARMANDER

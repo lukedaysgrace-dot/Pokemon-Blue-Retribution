@@ -1,19 +1,206 @@
 IndigoPlateauLobby_Script:
 	call Serial_TryEstablishingExternallyClockedConnection
 	call EnableAutoTextBoxDrawing
+	ld hl, IndigoPlateauLobby_ScriptPointers
+	ld a, [wCurMapScript]
+	cp 5
+	jr c, .script_ok
+	xor a
+	ld [wCurMapScript], a
+.script_ok
+	jp CallFunctionInTable
+
+IndigoPlateauLobby_ScriptPointers:
+	def_script_pointers
+	dw_const IndigoPlateauLobbyDefaultScript,          SCRIPT_INDIGOPLATEAULOBBY_DEFAULT
+	dw_const IndigoPlateauLobbyGreenAppearsScript,     SCRIPT_INDIGOPLATEAULOBBY_GREEN_APPEARS
+	dw_const IndigoPlateauLobbyGreenApproachScript,    SCRIPT_INDIGOPLATEAULOBBY_GREEN_APPROACH
+	dw_const IndigoPlateauLobbyGreenAfterBattleScript, SCRIPT_INDIGOPLATEAULOBBY_GREEN_AFTER_BATTLE
+	dw_const IndigoPlateauLobbyGreenExitScript,        SCRIPT_INDIGOPLATEAULOBBY_GREEN_EXIT
+
+IndigoPlateauLobbyDefaultScript:
 	ld hl, wCurrentMapScriptFlags
 	bit BIT_CUR_MAP_LOADED_2, [hl]
 	res BIT_CUR_MAP_LOADED_2, [hl]
-	ret z
+	jr z, .check_trigger
 	ResetEvent EVENT_VICTORY_ROAD_1_BOULDER_ON_SWITCH
 	; Reset Elite Four events if the player started challenging them before
 	ld hl, wElite4Flags
 	bit BIT_STARTED_ELITE_4, [hl]
 	res BIT_STARTED_ELITE_4, [hl]
-	ret z
+	jr z, .check_trigger
 	ResetEventRange INDIGO_PLATEAU_EVENTS_START, EVENT_LANCES_ROOM_LOCK_DOOR
 	; New run: allow passage to CHAMPIONS_ROOM after Lance until rival is beaten again
 	ResetEvent EVENT_REMATCH_DEFEATED_RIVAL_CHAMPION
+
+.check_trigger
+	CheckEvent EVENT_BEAT_INDIGO_PLATEAU_GREEN
+	ret nz
+	ld hl, IndigoPlateauLobbyGreenTriggerCoords
+	call ArePlayerCoordsInArray
+	ret nc
+	ld a, [wCoordIndex]
+	ld [wSavedCoordIndex], a
+	ld a, SCRIPT_INDIGOPLATEAULOBBY_GREEN_APPEARS
+	ld [wCurMapScript], a
+	ret
+
+IndigoPlateauLobbyGreenTriggerCoords:
+	dbmapcoord  8, 1
+	db -1
+
+IndigoPlateauLobbyGreenAppearsScript:
+	ld a, PAD_BUTTONS | PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	call IndigoPlateauLobbySetGreenStartCoords
+	ld a, TOGGLE_INDIGO_PLATEAU_LOBBY_GREEN
+	ld [wToggleableObjectIndex], a
+	predef ShowObject
+	call UpdateSprites
+	ld c, 12
+	call DelayFrames
+	xor a ; player sprite
+	ld [wEmotionBubbleSpriteIndex], a
+	ld [wWhichEmotionBubble], a ; EXCLAMATION_BUBBLE
+	predef EmotionBubble
+	ld de, IndigoPlateauLobbyGreenApproachMovement
+	ld a, INDIGOPLATEAULOBBY_GREEN
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	ld a, SCRIPT_INDIGOPLATEAULOBBY_GREEN_APPROACH
+	ld [wCurMapScript], a
+	ret
+
+IndigoPlateauLobbyGreenApproachMovement:
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db -1 ; end
+
+IndigoPlateauLobbyGreenApproachScript:
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_NPC_MOVEMENT, a
+	ret nz
+	ld a, PLAYER_DIR_DOWN
+	ld [wPlayerMovingDirection], a
+	call IndigoPlateauLobbyGreenFacePlayer
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	ld a, TEXT_INDIGOPLATEAULOBBY_GREEN_BATTLE_INTRO
+	ldh [hTextID], a
+	call DisplayTextID
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, IndigoPlateauLobbyGreenEndBattleText
+	ld de, IndigoPlateauLobbyGreenPlayerLoseText
+	call SaveEndBattleTextPointers
+	ld a, OPP_GREEN
+	ld [wCurOpponent], a
+	ld [wEnemyMonOrTrainerClass], a
+	ld a, [wPlayerStarter]
+	cp STARTER1
+	jr z, .pickedCharmander
+	cp STARTER2
+	jr z, .pickedSquirtle
+	ld a, 15 ; player picked Bulbasaur, Green has Blastoise line
+	jr .got_team
+.pickedCharmander
+	ld a, 13 ; player picked Charmander, Green has Venusaur line
+	jr .got_team
+.pickedSquirtle
+	ld a, 14 ; player picked Squirtle, Green has Charizard line
+.got_team
+	ld [wTrainerNo], a
+	ld a, SCRIPT_INDIGOPLATEAULOBBY_GREEN_AFTER_BATTLE
+	ld [wCurMapScript], a
+	ret
+
+IndigoPlateauLobbyGreenAfterBattleScript:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, IndigoPlateauLobbyResetScript
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	call IndigoPlateauLobbyGreenFacePlayer
+	SetEvent EVENT_BEAT_INDIGO_PLATEAU_GREEN
+	ld a, TEXT_INDIGOPLATEAULOBBY_GREEN_AFTER_BATTLE
+	ldh [hTextID], a
+	call DisplayTextID
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
+	ld de, IndigoPlateauLobbyGreenExitMovement
+	ld a, INDIGOPLATEAULOBBY_GREEN
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	ld a, SCRIPT_INDIGOPLATEAULOBBY_GREEN_EXIT
+	ld [wCurMapScript], a
+	ret
+
+IndigoPlateauLobbyGreenExitMovement:
+	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_LEFT
+	db -1 ; end
+
+IndigoPlateauLobbyGreenExitScript:
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_NPC_MOVEMENT, a
+	ret nz
+	ld a, TOGGLE_INDIGO_PLATEAU_LOBBY_GREEN
+	ld [wToggleableObjectIndex], a
+	predef HideObject
+	jp IndigoPlateauLobbyResetScript
+
+IndigoPlateauLobbySetGreenStartCoords:
+	ld a, INDIGOPLATEAULOBBY_GREEN
+	ldh [hSpriteIndex], a
+	ld hl, wSpriteStateData2
+	swap a
+	add l
+	ld l, a
+	ld a, h
+	adc 0
+	ld h, a
+	ld de, SPRITESTATEDATA2_MAPY
+	add hl, de
+	; Start Green just above the doorway so she can step out from Lorelei's room.
+	ld a, 6 ; map y -1, stored with the usual +4 sprite offset
+	ld [hli], a
+	ld a, [wSavedCoordIndex]
+	cp 2
+	jr z, .right_tile
+	ld a, 3 + 4 ; map x 7
+	jr .set_x
+.right_tile
+	ld a, 4 + 4 ; map x 8
+.set_x
+	ld [hl], a
+	ret
+
+IndigoPlateauLobbyGreenFacePlayer:
+	ld a, SPRITE_FACING_UP
+	ldh [hSpriteFacingDirection], a
+	ld a, INDIGOPLATEAULOBBY_GREEN
+	ldh [hSpriteIndex], a
+	jp SetSpriteFacingDirectionAndDelay
+
+IndigoPlateauLobbyResetScript:
+	xor a
+	ld [wJoyIgnore], a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
+	ld [wCurMapScript], a
 	ret
 
 IndigoPlateauLobby_TextPointers:
@@ -23,6 +210,9 @@ IndigoPlateauLobby_TextPointers:
 	dw_const IndigoPlateauLobbyCooltrainerFText,     TEXT_INDIGOPLATEAULOBBY_COOLTRAINER_F
 	dw_const IndigoPlateauLobbyClerkText,            TEXT_INDIGOPLATEAULOBBY_CLERK
 	dw_const IndigoPlateauLobbyLinkReceptionistText, TEXT_INDIGOPLATEAULOBBY_LINK_RECEPTIONIST
+	dw_const IndigoPlateauLobbyGreenText,            TEXT_INDIGOPLATEAULOBBY_GREEN
+	dw_const IndigoPlateauLobbyGreenBeforeBattleText, TEXT_INDIGOPLATEAULOBBY_GREEN_BATTLE_INTRO
+	dw_const IndigoPlateauLobbyGreenAfterBattleText,  TEXT_INDIGOPLATEAULOBBY_GREEN_AFTER_BATTLE
 
 IndigoPlateauLobbyNurseText:
 	script_pokecenter_nurse
@@ -37,3 +227,35 @@ IndigoPlateauLobbyCooltrainerFText:
 
 IndigoPlateauLobbyLinkReceptionistText:
 	script_cable_club_receptionist
+
+IndigoPlateauLobbyGreenText:
+	text_asm
+	jp TextScriptEnd
+
+IndigoPlateauLobbyGreenBeforeBattleText:
+	text "Hey, <PLAYER>!"
+	line "Not getting into"
+	cont "LORELEI'S room"
+	cont "that easy!"
+
+	para "One battle."
+	line "Right here."
+	done
+
+IndigoPlateauLobbyGreenEndBattleText:
+	text "You beat me..."
+	line "again..."
+	prompt
+
+IndigoPlateauLobbyGreenPlayerLoseText:
+	text "Heh, keep"
+	line "pushing!"
+	done
+
+IndigoPlateauLobbyGreenAfterBattleText:
+	text "All right,"
+	line "you win."
+
+	para "Go take on the"
+	line "ELITE FOUR."
+	done

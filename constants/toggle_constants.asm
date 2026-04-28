@@ -17,6 +17,7 @@ ENDM
 
 	toggle_consts_for PALLET_TOWN
 	const TOGGLE_PALLET_TOWN_OAK               ; 00
+	const TOGGLE_PALLET_TOWN_GREEN             ; 01
 
 	toggle_consts_for VIRIDIAN_CITY
 	const TOGGLE_LYING_OLD_MAN                 ; 01
@@ -407,6 +408,9 @@ ENDM
 
 	toggle_consts_for ROUTE_10
 	const TOGGLE_ROUTE_10_GREEN                ; E5
+
+	toggle_consts_for INDIGO_PLATEAU_LOBBY
+	const TOGGLE_INDIGO_PLATEAU_LOBBY_GREEN
 
 	toggle_consts_for FUCHSIA_GYM
 	const TOGGLE_FUCHSIA_GYM_JANINE            ; E6

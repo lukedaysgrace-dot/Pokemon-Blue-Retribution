@@ -340,6 +340,8 @@ StartMenu_Item::
 	ld a, [wCurItem]
 	cp BICYCLE
 	jp z, .useOrTossItem
+	cp SKATEBOARD
+	jp z, .useOrTossItem
 ; not Bicycle
 	ld a, USE_TOSS_MENU_TEMPLATE
 	ld [wTextBoxID], a
@@ -370,7 +372,10 @@ StartMenu_Item::
 	call CopyToStringBuffer
 	ld a, [wCurItem]
 	cp BICYCLE
+	jr z, .checkLockedRideState
+	cp SKATEBOARD
 	jr nz, .notBicycle
+.checkLockedRideState
 	ld a, [wStatusFlags6]
 	bit BIT_ALWAYS_ON_BIKE, a
 	jr z, .useItem_closeMenu
@@ -480,7 +485,7 @@ DrawTrainerInfo:
 	ld a, [wPlayerGender]
 	and a
 	jr z, .trainerCardNotGirl
-	ld de, GreenPicFront
+	ld de, MintPicFront
 .trainerCardNotGirl
 	lb bc, BANK(RedPicFront), $01
 	predef DisplayPicCenteredOrUpperRight
@@ -508,7 +513,7 @@ DrawTrainerInfo:
 	ld de, vChars1 tile $58
 	call TrainerInfo_FarCopyData
 	ld hl, GymLeaderFaceAndBadgeTileGraphics
-	ld de, vChars2 tile $20
+	ld de, vChars2 tile TRAINER_CARD_BADGE_GFX_BASE
 	ld bc, 8 * 8 tiles
 	ld a, BANK(GymLeaderFaceAndBadgeTileGraphics)
 	call FarCopyData2

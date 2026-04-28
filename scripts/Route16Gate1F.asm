@@ -85,6 +85,9 @@ Route16Gate1FPlayerMovingRightScript:
 
 Route16Gate1FIsBicycleInBagScript:
 	ld b, BICYCLE
+	call IsItemInBag
+	ret nz
+	ld b, SKATEBOARD
 	jp IsItemInBag
 
 Route16Gate1F_TextPointers:

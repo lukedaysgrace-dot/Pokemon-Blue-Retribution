@@ -114,6 +114,8 @@ LoadMapSpriteTilePatterns:
 	jr z, .notFourTileSprite
 	cp SPRITE_PROTON
 	jr z, .notFourTileSprite
+	cp SPRITE_SOLDIER
+	jr z, .notFourTileSprite
 	cp FIRST_STILL_SPRITE ; is it a 4-tile sprite?
 	jr c, .notFourTileSprite
 	pop af

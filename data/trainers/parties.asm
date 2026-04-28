@@ -55,6 +55,7 @@ TrainerDataPointers:
 	dw PetrelData
 	dw ProtonData
 	dw ArcherData
+	dw SoldierData
 	assert_table_length NUM_TRAINERS
 
 ; if first byte != $FF, then
@@ -148,8 +149,6 @@ SailorData:
 	db 18, TENTACOOL, STARYU, 0
 	db 17, HORSEA, HORSEA, HORSEA, 0
 	db 20, MACHOP, 0
-; Vermilion Gym
-	db 21, PIKACHU, PIKACHU, 0
 JrTrainerMData:
 ; Pewter Gym
 	db 11, DIGLETT, SANDSHREW, 0
@@ -203,9 +202,7 @@ JrTrainerFData:
 	db 29, ELECTABUZZ, RAICHU, 0
 	db 33, CLEFABLE, 0
 	db 29, WEEPINBELL, GLOOM, TANGELA, 0
-;Vermillion Dock
-	;joenote - Special Trainer - Seiga/Green the orange league champ
-	db $FF, 80, CLEFABLE, 82, GENGAR, 83, VICTREEBEL, 83, NINETALES, 84, KANGASKHAN, 85, BLASTOISE, 0	;jr trainerF #24
+
 ; Unused
 	;db 22,BULBASAUR,0
 
@@ -397,8 +394,6 @@ PsychicData:
 	db 33, SLOWPOKE, SLOWPOKE, SLOWBRO, 0
 	db 38, SLOWBRO, 0
 RockerData:
-; Vermilion Gym
-	db 20, VOLTORB, MAGNEMITE, PIKACHU, 0
 ; Route 12
 	db 29, ELECTABUZZ, JOLTEON, 0
 JugglerData:	;joenote - tweaked some parties
@@ -760,6 +755,12 @@ GreenData:
 	db $FF, 65, VENUSAUR, 65, MESMERIA, 65, MOLTRES, 65, ARTICUNO, 65, ZAPDOS, 65, MEW, 0
 	db $FF, 65, CHARIZARD, 65, MESMERIA, 65, MOLTRES, 65, ARTICUNO, 65, ZAPDOS, 65, MEW, 0
 	db $FF, 65, BLASTOISE, 65, MESMERIA, 65, MOLTRES, 65, ARTICUNO, 65, ZAPDOS, 65, MEW, 0
+; Indigo Plateau Lobby first-run ambush - wTrainerNo 13-15; starter mapping mirrors earlier Green fights
+	db $FF, 65, VENUSAUR,  65, NIDOQUEEN, 65, ARTICUNO, 65, MOLTRES, 65, ZAPDOS, 65, WIGGLYTUFF, 0
+	db $FF, 65, CHARIZARD, 65, NIDOQUEEN, 65, ARTICUNO, 65, MOLTRES, 65, ZAPDOS, 65, WIGGLYTUFF, 0
+	db $FF, 65, BLASTOISE, 65, NIDOQUEEN, 65, ARTICUNO, 65, MOLTRES, 65, ZAPDOS, 65, WIGGLYTUFF, 0
+; Pallet Town postgame dex-completion fight - wTrainerNo 16
+	db $FF, 75, WIGGLYTUFF, 75, NIDOQUEEN, 75, UMBREON, 75, MESMERIA, 75, ZAPDOS, 75, DRAGONITE, 0
 
 GreenRocketData:
 ; Rocket Hideout B2F — wTrainerNo 1–3 (mirror Route 5 / Route 10 starter mapping)
@@ -797,6 +798,12 @@ ProtonData:
 ArcherData:
 ; Silph Co. 11F
 	db $FF, 31, GOLBAT, 31, ELECTRODE, 32, PERSIAN, 33, WEEZING, 0
+
+SoldierData:
+; Vermilion Gym
+	db 20, VOLTORB, MAGNEMITE, 0
+	db 21, PIKACHU, ELECTABUZZ, 0
+	db 22, MAGNEMITE, RAICHU, VOLTORB, 0
 
 ArianaData:
 ; Silph Co. 11F

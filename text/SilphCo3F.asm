@@ -76,7 +76,7 @@ _SilphCo3FProtonEndBattleText::
 	prompt
 
 _SilphCo3FProtonAfterBattleText::
-	text "DAMNIT!"
+	text "DAMN IT!"
 	line "I'm so sick of"
 	cont "you kid."
 	cont "you won't stand"

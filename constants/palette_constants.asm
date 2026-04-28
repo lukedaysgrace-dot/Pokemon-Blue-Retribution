@@ -267,6 +267,7 @@ IF GEN_2_GRAPHICS
 	const PAL_PETREL        ; $ED
 	const PAL_PROTON        ; $EE
 	const PAL_HERO          ; $EF
+	const PAL_MINT_HERO     ; $F0 (female Mint; deep blue)
 ENDC
 IF !GEN_2_GRAPHICS
 	const PAL_YOUNGSTER     ; $25
@@ -321,5 +322,7 @@ IF !GEN_2_GRAPHICS
 	const PAL_PETREL        ; $56
 	const PAL_PROTON        ; $57
 	const PAL_HERO          ; $58
+	const PAL_SOLDIER       ; $59
+	const PAL_MINT_HERO     ; $5A (female Mint; GEN_2_GRAPHICS off build)
 ENDC
 DEF NUM_SGB_PALS EQU const_value

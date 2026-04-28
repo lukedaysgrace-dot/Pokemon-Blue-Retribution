@@ -39,11 +39,21 @@ def main() -> None:
     if not src.is_file():
         sys.exit(f"Missing {src} (run tools/setup_green_player_pngs.py first)")
     out_dir = root / "gfx" / "overworld"
+    names = ["green_fish_front.png", "green_fish_back.png", "green_fish_side.png"]
     try:
         split_with_pil(src, out_dir)
     except ImportError:
-        split_with_magick(src, out_dir)
-    for name in ["green_fish_front.png", "green_fish_back.png", "green_fish_side.png"]:
+        try:
+            split_with_magick(src, out_dir)
+        except RuntimeError:
+            # Allow headless/tool-light builds to continue when the split files
+            # are already checked in and no image library is available.
+            if all((out_dir / name).is_file() for name in names):
+                for name in names:
+                    print(f"Keeping existing gfx/overworld/{name}")
+                return
+            raise
+    for name in names:
         print(f"Wrote gfx/overworld/{name}")
 
 

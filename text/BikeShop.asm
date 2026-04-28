@@ -24,11 +24,31 @@ _BikeShopClerkOhThatsAVoucherText::
 	para "OK! Here you go!"
 	prompt
 
-_BikeShopExchangedVoucherText::
+_BikeShopClerkVoucherChoiceIntroText::
+	text "You can have a"
+	line "BIKE or this old"
+	cont "dusty SKATEBOARD"
+	cont "I've had forever."
+	prompt
+
+_BikeShopExchangedVoucherBikeText::
 	text "<PLAYER> exchanged"
 	line "the BIKE VOUCHER"
 	cont "for a BICYCLE.@"
 	text_end
+
+_BikeShopExchangedVoucherSkateboardText::
+	text "<PLAYER> exchanged"
+	line "the BIKE VOUCHER"
+	cont "for a SKATEBOARD.@"
+	text_end
+
+_BikeShopClerkSkateboardFollowupText::
+	text "It may be old but"
+	line "it's still in"
+	cont "great shape,"
+	cont "enjoy!"
+	prompt
 
 _BikeShopComeAgainText::
 	text "Come back again"
@@ -38,6 +58,15 @@ _BikeShopComeAgainText::
 _BikeShopClerkHowDoYouLikeYourBicycleText::
 	text "How do you like"
 	line "your new BICYCLE?"
+
+	para "You can take it"
+	line "on CYCLING ROAD"
+	cont "and in caves!"
+	done
+
+_BikeShopClerkHowDoYouLikeYourSkateboardText::
+	text "How do you like"
+	line "your SKATEBOARD?"
 
 	para "You can take it"
 	line "on CYCLING ROAD"

@@ -44,6 +44,7 @@ ToggleableObjectStates:
 
 	toggleable_objects_for PALLET_TOWN
 	toggle_object_state PALLETTOWN_OAK, OFF
+	toggle_object_state PALLETTOWN_GREEN, OFF
 
 	toggleable_objects_for VIRIDIAN_CITY
 	toggle_object_state VIRIDIANCITY_OLD_MAN_SLEEPY, ON
@@ -111,7 +112,7 @@ ToggleableObjectStates:
 
 	toggleable_objects_for ROUTE_25
 	toggle_object_state ROUTE25_TM_SEISMIC_TOSS, ON
-	toggle_object_state ROUTE25_GREEN,           ON
+	toggle_object_state ROUTE25_TM_SEISMIC_TOSS, ON
 
 	toggleable_objects_for BLUES_HOUSE
 	toggle_object_state BLUESHOUSE_DAISY1,   ON
@@ -190,7 +191,7 @@ ToggleableObjectStates:
 
 	toggleable_objects_for SILPH_CO_1F
 	toggle_object_state SILPHCO1F_LINK_RECEPTIONIST, OFF
-	toggle_object_state SILPHCO1F_PETREL,            OFF
+	toggle_object_state SILPHCO1F_PETREL,            ON
 
 	toggleable_objects_for POWER_PLANT
 	toggle_object_state POWERPLANT_VOLTORB1,   ON
@@ -434,6 +435,9 @@ ToggleableObjectStates:
 
 	toggleable_objects_for ROUTE_10
 	toggle_object_state ROUTE10_GREEN, ON
+
+	toggleable_objects_for INDIGO_PLATEAU_LOBBY
+	toggle_object_state INDIGOPLATEAULOBBY_GREEN, OFF
 
 	toggleable_objects_for FUCHSIA_GYM
 	toggle_object_state FUCHSIAGYM_JANINE, OFF

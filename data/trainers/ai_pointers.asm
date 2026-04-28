@@ -4,59 +4,60 @@ TrainerAIPointers:
 	; first byte, number of times (per Pokémon) it can occur
 	; next two bytes, pointer to AI subroutine for trainer class
 	; subroutines are defined in engine/battle/trainer_ai.asm
-	dbw 3, GenericAI
-	dbw 3, GenericAI
-	dbw 3, GenericAI
-	dbw 3, GenericAI
-	dbw 3, GenericAI
-	dbw 3, GenericAI
-	dbw 3, GenericAI
-	dbw 3, GenericAI
-	dbw 3, GenericAI
-	dbw 3, GenericAI
-	dbw 3, GenericAI
-	dbw 3, GenericAI
-	dbw 3, GenericAI ; ariana
-	dbw 3, GenericAI
-	dbw 3, GenericAI
-	dbw 3, GenericAI
-	dbw 3, GenericAI
-	dbw 3, GenericAI
-	dbw 3, GenericAI
-	dbw 3, GenericAI
-	dbw 3, JugglerAI ; juggler
-	dbw 3, GenericAI
-	dbw 3, GenericAI
-	dbw 2, BlackbeltAI ; blackbelt
-	dbw 3, GenericAI ; rival1
-	dbw 3, GenericAI
-	dbw 1, GenericAI ; chief
-	dbw 3, GenericAI
-	dbw 1, GiovanniAI ; giovanni
-	dbw 3, GenericAI
-	dbw 2, CooltrainerMAI ; cooltrainerm
-	dbw 1, CooltrainerFAI ; cooltrainerf
-	dbw 2, KarenAI ; karen
-	dbw 5, BrockAI ; brock
-	dbw 1, MistyAI ; misty
-	dbw 1, LtSurgeAI ; surge
-	dbw 1, ErikaAI ; erika
-	dbw 2, KogaAI ; koga
-	dbw 2, BlaineAI ; blaine
-	dbw 1, SabrinaAI ; sabrina
-	dbw 3, GenericAI
-	dbw 1, Rival2AI ; rival2
-	dbw 1, Rival3AI ; rival3
-	dbw 2, LoreleiAI ; lorelei
-	dbw 3, GenericAI
-	dbw 2, AgathaAI ; agatha
-	dbw 1, LanceAI ; lance
-	dbw 1, Rival3AI ; blue_cloak (final rival)
-	dbw 1, Rival2AI ; green
-	dbw 1, Rival2AI ; green_rocket
-	dbw 3, GenericAI ; ninja
-	dbw 1, CooltrainerFAI ; janine
-	dbw 3, GenericAI ; petrel
-	dbw 3, GenericAI ; proton
-	dbw 3, GenericAI ; archer
+	dbw 3, GenericAI       ; YOUNGSTER
+	dbw 3, GenericAI       ; BUG_CATCHER
+	dbw 3, GenericAI       ; LASS
+	dbw 3, GenericAI       ; SAILOR
+	dbw 3, GenericAI       ; JR_TRAINER_M
+	dbw 3, GenericAI       ; JR_TRAINER_F
+	dbw 3, GenericAI       ; POKEMANIAC
+	dbw 3, GenericAI       ; SUPER_NERD
+	dbw 3, GenericAI       ; HIKER
+	dbw 3, GenericAI       ; BIKER
+	dbw 3, GenericAI       ; BURGLAR
+	dbw 3, GenericAI       ; ENGINEER
+	dbw 4, BlueAI          ; ARIANA
+	dbw 3, GenericAI       ; FISHER
+	dbw 3, GenericAI       ; SWIMMER
+	dbw 3, GenericAI       ; CUE_BALL
+	dbw 3, GenericAI       ; GAMBLER
+	dbw 3, GenericAI       ; BEAUTY
+	dbw 3, GenericAI       ; PSYCHIC_TR
+	dbw 3, GenericAI       ; ROCKER
+	dbw 4, JugglerAI       ; JUGGLER
+	dbw 3, GenericAI       ; TAMER
+	dbw 3, GenericAI       ; BIRD_KEEPER
+	dbw 3, BlackbeltAI     ; BLACKBELT
+	dbw 4, BlueAI          ; RIVAL1
+	dbw 4, BlueCloakAI     ; PROF_OAK
+	dbw 4, GenericAI       ; CHIEF
+	dbw 3, GenericAI       ; SCIENTIST
+	dbw 4, BlueCloakAI     ; GIOVANNI
+	dbw 3, CooltrainerMAI  ; ROCKET
+	dbw 4, CooltrainerMAI  ; COOLTRAINER_M
+	dbw 4, CooltrainerFAI  ; COOLTRAINER_F
+	dbw 4, BlueCloakAI     ; BRUNO/KAREN
+	dbw 4, BlueAI          ; BROCK
+	dbw 4, BlueAI          ; MISTY
+	dbw 4, BlueAI          ; LT_SURGE
+	dbw 4, BlueAI          ; ERIKA
+	dbw 4, BlueAI          ; KOGA
+	dbw 4, BlueAI          ; BLAINE
+	dbw 4, BlueAI          ; SABRINA
+	dbw 4, CooltrainerMAI  ; GENTLEMAN
+	dbw 4, BlueAI          ; RIVAL2
+	dbw 4, BlueAI          ; RIVAL3
+	dbw 4, BlueCloakAI     ; LORELEI
+	dbw 3, GenericAI       ; CHANNELER
+	dbw 4, BlueCloakAI     ; AGATHA
+	dbw 4, BLUE_CLOAK      ; LANCE
+	dbw 4, BlueCloakAI     ; BLUE_CLOAK
+	dbw 4, BlueAI          ; GREEN
+	dbw 4, BlueAI          ; GREEN_ROCKET
+	dbw 4, CooltrainerMAI  ; NINJA
+	dbw 4, BlueAI          ; JANINE
+	dbw 4, BlueAI          ; PETREL
+	dbw 4, BlueAI          ; PROTON
+	dbw 4, BlueAI          ; ARCHER
+	dbw 4, CooltrainerMAI  ; SOLDIER
 	assert_table_length NUM_TRAINERS

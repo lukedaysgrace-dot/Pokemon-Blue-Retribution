@@ -90,4 +90,5 @@ DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_ARCHER                 ; $54
 	const SPRITE_PETREL                 ; $55
 	const SPRITE_PROTON                 ; $56
+	const SPRITE_SOLDIER                ; $57
 DEF NUM_SPRITES EQU const_value - 1

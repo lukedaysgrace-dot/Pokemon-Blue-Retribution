@@ -51,7 +51,7 @@
 	const ATTACK_TWICE_EFFECT        ; $2C
 	const JUMP_KICK_EFFECT           ; $2D Jump Kick and Hi Jump Kick effect
 	const MIST_EFFECT                ; $2E
-	const_skip ; $2F was FOCUS_ENERGY_EFFECT (unused)
+	const FOCUS_ENERGY_EFFECT        ; $2F
 	const RECOIL_EFFECT              ; $30 moves like Double Edge
 	const CONFUSION_EFFECT           ; $31 Confuse Ray, Supersonic (not the move Confusion)
 	const ATTACK_UP2_EFFECT          ; $32

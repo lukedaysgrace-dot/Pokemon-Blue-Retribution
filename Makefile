@@ -167,6 +167,8 @@ pokeblue_vc.gbc:    RGBFIXFLAGS += -p 0x00 -t "POKEMON BLUE"
 gfx/overworld/green_fish_front.png gfx/overworld/green_fish_back.png gfx/overworld/green_fish_side.png: gfx/overworld/green_fishing_strip.png tools/split_green_fishing_strip.py
 	python3 tools/split_green_fishing_strip.py
 
+# Mint fishing: standalone mint_fish_front/back/side.png → .2bpp via %.2bpp: %.png (no strip required).
+
 gfx/battle/move_anim_0.2bpp: tools/gfx += --trim-whitespace
 gfx/battle/move_anim_1.2bpp: tools/gfx += --trim-whitespace
 
@@ -205,7 +207,7 @@ gfx/pokemon/%.2bpp: gfx/pokemon/%.png
 	$(if $(tools/gfx),\
 		tools/gfx $(tools/gfx) -o $@ $@ || $$($(RM) $@ && false))
 
-gfx/trainers/petrel.2bpp gfx/trainers/proton.2bpp gfx/trainers/archer.2bpp gfx/trainers/ariana.2bpp: gfx/trainers/%.2bpp: gfx/trainers/%.png
+gfx/trainers/petrel.2bpp gfx/trainers/proton.2bpp gfx/trainers/archer.2bpp gfx/trainers/ariana.2bpp gfx/trainers/soldier.2bpp: gfx/trainers/%.2bpp: gfx/trainers/%.png
 	$(RGBGFX) --colors auto $(RGBGFXFLAGS) -o $@ $<
 	$(if $(tools/gfx),\
 		tools/gfx $(tools/gfx) -o $@ $@ || $$($(RM) $@ && false))

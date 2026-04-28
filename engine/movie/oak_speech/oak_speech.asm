@@ -63,11 +63,6 @@ OakSpeech:
 	ld a, 1
 	ld [wItemQuantity], a
 	call AddItemToInventory
-	ld a, BICYCLE
-	ld [wCurItem], a
-	ld a, 1
-	ld [wItemQuantity], a
-	call AddItemToInventory
 	ld a, [wDefaultMap]
 	ld [wDestinationMap], a
 	call PrepareForSpecialWarp
@@ -107,7 +102,7 @@ OakSpeech:
 	ld a, [wPlayerGender]
 	and a
 	jr z, .introPlayerNotGirl
-	ld de, GreenPicFront
+	ld de, MintPicFront
 .introPlayerNotGirl
 	lb bc, BANK(RedPicFront), $00
 	call IntroDisplayPicCenteredOrUpperRight
@@ -131,7 +126,7 @@ OakSpeech:
 	ld a, [wPlayerGender]
 	and a
 	jr z, .shrinkIntroNotGirl
-	ld de, GreenPicFront
+	ld de, MintPicFront
 .shrinkIntroNotGirl
 	lb bc, BANK(RedPicFront), $00
 	call IntroDisplayPicCenteredOrUpperRight
@@ -159,8 +154,8 @@ OakSpeech:
 	ld a, [wPlayerGender]
 	and a
 	jr z, .shrinkSpriteCopy
-	ld de, GreenSprite
-	ld b, BANK(GreenSprite)
+	ld de, MintSprite
+	ld b, BANK(MintSprite)
 .shrinkSpriteCopy
 	ld hl, vSprites
 	ld c, $0C

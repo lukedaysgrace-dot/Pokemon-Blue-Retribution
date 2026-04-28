@@ -34,8 +34,9 @@ _SilphCo1FPetrelHoldItText::
 	done
 
 _SilphCo1FPetrelEndBattleText::
-	text "Oh well,"
-	line "you got me."
+	text "Oh"
+	line "well, you"
+	cont "got me."
 	prompt
 
 _SilphCo1FPetrelAfterBattleText::

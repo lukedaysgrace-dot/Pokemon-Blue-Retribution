@@ -55,4 +55,5 @@ TrainerNames::
 	li "ROCKET ADMIN"
 	li "ROCKET ADMIN"
 	li "ROCKET ADMIN"
+	li "SOLDIER"
 	assert_list_length NUM_TRAINERS

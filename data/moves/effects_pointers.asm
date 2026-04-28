@@ -47,7 +47,7 @@ MoveEffectPointerTable:
 	dw TwoToFiveAttacksEffect    ; ATTACK_TWICE_EFFECT
 	dw NULL                      ; JUMP_KICK_EFFECT
 	dw MistEffect                ; MIST_EFFECT
-	dw NULL                      ; unused effect slot ($2F)
+	dw FocusEnergyEffect         ; FOCUS_ENERGY_EFFECT
 	dw RecoilEffect              ; RECOIL_EFFECT
 	dw ConfusionEffect           ; CONFUSION_EFFECT
 	dw StatModifierUpEffect      ; ATTACK_UP2_EFFECT

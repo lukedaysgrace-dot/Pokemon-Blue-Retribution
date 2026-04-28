@@ -876,11 +876,15 @@ SetPal_TrainerCard:
 	ld e, 3
 	farcall LoadSGBPalette
 
-	; Red's palette
+	; Trainer card portrait palette is version-based.
+IF DEF(_BLUE)
+	ld d, PAL_MINT_HERO
+ELSE
 IF GEN_2_GRAPHICS
 	ld d, PAL_HERO
 ELSE
 	ld d, PAL_REDMON
+ENDC
 ENDC
 	ld e, 4
 	farcall LoadSGBPalette
@@ -907,6 +911,20 @@ ENDC
 	ld a, 5
 	call FillMemory
 
+	; Badge VRAM starts at TRAINER_CARD_BADGE_GFX_BASE (tile IDs 49–112). Original BadgePalettes bytes
+	; 32–95 still describe the correct hues per badge tile; map them onto the new IDs (FillMemory used
+	; palette 5 for IDs 96–112 otherwise).
+	ld hl, BadgePalettes + 32
+	ld a, BANK(BadgePalettes)
+	ld de, W2_TilesetPaletteMap + TRAINER_CARD_BADGE_GFX_BASE
+	ld bc, 64
+	call FarCopyData
+
+	; Portrait tile IDs 32–48 (vFrontPic 7x7 tail); badges load at TRAINER_CARD_BADGE_GFX_BASE (no overlap).
+	ld hl, W2_TilesetPaletteMap + 32
+	ld bc, 17 ; IDs 32..48 inclusive
+	ld a, 4
+	call FillMemory
 
 	; Wait 2 frames before updating palettes
 	ld c, 2

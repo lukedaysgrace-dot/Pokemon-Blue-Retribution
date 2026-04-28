@@ -162,8 +162,48 @@ SilphCo11F_ScriptPointers:
 	dw_const SilphCo11FGiovanniBattleFacingScript,  SCRIPT_SILPHCO11F_GIOVANNI_FACING
 	dw_const SilphCo11FGiovanniStartBattleScript,   SCRIPT_SILPHCO11F_GIOVANNI_START_BATTLE
 	dw_const SilphCo11FGiovanniAfterBattleScript,   SCRIPT_SILPHCO11F_GIOVANNI_AFTER_BATTLE
+	dw_const SilphCo11FArianaBattleScript,          SCRIPT_SILPHCO11F_ARIANA_BATTLE
+	dw_const SilphCo11FArianaAfterBattleScript,     SCRIPT_SILPHCO11F_ARIANA_AFTER_BATTLE
+	dw_const SilphCo11FArcherAfterBattleScript,     SCRIPT_SILPHCO11F_ARCHER_AFTER_BATTLE
 
 SilphCo11FDefaultScript:
+	CheckEvent EVENT_BEAT_SILPH_CO_11F_TRAINER_0
+	jr nz, .check_giovanni
+	ld hl, .ArianaTriggerCoords
+	call ArePlayerCoordsInArray
+	jr nc, .check_giovanni
+	ld a, [wCoordIndex]
+	ld [wSavedCoordIndex], a
+	xor a
+	ldh [hJoyHeld], a
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	ld a, SFX_STOP_ALL_MUSIC
+	ld [wNewSoundID], a
+	call PlaySound
+	ld c, BANK(Music_MeetEvilTrainer)
+	ld a, MUSIC_MEET_EVIL_TRAINER
+	call PlayMusic
+	ld a, SILPHCO11F_ROCKET1
+	ld [wEmotionBubbleSpriteIndex], a
+	xor a ; EXCLAMATION_BUBBLE
+	ld [wWhichEmotionBubble], a
+	predef EmotionBubble
+	ld a, SILPHCO11F_ROCKET1
+	ldh [hSpriteIndex], a
+	ld de, .ArianaApproachMovementRight
+	ld a, [wSavedCoordIndex]
+	cp 1
+	jr z, .got_ariana_movement
+	ld de, .ArianaApproachMovementCenter
+	cp 2
+	jr nz, .got_ariana_movement
+	ld de, .ArianaApproachMovementLeft
+.got_ariana_movement
+	call MoveSprite
+	ld a, SCRIPT_SILPHCO11F_ARIANA_BATTLE
+	jp SilphCo11FSetCurScript
+.check_giovanni
 	CheckEvent EVENT_BEAT_SILPH_CO_GIOVANNI
 	ret nz
 	ld hl, .PlayerCoordsArray
@@ -191,11 +231,96 @@ SilphCo11FDefaultScript:
 	dbmapcoord  7, 12
 	db -1 ; end
 
+.ArianaTriggerCoords:
+	dbmapcoord  3,  3
+	dbmapcoord  2,  3
+	dbmapcoord  1,  3
+	db -1 ; end
+
+.ArianaApproachMovementRight:
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_UP
+	db -1 ; end
+
+.ArianaApproachMovementCenter:
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db -1 ; end
+
+.ArianaApproachMovementLeft:
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_UP
+	db -1 ; end
+
 .GiovanniMovement:
 	db NPC_MOVEMENT_DOWN
 	db NPC_MOVEMENT_DOWN
 	db NPC_MOVEMENT_DOWN
 	db -1 ; end
+
+SilphCo11FArianaBattleScript:
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_NPC_MOVEMENT, a
+	ret nz
+	ld a, PLAYER_DIR_DOWN
+	ld [wPlayerMovingDirection], a
+	ld a, SPRITE_FACING_UP
+	ldh [hSpriteFacingDirection], a
+	ld a, SILPHCO11F_ROCKET1
+	ldh [hSpriteIndex], a
+	call SetSpriteFacingDirectionAndDelay
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	ld a, TEXT_SILPHCO11F_ROCKET1
+	ldh [hTextID], a
+	call DisplayTextID
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, SilphCo11FRocket1EndBattleText
+	ld de, SilphCo11FRocket1EndBattleText
+	call SaveEndBattleTextPointers
+	ld a, 1
+	ld [wTrainerNo], a
+	ld a, OPP_ARIANA
+	ld [wCurOpponent], a
+	ld [wEnemyMonOrTrainerClass], a
+	ld a, SCRIPT_SILPHCO11F_ARIANA_AFTER_BATTLE
+	ld [wSilphCo11FCurScript], a
+	ld [wCurMapScript], a
+	ld hl, wStatusFlags7
+	set BIT_USE_CUR_MAP_SCRIPT, [hl]
+	xor a
+	ldh [hJoyHeld], a
+	ret
+
+SilphCo11FArianaAfterBattleScript:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SilphCo11FResetCurScript
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	SetEvent EVENT_BEAT_SILPH_CO_11F_TRAINER_0
+	ld a, PLAYER_DIR_DOWN
+	ld [wPlayerMovingDirection], a
+	ld a, SPRITE_FACING_UP
+	ldh [hSpriteFacingDirection], a
+	ld a, SILPHCO11F_ROCKET1
+	ldh [hSpriteIndex], a
+	call SetSpriteFacingDirectionAndDelay
+	ld a, TEXT_SILPHCO11F_ROCKET1_AFTER_BATTLE
+	ldh [hTextID], a
+	call DisplayTextID
+	xor a
+	ld [wJoyIgnore], a
+	jp SilphCo11FSetCurScript
 
 SilphCo11FSetPlayerAndSpriteFacingDirectionScript:
 	ld [wPlayerMovingDirection], a
@@ -273,6 +398,28 @@ SilphCo11FGiovanniStartBattleScript:
 	ld a, SCRIPT_SILPHCO11F_GIOVANNI_AFTER_BATTLE
 	jp SilphCo11FSetCurScript
 
+SilphCo11FArcherAfterBattleScript:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SilphCo11FResetCurScript
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	SetEvent EVENT_BEAT_SILPH_CO_11F_TRAINER_1
+	ld a, TEXT_SILPHCO11F_ROCKET2_AFTER_BATTLE
+	ldh [hTextID], a
+	call DisplayTextID
+	SetEvent EVENT_SILPH_CO_11_UNLOCKED_DOOR
+	ld a, $3
+	ld [wNewTileBlockID], a
+	lb bc, 6, 3
+	predef ReplaceTileBlock
+	xor a
+	ld [wJoyIgnore], a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
+	jp SilphCo11FSetCurScript
+
 SilphCo11F_TextPointers:
 	def_text_pointers
 	dw_const SilphCo11FSilphPresidentText,            TEXT_SILPHCO11F_SILPH_PRESIDENT
@@ -280,6 +427,8 @@ SilphCo11F_TextPointers:
 	dw_const SilphCo11FGiovanniText,                  TEXT_SILPHCO11F_GIOVANNI
 	dw_const SilphCo11FRocket1Text,                   TEXT_SILPHCO11F_ROCKET1
 	dw_const SilphCo11FRocket2Text,                   TEXT_SILPHCO11F_ROCKET2
+	dw_const SilphCo11FRocket1AfterBattleText,        TEXT_SILPHCO11F_ROCKET1_AFTER_BATTLE
+	dw_const SilphCo11FRocket2AfterBattleText,        TEXT_SILPHCO11F_ROCKET2_AFTER_BATTLE
 	dw_const SilphCo11FGiovanniYouRuinedOurPlansText, TEXT_SILPHCO11F_GIOVANNI_YOU_RUINED_OUR_PLANS
 
 SilphCo11TrainerHeaders:
@@ -287,7 +436,7 @@ SilphCo11TrainerHeaders:
 SilphCo11TrainerHeader0:
 	trainer EVENT_BEAT_SILPH_CO_11F_TRAINER_0, 4, SilphCo11FRocket1BattleText, SilphCo11FRocket1EndBattleText, SilphCo11FRocket1AfterBattleText
 SilphCo11TrainerHeader1:
-	trainer EVENT_BEAT_SILPH_CO_11F_TRAINER_1, 3, SilphCo11FRocket2BattleText, SilphCo11FRocket2EndBattleText, SilphCo11FRocket2AfterBattleText
+	trainer EVENT_BEAT_SILPH_CO_11F_TRAINER_1, 0, SilphCo11FRocket2BattleText, SilphCo11FRocket2EndBattleText, SilphCo11FRocket2AfterBattleText
 	db -1 ; end
 
 SilphCo11FSilphPresidentText:
@@ -366,9 +515,54 @@ SilphCo11FRocket1AfterBattleText:
 
 SilphCo11FRocket2Text:
 	text_asm
-	ld hl, SilphCo11TrainerHeader1
-	call TalkToTrainer
+	CheckEvent EVENT_BEAT_SILPH_CO_11F_TRAINER_1
+	jr nz, .after_battle
+	ld a, SFX_STOP_ALL_MUSIC
+	ld [wNewSoundID], a
+	call PlaySound
+	ld c, BANK(Music_MeetEvilTrainer)
+	ld a, MUSIC_MEET_EVIL_TRAINER
+	call PlayMusic
+	ld hl, .BattleText
+	call PrintText
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, .EndBattleText
+	ld de, .EndBattleText
+	call SaveEndBattleTextPointers
+	ld a, 1
+	ld [wTrainerNo], a
+	ld a, OPP_ARCHER
+	ld [wCurOpponent], a
+	ld [wEnemyMonOrTrainerClass], a
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
+	ld a, SCRIPT_SILPHCO11F_ARCHER_AFTER_BATTLE
+	ld [wSilphCo11FCurScript], a
+	ld [wCurMapScript], a
+	ld hl, wStatusFlags7
+	set BIT_USE_CUR_MAP_SCRIPT, [hl]
+	jr .done
+.after_battle
+	ld hl, .AfterBattleText
+	call PrintText
+.done
 	jp TextScriptEnd
+
+.BattleText:
+	text_far _SilphCo11FRocket2BattleText
+	text_end
+
+.EndBattleText:
+	text_far _SilphCo11FRocket2EndBattleText
+	text_end
+
+.AfterBattleText:
+	text_far _SilphCo11FRocket2AfterBattleText
+	text_end
 
 SilphCo11FRocket2BattleText:
 	text_far _SilphCo11FRocket2BattleText

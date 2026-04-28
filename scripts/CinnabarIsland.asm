@@ -12,7 +12,7 @@ CinnabarIsland_Script:
 CinnabarIslandMaybeShowBlueCloak:
 	CheckEvent EVENT_BEAT_VIRIDIAN_BLUE_CLOAK
 	ret nz
-	CheckEvent EVENT_BEAT_ROUTE25_GREEN
+	CheckEvent EVENT_BEAT_PALLET_TOWN_GREEN
 	ret z
 	ld a, TOGGLE_CINNABAR_ISLAND_BLUE_CLOAK
 	ld [wToggleableObjectIndex], a
@@ -216,7 +216,7 @@ CinnabarIslandBlueCloakText:
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 .needAllRematches
-	CheckEvent EVENT_BEAT_ROUTE25_GREEN
+	CheckEvent EVENT_BEAT_PALLET_TOWN_GREEN
 	jp z, .notYet
 	ld hl, CinnabarIslandBlueCloakPreBattleText1
 	call PrintText

@@ -93,4 +93,5 @@ SpriteSheetPointerTable:
 	overworld_sprite ArcherSprite, 12           ; SPRITE_ARCHER
 	overworld_sprite PetrelSprite, 12           ; SPRITE_PETREL
 	overworld_sprite ProtonSprite, 12           ; SPRITE_PROTON
+	overworld_sprite SoldierSprite, 12          ; SPRITE_SOLDIER
 	assert_table_length NUM_SPRITES

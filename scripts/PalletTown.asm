@@ -3,6 +3,7 @@ PalletTown_Script:
 	jr z, .next
 	SetEvent EVENT_PALLET_AFTER_GETTING_POKEBALLS
 .next
+	call PalletTownUpdateGreenVisibility
 	call EnableAutoTextBoxDrawing
 	ld hl, PalletTown_ScriptPointers
 	ld a, [wPalletTownCurScript]
@@ -17,6 +18,7 @@ PalletTown_ScriptPointers:
 	dw_const PalletTownPlayerFollowsOakScript,     SCRIPT_PALLETTOWN_PLAYER_FOLLOWS_OAK
 	dw_const PalletTownDaisyScript,                SCRIPT_PALLETTOWN_DAISY
 	dw_const PalletTownNoopScript,                 SCRIPT_PALLETTOWN_NOOP
+	dw_const PalletTownGreenAfterBattleScript,     SCRIPT_PALLETTOWN_GREEN_AFTER_BATTLE
 
 PalletTownDefaultScript:
 	CheckEvent EVENT_FOLLOWED_OAK_INTO_LAB
@@ -149,11 +151,62 @@ PalletTownDaisyScript:
 PalletTownNoopScript:
 	ret
 
+PalletTownGreenAfterBattleScript:
+	ld a, [wIsInBattle]
+	cp $ff
+	jr z, .reset
+	SetEvent EVENT_BEAT_PALLET_TOWN_GREEN
+	ld a, TEXT_PALLETTOWN_GREEN
+	ldh [hTextID], a
+	call DisplayTextID
+.reset
+	xor a ; SCRIPT_PALLETTOWN_DEFAULT
+	ld [wJoyIgnore], a
+	ld [wPalletTownCurScript], a
+	ret
+
+PalletTownUpdateGreenVisibility:
+	CheckEvent EVENT_REMATCH_DEFEATED_RIVAL_CHAMPION
+	jr z, .hide
+	; TEMP TEST: bypass the original-150 Pokédex gate while testing the encounter.
+	; call PalletTownOriginal150PokedexComplete
+	; jr nc, .hide
+.show
+	ld a, TOGGLE_PALLET_TOWN_GREEN
+	ld [wToggleableObjectIndex], a
+	predef_jump ShowObject
+.hide
+	ld a, TOGGLE_PALLET_TOWN_GREEN
+	ld [wToggleableObjectIndex], a
+	predef_jump HideObject
+
+; Returns carry if the original 150 Pokédex entries are owned.
+; Mew (#151, bit 6 of byte 18) is intentionally ignored.
+PalletTownOriginal150PokedexComplete:
+	ld hl, wPokedexOwned
+	ld b, 18
+.checkFullBytes
+	ld a, [hli]
+	cp $ff
+	jr nz, .notComplete
+	dec b
+	jr nz, .checkFullBytes
+	ld a, [hl]
+	and %00111111
+	cp %00111111
+	jr nz, .notComplete
+	scf
+	ret
+.notComplete
+	and a
+	ret
+
 PalletTown_TextPointers:
 	def_text_pointers
 	dw_const PalletTownOakText,              TEXT_PALLETTOWN_OAK
 	dw_const PalletTownGirlText,             TEXT_PALLETTOWN_GIRL
 	dw_const PalletTownFisherText,           TEXT_PALLETTOWN_FISHER
+	dw_const PalletTownGreenText,            TEXT_PALLETTOWN_GREEN
 	dw_const PalletTownOaksLabSignText,      TEXT_PALLETTOWN_OAKSLAB_SIGN
 	dw_const PalletTownSignText,             TEXT_PALLETTOWN_SIGN
 	dw_const PalletTownPlayersHouseSignText, TEXT_PALLETTOWN_PLAYERSHOUSE_SIGN
@@ -198,6 +251,56 @@ PalletTownGirlText:
 PalletTownFisherText:
 	text_far _PalletTownFisherText
 	text_end
+
+PalletTownGreenText:
+	text_asm
+	CheckEvent EVENT_BEAT_PALLET_TOWN_GREEN
+	jr z, .beforeBattle
+	ld hl, PalletTownGreenAfterBattleText
+	call PrintText
+	jr .done
+.beforeBattle
+	ld hl, PalletTownGreenBeforeBattleText
+	call PrintText
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, PalletTownGreenEndBattleText
+	ld de, PalletTownGreenPlayerLoseText
+	call SaveEndBattleTextPointers
+	ld a, OPP_GREEN
+	ld [wCurOpponent], a
+	ld a, 16
+	ld [wTrainerNo], a
+	ld a, SCRIPT_PALLETTOWN_GREEN_AFTER_BATTLE
+	ld [wPalletTownCurScript], a
+.done
+	jp TextScriptEnd
+
+PalletTownGreenBeforeBattleText:
+	text "You made it all"
+	line "the way back here."
+
+	para "Show me what"
+	line "you can do!"
+	done
+
+PalletTownGreenEndBattleText:
+	text "Not bad."
+	prompt
+
+PalletTownGreenPlayerLoseText:
+	text "Come back when"
+	line "you're ready."
+	done
+
+PalletTownGreenAfterBattleText:
+	text "That was a good"
+	line "battle."
+
+	para "I'll be watching"
+	line "from here."
+	done
 
 PalletTownOaksLabSignText:
 	text_far _PalletTownOaksLabSignText

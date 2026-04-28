@@ -4130,13 +4130,21 @@ GetDamageVarsForPlayerAttack:
 	ld a, [wCriticalHitOrOHKO]
 	and a ; check for critical hit
 	jr z, .scaleStats
-; in the case of a critical hit, reset the player's attack and the enemy's defense to their base values
+; On a critical hit, ignore only unhelpful stages: the attacker's lowered
+; attacking stat and the defender's raised defensive stat.
+	ld a, [wEnemyMonDefenseMod]
+	cp 7
+	jr c, .keepEnemyDefense
 	ld c, STAT_DEFENSE
 	call GetEnemyMonStat
 	ldh a, [hProduct + 2]
 	ld b, a
 	ldh a, [hProduct + 3]
 	ld c, a
+.keepEnemyDefense
+	ld a, [wPlayerMonAttackMod]
+	cp 8
+	jr nc, .scaleStats
 	push bc
 	ld hl, wPartyMon1Attack
 	ld a, [wPlayerMonNumber]
@@ -4162,13 +4170,20 @@ GetDamageVarsForPlayerAttack:
 	ld a, [wCriticalHitOrOHKO]
 	and a ; check for critical hit
 	jr z, .scaleStats
-; in the case of a critical hit, reset the player's and enemy's specials to their base values
+; On a critical hit, ignore only unhelpful special stages.
+	ld a, [wEnemyMonSpecialMod]
+	cp 7
+	jr c, .keepEnemySpecial
 	ld c, STAT_SPECIAL
 	call GetEnemyMonStat
 	ldh a, [hProduct + 2]
 	ld b, a
 	ldh a, [hProduct + 3]
 	ld c, a
+.keepEnemySpecial
+	ld a, [wPlayerMonSpecialMod]
+	cp 8
+	jr nc, .scaleStats
 	push bc
 	ld hl, wPartyMon1Special
 	ld a, [wPlayerMonNumber]
@@ -4243,7 +4258,11 @@ GetDamageVarsForEnemyAttack:
 	ld a, [wCriticalHitOrOHKO]
 	and a ; check for critical hit
 	jr z, .scaleStats
-; in the case of a critical hit, reset the player's defense and the enemy's attack to their base values
+; On a critical hit, ignore only unhelpful stages: the attacker's lowered
+; attacking stat and the defender's raised defensive stat.
+	ld a, [wPlayerMonDefenseMod]
+	cp 7
+	jr c, .keepPlayerDefense
 	ld hl, wPartyMon1Defense
 	ld a, [wPlayerMonNumber]
 	ld bc, PARTYMON_STRUCT_LENGTH
@@ -4251,6 +4270,10 @@ GetDamageVarsForEnemyAttack:
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
+.keepPlayerDefense
+	ld a, [wEnemyMonAttackMod]
+	cp 8
+	jr nc, .scaleStats
 	push bc
 	ld c, STAT_ATTACK
 	call GetEnemyMonStat
@@ -4275,7 +4298,10 @@ GetDamageVarsForEnemyAttack:
 	ld a, [wCriticalHitOrOHKO]
 	and a ; check for critical hit
 	jr z, .scaleStats
-; in the case of a critical hit, reset the player's and enemy's specials to their base values
+; On a critical hit, ignore only unhelpful special stages.
+	ld a, [wPlayerMonSpecialMod]
+	cp 7
+	jr c, .keepPlayerSpecial
 	ld hl, wPartyMon1Special
 	ld a, [wPlayerMonNumber]
 	ld bc, PARTYMON_STRUCT_LENGTH
@@ -4283,6 +4309,10 @@ GetDamageVarsForEnemyAttack:
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
+.keepPlayerSpecial
+	ld a, [wEnemyMonSpecialMod]
+	cp 8
+	jr nc, .scaleStats
 	push bc
 	ld c, STAT_SPECIAL
 	call GetEnemyMonStat
@@ -4578,14 +4608,25 @@ CriticalHitTest:
 	ld c, [hl]                   ; read move id
 	ld a, [de]
 	bit GETTING_PUMPED, a        ; test for focus energy
-	jr nz, .focusEnergyUsed      ; bug: using focus energy causes a shift to the right instead of left,
-	                             ; resulting in 1/4 the usual crit chance
+	jr nz, .focusEnergyUsed
 	sla b                        ; (effective (base speed/2)*2)
 	jr nc, .noFocusEnergyUsed
 	ld b, $ff                    ; cap at 255/256
 	jr .noFocusEnergyUsed
 .focusEnergyUsed
-	srl b
+	sla b
+	jr nc, .focusEnergyNoCarry1
+	ld b, $ff
+	jr .noFocusEnergyUsed
+.focusEnergyNoCarry1
+	sla b
+	jr nc, .focusEnergyNoCarry2
+	ld b, $ff
+	jr .noFocusEnergyUsed
+.focusEnergyNoCarry2
+	sla b
+	jr nc, .noFocusEnergyUsed
+	ld b, $ff
 .noFocusEnergyUsed
 	ld hl, HighCriticalMoves     ; table of high critical hit moves
 .Loop
@@ -5291,7 +5332,7 @@ AIGetTypeEffectiveness:
 	inc hl
 	ld c, [hl]                 ; c = type 2 of player's pokemon
 	; initialize to neutral effectiveness
-	ld a, $10 ; bug: should be EFFECTIVE (10)
+	ld a, EFFECTIVE
 	ld [wTypeEffectiveness], a
 	ld hl, TypeEffects
 .loop
@@ -5314,6 +5355,40 @@ AIGetTypeEffectiveness:
 .done
 	ld a, [hl]
 	ld [wTypeEffectiveness], a ; store damage multiplier
+	ret
+
+; function to tell how effective the player's selected attack is on the enemy's
+; current pokemon. Used by trainer AI to decide whether it should switch.
+AIGetPlayerTypeEffectiveness:
+	ld a, [wPlayerMoveType]
+	ld d, a                    ; d = type of player move
+	ld hl, wEnemyMonType
+	ld b, [hl]                 ; b = type 1 of enemy pokemon
+	inc hl
+	ld c, [hl]                 ; c = type 2 of enemy pokemon
+	ld a, EFFECTIVE
+	ld [wTypeEffectiveness], a
+	ld hl, TypeEffects
+.loop
+	ld a, [hli]
+	cp $ff
+	ret z
+	cp d
+	jr nz, .nextTypePair1
+	ld a, [hli]
+	cp b
+	jr z, .done
+	cp c
+	jr z, .done
+	jr .nextTypePair2
+.nextTypePair1
+	inc hl
+.nextTypePair2
+	inc hl
+	jr .loop
+.done
+	ld a, [hl]
+	ld [wTypeEffectiveness], a
 	ret
 
 INCLUDE "data/types/type_matchups.asm"
@@ -6354,7 +6429,7 @@ LoadPlayerBackPic:
 	ld a, [wPlayerGender]
 	and a
 	jr z, .haveBackPic
-	ld de, GreenPicBack
+	ld de, MintPicBack
 .haveBackPic
 	ld a, [wBattleType]
 	dec a
@@ -6365,7 +6440,7 @@ LoadPlayerBackPic:
 	ld a, [wPlayerGender]
 	and a
 	jr z, .backPicBankMale
-	ld a, BANK(GreenPicBack)
+	ld a, BANK(MintPicBack)
 	jr .backPicBankReady
 .backPicBankMale
 	ld a, BANK(RedPicBack)
@@ -7144,6 +7219,8 @@ _LoadTrainerPic:
 	jr z, .arianaTrainerPic
 	cp ARCHER
 	jr z, .archerTrainerPic
+	cp SOLDIER
+	jr z, .soldierTrainerPic
 .checkNinjaJanine
 	cp NINJA
 	jr z, .ninjaTrainerPic
@@ -7163,6 +7240,10 @@ _LoadTrainerPic:
 .archerTrainerPic
 	ld de, ArcherPic
 	ld a, BANK(ArcherPic)
+	jr .loadSprite
+.soldierTrainerPic
+	ld de, SoldierPic
+	ld a, BANK(SoldierPic)
 	jr .loadSprite
 .arianaTrainerPic
 	ld de, ArianaPic

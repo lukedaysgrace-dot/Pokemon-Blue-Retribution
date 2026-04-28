@@ -11,6 +11,12 @@ ENDC
 
 GetRedPalID:
 	call ClearScreen
+	ld a, [wPlayerGender]
+	and a
+	jr z, .maleIntroHeroPal
+	ld a, PAL_MINT_HERO
+	jr GotPalID
+.maleIntroHeroPal:
 IF GEN_2_GRAPHICS
 	ld a, PAL_HERO
 ELSE

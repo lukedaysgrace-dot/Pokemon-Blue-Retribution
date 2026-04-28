@@ -98,35 +98,136 @@ _SilphCo11FGiovanniYouRuinedOurPlansText::
 	done
 
 _SilphCo11FRocket1BattleText::
-	text "Stop right there!"
-	line "Don't you move!"
+	text "So... you're the"
+	line "child who's been"
+	cont "interfering with"
+	cont "our operations."
+
+	para "I was wondering"
+	line "why PROTON was so"
+	cont "angry when he ran"
+	cont "by a moment ago."
+
+	para "I expected some-"
+	line "one louder. More"
+	cont "desperate."
+
+	para "That almost makes"
+	line "this disappoint-"
+	cont "ing."
+
+	para "You see, this"
+	line "company will bend"
+	cont "eventually."
+
+	para "People like you"
+	line "don't stop that."
+	cont "You just delay"
+	cont "it."
+
+	para "Still... GIOVANNI"
+	line "doesn't tolerate"
+	cont "delays."
+
+	para "And neither do I."
+
+	para "Let's see how far"
+	line "that quiet deter-"
+	cont "mination of yours"
+	cont "really goes."
 	done
 
 _SilphCo11FRocket1EndBattleText::
-	text "Don't..."
-	line "Please!"
+	text "So..."
+	line "you're stronger"
+	cont "than you look."
 	prompt
 
 _SilphCo11FRocket1AfterBattleText::
-	text "So, you want to"
-	line "see my BOSS?"
+	text "A minor setback."
+
+	para "You're only"
+	line "delaying the"
+	cont "inevitable."
+
+	para "Feel free to move"
+	line "on, but ARCHER"
+	cont "and GIOVANNI lie"
+	cont "ahead."
+
+	para "I don't expect"
+	line "you to get far."
 	done
 
 _SilphCo11FRocket2BattleText::
-	text "Halt! Do you have"
-	line "an appointment"
-	cont "with my BOSS?"
+	text "So... you've made"
+	line "it this far."
+
+	para "I've watched you"
+	line "tear through our"
+	cont "ranks like it"
+	cont "meant nothing."
+
+	para "Grunts. Scien-"
+	line "tists. Even our"
+	cont "admins."
+
+	para "And now you think"
+	line "you can just walk"
+	cont "in there?"
+
+	para "No."
+
+	para "You don't get to"
+	line "stand before"
+	cont "GIOVANNI."
+
+	para "You don't get to"
+	line "interfere with"
+	cont "his plans."
+
+	para "TEAM ROCKET is on"
+	line "the verge of"
+	cont "something greater."
+
+	para "We are so close"
+	line "to the complete"
+	cont "takeover of this"
+	cont "company."
+
+	para "And I won't let"
+	line "some kid ruin it."
+
+	para "If you want to"
+	line "take another"
+	cont "step..."
+
+	para "You'll go through"
+	line "me."
 	done
 
 _SilphCo11FRocket2EndBattleText::
-	text "Gaah!"
-	line "Demolished!"
+	text "No.."
+	line "NO!..."
+    cont "GIOVANNI.."
+
+	para "I've failed you.."
 	prompt
 
 _SilphCo11FRocket2AfterBattleText::
-	text "Watch your step,"
-	line "my BOSS likes his"
-	cont "#MON tough!"
+	text "You think this is"
+	line "over?!"
+
+	para "You've done"
+	line "nothing but slow"
+	cont "us down!"
+
+	para "GIOVANNI will"
+	line "deal with you"
+	cont "himself."
+
+	para "You're still"
+	line "nothing to him."
 	done
 
 _SilphCo10FPorygonText::

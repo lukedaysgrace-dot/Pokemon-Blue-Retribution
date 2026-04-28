@@ -187,7 +187,7 @@ HoFLoadPlayerPics:
 	ld a, [wPlayerGender]
 	and a
 	jr z, .hofFrontNotGirl
-	ld de, GreenPicFront
+	ld de, MintPicFront
 .hofFrontNotGirl
 	ld a, BANK(RedPicFront)
 	call UncompressSpriteFromDE
@@ -201,12 +201,12 @@ HoFLoadPlayerPics:
 	ld a, [wPlayerGender]
 	and a
 	jr z, .hofBackNotGirl
-	ld de, GreenPicBack
+	ld de, MintPicBack
 .hofBackNotGirl
 	ld a, [wPlayerGender]
 	and a
 	jr z, .hofBackPicBankMale
-	ld a, BANK(GreenPicBack)
+	ld a, BANK(MintPicBack)
 	jr .hofBackPicBankReady
 .hofBackPicBankMale
 	ld a, BANK(RedPicBack)

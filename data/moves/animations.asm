@@ -164,6 +164,7 @@ AttackAnimationPointers:
 	dw SuperFangAnim
 	dw SlashAnim
 	dw SubstituteAnim
+	dw FocusEnergyAnim
 	dw StruggleAnim
 	assert_table_length NUM_ATTACKS
 	dw ShowPicAnim
@@ -1194,6 +1195,10 @@ SubstituteAnim:
 	battle_anim SUBSTITUTE, SE_SLIDE_MON_OFF
 	battle_anim NO_MOVE, SUBANIM_0_BALL_POOF, 0, 8
 	battle_anim NO_MOVE, SE_SUBSTITUTE_MON
+	db -1 ; end
+
+FocusEnergyAnim:
+	battle_anim FOCUS_ENERGY, SE_SPIRAL_BALLS_INWARD
 	db -1 ; end
 
 BallTossAnim:

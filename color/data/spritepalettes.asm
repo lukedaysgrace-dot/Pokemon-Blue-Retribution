@@ -30,10 +30,10 @@ SpritePalettes: ; Taken from pokemon GSC.
 	RGB 22,9,24
 	RGB 0,0,0
 
-; PAL_OW_EMOJI
-	RGB 31,31,31
-	RGB 31,31,31
-	RGB 13,13,13
+; PAL_OW_MINT (skin = PAL_OW_BLUE; row3 = cool mint clothes ~#66C5B3 → 12,24,22)
+	RGB 27,31,27
+	RGB 31,19,10
+	RGB 12,24,22
 	RGB 0,0,0
 
 ; PAL_OW_TREE
@@ -80,10 +80,10 @@ SpritePalettesNite: ; Taken from pokemon GSC.
 	RGB 22,9,24
 	RGB 0,0,0
 
-; PAL_OW_EMOJI
-	RGB 31,31,31
-	RGB 31,31,31
-	RGB 13,13,13
+; PAL_OW_MINT (night — darker seafoam)
+	RGB 27,31,27
+	RGB 31,19,10
+	RGB 09,19,18
 	RGB 0,0,0
 
 ; PAL_OW_TREE
@@ -130,10 +130,10 @@ SpritePalettesPokecenter: ; Taken from pokemon GSC.
 	RGB 31,7,1
 	RGB 0,0,0
 
-; PAL_OW_EMOJI
-	RGB 31,31,31
-	RGB 31,31,31
-	RGB 13,13,13
+; PAL_OW_MINT
+	RGB 27,31,27
+	RGB 31,19,10
+	RGB 12,24,22
 	RGB 0,0,0
 
 ; PAL_OW_TREE

@@ -10,6 +10,9 @@ DEF SURROUNDING_HEIGHT EQU SCREEN_BLOCK_HEIGHT * BLOCK_HEIGHT ; tiles
 DEF PIC_WIDTH  EQU 7 ; tiles
 DEF PIC_HEIGHT EQU PIC_WIDTH ; tiles
 DEF PIC_SIZE   EQU PIC_WIDTH * PIC_HEIGHT ; tiles
+; Trainer card: 7x7 portrait uses tile IDs 0–48 (vFrontPic). Badges used to load at vChars2 $20 (IDs
+; 32–95), overlapping the portrait. Load badge .2bpp at $31 so IDs 32–48 are portrait-only.
+DEF TRAINER_CARD_BADGE_GFX_BASE EQU $31
 
 DEF SPRITEBUFFERSIZE EQU PIC_WIDTH * PIC_HEIGHT * TILE_1BPP_SIZE
 

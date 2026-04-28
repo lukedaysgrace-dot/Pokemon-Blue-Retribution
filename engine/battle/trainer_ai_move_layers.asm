@@ -899,8 +899,66 @@ AIMoveChoiceModification3:
 	jp .nextMove
 
 AIMoveChoiceModification4:
-; Phase 2: intelligent switching (not ported yet)
-	ret
+; BlueCloakAI move layer: strongly prefer real damaging super-effective moves.
+; Status/zero-power moves are intentionally ignored here so their type never
+; makes them look like attacking coverage.
+	ld a, [wActionResultOrTookBattleTurn]
+	and a
+	ret nz
+	ld hl, wBuffer - 1
+	ld de, wEnemyMonMoves
+	ld b, NUM_MOVES + 1
+.nextMove
+	dec b
+	ret z
+	inc hl
+	ld a, [de]
+	and a
+	ret z
+	inc de
+	call ReadMove
+	ld a, [wEnemyMovePower]
+	and a
+	jr z, .nextMove
+	ld a, [wEnemyMoveEffect]
+	cp SPECIAL_DAMAGE_EFFECT
+	jr z, .nextMove
+	push hl
+	push de
+	push bc
+	callfar AIGetTypeEffectiveness
+	pop bc
+	pop de
+	pop hl
+	ld a, [wTypeEffectiveness]
+	and a
+	jr z, .immuneMove
+	cp EFFECTIVE
+	jr c, .resistedMove
+	cp SUPER_EFFECTIVE
+	jr nc, .superEffectiveMove
+	ld a, [wEnemyMoveType]
+	ld c, a
+	ld a, [wEnemyMonType1]
+	cp c
+	jr z, .preferMove
+	ld a, [wEnemyMonType2]
+	cp c
+	jr z, .preferMove
+	jr .nextMove
+.superEffectiveMove
+	dec [hl]
+.preferMove
+	dec [hl]
+	jr .nextMove
+.immuneMove
+	inc [hl]
+	inc [hl]
+	inc [hl]
+.resistedMove
+	inc [hl]
+	inc [hl]
+	jr .nextMove
 
 ReadMove:
 	push hl

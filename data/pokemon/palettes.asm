@@ -482,5 +482,6 @@ TrainerPalettes:
 	db PAL_PETREL
 	db PAL_PROTON
 	db PAL_ARCHER
+	db PAL_SOLDIER
 	assert_table_length NUM_TRAINERS + 1
 ENDC

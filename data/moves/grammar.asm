@@ -74,6 +74,7 @@ MoveGrammar:
 	db METAL_CLAW
 	db SLASH
 	db SUBSTITUTE
+	db FOCUS_ENERGY
 	db 0 ; end set
 
 ; 4: originally "[mon]の<LINE>[move]!" ("[mon]'s<LINE>[move]!")

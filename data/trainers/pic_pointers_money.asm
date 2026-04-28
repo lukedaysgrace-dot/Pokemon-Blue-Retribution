@@ -62,4 +62,5 @@ TrainerPicAndMoneyPointers::
 	pic_money PetrelPic,       4000
 	pic_money ProtonPic,       4000
 	pic_money ArcherPic,       4500
+	pic_money SoldierPic,      3000
 	assert_table_length NUM_TRAINERS

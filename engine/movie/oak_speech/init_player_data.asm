@@ -28,6 +28,9 @@ InitPlayerData2:
 	lb bc, FRESH_WATER, 1
 	call GiveItem
 
+	ld a, BICYCLE
+	ld [wCurrentRideItem], a
+
 DEF START_MONEY EQU $3000
 	ld hl, wPlayerMoney + 1
 	ld a, HIGH(START_MONEY)
@@ -77,6 +80,9 @@ DEF START_MONEY EQU $3000
 	SetEvent EVENT_REMATCH_DEFEATED_AGATHA
 	SetEvent EVENT_REMATCH_DEFEATED_LANCE
 	SetEvent EVENT_REMATCH_DEFEATED_RIVAL_CHAMPION
+	ResetEvent EVENT_GOT_BICYCLE
+	ResetEvent EVENT_GOT_SKATEBOARD_FROM_BIKE_SHOP
+	ResetEvent EVENT_GOT_BIKE_VOUCHER
 
 	jp InitializeToggleableObjectsFlags
 

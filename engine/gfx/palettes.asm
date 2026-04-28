@@ -83,8 +83,16 @@ IF 1 ; Trainers are given individualized palettes
 	; OPP_GARY, so ignore it)
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
+	jr nz, .notLinkTrainerPal
+	ld a, [wPlayerGender]
+	and a
+	jr z, .linkMaleHeroPal
+	ld a, PAL_MINT_HERO
+	ret
+.linkMaleHeroPal:
 	ld a, PAL_HERO
-	ret z
+	ret
+.notLinkTrainerPal
 
 	ld a, [wTrainerClass] ; Get trainer ID
 	ld hl, TrainerPalettes
@@ -113,6 +121,12 @@ DetermineBackSpritePaletteID:
 	jr nz, .getPaletteID ; Check if trainer?
 
 .trainerBackSprite:
+	ld a, [wPlayerGender]
+	and a
+	jr z, .maleTrainerBackPal
+	ld a, PAL_MINT_HERO
+	ret
+.maleTrainerBackPal:
 IF GEN_2_GRAPHICS
 	ld a, PAL_HERO
 ELSE
