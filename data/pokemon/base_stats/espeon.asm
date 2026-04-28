@@ -11,7 +11,7 @@
 	INCBIN "gfx/pokemon/front/espeon.pic", 0, 1
 	dw EspeonPicFront, EspeonPicBack
 
-	db POUND, TAIL_WHIP, SAND_ATTACK, NO_MOVE ; level 1 learnset
+	db TACKLE, TAIL_WHIP, SAND_ATTACK, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

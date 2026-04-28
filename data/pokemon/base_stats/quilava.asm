@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/quilava.pic", 0, 1
 	dw QuilavaPicFront, QuilavaPicBack
 
-	db POUND, LEER, EMBER, NO_MOVE
+	db TACKLE, LEER, EMBER, NO_MOVE
 	db GROWTH_MEDIUM_SLOW
 
 	tmhm MEGA_PUNCH,   DIG,          TOXIC,        BODY_SLAM,    FIRE_BLAST,   \

@@ -1,7 +1,7 @@
 MoveNames::
 	; in-battle "used <move name>!" text can only fit 12 (MOVE_NAME_LENGTH - 2) characters
 	list_start MOVE_NAME_LENGTH - 2
-	li "POUND"
+	li "TACKLE"
 	li "KARATE CHOP"
 	li "DOUBLESLAP"
 	li "COMET PUNCH"

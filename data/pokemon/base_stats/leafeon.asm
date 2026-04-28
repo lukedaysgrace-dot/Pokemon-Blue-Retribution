@@ -12,7 +12,7 @@
 	INCBIN "gfx/pokemon/front/leafeon.pic", 0, 1
 	dw LeafeonPicFront, LeafeonPicBack
 
-	db POUND, SAND_ATTACK, RAZOR_LEAF, NO_MOVE ; level 1 learnset
+	db TACKLE, SAND_ATTACK, RAZOR_LEAF, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

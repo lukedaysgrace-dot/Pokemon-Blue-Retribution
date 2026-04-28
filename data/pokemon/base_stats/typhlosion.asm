@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/typhlosion.pic", 0, 1
 	dw TyphlosionPicFront, TyphlosionPicBack
 
-	db POUND, LEER, EMBER, QUICK_ATTACK
+	db TACKLE, LEER, EMBER, QUICK_ATTACK
 	db GROWTH_MEDIUM_SLOW
 
 	tmhm MEGA_PUNCH,   DIG,          TOXIC,        BODY_SLAM,    FIRE_BLAST,   \

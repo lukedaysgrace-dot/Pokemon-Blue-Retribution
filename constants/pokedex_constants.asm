@@ -214,5 +214,9 @@
 	const DEX_MESMERIA   ; 208
 	const DEX_CROAGUNK   ; 209
 	const DEX_TOXICROAK  ; 210
+	const DEX_PHANPY     ; 211
+	const DEX_DONPHAN    ; 212
+	const DEX_HOUNDOUR   ; 213
+	const DEX_HOUNDOOM   ; 214
 
 DEF NUM_POKEMON EQU const_value - 1

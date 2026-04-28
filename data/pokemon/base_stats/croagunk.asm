@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/croagunk.pic", 0, 1 ; sprite dimensions
 	dw CroagunkPicFront, CroagunkPicBack
 
-	db POISON_STING, POUND, NO_MOVE, NO_MOVE ; level 1 learnset
+	db POISON_STING, TACKLE, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

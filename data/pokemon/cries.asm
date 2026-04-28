@@ -255,4 +255,8 @@ CryData::
 	mon_cry SFX_CRY_0D, $FF, $FF ; Mesmeria
 	mon_cry SFX_CRY_1D, $40, $70 ; Croagunk
 	mon_cry SFX_CRY_1D, $20, $90 ; Toxicroak
+	mon_cry SFX_CRY_13, $60, $70 ; Phanpy
+	mon_cry SFX_CRY_13, $30, $A0 ; Donphan
+	mon_cry SFX_CRY_24, $60, $90 ; Houndour
+	mon_cry SFX_CRY_24, $20, $C0 ; Houndoom
 	assert_table_length NUM_POKEMON_INDEXES

@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/mamoswine.pic", 0, 1
 	dw MamoswinePicFront, MamoswinePicBack
 
-	db POUND, FURY_ATTACK, BITE, NO_MOVE
+	db TACKLE, FURY_ATTACK, BITE, NO_MOVE
 	db GROWTH_SLOW
 
 	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    ICE_BEAM,     BLIZZARD,     \

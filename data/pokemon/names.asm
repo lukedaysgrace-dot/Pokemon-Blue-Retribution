@@ -249,4 +249,8 @@ MonsterNames::
 	dname "MESMERIA"
 	dname "CROAGUNK"
 	dname "TOXICROAK"
+	dname "PHANPY"
+	dname "DONPHAN"
+	dname "HOUNDOUR"
+	dname "HOUNDOOM"
 	assert_table_length NUM_POKEMON_INDEXES

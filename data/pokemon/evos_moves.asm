@@ -259,6 +259,10 @@ EvosMovesPointerTable:
 	dw MesmeriaEvosMoves
 	dw CroagunkEvosMoves
 	dw ToxicroakEvosMoves
+	dw PhanpyEvosMoves
+	dw DonphanEvosMoves
+	dw HoundourEvosMoves
+	dw HoundoomEvosMoves
 	assert_table_length NUM_POKEMON_INDEXES
 
 RhydonEvosMoves:
@@ -1305,7 +1309,7 @@ JigglypuffEvosMoves:
 	db EVOLVE_ITEM, MOON_STONE, 1, WIGGLYTUFF
 	db 0
 ; Learnset
-	db 9, POUND
+	db 9, TACKLE
 	db 14, DISABLE
 	db 19, DEFENSE_CURL
 	db 24, DOUBLESLAP
@@ -1655,7 +1659,7 @@ MagikarpEvosMoves:
 	db EVOLVE_LEVEL, 20, GYARADOS
 	db 0
 ; Learnset
-	db 15, POUND
+	db 15, TACKLE
 	db 0
 
 MissingNo86EvosMoves:
@@ -2225,7 +2229,7 @@ VictreebelEvosMoves:
 ChikoritaEvosMoves:
 	db EVOLVE_LEVEL, 16, BAYLEEF
 	db 0
-	db 1, POUND
+	db 1, TACKLE
 	db 8, GROWL
 	db 15, RAZOR_LEAF
 	db 22, REFLECT
@@ -2238,7 +2242,7 @@ ChikoritaEvosMoves:
 BayleefEvosMoves:
 	db EVOLVE_LEVEL, 32, MEGANIUM
 	db 0
-	db 1, POUND
+	db 1, TACKLE
 	db 8, GROWL
 	db 15, RAZOR_LEAF
 	db 22, REFLECT
@@ -2250,7 +2254,7 @@ BayleefEvosMoves:
 
 MeganiumEvosMoves:
 	db 0
-	db 1, POUND
+	db 1, TACKLE
 	db 8, GROWL
 	db 15, RAZOR_LEAF
 	db 22, REFLECT
@@ -2263,7 +2267,7 @@ MeganiumEvosMoves:
 CyndaquilEvosMoves:
 	db EVOLVE_LEVEL, 14, QUILAVA
 	db 0
-	db 1, POUND
+	db 1, TACKLE
 	db 6, LEER
 	db 12, EMBER
 	db 19, QUICK_ATTACK
@@ -2276,7 +2280,7 @@ CyndaquilEvosMoves:
 QuilavaEvosMoves:
 	db EVOLVE_LEVEL, 36, TYPHLOSION
 	db 0
-	db 1, POUND
+	db 1, TACKLE
 	db 6, LEER
 	db 12, EMBER
 	db 21, QUICK_ATTACK
@@ -2288,7 +2292,7 @@ QuilavaEvosMoves:
 
 TyphlosionEvosMoves:
 	db 0
-	db 1, POUND
+	db 1, TACKLE
 	db 6, LEER
 	db 12, EMBER
 	db 21, QUICK_ATTACK
@@ -2382,7 +2386,7 @@ MismagiusEvosMoves:
 SwinubEvosMoves:
 	db EVOLVE_LEVEL, 33, PILOSWINE
 	db 0
-	db 1, POUND
+	db 1, TACKLE
 	db 10, AURORA_BEAM
 	db 19, BITE
 	db 28, TAKE_DOWN
@@ -2393,7 +2397,7 @@ SwinubEvosMoves:
 PiloswineEvosMoves:
 	db EVOLVE_LEVEL, 46, MAMOSWINE
 	db 0
-	db 1, POUND
+	db 1, TACKLE
 	db 12, AURORA_BEAM
 	db 22, BITE
 	db 33, FURY_ATTACK
@@ -2403,7 +2407,7 @@ PiloswineEvosMoves:
 
 MamoswineEvosMoves:
 	db 0
-	db 1, POUND
+	db 1, TACKLE
 	db 15, AURORA_BEAM
 	db 26, BITE
 	db 37, FURY_ATTACK
@@ -2577,7 +2581,7 @@ DusknoirEvosMoves:
 GolettEvosMoves:
 	db EVOLVE_LEVEL, 43, GOLURK
 	db 0
-	db 1, POUND
+	db 1, TACKLE
 	db 9, ROCK_THROW
 	db 17, MEGA_PUNCH
 	db 25, METAL_CLAW
@@ -2588,7 +2592,7 @@ GolettEvosMoves:
 
 GolurkEvosMoves:
 	db 0
-	db 1, POUND
+	db 1, TACKLE
 	db 11, ROCK_THROW
 	db 21, MEGA_PUNCH
 	db 31, METAL_CLAW
@@ -2599,7 +2603,7 @@ GolurkEvosMoves:
 
 HeracrossEvosMoves:
 	db 0
-	db 1, POUND
+	db 1, TACKLE
 	db 10, LEER
 	db 18, HORN_ATTACK
 	db 26, FURY_ATTACK
@@ -2627,7 +2631,7 @@ BlisseyEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 1, POUND
+	db 1, TACKLE
 	db 5, GROWL
 	db 9, TAIL_WHIP
 	db 13, DOUBLESLAP
@@ -2673,7 +2677,7 @@ EspeonEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 1, POUND
+	db 1, TACKLE
 	db 8, SAND_ATTACK
 	db 16, CONFUSION
 	db 23, QUICK_ATTACK
@@ -2687,7 +2691,7 @@ GlaceonEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 1, POUND
+	db 1, TACKLE
 	db 8, SAND_ATTACK
 	db 16, BITE
 	db 23, QUICK_ATTACK
@@ -2715,7 +2719,7 @@ LeafeonEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 1, POUND
+	db 1, TACKLE
 	db 8, SAND_ATTACK
 	db 15, RAZOR_LEAF
 	db 22, GROWTH
@@ -2758,7 +2762,7 @@ MagnezoneEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 1, POUND
+	db 1, TACKLE
 	db 7, SONICBOOM
 	db 13, THUNDERSHOCK
 	db 19, SUPERSONIC
@@ -2773,7 +2777,7 @@ PorygonZEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 1, POUND
+	db 1, TACKLE
 	db 9, METAL_CLAW
 	db 12, PSYBEAM
 	db 20, RECOVER
@@ -2788,7 +2792,7 @@ Porygon2EvosMoves:
 	db EVOLVE_TRADE, 1, PORYGON_Z
 	db 0
 ; Learnset
-	db 1, POUND
+	db 1, TACKLE
 	db 9, METAL_CLAW
 	db 12, PSYBEAM
 	db 20, RECOVER
@@ -2858,7 +2862,7 @@ SteelixEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 1, POUND
+	db 1, TACKLE
 	db 9, SCREECH
 	db 15, SHADOW_BALL
 	db 21, ROCK_THROW
@@ -2887,7 +2891,7 @@ UmbreonEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 1, POUND
+	db 1, TACKLE
 	db 8, SAND_ATTACK
 	db 16, QUICK_ATTACK
 	db 23, BITE
@@ -2951,7 +2955,7 @@ CroagunkEvosMoves:
 	db 0
 ; Learnset
 	db 1, POISON_STING
-	db 6, POUND
+	db 6, TACKLE
 	db 10, BITE
 	db 14, KARATE_CHOP
 	db 18, ACID
@@ -2975,4 +2979,48 @@ ToxicroakEvosMoves:
 	db 43, SLUDGE_BOMB
 	db 50, HI_JUMP_KICK
 	db 57, CRUNCH
+	db 0
+
+
+PhanpyEvosMoves:
+	db EVOLVE_LEVEL, 25, DONPHAN
+	db 0
+	db 1, TACKLE
+	db 8, GROWL
+	db 15, DEFENSE_CURL
+	db 22, TAKE_DOWN
+	db 30, ROCK_THROW
+	db 38, EARTHQUAKE
+	db 0
+
+DonphanEvosMoves:
+	db 0
+	db 1, HORN_ATTACK
+	db 8, GROWL
+	db 15, DEFENSE_CURL
+	db 24, FURY_ATTACK
+	db 33, ROCK_THROW
+	db 42, EARTHQUAKE
+	db 0
+
+HoundourEvosMoves:
+	db EVOLVE_LEVEL, 24, HOUNDOOM
+	db 0
+	db 1, LEER
+	db 1, EMBER
+	db 10, SMOG
+	db 18, BITE
+	db 27, GROWL
+	db 36, FLAMETHROWER
+	db 0
+
+HoundoomEvosMoves:
+	db 0
+	db 1, LEER
+	db 1, EMBER
+	db 10, SMOG
+	db 18, BITE
+	db 30, GROWL
+	db 41, FLAMETHROWER
+	db 52, FIRE_BLAST
 	db 0

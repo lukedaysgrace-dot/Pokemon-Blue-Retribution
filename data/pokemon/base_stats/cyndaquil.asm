@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/cyndaquil.pic", 0, 1
 	dw CyndaquilPicFront, CyndaquilPicBack
 
-	db POUND, LEER, NO_MOVE, NO_MOVE
+	db TACKLE, LEER, NO_MOVE, NO_MOVE
 	db GROWTH_MEDIUM_SLOW
 
 	tmhm MEGA_PUNCH,   DIG,          TOXIC,        BODY_SLAM,    FIRE_BLAST,   \

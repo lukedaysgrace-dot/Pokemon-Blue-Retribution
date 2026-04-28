@@ -455,6 +455,14 @@ CroagunkPicFront::     INCBIN "gfx/pokemon/front/croagunk.pic"
 CroagunkPicBack::      INCBIN "gfx/pokemon/back/croagunkb.pic"
 ToxicroakPicFront::    INCBIN "gfx/pokemon/front/toxicroak.pic"
 ToxicroakPicBack::     INCBIN "gfx/pokemon/back/toxicroakb.pic"
+PhanpyPicFront::       INCBIN "gfx/pokemon/front/phanpy.pic"
+PhanpyPicBack::        INCBIN "gfx/pokemon/back/phanpyb.pic"
+DonphanPicFront::      INCBIN "gfx/pokemon/front/donphan.pic"
+DonphanPicBack::       INCBIN "gfx/pokemon/back/donphanb.pic"
+HoundourPicFront::     INCBIN "gfx/pokemon/front/houndour.pic"
+HoundourPicBack::      INCBIN "gfx/pokemon/back/houndourb.pic"
+HoundoomPicFront::     INCBIN "gfx/pokemon/front/houndoom.pic"
+HoundoomPicBack::      INCBIN "gfx/pokemon/back/houndoomb.pic"
 
 
 SECTION "Trainer Pics", ROMX

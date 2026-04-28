@@ -1,6 +1,6 @@
 AttackAnimationPointers:
 	table_width 2
-	dw PoundAnim
+	dw TackleAnim
 	dw KarateChopAnim
 	dw DoubleSlapAnim
 	dw CometPunchAnim
@@ -233,9 +233,9 @@ ZigZagScreenAnim:
 	battle_anim NO_MOVE, SE_WAVY_SCREEN
 	db -1 ; end
 
-PoundAnim:
+TackleAnim:
 StruggleAnim:
-	battle_anim POUND, SUBANIM_0_STAR_TWICE, 0, 8
+	battle_anim TACKLE, SUBANIM_0_STAR_TWICE, 0, 8
 	db -1 ; end
 
 KarateChopAnim:
@@ -257,7 +257,7 @@ MegaPunchAnim:
 	db -1 ; end
 
 PayDayAnim:
-	battle_anim POUND, SUBANIM_0_STAR_TWICE, 0, 8
+	battle_anim TACKLE, SUBANIM_0_STAR_TWICE, 0, 8
 	battle_anim PAY_DAY, SUBANIM_0_COIN_BOUNCE, 0, 4
 	db -1 ; end
 

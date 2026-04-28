@@ -2050,3 +2050,40 @@ _ToxicroakDexEntry::
 	page "potent toxin from"
 	next "its knuckle spines."
 	dex
+
+
+_PhanpyDexEntry::
+	text "Its long nose can"
+	next "sniff out food"
+	next "buried deep below"
+
+	page "the ground, even"
+	next "through dry rock."
+	dex
+
+_DonphanDexEntry::
+	text "By spinning its"
+	next "body, it can smash"
+	next "through houses and"
+
+	page "flatten roads in"
+	next "a single charge."
+	dex
+
+_HoundourDexEntry::
+	text "It uses eerie"
+	next "howls to call its"
+	next "pack and corner"
+
+	page "prey at night."
+	next "Its breath is hot."
+	dex
+
+_HoundoomDexEntry::
+	text "If burned by its"
+	next "flames, the pain"
+	next "can linger for"
+
+	page "days. Its howl"
+	next "makes foes shiver."
+	dex

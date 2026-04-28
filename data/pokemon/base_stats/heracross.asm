@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/heracross.pic", 0, 1
 	dw HeracrossPicFront, HeracrossPicBack
 
-	db POUND, LEER, NO_MOVE, NO_MOVE
+	db TACKLE, LEER, NO_MOVE, NO_MOVE
 	db GROWTH_SLOW
 
 	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    SUBMISSION,   \

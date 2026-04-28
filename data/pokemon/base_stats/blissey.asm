@@ -11,7 +11,7 @@
 	INCBIN "gfx/pokemon/front/blissey.pic", 0, 1
 	dw BlisseyPicFront, BlisseyPicBack
 
-	db POUND, DEFENSE_CURL, NO_MOVE, NO_MOVE ; level 1 learnset
+	db TACKLE, DEFENSE_CURL, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_FAST ; growth rate
 
 	; tm/hm learnset

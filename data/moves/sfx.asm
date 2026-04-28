@@ -1,7 +1,7 @@
 MoveSoundTable:
 	table_width 3
 	; ID, pitch mod, tempo mod
-	db SFX_POUND,              $00, $80 ; POUND
+	db SFX_POUND,              $00, $80 ; TACKLE
 	db SFX_BATTLE_0C,          $10, $80 ; KARATE_CHOP
 	db SFX_DOUBLESLAP,         $00, $80 ; DOUBLESLAP
 	db SFX_BATTLE_0B,          $01, $80 ; COMET_PUNCH

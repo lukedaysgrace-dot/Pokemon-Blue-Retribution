@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/swinub.pic", 0, 1
 	dw SwinubPicFront, SwinubPicBack
 
-	db POUND, NO_MOVE, NO_MOVE, NO_MOVE
+	db TACKLE, NO_MOVE, NO_MOVE, NO_MOVE
 	db GROWTH_SLOW
 
 	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    ICE_BEAM,     BLIZZARD,     \

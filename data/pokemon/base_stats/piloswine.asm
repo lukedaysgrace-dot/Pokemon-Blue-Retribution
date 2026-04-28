@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/piloswine.pic", 0, 1
 	dw PiloswinePicFront, PiloswinePicBack
 
-	db POUND, FURY_ATTACK, NO_MOVE, NO_MOVE
+	db TACKLE, FURY_ATTACK, NO_MOVE, NO_MOVE
 	db GROWTH_SLOW
 
 	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    ICE_BEAM,     BLIZZARD,     \

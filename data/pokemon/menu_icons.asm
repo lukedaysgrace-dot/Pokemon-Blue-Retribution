@@ -209,5 +209,9 @@ MonPartyData:
 	db ICON_JYNX          ; Mesmeria
 	db ICON_POLIWAG       ; Croagunk
 	db ICON_POLIWHIRL     ; Toxicroak
+	db ICON_SANDSHREW     ; Phanpy
+	db ICON_RHYDON        ; Donphan
+	db ICON_GROWLITHE     ; Houndour
+	db ICON_ARCANINE      ; Houndoom
 
 ASSERT @ - MonPartyData == NUM_POKEMON

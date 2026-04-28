@@ -1,10 +1,10 @@
 Route1WildMons:
 	def_grass_wildmons 25 ; encounter rate
-	db  3, SALAMENCE
-	db  3, CROAGUNK
-	db  3, TOXICROAK
-	db  2, RHYPERIOR
-	db  2, WEAVILE
+	db  3, DONPHAN
+	db  3, PHANPY
+	db  3, HOUNDOUR
+	db  2, HOUNDOOM
+	db  2, HOUNDOOM
 	db  3, SNEASEL
 	db  3, PORYGON_Z
 	db  4, CROBAT

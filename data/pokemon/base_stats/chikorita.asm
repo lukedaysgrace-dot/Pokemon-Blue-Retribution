@@ -11,7 +11,7 @@
 	INCBIN "gfx/pokemon/front/chikorita.pic", 0, 1
 	dw ChikoritaPicFront, ChikoritaPicBack
 
-	db POUND, GROWL, NO_MOVE, NO_MOVE ; level 1 learnset
+	db TACKLE, GROWL, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \

@@ -423,6 +423,10 @@ ELSE
 	db PAL_MEWMON    ; MESMERIA
 	db PAL_BLUEMON   ; CROAGUNK
 	db PAL_BLUEMON   ; TOXICROAK
+	db PAL_BROWNMON  ; PHANPY
+	db PAL_GRAYMON   ; DONPHAN
+	db PAL_REDMON    ; HOUNDOUR
+	db PAL_REDMON    ; HOUNDOOM
 	assert_table_length NUM_POKEMON + 1
 TrainerPalettes:
 	table_width 1, TrainerPalettes

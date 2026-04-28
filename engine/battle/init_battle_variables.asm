@@ -25,7 +25,7 @@ InitBattleVariables:
 	ld [hli], a
 	dec b
 	jr nz, .loop
-	inc a ; POUND
+	inc a ; TACKLE
 	ld [wTestBattlePlayerSelectedMove], a
 	ld a, [wCurMap]
 	cp SAFARI_ZONE_EAST

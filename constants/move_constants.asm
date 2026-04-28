@@ -6,7 +6,7 @@
 ; - MoveSoundTable (see data/moves/sfx.asm)
 	const_def
 	const NO_MOVE      ; 00
-	const POUND        ; 01
+	const TACKLE        ; 01
 	const KARATE_CHOP  ; 02
 	const DOUBLESLAP   ; 03
 	const COMET_PUNCH  ; 04

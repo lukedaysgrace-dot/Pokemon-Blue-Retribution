@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/mesmeria.pic", 0, 1 ; sprite dimensions
 	dw MesmeriaPicFront, MesmeriaPicBack
 
-	db POUND, LOVELY_KISS, NO_MOVE, NO_MOVE ; level 1 learnset
+	db TACKLE, LOVELY_KISS, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

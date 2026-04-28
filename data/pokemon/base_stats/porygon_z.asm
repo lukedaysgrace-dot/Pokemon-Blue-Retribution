@@ -11,7 +11,7 @@
 	INCBIN "gfx/pokemon/front/porygon_z.pic", 0, 1
 	dw PorygonZPicFront, PorygonZPicBack
 
-	db POUND, METAL_CLAW, STEEL_WING, NO_MOVE ; level 1 learnset
+	db TACKLE, METAL_CLAW, STEEL_WING, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

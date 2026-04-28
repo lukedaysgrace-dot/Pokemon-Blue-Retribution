@@ -249,6 +249,10 @@ PokedexEntryPointers:
 	dw MesmeriaDexEntry
 	dw CroagunkDexEntry
 	dw ToxicroakDexEntry
+	dw PhanpyDexEntry
+	dw DonphanDexEntry
+	dw HoundourDexEntry
+	dw HoundoomDexEntry
 	assert_table_length NUM_POKEMON_INDEXES
 
 ; string: species name
@@ -1724,6 +1728,34 @@ ToxicroakDexEntry:
 	db 4, 3
 	dw 979
 	text_far _ToxicroakDexEntry
+	text_end
+
+PhanpyDexEntry:
+	db "LONG NOSE@"
+	db 1,8
+	dw 740
+	text_far _PhanpyDexEntry
+	text_end
+
+DonphanDexEntry:
+	db "ARMOR@"
+	db 3,7
+	dw 2640
+	text_far _DonphanDexEntry
+	text_end
+
+HoundourDexEntry:
+	db "DARK@"
+	db 2,0
+	dw 239
+	text_far _HoundourDexEntry
+	text_end
+
+HoundoomDexEntry:
+	db "DARK@"
+	db 4,7
+	dw 770
+	text_far _HoundoomDexEntry
 	text_end
 
 MissingNoDexEntry:

@@ -5979,7 +5979,7 @@ CheckEnemyStatusConditions:
 	xor a
 	ld [wAnimationType], a
 	ldh [hWhoseTurn], a
-	ld a, POUND
+	ld a, TACKLE
 	call PlayMoveAnimation
 	ld a, $1
 	ldh [hWhoseTurn], a

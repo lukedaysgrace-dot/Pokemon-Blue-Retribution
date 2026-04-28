@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/meganium.pic", 0, 1
 	dw MeganiumPicFront, MeganiumPicBack
 
-	db POUND, GROWL, RAZOR_LEAF, REFLECT
+	db TACKLE, GROWL, RAZOR_LEAF, REFLECT
 	db GROWTH_MEDIUM_SLOW
 
 	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \

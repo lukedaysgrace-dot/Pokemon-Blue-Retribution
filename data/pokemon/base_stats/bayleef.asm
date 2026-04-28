@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/bayleef.pic", 0, 1
 	dw BayleefPicFront, BayleefPicBack
 
-	db POUND, GROWL, RAZOR_LEAF, NO_MOVE
+	db TACKLE, GROWL, RAZOR_LEAF, NO_MOVE
 	db GROWTH_MEDIUM_SLOW
 
 	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
