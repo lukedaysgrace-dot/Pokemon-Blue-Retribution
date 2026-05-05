@@ -260,19 +260,213 @@ _AddPartyMon::
 	ld a, [wMonDataLocation]
 	and $f
 	jr z, .zeroStatExp
+	; Enemy trainer Stat EXP presets.
+	; Default: 0 (vanilla behavior). Specific trainer classes/rows override.
+	xor a
+	ld b, a ; hi byte
+	ld c, a ; lo byte
+
+	; Blue Cloak (Cinnabar) should be strong but not perfect: 0x8000 each stat.
 	ld a, [wTrainerClass]
 	cp BLUE_CLOAK
-	jr nz, .zeroStatExp
+	jr nz, .checkPalletGreenStatExp
+	ld b, $80
+	ld c, $00
+	jr .writeTrainerStatExp
+
+.checkPalletGreenStatExp
+	; Pallet Town postgame Green is wTrainerNo 16: 0x6666 each stat.
+	ld a, [wTrainerClass]
+	cp GREEN
+	jr nz, .checkGymLeadersEarlyStatExp
+	ld a, [wTrainerNo]
+	cp 16
+	jr nz, .maybeZeroTrainerStatExp
+	ld b, $66
+	ld c, $66
+	jr .writeTrainerStatExp
+
+.checkGreenOtherFightsStatExp
+	; Green fights:
+	; - Route 5 / Route 10 (wTrainerNo 1–6): 10% -> 0x199A (6554)
+	; - Cinnabar Mansion / Indigo Plateau (wTrainerNo 7–9, 13–15): 15% -> 0x2666 (9830)
+	; (Pallet Town is handled above as a special case wTrainerNo 16.)
+	ld a, [wTrainerClass]
+	cp GREEN
+	jr nz, .checkGreenRocketStatExp
+	ld a, [wTrainerNo]
+	cp 7
+	jr c, .setGreenTenPercent
+	cp 10
+	jr c, .setGreenFifteenPercent
+	cp 13
+	jr c, .maybeZeroTrainerStatExp
+	cp 16
+	jr c, .setGreenFifteenPercent
+	jr .maybeZeroTrainerStatExp
+.setGreenTenPercent
+	ld b, $19
+	ld c, $9a
+	jr .writeTrainerStatExp
+.setGreenFifteenPercent
+	ld b, $26
+	ld c, $66
+	jr .writeTrainerStatExp
+
+.checkGreenRocketStatExp
+	; Rocket Hideout Green uses GREEN_ROCKET: treat as 10% -> 0x199A.
+	ld a, [wTrainerClass]
+	cp GREEN_ROCKET
+	jr nz, .checkGymLeadersEarlyStatExp
+	ld b, $19
+	ld c, $9a
+	jr .writeTrainerStatExp
+
+.checkGymLeadersEarlyStatExp
+	; Brock/Misty/Lt. Surge/Erika: 0x0CD0 each stat, but rematch (wTrainerNo 2) uses 0x4CCD.
+	ld a, [wTrainerClass]
+	cp BROCK
+	jr z, .gymLeaderEarlyMaybeRematch
+	cp MISTY
+	jr z, .gymLeaderEarlyMaybeRematch
+	cp LT_SURGE
+	jr z, .gymLeaderEarlyMaybeRematch
+	cp ERIKA
+	jr z, .gymLeaderEarlyMaybeRematch
+	jr .checkGymLeadersLateStatExp
+
+.gymLeaderEarlyMaybeRematch
+	ld a, [wTrainerNo]
+	cp 2
+	jr z, .setRematchStatExp
+	ld b, $0c
+	ld c, $d0
+	jr .writeTrainerStatExp
+
+.checkGymLeadersLateStatExp
+	; Koga/Sabrina/Blaine: 0x199A each stat, but rematch (wTrainerNo 2) uses 0x4CCD.
+	; Giovanni: 0x199A for story fights (wTrainerNo 1–3), rematch is wTrainerNo 4 -> 0x4CCD.
+	ld a, [wTrainerClass]
+	cp KOGA
+	jr z, .gymLeaderLateMaybeRematch2
+	cp SABRINA
+	jr z, .gymLeaderLateMaybeRematch2
+	cp BLAINE
+	jr z, .gymLeaderLateMaybeRematch2
+	cp GIOVANNI
+	jr z, .giovanniMaybeRematch4
+	jr .checkRocketExecsStatExp
+
+.gymLeaderLateMaybeRematch2
+	ld a, [wTrainerNo]
+	cp 2
+	jr z, .setRematchStatExp
+	ld b, $19
+	ld c, $9a
+	jr .writeTrainerStatExp
+
+.giovanniMaybeRematch4
+	ld a, [wTrainerNo]
+	cp 4
+	jr z, .setRematchStatExp
+	ld b, $19
+	ld c, $9a
+	jr .writeTrainerStatExp
+
+.checkRocketExecsStatExp
+	; Rocket executives: 0x199A each stat.
+	ld a, [wTrainerClass]
+	cp PETREL
+	jr z, .setRocketExecStatExp
+	cp PROTON
+	jr z, .setRocketExecStatExp
+	cp ARIANA
+	jr z, .setRocketExecStatExp
+	cp ARCHER
+	jr z, .setRocketExecStatExp
+	jr .checkEliteFourAndChampionStatExp
+
+.setRocketExecStatExp
+	ld b, $19
+	ld c, $9a
+	jr .writeTrainerStatExp
+
+.checkRival2MidgameStatExp
+	; Rival midgame fights (RIVAL2):
+	; - Cerulean / SS Anne / Pokémon Tower (wTrainerNo 1–6): 10% -> 0x199A (6554)
+	; - Silph Co / late Route 22 (wTrainerNo 7–12): 15% -> 0x2666 (9830)
+	ld a, [wTrainerClass]
+	cp RIVAL2
+	jr nz, .checkEliteFourAndChampionStatExp
+	ld a, [wTrainerNo]
+	cp 7
+	jr c, .setRival2TenPercent
+	ld b, $26
+	ld c, $66
+	jr .writeTrainerStatExp
+.setRival2TenPercent
+	ld b, $19
+	ld c, $9a
+	jr .writeTrainerStatExp
+
+.checkEliteFourAndChampionStatExp
+	; Elite Four + Champion:
+	; - Elite Four (wTrainerNo 1): 0x3333 each stat; rematch (wTrainerNo 2): 0x4CCD.
+	; - Champion rival (RIVAL3 wTrainerNo 1–3): 0x3333; rematch (wTrainerNo 4–6): 0x4CCD.
+	ld a, [wTrainerClass]
+	cp LORELEI
+	jr z, .eliteFourMaybeRematch2
+	cp BRUNO
+	jr z, .eliteFourMaybeRematch2
+	cp AGATHA
+	jr z, .eliteFourMaybeRematch2
+	cp LANCE
+	jr z, .eliteFourMaybeRematch2
+	cp RIVAL3
+	jr z, .championRivalMaybeRematch456
+	jr .maybeZeroTrainerStatExp
+
+.eliteFourMaybeRematch2
+	ld a, [wTrainerNo]
+	cp 2
+	jr z, .setRematchStatExp
+	ld b, $33
+	ld c, $33
+	jr .writeTrainerStatExp
+
+.championRivalMaybeRematch456
+	ld a, [wTrainerNo]
+	cp 4
+	jr nc, .setRematchStatExp
+	ld b, $33
+	ld c, $33
+	jr .writeTrainerStatExp
+
+.setRematchStatExp
+	; Rematches (gym leaders + Elite Four + Champion rematch): 0x4CCD each stat.
+	ld b, $4c
+	ld c, $cd
+	jr .writeTrainerStatExp
+
+.maybeZeroTrainerStatExp
+	ld a, b
+	or c
+	jr z, .zeroStatExp
+
+.writeTrainerStatExp
+	; Write bc (hi/lo) to all Stat EXP fields.
+	ld h, b
+	ld l, c
 	ld b, NUM_STATS
-.writeBlueCloakStatExpLoop ; set all stat exp to max ($ffff)
+.writeTrainerStatExpLoop
 	inc de
-	ld a, $ff
+	ld a, l
 	ld [de], a
 	inc de
-	ld a, $ff
+	ld a, h
 	ld [de], a
 	dec b
-	jr nz, .writeBlueCloakStatExpLoop
+	jr nz, .writeTrainerStatExpLoop
 	jr .statExpDone
 .zeroStatExp
 	xor a
