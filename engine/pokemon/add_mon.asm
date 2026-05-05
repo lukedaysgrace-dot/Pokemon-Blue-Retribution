@@ -259,7 +259,7 @@ _AddPartyMon::
 	ld [de], a
 	ld a, [wMonDataLocation]
 	and $f
-	jr z, .zeroStatExp
+	jp z, .zeroStatExp
 	; Enemy trainer Stat EXP presets.
 	; Default: 0 (vanilla behavior). Specific trainer classes/rows override.
 	xor a
@@ -272,19 +272,19 @@ _AddPartyMon::
 	jr nz, .checkPalletGreenStatExp
 	ld b, $80
 	ld c, $00
-	jr .writeTrainerStatExp
+	jp .writeTrainerStatExp
 
 .checkPalletGreenStatExp
 	; Pallet Town postgame Green is wTrainerNo 16: 0x6666 each stat.
 	ld a, [wTrainerClass]
 	cp GREEN
-	jr nz, .checkGymLeadersEarlyStatExp
+	jp nz, .checkGreenOtherFightsStatExp
 	ld a, [wTrainerNo]
 	cp 16
-	jr nz, .maybeZeroTrainerStatExp
+	jp nz, .checkGreenOtherFightsStatExp
 	ld b, $66
 	ld c, $66
-	jr .writeTrainerStatExp
+	jp .writeTrainerStatExp
 
 .checkGreenOtherFightsStatExp
 	; Green fights:
@@ -300,18 +300,18 @@ _AddPartyMon::
 	cp 10
 	jr c, .setGreenFifteenPercent
 	cp 13
-	jr c, .maybeZeroTrainerStatExp
+	jp c, .maybeZeroTrainerStatExp
 	cp 16
 	jr c, .setGreenFifteenPercent
-	jr .maybeZeroTrainerStatExp
+	jp .maybeZeroTrainerStatExp
 .setGreenTenPercent
 	ld b, $19
 	ld c, $9a
-	jr .writeTrainerStatExp
+	jp .writeTrainerStatExp
 .setGreenFifteenPercent
 	ld b, $26
 	ld c, $66
-	jr .writeTrainerStatExp
+	jp .writeTrainerStatExp
 
 .checkGreenRocketStatExp
 	; Rocket Hideout Green uses GREEN_ROCKET: treat as 10% -> 0x199A.
@@ -320,7 +320,7 @@ _AddPartyMon::
 	jr nz, .checkGymLeadersEarlyStatExp
 	ld b, $19
 	ld c, $9a
-	jr .writeTrainerStatExp
+	jp .writeTrainerStatExp
 
 .checkGymLeadersEarlyStatExp
 	; Brock/Misty/Lt. Surge/Erika: 0x0CD0 each stat, but rematch (wTrainerNo 2) uses 0x4CCD.
@@ -338,10 +338,10 @@ _AddPartyMon::
 .gymLeaderEarlyMaybeRematch
 	ld a, [wTrainerNo]
 	cp 2
-	jr z, .setRematchStatExp
+	jp z, .setRematchStatExp
 	ld b, $0c
 	ld c, $d0
-	jr .writeTrainerStatExp
+	jp .writeTrainerStatExp
 
 .checkGymLeadersLateStatExp
 	; Koga/Sabrina/Blaine: 0x199A each stat, but rematch (wTrainerNo 2) uses 0x4CCD.
@@ -360,18 +360,18 @@ _AddPartyMon::
 .gymLeaderLateMaybeRematch2
 	ld a, [wTrainerNo]
 	cp 2
-	jr z, .setRematchStatExp
+	jp z, .setRematchStatExp
 	ld b, $19
 	ld c, $9a
-	jr .writeTrainerStatExp
+	jp .writeTrainerStatExp
 
 .giovanniMaybeRematch4
 	ld a, [wTrainerNo]
 	cp 4
-	jr z, .setRematchStatExp
+	jp z, .setRematchStatExp
 	ld b, $19
 	ld c, $9a
-	jr .writeTrainerStatExp
+	jp .writeTrainerStatExp
 
 .checkRocketExecsStatExp
 	; Rocket executives: 0x199A each stat.
@@ -384,12 +384,12 @@ _AddPartyMon::
 	jr z, .setRocketExecStatExp
 	cp ARCHER
 	jr z, .setRocketExecStatExp
-	jr .checkEliteFourAndChampionStatExp
+	jr .checkRival2MidgameStatExp
 
 .setRocketExecStatExp
 	ld b, $19
 	ld c, $9a
-	jr .writeTrainerStatExp
+	jp .writeTrainerStatExp
 
 .checkRival2MidgameStatExp
 	; Rival midgame fights (RIVAL2):
@@ -403,11 +403,11 @@ _AddPartyMon::
 	jr c, .setRival2TenPercent
 	ld b, $26
 	ld c, $66
-	jr .writeTrainerStatExp
+	jp .writeTrainerStatExp
 .setRival2TenPercent
 	ld b, $19
 	ld c, $9a
-	jr .writeTrainerStatExp
+	jp .writeTrainerStatExp
 
 .checkEliteFourAndChampionStatExp
 	; Elite Four + Champion:
@@ -424,29 +424,29 @@ _AddPartyMon::
 	jr z, .eliteFourMaybeRematch2
 	cp RIVAL3
 	jr z, .championRivalMaybeRematch456
-	jr .maybeZeroTrainerStatExp
+	jp .maybeZeroTrainerStatExp
 
 .eliteFourMaybeRematch2
 	ld a, [wTrainerNo]
 	cp 2
-	jr z, .setRematchStatExp
+	jp z, .setRematchStatExp
 	ld b, $33
 	ld c, $33
-	jr .writeTrainerStatExp
+	jp .writeTrainerStatExp
 
 .championRivalMaybeRematch456
 	ld a, [wTrainerNo]
 	cp 4
-	jr nc, .setRematchStatExp
+	jp nc, .setRematchStatExp
 	ld b, $33
 	ld c, $33
-	jr .writeTrainerStatExp
+	jp .writeTrainerStatExp
 
 .setRematchStatExp
 	; Rematches (gym leaders + Elite Four + Champion rematch): 0x4CCD each stat.
 	ld b, $4c
 	ld c, $cd
-	jr .writeTrainerStatExp
+	jp .writeTrainerStatExp
 
 .maybeZeroTrainerStatExp
 	ld a, b
