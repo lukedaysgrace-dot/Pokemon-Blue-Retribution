@@ -176,13 +176,18 @@ CinnabarGymReceiveTM38:
 	jp CinnabarGymResetScripts
 
 CinnabarGymBlaineRematchPostBattleScript:
+	ld hl, wStatusFlags3
+	res BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, wMiscFlags
+	res BIT_SEEN_BY_TRAINER, [hl]
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, CinnabarGymResetScripts
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
-	ld hl, BlaineRematchVictoryText
-	call PrintText
+	ld a, TEXT_CINNABARGYM_BLAINE_REMATCH_VICTORY
+	ldh [hTextID], a
+	call DisplayTextID
 	SetEvent EVENT_REMATCH_DEFEATED_BLAINE
 	jp CinnabarGymResetScripts
 
@@ -200,6 +205,7 @@ CinnabarGym_TextPointers:
 	dw_const CinnabarGymBlaineVolcanoBadgeInfoText, TEXT_CINNABARGYM_BLAINE_VOLCANO_BADGE_INFO
 	dw_const CinnabarGymBlaineReceivedTM38Text,     TEXT_CINNABARGYM_BLAINE_RECEIVED_TM38
 	dw_const CinnabarGymBlaineTM38NoRoomText,       TEXT_CINNABARGYM_BLAINE_TM38_NO_ROOM
+	dw_const BlaineRematchVictoryText,              TEXT_CINNABARGYM_BLAINE_REMATCH_VICTORY
 
 CinnabarGymStartBattleScript:
 	ldh a, [hSpriteIndex]
@@ -231,8 +237,10 @@ CinnabarGymBlaineText:
 	call DisableWaitingAfterTextDisplay
 	jp TextScriptEnd
 .haveTM
-	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	call PostGameRematchesUnlocked
 	jr z, .afterBeat
+	CheckEvent EVENT_REMATCH_DEFEATED_BLAINE
+	jr nz, .afterBeat
 	ld hl, .RematchPreBattleText
 	call PrintText
 	ld hl, .RematchEndBattleText
@@ -249,6 +257,12 @@ CinnabarGymBlaineText:
 	set BIT_PRINT_END_BATTLE_TEXT, [hl]
 	ld a, $7
 	ld [wGymLeaderNo], a
+	ld hl, wStatusFlags4
+	set BIT_UNKNOWN_4_1, [hl]
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ld a, SCRIPT_CINNABARGYM_BLAINE_REMATCH_POST_BATTLE
 	ld [wCinnabarGymCurScript], a
 	ld [wCurMapScript], a
@@ -290,7 +304,7 @@ CinnabarGymBlaineText:
 	text_end
 
 BlaineRematchVictoryText:
-	text_far _CinnabarGymBlaineRematchDefeatText
+	text_far _CinnabarGymBlaineRematchDefeatOverworldText
 	text_end
 
 CinnabarGymBlaineVolcanoBadgeInfoText:

@@ -37,3 +37,11 @@ _VermilionGymLTSurgeRematchDefeatText::
 	cont "nothing! Hah!"
 	cont "That's CHAMPION!"
 	prompt
+
+_VermilionGymLTSurgeRematchDefeatOverworldText::
+	text "Rrgh! You tanked"
+	line "the voltage!"
+	cont "Like it was"
+	cont "nothing! Hah!"
+	cont "That's CHAMPION!"
+	done

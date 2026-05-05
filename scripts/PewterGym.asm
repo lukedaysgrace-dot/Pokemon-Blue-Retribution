@@ -82,13 +82,18 @@ PewterGymScriptReceiveTM34:
 	jp PewterGymResetScripts
 
 PewterGymBrockRematchPostBattle:
+	ld hl, wStatusFlags3
+	res BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, wMiscFlags
+	res BIT_SEEN_BY_TRAINER, [hl]
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, PewterGymResetScripts
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
-	ld hl, BrockRematchVictoryText
-	call PrintText
+	ld a, TEXT_PEWTERGYM_BROCK_REMATCH_VICTORY
+	ldh [hTextID], a
+	call DisplayTextID
 	SetEvent EVENT_REMATCH_DEFEATED_BROCK
 	jp PewterGymResetScripts
 
@@ -100,6 +105,7 @@ PewterGym_TextPointers:
 	dw_const PewterGymBrockWaitTakeThisText, TEXT_PEWTERGYM_BROCK_WAIT_TAKE_THIS
 	dw_const PewterGymReceivedTM34Text,      TEXT_PEWTERGYM_RECEIVED_TM34
 	dw_const PewterGymTM34NoRoomText,        TEXT_PEWTERGYM_TM34_NO_ROOM
+	dw_const BrockRematchVictoryText,        TEXT_PEWTERGYM_BROCK_REMATCH_VICTORY
 
 PewterGymTrainerHeaders:
 	def_trainers 2
@@ -115,10 +121,12 @@ PewterGymBrockText:
 	jr nz, .haveTM
 	call z, PewterGymScriptReceiveTM34
 	call DisableWaitingAfterTextDisplay
-	jr .done
+	jp .done
 .haveTM
-	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	call PostGameRematchesUnlocked
 	jr z, .afterBeat
+	CheckEvent EVENT_REMATCH_DEFEATED_BROCK
+	jr nz, .afterBeat
 	ld hl, .RematchPreBattleText
 	call PrintText
 	ld hl, wStatusFlags3
@@ -135,8 +143,12 @@ PewterGymBrockText:
 	call InitBattleEnemyParameters
 	ld a, $1
 	ld [wGymLeaderNo], a
+	ld hl, wStatusFlags4
+	set BIT_UNKNOWN_4_1, [hl]
 	xor a
 	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ld a, SCRIPT_PEWTERGYM_BROCK_REMATCH_POST_BATTLE
 	ld [wPewterGymCurScript], a
 	ld [wCurMapScript], a
@@ -185,7 +197,7 @@ PewterGymBrockText:
 	text_end
 
 BrockRematchVictoryText:
-	text_far _PewterGymBrockRematchDefeatText
+	text_far _PewterGymBrockRematchDefeatOverworldText
 	text_end
 
 PewterGymBrockWaitTakeThisText:

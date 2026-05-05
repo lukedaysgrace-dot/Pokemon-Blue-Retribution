@@ -452,6 +452,7 @@ Music_TitleScreen_Ch3::
 	rest 5
 	sound_ret
 
+IF DEF(_TITLE_SCREEN_NOISE_CHANNEL)
 Music_TitleScreen_Ch4::
 	drum_speed 6
 	rest 4
@@ -667,3 +668,4 @@ Music_TitleScreen_Ch4::
 	drum_note 2, 1
 	rest 3
 	sound_ret
+ENDC

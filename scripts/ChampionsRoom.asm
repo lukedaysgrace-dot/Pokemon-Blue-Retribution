@@ -62,7 +62,7 @@ ChampionsRoomRivalReadyToBattleScript:
 	ld hl, wStatusFlags3
 	set BIT_TALKED_TO_TRAINER, [hl]
 	set BIT_PRINT_END_BATTLE_TEXT, [hl]
-	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	call PostGameRematchesUnlocked
 	jr z, .rivalFirstTitleEndText
 	ld hl, ChampionsRoomRivalRematchDefeatedTextScript
 	ld de, RivalVictoryText
@@ -77,7 +77,7 @@ ChampionsRoomRivalReadyToBattleScript:
 	ld [wCurOpponent], a
 
 	; select which team: rows 1–3 first title fight, 4–6 rematch (harder parties.asm)
-	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	call PostGameRematchesUnlocked
 	jr z, .firstChampionFight
 	ld a, [wRivalStarter]
 	cp STARTER2
@@ -109,8 +109,12 @@ ChampionsRoomRivalReadyToBattleScript:
 .saveTrainerId
 	ld [wTrainerNo], a
 
+	ld hl, wStatusFlags4
+	set BIT_UNKNOWN_4_1, [hl]
 	xor a
 	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ld a, SCRIPT_CHAMPIONSROOM_RIVAL_DEFEATED
 	ld [wChampionsRoomCurScript], a
 	ret
@@ -120,7 +124,7 @@ ChampionsRoomRivalDefeatedScript:
 	cp $ff
 	jp z, ResetRivalScript
 	call UpdateSprites
-	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	call PostGameRematchesUnlocked
 	jr nz, .championRivalRematchWin
 	SetEvent EVENT_BEAT_CHAMPION_RIVAL
 	jr .championRivalFlagsDone
@@ -289,7 +293,7 @@ ChampionsRoomRivalText:
 	cp SCRIPT_CHAMPIONSROOM_RIVAL_DEFEATED
 	jr z, .cutscenePostBattle
 ; Free roam (talking to rival on the map)
-	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	call PostGameRematchesUnlocked
 	jr z, .freeRoamFirstTitleStill
 	CheckEvent EVENT_REMATCH_DEFEATED_RIVAL_CHAMPION
 	jr nz, .freeRoamIdleLobby
@@ -306,7 +310,7 @@ ChampionsRoomRivalText:
 	jp TextScriptEnd
 
 .cutscenePreBattle
-	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	call PostGameRematchesUnlocked
 	jr z, .introFirstTitle
 	ld hl, ChampionsRoomRivalRematchPreBattleTextScript
 	call PrintText

@@ -41,8 +41,10 @@ HallOfFameResetEventsAndSaveScript:
 	ld [hl], a ; wAgathasRoomCurScript
 	ld [wLancesRoomCurScript], a
 	ld [wHallOfFameCurScript], a
-	; Elite 4 events
-	ResetEventRange INDIGO_PLATEAU_EVENTS_START, INDIGO_PLATEAU_EVENTS_END, 1
+	; Elite 4 events. Do not clear EVENT_BEAT_INDIGO_PLATEAU_GREEN;
+	; her lobby fight is a one-time challenge when first reaching Indigo Plateau.
+	ResetEventRange INDIGO_PLATEAU_EVENTS_START, EVENT_HEARD_CHAMPION_RIVAL_POST_LOSS_DIALOGUE, 1
+	SetEvent EVENT_BEAT_CHAMPION_RIVAL
 	xor a
 	ld [wHallOfFameCurScript], a
 	ld a, PALLET_TOWN

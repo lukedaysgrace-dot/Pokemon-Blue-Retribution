@@ -276,6 +276,10 @@ BlueCloakAI:
 	ret c
 	jp BlueCloakTryGuardSpec
 
+EliteFourAI:
+	and a ; use smart move scoring only; no items or voluntary switches
+	ret
+
 BlueAI:
 	jp BlueCloakTryBadMatchupSwitch
 

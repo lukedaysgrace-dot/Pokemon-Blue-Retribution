@@ -35,6 +35,14 @@ _CeruleanGymMistyRematchDefeatText::
 	cont "still CHAMPION."
 	prompt
 
+_CeruleanGymMistyRematchDefeatOverworldText::
+	text "Ugh, seriously?!"
+	line "I gave everything"
+	cont "that time! ..."
+	cont "Okay--you're"
+	cont "still CHAMPION."
+	done
+
 _CeruleanGymMistyTM11ExplanationText::
 	text "TM11 teaches"
 	line "BUBBLEBEAM!"

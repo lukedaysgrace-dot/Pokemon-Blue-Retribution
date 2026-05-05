@@ -73,13 +73,18 @@ CeruleanGymReceiveTM11:
 	jp CeruleanGymResetScripts
 
 CeruleanGymMistyRematchPostBattleScript:
+	ld hl, wStatusFlags3
+	res BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, wMiscFlags
+	res BIT_SEEN_BY_TRAINER, [hl]
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, CeruleanGymResetScripts
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
-	ld hl, MistyRematchVictoryText
-	call PrintText
+	ld a, TEXT_CERULEANGYM_MISTY_REMATCH_VICTORY
+	ldh [hTextID], a
+	call DisplayTextID
 	SetEvent EVENT_REMATCH_DEFEATED_MISTY
 	jp CeruleanGymResetScripts
 
@@ -92,6 +97,7 @@ CeruleanGym_TextPointers:
 	dw_const CeruleanGymMistyCascadeBadgeInfoText, TEXT_CERULEANGYM_MISTY_CASCADE_BADGE_INFO
 	dw_const CeruleanGymMistyReceivedTM11Text,     TEXT_CERULEANGYM_MISTY_RECEIVED_TM11
 	dw_const CeruleanGymMistyTM11NoRoomText,       TEXT_CERULEANGYM_MISTY_TM11_NO_ROOM
+	dw_const MistyRematchVictoryText,              TEXT_CERULEANGYM_MISTY_REMATCH_VICTORY
 
 CeruleanGymTrainerHeaders:
 	def_trainers 2
@@ -109,10 +115,12 @@ CeruleanGymMistyText:
 	jr nz, .haveTM
 	call z, CeruleanGymReceiveTM11
 	call DisableWaitingAfterTextDisplay
-	jr .done
+	jp .done
 .haveTM
-	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	call PostGameRematchesUnlocked
 	jr z, .afterBeat
+	CheckEvent EVENT_REMATCH_DEFEATED_MISTY
+	jr nz, .afterBeat
 	ld hl, .RematchPreBattleText
 	call PrintText
 	ld hl, wStatusFlags3
@@ -129,8 +137,12 @@ CeruleanGymMistyText:
 	call InitBattleEnemyParameters
 	ld a, $2
 	ld [wGymLeaderNo], a
+	ld hl, wStatusFlags4
+	set BIT_UNKNOWN_4_1, [hl]
 	xor a
 	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ld a, SCRIPT_CERULEANGYM_MISTY_REMATCH_POST_BATTLE
 	ld [wCeruleanGymCurScript], a
 	ld [wCurMapScript], a
@@ -178,7 +190,7 @@ CeruleanGymMistyText:
 	text_end
 
 MistyRematchVictoryText:
-	text_far _CeruleanGymMistyRematchDefeatText
+	text_far _CeruleanGymMistyRematchDefeatOverworldText
 	text_end
 
 CeruleanGymMistyCascadeBadgeInfoText:

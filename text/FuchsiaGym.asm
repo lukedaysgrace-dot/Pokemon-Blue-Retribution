@@ -41,3 +41,10 @@ _FuchsiaGymKogaRematchDefeatText::
 	cont "each trick I used."
 	cont "A true master!"
 	prompt
+
+_FuchsiaGymKogaRematchDefeatOverworldText::
+	text "...Impressive."
+	line "You adapted to"
+	cont "each trick I used."
+	cont "A true master!"
+	done

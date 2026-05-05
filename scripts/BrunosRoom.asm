@@ -27,7 +27,9 @@ KarenShowOrHideExitBlock:
 
 ResetKarenScript:
 	xor a ; SCRIPT_BRUNOSROOM_DEFAULT
+	ld [wJoyIgnore], a
 	ld [wBrunosRoomCurScript], a
+	ld [wCurMapScript], a
 	ret
 
 BrunosRoom_ScriptPointers:
@@ -117,13 +119,18 @@ KarensRoomKarenEndBattleScript:
 
 KarensRoomKarenRematchEndBattleScript:
 	call EndTrainerBattle
-	xor a
-	ld [wJoyIgnore], a
+	ld hl, wStatusFlags3
+	res BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, wMiscFlags
+	res BIT_SEEN_BY_TRAINER, [hl]
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetKarenScript
-	ld hl, KarenRematchVictoryOverworldText
-	call PrintText
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	ld a, TEXT_KARENSROOM_KAREN_REMATCH_VICTORY
+	ldh [hTextID], a
+	call DisplayTextID
 	SetEvent EVENT_BEAT_KARENS_ROOM_TRAINER_0
 	SetEvent EVENT_REMATCH_DEFEATED_KAREN
 	jp ResetKarenScript
@@ -132,6 +139,7 @@ BrunosRoom_TextPointers:
 	def_text_pointers
 	dw_const KarensRoomKarenText,            TEXT_KARENSROOM_KAREN
 	dw_const KarensRoomKarenDontRunAwayText, TEXT_KARENSROOM_KAREN_DONT_RUN_AWAY
+	dw_const KarenRematchVictoryOverworldText, TEXT_KARENSROOM_KAREN_REMATCH_VICTORY
 
 BrunosRoomTrainerHeaders:
 	def_trainers
@@ -141,7 +149,7 @@ KarensRoomTrainerHeader0:
 
 KarensRoomKarenText:
 	text_asm
-	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	call PostGameRematchesUnlocked
 	jr z, .vanilla
 	CheckEvent EVENT_BEAT_KARENS_ROOM_TRAINER_0
 	jr z, .rematch
@@ -169,6 +177,12 @@ KarensRoomKarenText:
 	call InitBattleEnemyParameters
 	xor a
 	ld [wGymLeaderNo], a
+	ld hl, wStatusFlags4
+	set BIT_UNKNOWN_4_1, [hl]
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ld a, SCRIPT_KARENSROOM_KAREN_REMATCH_END_BATTLE
 	ld [wBrunosRoomCurScript], a
 	ld [wCurMapScript], a

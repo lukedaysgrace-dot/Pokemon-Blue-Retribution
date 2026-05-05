@@ -238,3 +238,10 @@ _CeladonGymErikaRematchDefeatText::
 	cont "You embody a"
 	cont "true CHAMPION."
 	prompt
+
+_CeladonGymErikaRematchDefeatOverworldText::
+	text "How graceful..."
+	line "Even in victory."
+	cont "You embody a"
+	cont "true CHAMPION."
+	done

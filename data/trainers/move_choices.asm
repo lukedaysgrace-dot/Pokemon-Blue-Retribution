@@ -39,30 +39,30 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1, 2, 3 ; PROF_OAK
 	move_choices 1, 2, 3 ; CHIEF
 	move_choices 1, 2, 3 ; SCIENTIST
-	move_choices 1, 2, 3 ; GIOVANNI
+	move_choices 1, 3, 4 ; GIOVANNI
 	move_choices 1, 3    ; ROCKET
 	move_choices 1, 2, 3 ; COOLTRAINER_M
 	move_choices 1, 2, 3 ; COOLTRAINER_F
-	move_choices 1, 2, 3 ; KAREN
-	move_choices 1, 2, 3 ; BROCK
-	move_choices 1, 2, 3 ; MISTY
-	move_choices 1, 2, 3 ; LT_SURGE
-	move_choices 1, 2, 3 ; ERIKA
-	move_choices 1, 2, 3 ; KOGA
-	move_choices 1, 2, 3 ; BLAINE
-	move_choices 1, 2, 3 ; SABRINA
+	move_choices 1, 3, 4 ; KAREN
+	move_choices 1, 3, 4 ; BROCK
+	move_choices 1, 3, 4 ; MISTY
+	move_choices 1, 3, 4 ; LT_SURGE
+	move_choices 1, 3, 4 ; ERIKA
+	move_choices 1, 3, 4 ; KOGA
+	move_choices 1, 3, 4 ; BLAINE
+	move_choices 1, 3, 4 ; SABRINA
 	move_choices 1, 2, 3 ; GENTLEMAN
 	move_choices 1, 2, 3 ; RIVAL2
 	move_choices 1, 2, 3 ; RIVAL3
-	move_choices 1, 2, 3 ; LORELEI
+	move_choices 1, 3, 4 ; LORELEI
 	move_choices 1, 3    ; CHANNELER
-	move_choices 1, 2, 3 ; AGATHA
-	move_choices 1, 2, 3 ; LANCE
+	move_choices 1, 3, 4 ; AGATHA
+	move_choices 1, 3, 4 ; LANCE
 	move_choices 1, 3, 4 ; BLUE_CLOAK
 	move_choices 1, 2, 3 ; GREEN
 	move_choices 1, 2, 3 ; GREEN_ROCKET
 	move_choices 1, 2, 3 ; NINJA
-	move_choices 1, 2, 3 ; JANINE
+	move_choices 1, 3, 4 ; JANINE
 	move_choices 1, 2, 3 ; PETREL
 	move_choices 1, 2, 3 ; PROTON
 	move_choices 1, 2, 3 ; ARCHER

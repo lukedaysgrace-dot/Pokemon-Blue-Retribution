@@ -258,3 +258,11 @@ _SaffronGymSabrinaRematchDefeatText::
 	cont "grows past all I"
 	cont "expected!"
 	prompt
+
+_SaffronGymSabrinaRematchDefeatOverworldText::
+	text "...Just as I"
+	line "foresaw. Your"
+	cont "strength still"
+	cont "grows past all I"
+	cont "expected!"
+	done

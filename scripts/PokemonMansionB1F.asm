@@ -9,6 +9,13 @@ PokemonMansionB1F_Script:
 	ret
 
 PokemonMansionB1FDefaultScript:
+	ld hl, PokemonMansionB1FPlantBlockerCoords
+	call ArePlayerCoordsInArray
+	jr nc, .checkGreenTrigger
+	call PokemonMansionB1FStartPlantBlockerPushback
+	ld a, SCRIPT_POKEMONMANSIONB1F_PLANT_BLOCKER_PUSHBACK
+	ret
+.checkGreenTrigger
 	CheckEvent EVENT_BEAT_MANSION_B1F_GREEN
 	jp nz, CheckFightingMapTrainers
 	ld hl, PokemonMansionB1FGreenTriggerCoords
@@ -16,15 +23,69 @@ PokemonMansionB1FDefaultScript:
 	jp nc, CheckFightingMapTrainers
 	ld a, [wCoordIndex]
 	ld [wSavedCoordIndex], a
-	ld a, SCRIPT_POKEMONMANSIONB1F_GREEN_APPEARS
-	ld [wPokemonMansionB1FCurScript], a
-	ld [wCurMapScript], a
-	ret
+	jp PokemonMansionB1FGreenAppearsScript
 
 PokemonMansionB1FGreenTriggerCoords:
 	dbmapcoord  5, 12
 	dbmapcoord  4, 12
 	db -1
+
+PokemonMansionB1FPlantBlockerCoords:
+	dbmapcoord  1, 10
+	dbmapcoord  1, 11
+	dbmapcoord  1, 12
+	dbmapcoord  1, 13
+	dbmapcoord  1, 14
+	dbmapcoord  1, 15
+	dbmapcoord  8, 10
+	dbmapcoord  8, 11
+	dbmapcoord  8, 12
+	dbmapcoord  8, 13
+	dbmapcoord  8, 14
+	dbmapcoord  8, 15
+	db -1
+
+PokemonMansionB1FStartPlantBlockerPushback:
+	xor a
+	ldh [hJoyHeld], a
+	ld a, PAD_BUTTONS | PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_DOWN
+	jr z, .pushUp
+	cp SPRITE_FACING_UP
+	jr z, .pushDown
+	cp SPRITE_FACING_LEFT
+	jr z, .pushRight
+	ld a, PAD_LEFT
+	jr .startPushback
+.pushUp
+	ld a, PAD_UP
+	jr .startPushback
+.pushDown
+	ld a, PAD_DOWN
+	jr .startPushback
+.pushRight
+	ld a, PAD_RIGHT
+.startPushback
+	ld [wSimulatedJoypadStatesEnd], a
+	ld a, $1
+	ld [wSimulatedJoypadStatesIndex], a
+	call StartSimulatingJoypadStates
+	ld a, SCRIPT_POKEMONMANSIONB1F_PLANT_BLOCKER_PUSHBACK
+	ld [wPokemonMansionB1FCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+PokemonMansionB1FPlantBlockerPushbackScript:
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+	xor a
+	ld [wJoyIgnore], a
+	ld [wPokemonMansionB1FCurScript], a
+	ld [wCurMapScript], a
+	ret
 
 MansionB1FCheckReplaceSwitchDoorBlocks:
 	ld hl, wCurrentMapScriptFlags
@@ -90,12 +151,7 @@ PokemonMansionB1FGreenAppearsScript:
 	ld a, SPRITE_FACING_UP
 	ld [wSpritePlayerStateData1FacingDirection], a
 	call Delay3
-	ld a, SFX_STOP_ALL_MUSIC
-	ld [wNewSoundID], a
-	call PlaySound
-	ld c, BANK(Music_MeetRival)
-	ld a, MUSIC_MEET_RIVAL
-	call PlayMusic
+	call PlayGreenEncounterMusic
 	ld de, PokemonMansionB1FGreenApproachMovement
 	ld a, POKEMONMANSIONB1F_GREEN
 	ldh [hSpriteIndex], a
@@ -156,10 +212,13 @@ PokemonMansionB1FGreenApproachScript:
 	ld a, SCRIPT_POKEMONMANSIONB1F_GREEN_AFTER_BATTLE
 	ld [wPokemonMansionB1FCurScript], a
 	ld [wCurMapScript], a
-	ld hl, wStatusFlags7
-	set BIT_USE_CUR_MAP_SCRIPT, [hl]
+	ld hl, wStatusFlags4
+	set BIT_UNKNOWN_4_1, [hl]
 	xor a
+	ld [wJoyIgnore], a
 	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ret
 
 PokemonMansionB1FGreenAfterBattleScript:
@@ -179,59 +238,22 @@ PokemonMansionB1FGreenAfterBattleScript:
 	ldh [hJoyReleased], a
 	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
-	ld a, POKEMONMANSIONB1F_GREEN
-	ld [wEmotionBubbleSpriteIndex], a
-	xor a
-	ld [wWhichEmotionBubble], a ; EXCLAMATION_BUBBLE
-	predef EmotionBubble
-	ld a, SPRITE_FACING_UP
-	ldh [hSpriteFacingDirection], a
-	ld a, POKEMONMANSIONB1F_GREEN
-	ldh [hSpriteIndex], a
-	call SetSpriteFacingDirectionAndDelay
-	call PokemonMansionB1FSetMewAndBallCaptureCoords
-	ld a, TOGGLE_POKEMON_MANSION_B1F_MEW
-	ld [wToggleableObjectIndex], a
-	predef ShowObject
-	call UpdateSprites
-	ld c, 12
-	call DelayFrames
 	ld a, SCRIPT_POKEMONMANSIONB1F_MEW_APPROACH
 	ld [wPokemonMansionB1FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
-PokemonMansionB1FMewApproachMovement:
-	db -1 ; end
-
 PokemonMansionB1FMewApproachScript:
-	ld a, MEW
-	call PlayCry
-	call WaitForSoundToFinish
-	ld a, PAD_CTRL_PAD
-	ld [wJoyIgnore], a
-	ld a, TEXT_POKEMONMANSIONB1F_MEW_CRY
-	ldh [hTextID], a
-	call DisplayTextID
-	xor a
-	ldh [hJoyHeld], a
-	ldh [hJoyPressed], a
-	ldh [hJoyReleased], a
-	ld a, PAD_BUTTONS | PAD_CTRL_PAD
-	ld [wJoyIgnore], a
-	ld a, [wSavedCoordIndex]
-	cp 2
-	jr z, .reverseReaction
-	ld de, PokemonMansionB1FGreenReactToMewMovement
-	jr .gotReactionMovement
-.reverseReaction
-	ld de, PokemonMansionB1FGreenReactToMewReverseMovement
-.gotReactionMovement
+	call PokemonMansionB1FClearGreenMovement
+	ld de, PokemonMansionB1FGreenExitMovement
+	ld a, SPRITE_FACING_UP
+	ldh [hSpriteFacingDirection], a
 	ld a, POKEMONMANSIONB1F_GREEN
 	ldh [hSpriteIndex], a
+	call SetSpriteFacingDirectionAndDelay
 	call PokemonMansionB1FAllowGreenAnyDirection
 	call MoveSprite
-	ld a, SCRIPT_POKEMONMANSIONB1F_GREEN_REACTS_TO_MEW
+	ld a, SCRIPT_POKEMONMANSIONB1F_GREEN_EXIT
 	ld [wPokemonMansionB1FCurScript], a
 	ld [wCurMapScript], a
 	ret
@@ -317,19 +339,29 @@ PokemonMansionB1FBallMovingScript:
 	ldh [hJoyReleased], a
 	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
-	ld de, PokemonMansionB1FGreenExitMovement
+	ld a, POKEMONMANSIONB1F_GREEN
+	ld [wEmotionBubbleSpriteIndex], a
+	xor a
+	ld [wWhichEmotionBubble], a ; EXCLAMATION_BUBBLE
+	predef EmotionBubble
+	ld a, SPRITE_FACING_UP
+	ldh [hSpriteFacingDirection], a
 	ld a, POKEMONMANSIONB1F_GREEN
 	ldh [hSpriteIndex], a
-	call PokemonMansionB1FAllowGreenAnyDirection
-	call MoveSprite
-	ld a, SCRIPT_POKEMONMANSIONB1F_GREEN_EXIT
+	call SetSpriteFacingDirectionAndDelay
+	call PokemonMansionB1FSetMewAndBallCaptureCoords
+	ld a, TOGGLE_POKEMON_MANSION_B1F_MEW
+	ld [wToggleableObjectIndex], a
+	predef ShowObject
+	call UpdateSprites
+	ld c, 12
+	call DelayFrames
+	ld a, SCRIPT_POKEMONMANSIONB1F_MEW_APPROACH
 	ld [wPokemonMansionB1FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
 PokemonMansionB1FGreenExitMovement:
-	db NPC_MOVEMENT_UP
-	db NPC_MOVEMENT_UP
 	db NPC_MOVEMENT_UP
 	db NPC_MOVEMENT_UP
 	db NPC_MOVEMENT_UP
@@ -503,6 +535,7 @@ PokemonMansionB1F_ScriptPointers:
 	dw_const PokemonMansionB1FGreenReactsToMewScript, SCRIPT_POKEMONMANSIONB1F_GREEN_REACTS_TO_MEW
 	dw_const PokemonMansionB1FBallMovingScript,     SCRIPT_POKEMONMANSIONB1F_BALL_MOVING
 	dw_const PokemonMansionB1FGreenExitScript,      SCRIPT_POKEMONMANSIONB1F_GREEN_EXIT
+	dw_const PokemonMansionB1FPlantBlockerPushbackScript, SCRIPT_POKEMONMANSIONB1F_PLANT_BLOCKER_PUSHBACK
 
 PokemonMansionB1F_TextPointers:
 	def_text_pointers
@@ -520,10 +553,10 @@ PokemonMansionB1F_TextPointers:
 	dw_const PokemonMansion2FSwitchText,     TEXT_POKEMONMANSIONB1F_SWITCH ; This switch uses the text script from the 2F.
 	dw_const PokemonMansionB1FGreenBeforeBattleText, TEXT_POKEMONMANSIONB1F_GREEN_BATTLE_INTRO
 	dw_const PokemonMansionB1FGreenAfterBattleText,  TEXT_POKEMONMANSIONB1F_GREEN_AFTER_BATTLE
-	dw_const PokemonMansionB1FMewCryText,            TEXT_POKEMONMANSIONB1F_MEW_CRY
-	dw_const PokemonMansionB1FGreenMewAppearsText,   TEXT_POKEMONMANSIONB1F_GREEN_MEW_APPEARS
-	dw_const PokemonMansionB1FGreenFriendMewText,    TEXT_POKEMONMANSIONB1F_GREEN_FRIEND_MEW
-	dw_const PokemonMansionB1FGreenCaughtMewText,    TEXT_POKEMONMANSIONB1F_GREEN_CAUGHT_MEW
+	dw_const PokemonMansionB1FGreenText,             TEXT_POKEMONMANSIONB1F_MEW_CRY
+	dw_const PokemonMansionB1FGreenText,             TEXT_POKEMONMANSIONB1F_GREEN_MEW_APPEARS
+	dw_const PokemonMansionB1FGreenText,             TEXT_POKEMONMANSIONB1F_GREEN_FRIEND_MEW
+	dw_const PokemonMansionB1FGreenText,             TEXT_POKEMONMANSIONB1F_GREEN_CAUGHT_MEW
 
 Mansion4TrainerHeaders:
 	def_trainers
@@ -586,7 +619,8 @@ PokemonMansionB1FBallText:
 
 PokemonMansionB1FGreenBeforeBattleText:
 	text "Oh? If it isn't"
-	line "you again, Red."
+	line "you again"
+	cont "<PLAYER>."
 	cont "Fancy running"
 	cont "into you here..."
 
@@ -693,71 +727,16 @@ PokemonMansionB1FGreenAfterBattleText:
 	para "#MON should"
 	line "never be used"
 	cont "for experiments"
-	cont "or locked away."
 
 	para "Seems like a"
 	line "#MON with a"
 	cont "truly gentle"
 	cont "soul."
-	done
-
-PokemonMansionB1FMewCryText:
-	text "Mew!"
-	done
-
-PokemonMansionB1FGreenMewAppearsText:
-	text "Wha...?"
-	line "It's Mew!"
-	cont "It's really you!"
-
-	para "What on earth"
-	line "are you doing"
-	cont "here?"
-
-	para "It seems like it"
-	line "wants something,"
-	cont "<PLAYER>."
-
-	para "Almost like it"
-	line "wants to be"
-	cont "caught..."
-
-	para "Are you sure"
-	line "Mew?"
-
-	para "It seems so"
-	line "wrong to"
-	cont "confine you."
-	done
-
-PokemonMansionB1FGreenFriendMewText:
-	text "If you insist,"
-	line "I would love to"
-	cont "be your friend."
-	done
-
-PokemonMansionB1FGreenCaughtMewText:
-	text "I can't believe"
-	line "it..."
-
-	para "This mythical"
-	line "#MON actually"
-	cont "chose me as its"
-	cont "trainer!"
-
-	para "I'm so happy I"
-	line "could cry!"
-
-	para "I'll take such"
-	line "good care of you."
 
 	para "I'm going to get"
 	line "out of this awful"
-	cont "place, <PLAYER>."
+	cont "place <PLAYER>."
 
-	para "Mew has seen"
-	line "enough here."
-
-	para "We'll see you"
+	para "I'll see you"
 	line "later!"
 	done

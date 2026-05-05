@@ -218,6 +218,7 @@ Route10GreenText:
 	call PrintText
 	jr .done
 .before_battle
+	call PlayGreenEncounterMusic
 	ld hl, Route10GreenBeforeBattleText
 	call PrintText
 	ld hl, wStatusFlags3

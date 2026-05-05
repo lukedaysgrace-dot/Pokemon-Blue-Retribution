@@ -396,8 +396,19 @@ CheckIfAlreadyEngaged::
 	xor a
 	ret
 
+PostGameRematchesUnlocked::
+	ld a, [wNumHoFTeams]
+	and a
+	ret nz
+	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	ret
+
 PlayTrainerMusic::
 	ld a, [wEngagedTrainerClass]
+	cp OPP_GREEN
+	jr z, PlayGreenEncounterMusic
+	cp OPP_GREEN_ROCKET
+	jr z, PlayGreenEncounterMusic
 	cp OPP_RIVAL1
 	ret z
 	cp OPP_RIVAL2
@@ -442,5 +453,14 @@ PlayTrainerMusic::
 .PlaySound
 	ld [wNewSoundID], a
 	jp PlaySound
+
+PlayGreenEncounterMusic::
+	xor a
+	ld [wAudioFadeOutControl], a
+	ld a, SFX_STOP_ALL_MUSIC
+	call PlaySound
+	ld c, BANK(Music_GreenTheme)
+	ld a, MUSIC_GREEN_THEME
+	jp PlayMusic
 
 INCLUDE "data/trainers/encounter_types.asm"

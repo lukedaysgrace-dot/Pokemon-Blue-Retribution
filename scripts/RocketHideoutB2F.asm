@@ -54,12 +54,7 @@ RocketHideoutB2FDefaultScript:
 	predef EmotionBubble
 	call ReloadMapSpriteTilePatterns
 	call UpdateSprites
-	ld a, SFX_STOP_ALL_MUSIC
-	ld [wNewSoundID], a
-	call PlaySound
-	ld c, BANK(Music_MeetEvilTrainer)
-	ld a, MUSIC_MEET_EVIL_TRAINER
-	call PlayMusic
+	call PlayGreenEncounterMusic
 	ld a, PLAYER_DIR_UP
 	ld [wPlayerMovingDirection], a
 ; Scripted path from hidden position (21,22); ROM table + MoveSprite (trainer-style walk frames).
@@ -387,10 +382,13 @@ RocketHideoutB2FGreenBattleScript:
 	ld a, SCRIPT_ROCKETHIDEOUTB2F_GREEN_AFTER_BATTLE
 	ld [wRocketHideoutB2FCurScript], a
 	ld [wCurMapScript], a
-	ld hl, wStatusFlags7
-	set BIT_USE_CUR_MAP_SCRIPT, [hl]
+	ld hl, wStatusFlags4
+	set BIT_UNKNOWN_4_1, [hl]
 	xor a
+	ld [wJoyIgnore], a
 	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ret
 
 RocketHideoutB2FGreenAfterBattleScript:

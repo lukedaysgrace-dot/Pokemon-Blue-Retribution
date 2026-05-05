@@ -18,7 +18,7 @@ ViridianGym_Script:
 	db "GIOVANNI@"
 
 MaybeShowGiovanniForRematch:
-	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	call PostGameRematchesUnlocked
 	ret z
 	CheckEvent EVENT_BEAT_VIRIDIAN_GYM_GIOVANNI
 	ret z
@@ -180,13 +180,18 @@ ViridianGymReceiveTM27:
 	jp ViridianGymResetScripts
 
 ViridianGymGiovanniRematchPostBattle:
+	ld hl, wStatusFlags3
+	res BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, wMiscFlags
+	res BIT_SEEN_BY_TRAINER, [hl]
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ViridianGymResetScripts
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
-	ld hl, GiovanniRematchVictoryText
-	call PrintText
+	ld a, TEXT_VIRIDIANGYM_GIOVANNI_REMATCH_VICTORY
+	ldh [hTextID], a
+	call DisplayTextID
 	SetEvent EVENT_REMATCH_DEFEATED_GIOVANNI
 	jp ViridianGymResetScripts
 
@@ -206,6 +211,7 @@ ViridianGym_TextPointers:
 	dw_const ViridianGymGiovanniEarthBadgeInfoText, TEXT_VIRIDIANGYM_GIOVANNI_EARTH_BADGE_INFO
 	dw_const ViridianGymGiovanniReceivedTM27Text,   TEXT_VIRIDIANGYM_GIOVANNI_RECEIVED_TM27
 	dw_const ViridianGymGiovanniTM27NoRoomText,     TEXT_VIRIDIANGYM_GIOVANNI_TM27_NO_ROOM
+	dw_const GiovanniRematchVictoryText,            TEXT_VIRIDIANGYM_GIOVANNI_REMATCH_VICTORY
 
 ViridianGymTrainerHeaders:
 	def_trainers 2
@@ -237,8 +243,10 @@ ViridianGymGiovanniText:
 	call DisableWaitingAfterTextDisplay
 	jp .text_script_end
 .haveTM
-	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	call PostGameRematchesUnlocked
 	jr z, .afterBeat
+	CheckEvent EVENT_REMATCH_DEFEATED_GIOVANNI
+	jr nz, .afterBeat
 	ld hl, .RematchPreBattleText
 	call PrintText
 	ld hl, wStatusFlags3
@@ -255,8 +263,12 @@ ViridianGymGiovanniText:
 	call InitBattleEnemyParameters
 	ld a, $8
 	ld [wGymLeaderNo], a
+	ld hl, wStatusFlags4
+	set BIT_UNKNOWN_4_1, [hl]
 	xor a
 	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ld a, SCRIPT_VIRIDIANGYM_GIOVANNI_REMATCH_POST_BATTLE
 	ld [wViridianGymCurScript], a
 	ld [wCurMapScript], a
@@ -317,7 +329,7 @@ ViridianGymGiovanniText:
 	text_end
 
 GiovanniRematchVictoryText:
-	text_far _ViridianGymGiovanniRematchDefeatText
+	text_far _ViridianGymGiovanniRematchDefeatOverworldText
 	text_end
 
 ViridianGymGiovanniEarthBadgeInfoText:

@@ -168,9 +168,8 @@ PalletTownGreenAfterBattleScript:
 PalletTownUpdateGreenVisibility:
 	CheckEvent EVENT_REMATCH_DEFEATED_RIVAL_CHAMPION
 	jr z, .hide
-	; TEMP TEST: bypass the original-150 Pokédex gate while testing the encounter.
-	; call PalletTownOriginal150PokedexComplete
-	; jr nc, .hide
+	call PalletTownOriginal150PokedexComplete
+	jr nc, .hide
 .show
 	ld a, TOGGLE_PALLET_TOWN_GREEN
 	ld [wToggleableObjectIndex], a
@@ -260,6 +259,7 @@ PalletTownGreenText:
 	call PrintText
 	jr .done
 .beforeBattle
+	call PlayGreenEncounterMusic
 	ld hl, PalletTownGreenBeforeBattleText
 	call PrintText
 	ld hl, wStatusFlags3

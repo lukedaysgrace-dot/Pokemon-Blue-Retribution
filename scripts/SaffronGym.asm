@@ -73,13 +73,18 @@ SaffronGymSabrinaReceiveTM46Script:
 	jp SaffronGymResetScripts
 
 SaffronGymSabrinaRematchPostBattle:
+	ld hl, wStatusFlags3
+	res BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, wMiscFlags
+	res BIT_SEEN_BY_TRAINER, [hl]
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, SaffronGymResetScripts
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
-	ld hl, SabrinaRematchVictoryText
-	call PrintText
+	ld a, TEXT_SAFFRONGYM_SABRINA_REMATCH_VICTORY
+	ldh [hTextID], a
+	call DisplayTextID
 	SetEvent EVENT_REMATCH_DEFEATED_SABRINA
 	jp SaffronGymResetScripts
 
@@ -97,6 +102,7 @@ SaffronGym_TextPointers:
 	dw_const SaffronGymSabrinaMarshBadgeInfoText, TEXT_SAFFRONGYM_SABRINA_MARSH_BADGE_INFO
 	dw_const SaffronGymSabrinaReceivedTM46Text,   TEXT_SAFFRONGYM_SABRINA_RECEIVED_TM46
 	dw_const SaffronGymSabrinaTM46NoRoomText,     TEXT_SAFFRONGYM_SABRINA_TM46_NO_ROOM
+	dw_const SabrinaRematchVictoryText,           TEXT_SAFFRONGYM_SABRINA_REMATCH_VICTORY
 
 SaffronGymTrainerHeaders:
 	def_trainers 2
@@ -124,10 +130,12 @@ SaffronGymSabrinaText:
 	jr nz, .haveTM
 	call z, SaffronGymSabrinaReceiveTM46Script
 	call DisableWaitingAfterTextDisplay
-	jr .done
+	jp .done
 .haveTM
-	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	call PostGameRematchesUnlocked
 	jr z, .afterBeat
+	CheckEvent EVENT_REMATCH_DEFEATED_SABRINA
+	jr nz, .afterBeat
 	ld hl, .RematchPreBattleText
 	call PrintText
 	ld hl, wStatusFlags3
@@ -144,8 +152,12 @@ SaffronGymSabrinaText:
 	call InitBattleEnemyParameters
 	ld a, $6
 	ld [wGymLeaderNo], a
+	ld hl, wStatusFlags4
+	set BIT_UNKNOWN_4_1, [hl]
 	xor a
 	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ld a, SCRIPT_SAFFRONGYM_SABRINA_REMATCH_POST_BATTLE
 	ld [wSaffronGymCurScript], a
 	ld [wCurMapScript], a
@@ -198,7 +210,7 @@ SaffronGymSabrinaText:
 	text_end
 
 SabrinaRematchVictoryText:
-	text_far _SaffronGymSabrinaRematchDefeatText
+	text_far _SaffronGymSabrinaRematchDefeatOverworldText
 	text_end
 
 SaffronGymSabrinaMarshBadgeInfoText:

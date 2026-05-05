@@ -73,13 +73,18 @@ CeladonGymReceiveTM21:
 	jp CeladonGymResetScripts
 
 CeladonGymErikaRematchPostBattleScript:
+	ld hl, wStatusFlags3
+	res BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, wMiscFlags
+	res BIT_SEEN_BY_TRAINER, [hl]
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, CeladonGymResetScripts
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
-	ld hl, ErikaRematchVictoryText
-	call PrintText
+	ld a, TEXT_CELADONGYM_ERIKA_REMATCH_VICTORY
+	ldh [hTextID], a
+	call DisplayTextID
 	SetEvent EVENT_REMATCH_DEFEATED_ERIKA
 	jp CeladonGymResetScripts
 
@@ -96,6 +101,7 @@ CeladonGym_TextPointers:
 	dw_const CeladonGymRainbowBadgeInfoText, TEXT_CELADONGYM_RAINBOWBADGE_INFO
 	dw_const CeladonGymReceivedTM21Text,     TEXT_CELADONGYM_RECEIVED_TM21
 	dw_const CeladonGymTM21NoRoomText,       TEXT_CELADONGYM_TM21_NO_ROOM
+	dw_const ErikaRematchVictoryText,        TEXT_CELADONGYM_ERIKA_REMATCH_VICTORY
 
 CeladonGymTrainerHeaders:
 	def_trainers 2
@@ -123,10 +129,12 @@ CeladonGymErikaText:
 	jr nz, .haveTM
 	call z, CeladonGymReceiveTM21
 	call DisableWaitingAfterTextDisplay
-	jr .done
+	jp .done
 .haveTM
-	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	call PostGameRematchesUnlocked
 	jr z, .afterBeat
+	CheckEvent EVENT_REMATCH_DEFEATED_ERIKA
+	jr nz, .afterBeat
 	ld hl, .RematchPreBattleText
 	call PrintText
 	ld hl, wStatusFlags3
@@ -143,8 +151,12 @@ CeladonGymErikaText:
 	call InitBattleEnemyParameters
 	ld a, $4
 	ld [wGymLeaderNo], a
+	ld hl, wStatusFlags4
+	set BIT_UNKNOWN_4_1, [hl]
 	xor a
 	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ld a, SCRIPT_CELADONGYM_ERIKA_REMATCH_POST_BATTLE
 	ld [wCeladonGymCurScript], a
 	ld [wCurMapScript], a
@@ -195,7 +207,7 @@ CeladonGymErikaText:
 	text_end
 
 ErikaRematchVictoryText:
-	text_far _CeladonGymErikaRematchDefeatText
+	text_far _CeladonGymErikaRematchDefeatOverworldText
 	text_end
 
 CeladonGymRainbowBadgeInfoText:

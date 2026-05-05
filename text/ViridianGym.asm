@@ -256,3 +256,10 @@ _ViridianGymGiovanniRematchDefeatText::
 	cont "Your strength is"
 	cont "...undeniable."
 	prompt
+
+_ViridianGymGiovanniRematchDefeatOverworldText::
+	text "...Even now, I"
+	line "can't beat you."
+	cont "Your strength is"
+	cont "...undeniable."
+	done

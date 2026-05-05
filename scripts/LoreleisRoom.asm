@@ -29,7 +29,9 @@ LoreleiShowOrHideExitBlock:
 
 ResetLoreleiScript:
 	xor a ; SCRIPT_LORELEISROOM_DEFAULT
+	ld [wJoyIgnore], a
 	ld [wLoreleisRoomCurScript], a
+	ld [wCurMapScript], a
 	ret
 
 LoreleisRoom_ScriptPointers:
@@ -119,13 +121,18 @@ LoreleisRoomLoreleiEndBattleScript:
 
 LoreleisRoomLoreleiRematchEndBattleScript:
 	call EndTrainerBattle
-	xor a
-	ld [wJoyIgnore], a
+	ld hl, wStatusFlags3
+	res BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, wMiscFlags
+	res BIT_SEEN_BY_TRAINER, [hl]
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetLoreleiScript
-	ld hl, LoreleiRematchVictoryOverworldText
-	call PrintText
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	ld a, TEXT_LORELEISROOM_LORELEI_REMATCH_VICTORY
+	ldh [hTextID], a
+	call DisplayTextID
 	SetEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_0
 	SetEvent EVENT_REMATCH_DEFEATED_LORELEI
 	jp ResetLoreleiScript
@@ -134,6 +141,7 @@ LoreleisRoom_TextPointers:
 	def_text_pointers
 	dw_const LoreleisRoomLoreleiText,            TEXT_LORELEISROOM_LORELEI
 	dw_const LoreleisRoomLoreleiDontRunAwayText, TEXT_LORELEISROOM_DONT_RUN_AWAY
+	dw_const LoreleiRematchVictoryOverworldText, TEXT_LORELEISROOM_LORELEI_REMATCH_VICTORY
 
 LoreleisRoomTrainerHeaders:
 	def_trainers
@@ -143,7 +151,7 @@ LoreleisRoomTrainerHeader0:
 
 LoreleisRoomLoreleiText:
 	text_asm
-	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	call PostGameRematchesUnlocked
 	jr z, .vanilla
 	CheckEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_0
 	jr z, .rematch
@@ -171,6 +179,12 @@ LoreleisRoomLoreleiText:
 	call InitBattleEnemyParameters
 	xor a
 	ld [wGymLeaderNo], a
+	ld hl, wStatusFlags4
+	set BIT_UNKNOWN_4_1, [hl]
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ld a, SCRIPT_LORELEISROOM_LORELEI_REMATCH_END_BATTLE
 	ld [wLoreleisRoomCurScript], a
 	ld [wCurMapScript], a

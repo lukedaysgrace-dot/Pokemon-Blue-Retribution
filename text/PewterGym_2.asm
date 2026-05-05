@@ -165,3 +165,11 @@ _PewterGymBrockRematchDefeatText::
 	cont "I'll keep honing"
 	cont "my strength."
 	prompt
+
+_PewterGymBrockRematchDefeatOverworldText::
+	text "Solid as ever..."
+	line "I see why you're"
+	cont "CHAMPION."
+	cont "I'll keep honing"
+	cont "my strength."
+	done

@@ -92,13 +92,18 @@ VermilionGymLTSurgeReceiveTM24Script:
 	jp VermilionGymResetScripts
 
 VermilionGymLTSurgeRematchPostBattleScript:
+	ld hl, wStatusFlags3
+	res BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, wMiscFlags
+	res BIT_SEEN_BY_TRAINER, [hl]
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, VermilionGymResetScripts
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
-	ld hl, VermilionRematchVictoryText
-	call PrintText
+	ld a, TEXT_VERMILIONGYM_LT_SURGE_REMATCH_VICTORY
+	ldh [hTextID], a
+	call DisplayTextID
 	SetEvent EVENT_REMATCH_DEFEATED_LT_SURGE
 	jp VermilionGymResetScripts
 
@@ -112,6 +117,7 @@ VermilionGym_TextPointers:
 	dw_const VermilionGymLTSurgeThunderBadgeInfoText, TEXT_VERMILIONGYM_LT_SURGE_THUNDER_BADGE_INFO
 	dw_const VermilionGymLTSurgeReceivedTM24Text,     TEXT_VERMILIONGYM_LT_SURGE_RECEIVED_TM24
 	dw_const VermilionGymLTSurgeTM24NoRoomText,       TEXT_VERMILIONGYM_LT_SURGE_TM24_NO_ROOM
+	dw_const VermilionRematchVictoryText,             TEXT_VERMILIONGYM_LT_SURGE_REMATCH_VICTORY
 
 VermilionGymTrainerHeaders:
 	def_trainers 2
@@ -131,10 +137,12 @@ VermilionGymLTSurgeText:
 	jr nz, .have_tm
 	call z, VermilionGymLTSurgeReceiveTM24Script
 	call DisableWaitingAfterTextDisplay
-	jr .text_script_end
+	jp .text_script_end
 .have_tm
-	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	call PostGameRematchesUnlocked
 	jr z, .got_tm24_already
+	CheckEvent EVENT_REMATCH_DEFEATED_LT_SURGE
+	jr nz, .got_tm24_already
 	ld hl, .RematchPreBattleText
 	call PrintText
 	ld hl, wStatusFlags3
@@ -151,8 +159,12 @@ VermilionGymLTSurgeText:
 	call InitBattleEnemyParameters
 	ld a, $3
 	ld [wGymLeaderNo], a
+	ld hl, wStatusFlags4
+	set BIT_UNKNOWN_4_1, [hl]
 	xor a
 	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ld a, SCRIPT_VERMILIONGYM_LT_SURGE_REMATCH_POST_BATTLE
 	ld [wVermilionGymCurScript], a
 	ld [wCurMapScript], a
@@ -201,7 +213,7 @@ VermilionGymLTSurgeText:
 	text_end
 
 VermilionRematchVictoryText:
-	text_far _VermilionGymLTSurgeRematchDefeatText
+	text_far _VermilionGymLTSurgeRematchDefeatOverworldText
 	text_end
 
 VermilionGymLTSurgeThunderBadgeInfoText:

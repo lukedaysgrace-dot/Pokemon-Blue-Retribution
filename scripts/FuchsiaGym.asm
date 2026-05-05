@@ -91,13 +91,18 @@ FuchsiaGymReceiveTM06:
 	jp FuchsiaGymResetScripts
 
 FuchsiaGymKogaRematchPostBattleScript:
+	ld hl, wStatusFlags3
+	res BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, wMiscFlags
+	res BIT_SEEN_BY_TRAINER, [hl]
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, FuchsiaGymResetScripts
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
-	ld hl, KogaRematchVictoryText
-	call PrintText
+	ld a, TEXT_FUCHSIAGYM_KOGA_REMATCH_VICTORY
+	ldh [hTextID], a
+	call DisplayTextID
 	SetEvent EVENT_REMATCH_DEFEATED_KOGA
 	jp FuchsiaGymResetScripts
 
@@ -114,6 +119,7 @@ FuchsiaGym_TextPointers:
 	dw_const FuchsiaGymKogaSoulBadgeInfoText, TEXT_FUCHSIAGYM_KOGA_SOUL_BADGE_INFO
 	dw_const FuchsiaGymKogaReceivedTM06Text,  TEXT_FUCHSIAGYM_KOGA_RECEIVED_TM06
 	dw_const FuchsiaGymKogaTM06NoRoomText,    TEXT_FUCHSIAGYM_KOGA_TM06_NO_ROOM
+	dw_const KogaRematchVictoryText,          TEXT_FUCHSIAGYM_KOGA_REMATCH_VICTORY
 
 FuchsiaGymTrainerHeaders:
 	def_trainers 2
@@ -139,10 +145,12 @@ FuchsiaGymKogaText:
 	jr nz, .haveTM
 	call z, FuchsiaGymReceiveTM06
 	call DisableWaitingAfterTextDisplay
-	jr .done
+	jp .done
 .haveTM
-	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	call PostGameRematchesUnlocked
 	jr z, .afterBeat
+	CheckEvent EVENT_REMATCH_DEFEATED_KOGA
+	jr nz, .afterBeat
 	ld hl, .RematchPreBattleText
 	call PrintText
 	ld hl, wStatusFlags3
@@ -159,8 +167,12 @@ FuchsiaGymKogaText:
 	call InitBattleEnemyParameters
 	ld a, $5
 	ld [wGymLeaderNo], a
+	ld hl, wStatusFlags4
+	set BIT_UNKNOWN_4_1, [hl]
 	xor a
 	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ld a, SCRIPT_FUCHSIAGYM_KOGA_REMATCH_POST_BATTLE
 	ld [wFuchsiaGymCurScript], a
 	ld [wCurMapScript], a
@@ -213,7 +225,7 @@ FuchsiaGymKogaText:
 	text_end
 
 KogaRematchVictoryText:
-	text_far _FuchsiaGymKogaRematchDefeatText
+	text_far _FuchsiaGymKogaRematchDefeatOverworldText
 	text_end
 
 FuchsiaGymKogaSoulBadgeInfoText:

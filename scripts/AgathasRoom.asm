@@ -27,7 +27,9 @@ AgathaShowOrHideExitBlock:
 
 ResetAgathaScript:
 	xor a ; SCRIPT_AGATHASROOM_DEFAULT
+	ld [wJoyIgnore], a
 	ld [wAgathasRoomCurScript], a
+	ld [wCurMapScript], a
 	ret
 
 AgathasRoom_ScriptPointers:
@@ -120,13 +122,18 @@ AgathasRoomAgathaEndBattleScript:
 
 AgathasRoomAgathaRematchEndBattleScript:
 	call EndTrainerBattle
-	xor a
-	ld [wJoyIgnore], a
+	ld hl, wStatusFlags3
+	res BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, wMiscFlags
+	res BIT_SEEN_BY_TRAINER, [hl]
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetAgathaScript
-	ld hl, AgathaRematchVictoryOverworldText
-	call PrintText
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	ld a, TEXT_AGATHASROOM_AGATHA_REMATCH_VICTORY
+	ldh [hTextID], a
+	call DisplayTextID
 	SetEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_0
 	SetEvent EVENT_REMATCH_DEFEATED_AGATHA
 	ld a, SCRIPT_CHAMPIONSROOM_PLAYER_ENTERS
@@ -137,6 +144,7 @@ AgathasRoom_TextPointers:
 	def_text_pointers
 	dw_const AgathasRoomAgathaText,            TEXT_AGATHASROOM_AGATHA
 	dw_const AgathasRoomAgathaDontRunAwayText, TEXT_AGATHASROOM_AGATHA_DONT_RUN_AWAY
+	dw_const AgathaRematchVictoryOverworldText, TEXT_AGATHASROOM_AGATHA_REMATCH_VICTORY
 
 AgathasRoomTrainerHeaders:
 	def_trainers
@@ -146,7 +154,7 @@ AgathasRoomTrainerHeader0:
 
 AgathasRoomAgathaText:
 	text_asm
-	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	call PostGameRematchesUnlocked
 	jr z, .vanilla
 	CheckEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_0
 	jr z, .rematch
@@ -174,6 +182,12 @@ AgathasRoomAgathaText:
 	call InitBattleEnemyParameters
 	xor a
 	ld [wGymLeaderNo], a
+	ld hl, wStatusFlags4
+	set BIT_UNKNOWN_4_1, [hl]
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ld a, SCRIPT_AGATHASROOM_AGATHA_REMATCH_END_BATTLE
 	ld [wAgathasRoomCurScript], a
 	ld [wCurMapScript], a

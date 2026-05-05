@@ -56,13 +56,6 @@ OakSpeech:
 	ld a, 1
 	ld [wItemQuantity], a
 	call AddItemToInventory
-; TEST: HM01 for Cut in the bag (remove for release). Must set hl; vanilla Potion uses wNumBoxItems (PC).
-	ld hl, wNumBagItems
-	ld a, HM01
-	ld [wCurItem], a
-	ld a, 1
-	ld [wItemQuantity], a
-	call AddItemToInventory
 	ld a, [wDefaultMap]
 	ld [wDestinationMap], a
 	call PrepareForSpecialWarp

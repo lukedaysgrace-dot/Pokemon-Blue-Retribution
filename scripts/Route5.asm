@@ -72,6 +72,7 @@ Route5GreenText:
 	call PrintText
 	jr .done
 .before_battle
+	call PlayGreenEncounterMusic
 	ld hl, Route5GreenBeforeBattleText
 	call PrintText
 	ld hl, wStatusFlags3

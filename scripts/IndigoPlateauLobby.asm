@@ -34,6 +34,16 @@ IndigoPlateauLobbyDefaultScript:
 	ResetEvent EVENT_REMATCH_DEFEATED_RIVAL_CHAMPION
 
 .check_trigger
+	ld a, [wNumHoFTeams]
+	and a
+	jr nz, .suppress_green
+	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	jr z, .check_green
+.suppress_green
+	SetEvent EVENT_BEAT_INDIGO_PLATEAU_GREEN
+	ret
+
+.check_green
 	CheckEvent EVENT_BEAT_INDIGO_PLATEAU_GREEN
 	ret nz
 	ld hl, IndigoPlateauLobbyGreenTriggerCoords
@@ -41,12 +51,18 @@ IndigoPlateauLobbyDefaultScript:
 	ret nc
 	ld a, [wCoordIndex]
 	ld [wSavedCoordIndex], a
+	ld a, PAD_BUTTONS | PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
 	ld a, SCRIPT_INDIGOPLATEAULOBBY_GREEN_APPEARS
 	ld [wCurMapScript], a
 	ret
 
 IndigoPlateauLobbyGreenTriggerCoords:
-	dbmapcoord  8, 1
+	dbmapcoord  3, 2
 	db -1
 
 IndigoPlateauLobbyGreenAppearsScript:
@@ -56,6 +72,7 @@ IndigoPlateauLobbyGreenAppearsScript:
 	ld a, TOGGLE_INDIGO_PLATEAU_LOBBY_GREEN
 	ld [wToggleableObjectIndex], a
 	predef ShowObject
+	call IndigoPlateauLobbyGreenFacePlayer
 	call UpdateSprites
 	ld c, 12
 	call DelayFrames
@@ -63,6 +80,7 @@ IndigoPlateauLobbyGreenAppearsScript:
 	ld [wEmotionBubbleSpriteIndex], a
 	ld [wWhichEmotionBubble], a ; EXCLAMATION_BUBBLE
 	predef EmotionBubble
+	call PlayGreenEncounterMusic
 	ld de, IndigoPlateauLobbyGreenApproachMovement
 	ld a, INDIGOPLATEAULOBBY_GREEN
 	ldh [hSpriteIndex], a
@@ -72,11 +90,9 @@ IndigoPlateauLobbyGreenAppearsScript:
 	ret
 
 IndigoPlateauLobbyGreenApproachMovement:
-	db NPC_MOVEMENT_RIGHT
-	db NPC_MOVEMENT_RIGHT
-	db NPC_MOVEMENT_RIGHT
-	db NPC_MOVEMENT_RIGHT
-	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
 	db -1 ; end
 
 IndigoPlateauLobbyGreenApproachScript:
@@ -92,6 +108,7 @@ IndigoPlateauLobbyGreenApproachScript:
 	ldh [hTextID], a
 	call DisplayTextID
 	xor a
+	ld [wJoyIgnore], a
 	ldh [hJoyHeld], a
 	ldh [hJoyPressed], a
 	ldh [hJoyReleased], a
@@ -118,6 +135,8 @@ IndigoPlateauLobbyGreenApproachScript:
 	ld a, 14 ; player picked Squirtle, Green has Charizard line
 .got_team
 	ld [wTrainerNo], a
+	ld hl, wStatusFlags4
+	set BIT_UNKNOWN_4_1, [hl]
 	ld a, SCRIPT_INDIGOPLATEAULOBBY_GREEN_AFTER_BATTLE
 	ld [wCurMapScript], a
 	ret
@@ -146,10 +165,9 @@ IndigoPlateauLobbyGreenAfterBattleScript:
 	ret
 
 IndigoPlateauLobbyGreenExitMovement:
-	db NPC_MOVEMENT_LEFT
-	db NPC_MOVEMENT_LEFT
-	db NPC_MOVEMENT_LEFT
-	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
 	db -1 ; end
 
 IndigoPlateauLobbyGreenExitScript:
@@ -173,17 +191,10 @@ IndigoPlateauLobbySetGreenStartCoords:
 	ld h, a
 	ld de, SPRITESTATEDATA2_MAPY
 	add hl, de
-	; Start Green just above the doorway so she can step out from Lorelei's room.
-	ld a, 6 ; map y -1, stored with the usual +4 sprite offset
+	; Start Green below the trigger so she walks up into the challenge.
+	ld a, 6 + 4 ; map y 6
 	ld [hli], a
-	ld a, [wSavedCoordIndex]
-	cp 2
-	jr z, .right_tile
-	ld a, 3 + 4 ; map x 7
-	jr .set_x
-.right_tile
-	ld a, 4 + 4 ; map x 8
-.set_x
+	ld a, 3 + 4 ; map x 3
 	ld [hl], a
 	ret
 
