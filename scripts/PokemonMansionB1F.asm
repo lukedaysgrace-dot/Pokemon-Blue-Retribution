@@ -677,7 +677,7 @@ PokemonMansionB1FGreenBeforeBattleText:
 	line "Let's see if all"
 	cont "that exploring"
 	cont "made you"
-	cont "stronger"
+	cont "stronger."
 	done
 
 PokemonMansionB1FGreenEndBattleText:

@@ -111,38 +111,44 @@ def main() -> int:
     learnsets = load_learnsets()
     rows: list[tuple[str, str, int, int, str, int]] = []
 
-    # Gym leaders
-    add_entries(rows, "BROCK", 1, [("GEODUDE", 12), ("ONIX", 14)], "Brock")
-    add_entries(rows, "MISTY", 1, [("STARYU", 18), ("STARMIE", 21)], "Misty")
+    # Gym leaders — must match data/trainers/parties.asm (BrockData, MistyData, …)
+    add_entries(rows, "BROCK", 1, [("GEODUDE", 12), ("KABUTO", 13), ("ONIX", 15)], "Brock")
+    add_entries(rows, "MISTY", 1, [("STARYU", 18), ("HORSEA", 19), ("STARMIE", 22)], "Misty")
     add_entries(
-        rows, "LT_SURGE", 1, [("VOLTORB", 21), ("PIKACHU", 18), ("RAICHU", 24)], "Lt.Surge"
+        rows, "LT_SURGE", 1, [("VOLTORB", 18), ("ELECTABUZZ", 21), ("RAICHU", 25)], "Lt.Surge"
     )
     add_entries(
         rows,
         "ERIKA",
         1,
-        [("VICTREEBEL", 29), ("TANGELA", 24), ("VILEPLUME", 29)],
+        [("TANGELA", 29), ("PARASECT", 31), ("VICTREEBEL", 33), ("VILEPLUME", 33)],
         "Erika",
     )
     add_entries(
         rows,
         "KOGA",
         1,
-        [("KOFFING", 37), ("MUK", 39), ("KOFFING", 37), ("WEEZING", 43)],
+        [("ARBOK", 37), ("MUK", 39), ("VENOMOTH", 38), ("WEEZING", 43), ("TENTACRUEL", 41)],
         "Koga",
     )
     add_entries(
         rows,
         "BLAINE",
         1,
-        [("GROWLITHE", 42), ("PONYTA", 40), ("RAPIDASH", 42), ("ARCANINE", 47)],
+        [
+            ("NINETALES", 40),
+            ("MAGMORTAR", 43),
+            ("RAPIDASH", 43),
+            ("ARCANINE", 47),
+            ("FLAREON", 45),
+        ],
         "Blaine",
     )
     add_entries(
         rows,
         "SABRINA",
         1,
-        [("KADABRA", 38), ("MR_MIME", 37), ("VENOMOTH", 38), ("ALAKAZAM", 43)],
+        [("MR_MIME", 37), ("HYPNO", 38), ("GOLDUCK", 38), ("JYNX", 38), ("ALAKAZAM", 43)],
         "Sabrina",
     )
 
@@ -150,14 +156,14 @@ def main() -> int:
         rows,
         "GIOVANNI",
         1,
-        [("ONIX", 25), ("RHYHORN", 24), ("KANGASKHAN", 29)],
+        [("CUBONE", 25), ("RHYHORN", 24), ("KABUTO", 28), ("KANGASKHAN", 29)],
         "Giovanni Rocket Hideout",
     )
     add_entries(
         rows,
         "GIOVANNI",
         2,
-        [("NIDORINO", 37), ("KANGASKHAN", 35), ("RHYHORN", 37), ("NIDOQUEEN", 41)],
+        [("NIDOKING", 37), ("KANGASKHAN", 37), ("RHYHORN", 37), ("KABUTOPS", 40), ("NIDOQUEEN", 41)],
         "Giovanni Silph Co.",
     )
     add_entries(
@@ -165,35 +171,57 @@ def main() -> int:
         "GIOVANNI",
         3,
         [
-            ("RHYHORN", 45),
-            ("DUGTRIO", 42),
-            ("NIDOQUEEN", 44),
-            ("NIDOKING", 45),
-            ("RHYDON", 50),
+            ("KANGASKHAN", 41),
+            ("MAROWAK", 42),
+            ("NIDOQUEEN", 45),
+            ("NIDOKING", 43),
+            ("RHYDON", 42),
+            ("KABUTOPS", 42),
         ],
         "Giovanni Viridian Gym",
     )
 
-    # Elite Four
+    # Elite Four — LoreleiData order/levels
     add_entries(
         rows,
         "LORELEI",
         1,
-        [("DEWGONG", 54), ("CLOYSTER", 53), ("SLOWBRO", 54), ("JYNX", 56), ("LAPRAS", 56)],
+        [
+            ("DEWGONG", 45),
+            ("CLOYSTER", 46),
+            ("SLOWBRO", 46),
+            ("MESMERIA", 47),
+            ("LAPRAS", 47),
+            ("VAPOREON", 46),
+        ],
         "Lorelei",
     )
     add_entries(
         rows,
-        "BRUNO",
+        "KAREN",
         1,
-        [("ONIX", 53), ("HITMONCHAN", 55), ("HITMONLEE", 55), ("ONIX", 56), ("MACHAMP", 58)],
-        "Bruno",
+        [
+            ("UMBREON", 46),
+            ("MURKROW", 47),
+            ("SNEASEL", 47),
+            ("TYRANITAR", 47),
+            ("HONCHKROW", 50),
+            ("WEAVILE", 48),
+        ],
+        "Karen",
     )
     add_entries(
         rows,
         "AGATHA",
         1,
-        [("GENGAR", 56), ("GOLBAT", 56), ("HAUNTER", 55), ("ARBOK", 58), ("GENGAR", 60)],
+        [
+            ("GENGAR", 48),
+            ("TENTACRUEL", 47),
+            ("GOLBAT", 46),
+            ("ARBOK", 48),
+            ("GENGAR", 52),
+            ("WEEZING", 47),
+        ],
         "Agatha",
     )
     add_entries(
@@ -201,11 +229,12 @@ def main() -> int:
         "LANCE",
         1,
         [
-            ("GYARADOS", 58),
-            ("DRAGONAIR", 56),
-            ("DRAGONAIR", 56),
-            ("AERODACTYL", 60),
-            ("DRAGONITE", 62),
+            ("GYARADOS", 52),
+            ("DRAGONITE", 54),
+            ("DRAGONITE", 54),
+            ("AERODACTYL", 52),
+            ("DRAGONITE", 55),
+            ("KINGDRA", 54),
         ],
         "Lance",
     )

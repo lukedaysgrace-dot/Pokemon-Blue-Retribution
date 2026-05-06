@@ -41,7 +41,7 @@ DrawBadges:
 	ld hl, wBadgeNumberTile
 	ld a, $d8 ; [1]
 	ld [hli], a
-	ld [hl], $60 ; First name
+	ld [hl], TRAINER_CARD_BLANK_LEADER_NAMES_BASE ; first blank “name” tile (see gfx_constants.asm)
 
 	hlcoord 2, 11
 	ld de, wTempObtainedBadgesBooleans

@@ -505,7 +505,7 @@ DrawTrainerInfo:
 	push bc
 	call TrainerInfo_FarCopyData
 	ld hl, BlankLeaderNames
-	ld de, vChars2 tile $60
+	ld de, vChars1 tile $20 ; TRAINER_CARD_BLANK_LEADER_NAMES_BASE ($a0); avoids overlap with badges at $31–$70
 	ld bc, $17 tiles
 	call TrainerInfo_FarCopyData
 	pop bc

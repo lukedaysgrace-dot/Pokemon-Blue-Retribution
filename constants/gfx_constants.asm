@@ -13,6 +13,11 @@ DEF PIC_SIZE   EQU PIC_WIDTH * PIC_HEIGHT ; tiles
 ; Trainer card: 7x7 portrait uses tile IDs 0–48 (vFrontPic). Badges used to load at vChars2 $20 (IDs
 ; 32–95), overlapping the portrait. Load badge .2bpp at $31 so IDs 32–48 are portrait-only.
 DEF TRAINER_CARD_BADGE_GFX_BASE EQU $31
+; Blank leader-name strips ($17 tiles). Vanilla loaded them at vChars2 $60 (tile IDs $96+), which sat
+; right after the old badge block ($20–$5f). Badges at $31 occupy $31–$70, so IDs $96–$b0 overlap;
+; those indices are still used for name strips in DrawBadges, so badge tiles appeared “mixed” into
+; faces. Map blank strips at vChars1 tile $20 → IDs $a0–$b6 (same scheme as digits: vChars1 $58 → $d8).
+DEF TRAINER_CARD_BLANK_LEADER_NAMES_BASE EQU $a0
 
 DEF SPRITEBUFFERSIZE EQU PIC_WIDTH * PIC_HEIGHT * TILE_1BPP_SIZE
 
