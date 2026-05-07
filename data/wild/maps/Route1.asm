@@ -1,7 +1,7 @@
 Route1WildMons:
 	def_grass_wildmons 25 ; encounter rate
-	db  3, DONPHAN
-	db  3, PHANPY
+	db  3, MAGMORTAR
+	db  3, ELECTIVIRE
 	db  3, HOUNDOUR
 	db  2, HOUNDOOM
 	db  2, HOUNDOOM
