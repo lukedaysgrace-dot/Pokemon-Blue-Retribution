@@ -24,4 +24,5 @@
 	     SURF,         STRENGTH
 	; end
 
-	db 0 ; padding
+	db BANK(RhyperiorPicFront)
+	assert BANK(RhyperiorPicFront) == BANK(RhyperiorPicBack)

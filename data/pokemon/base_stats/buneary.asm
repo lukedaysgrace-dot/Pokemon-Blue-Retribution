@@ -21,4 +21,5 @@
 	     MIMIC,        DOUBLE_TEAM,  BIDE,         FLAMETHROWER, FIRE_BLAST,   \
 	     SKULL_BASH,   REST,         THUNDER_WAVE, SUBSTITUTE,   \
 	     STRENGTH,     FLASH
-	db 0 ; padding
+	db BANK(BunearyPicFront)
+	assert BANK(BunearyPicFront) == BANK(BunearyPicBack)

@@ -16,4 +16,5 @@
 	tmhm MEGA_PUNCH,   TOXIC,        BODY_SLAM,    HYPER_BEAM,   EARTHQUAKE,   \
 	     DIG,          DOUBLE_TEAM,  REST,         ROCK_SLIDE,   SUBSTITUTE,   \
 	     STRENGTH
-	db 0 ; padding
+	db BANK(GolurkPicFront)
+	assert BANK(GolurkPicFront) == BANK(GolurkPicBack)

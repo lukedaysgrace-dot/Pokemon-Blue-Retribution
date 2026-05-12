@@ -18,4 +18,5 @@
 	     DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,          \
 	     FLAMETHROWER, FIRE_BLAST,   REST,         ROCK_SLIDE,   SUBSTITUTE,    \
 	     STRENGTH
-	db 0 ; padding
+	db BANK(HippopotasPicFront)
+	assert BANK(HippopotasPicFront) == BANK(HippopotasPicBack)

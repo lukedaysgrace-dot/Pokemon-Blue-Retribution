@@ -15,4 +15,5 @@
 
 	tmhm TOXIC,        THUNDERBOLT,  THUNDER,      PSYCHIC_M,    MIMIC,        \
 	     DOUBLE_TEAM,  BIDE,         DREAM_EATER,  REST,         SUBSTITUTE
-	db 0 ; padding
+	db BANK(MisdreavusPicFront)
+	assert BANK(MisdreavusPicFront) == BANK(MisdreavusPicBack)

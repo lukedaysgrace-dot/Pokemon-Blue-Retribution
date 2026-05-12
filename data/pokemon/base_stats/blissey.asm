@@ -25,4 +25,5 @@
 	     FLASH
 	; end
 
-	db 0 ; padding
+	db BANK(BlisseyPicFront)
+	assert BANK(BlisseyPicFront) == BANK(BlisseyPicBack)

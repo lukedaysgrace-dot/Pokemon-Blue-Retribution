@@ -12,6 +12,9 @@ InitBattleVariables:
 	ld [wListScrollOffset], a
 	ld [wCriticalHitOrOHKO], a
 	ld [wBattleMonSpecies], a
+	ld [wBattleMonSpecies2], a
+	ld [wPlayerBattleSendOutComplete], a
+	ldh [hPlayerSideTrainerPicActive], a
 	ld [wPartyGainExpFlags], a
 	ld [wPlayerMonNumber], a
 	ld [wEscapedFromBattle], a
@@ -25,6 +28,12 @@ InitBattleVariables:
 	ld [hli], a
 	dec b
 	jr nz, .loop
+	ld hl, wBattleStatusData
+	ld b, wBattleStatusDataEnd - wBattleStatusData
+.clearBattleStatusLoop
+	ld [hli], a
+	dec b
+	jr nz, .clearBattleStatusLoop
 	inc a ; TACKLE
 	ld [wTestBattlePlayerSelectedMove], a
 	ld a, [wCurMap]

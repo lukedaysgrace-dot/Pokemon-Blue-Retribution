@@ -16,4 +16,5 @@
 	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,   EARTHQUAKE,   \
 	     DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,          REST,         \
 	     ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
-	db 0 ; padding
+	db BANK(PhanpyPicFront)
+	assert BANK(PhanpyPicFront) == BANK(PhanpyPicBack)

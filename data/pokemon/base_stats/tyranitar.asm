@@ -16,4 +16,5 @@
 	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    HYPER_BEAM,   \
 	     SUBMISSION,   ROCK_SLIDE,   EARTHQUAKE,   DIG,          DOUBLE_TEAM,  \
 	     REST,         SUBSTITUTE,   CUT,          STRENGTH
-	db 0 ; padding
+	db BANK(TyranitarPicFront)
+	assert BANK(TyranitarPicFront) == BANK(TyranitarPicBack)

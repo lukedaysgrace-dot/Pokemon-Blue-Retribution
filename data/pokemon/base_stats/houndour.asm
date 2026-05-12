@@ -16,4 +16,5 @@
 	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,   DIG,          \
 	     MIMIC,        DOUBLE_TEAM,  BIDE,         FLAMETHROWER, FIRE_BLAST,    SWIFT,        \
 	     REST,         SUBSTITUTE
-	db 0 ; padding
+	db BANK(HoundourPicFront)
+	assert BANK(HoundourPicFront) == BANK(HoundourPicBack)

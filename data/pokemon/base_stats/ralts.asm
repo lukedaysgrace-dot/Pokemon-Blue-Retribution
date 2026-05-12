@@ -15,4 +15,5 @@
 
 	tmhm TOXIC,        BODY_SLAM,    PSYCHIC_M,    DOUBLE_TEAM,  \
 	     REFLECT,      REST,         SUBSTITUTE
-	db 0 ; padding
+	db BANK(RaltsPicFront)
+	assert BANK(RaltsPicFront) == BANK(RaltsPicBack)

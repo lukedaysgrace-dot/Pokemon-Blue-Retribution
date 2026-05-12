@@ -16,4 +16,5 @@
 	tmhm TOXIC,        MEGA_KICK,    HYPER_BEAM,   RAZOR_WIND,   MIMIC,        \
 	     DOUBLE_TEAM,  SWIFT,        SKY_ATTACK,   REST,         SUBSTITUTE,   \
 	     FLY
-	db 0 ; padding
+	db BANK(HonchkrowPicFront)
+	assert BANK(HonchkrowPicFront) == BANK(HonchkrowPicBack)

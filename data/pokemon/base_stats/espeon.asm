@@ -21,4 +21,5 @@
 	     PSYCHIC_M,    PSYWAVE,      SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(EspeonPicFront)
+	assert BANK(EspeonPicFront) == BANK(EspeonPicBack)

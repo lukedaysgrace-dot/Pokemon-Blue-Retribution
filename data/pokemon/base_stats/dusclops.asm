@@ -15,4 +15,5 @@
 
 	tmhm TOXIC,        BODY_SLAM,    HYPER_BEAM,   PSYCHIC_M,    MIMIC,        \
 	     DOUBLE_TEAM,  REST,         SUBSTITUTE
-	db 0 ; padding
+	db BANK(DusclopsPicFront)
+	assert BANK(DusclopsPicFront) == BANK(DusclopsPicBack)

@@ -16,4 +16,5 @@
 	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    SUBMISSION,   \
 	     HYPER_BEAM,   DIG,          DOUBLE_TEAM,  REST,         ROCK_SLIDE,   \
 	     SUBSTITUTE,   CUT,          STRENGTH
-	db 0 ; padding
+	db BANK(HeracrossPicFront)
+	assert BANK(HeracrossPicFront) == BANK(HeracrossPicBack)

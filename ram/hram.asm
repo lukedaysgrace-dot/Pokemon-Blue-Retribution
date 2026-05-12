@@ -384,7 +384,9 @@ hWhoseTurn:: db ; 0 on player's turn, 1 on enemy's turn
 
 hClearLetterPrintingDelayFlags:: db
 
-	ds 1
+; Non-zero while player-side graphics should keep hero palette: VS slide pass, opponent opening
+; send-out (trainer battles), ChooseNextMon window before mon tiles load (see SendOutMon).
+hPlayerSideTrainerPicActive:: db
 
 ; bit 0: draw HP fraction to the right of bar instead of below (for party menu)
 ; bit 1: menu is double spaced

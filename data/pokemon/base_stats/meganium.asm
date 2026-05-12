@@ -17,4 +17,5 @@
 	     MEGA_DRAIN,   SOLARBEAM,    HYPER_BEAM,   DIG,          MIMIC,        \
 	     DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         \
 	     SUBSTITUTE,   CUT
-	db 0 ; padding
+	db BANK(MeganiumPicFront)
+	assert BANK(MeganiumPicFront) == BANK(MeganiumPicBack)

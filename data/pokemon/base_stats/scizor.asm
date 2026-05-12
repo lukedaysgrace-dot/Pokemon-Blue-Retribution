@@ -20,4 +20,5 @@
 	     SKULL_BASH,   REST,         SUBSTITUTE,   CUT
 	; end
 
-	db 0 ; padding
+	db BANK(ScizorPicFront)
+	assert BANK(ScizorPicFront) == BANK(ScizorPicBack)

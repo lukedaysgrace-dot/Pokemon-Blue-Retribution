@@ -16,4 +16,5 @@
 	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    ICE_BEAM,     BLIZZARD,     \
 	     HYPER_BEAM,   EARTHQUAKE,   DIG,          DOUBLE_TEAM,  REST,         \
 	     ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
-	db 0 ; padding
+	db BANK(MamoswinePicFront)
+	assert BANK(MamoswinePicFront) == BANK(MamoswinePicBack)

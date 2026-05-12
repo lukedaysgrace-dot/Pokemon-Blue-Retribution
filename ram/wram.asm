@@ -517,7 +517,10 @@ wEXPBarCurEXP::       ds 3
 wEXPBarNeededEXP::    ds 3
 wEXPBarKeepFullFlag:: db
 
-	ds 1
+; Non-zero after the player's first SendOutMon completes its throw palette refresh.
+; Used so EnemySendOutFirstMon forces hero palette during opening opponent send-out
+; even if wBattleMonSpecies is stale/non-zero (Red-only palette glitch otherwise).
+wPlayerBattleSendOutComplete:: db
 
 UNION
 ; the amount of damage accumulated by the enemy while biding
@@ -1566,7 +1569,7 @@ wMonHBackSprite:: dw
 wMonHMoves:: ds NUM_MOVES
 wMonHGrowthRate:: db
 wMonHLearnset:: flag_array NUM_TMS + NUM_HMS
-	ds 1
+wMonHPicBank:: db
 wMonHeaderEnd::
 
 ; saved at the start of a battle and then written back at the end of the battle

@@ -16,4 +16,5 @@
 	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
 	     DOUBLE_EDGE,  HYPER_BEAM,   SUBMISSION,   DIG,          MIMIC,        \
 	     DOUBLE_TEAM,  REST,         SUBSTITUTE,   CUT,          STRENGTH
-	db 0 ; padding
+	db BANK(LucarioPicFront)
+	assert BANK(LucarioPicFront) == BANK(LucarioPicBack)

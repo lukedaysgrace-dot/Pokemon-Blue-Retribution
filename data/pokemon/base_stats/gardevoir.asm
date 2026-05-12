@@ -15,4 +15,5 @@
 
 	tmhm TOXIC,        BODY_SLAM,    HYPER_BEAM,   PSYCHIC_M,    DOUBLE_TEAM,  \
 	     REFLECT,      REST,         SUBSTITUTE
-	db 0 ; padding
+	db BANK(GardevoirPicFront)
+	assert BANK(GardevoirPicFront) == BANK(GardevoirPicBack)

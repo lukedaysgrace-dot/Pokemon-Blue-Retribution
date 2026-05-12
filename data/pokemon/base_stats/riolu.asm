@@ -15,4 +15,5 @@
 
 	tmhm MEGA_KICK,    TOXIC,        BODY_SLAM,    SUBMISSION,   DIG,          \
 	     MIMIC,        DOUBLE_TEAM,  REST,         SUBSTITUTE,   STRENGTH
-	db 0 ; padding
+	db BANK(RioluPicFront)
+	assert BANK(RioluPicFront) == BANK(RioluPicBack)

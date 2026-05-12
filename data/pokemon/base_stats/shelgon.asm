@@ -15,4 +15,5 @@
 
 	tmhm BODY_SLAM,    FLAMETHROWER, FIRE_BLAST,   HYPER_BEAM,   DOUBLE_TEAM,  \
 	     REST,         ROCK_SLIDE,   SUBSTITUTE
-	db 0 ; padding
+	db BANK(ShelgonPicFront)
+	assert BANK(ShelgonPicFront) == BANK(ShelgonPicBack)

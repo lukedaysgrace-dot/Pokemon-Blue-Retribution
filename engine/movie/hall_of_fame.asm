@@ -104,6 +104,7 @@ HoFShowMonOrPlayer:
 	ld [wCurPartySpecies], a
 	ld [wCurSpecies], a
 	ld [wBattleMonSpecies2], a
+	ld [wBattleMonSpecies], a
 	ld [wWholeScreenPaletteMonSpecies], a
 	ld a, [wHoFMonOrPlayer]
 	and a
@@ -112,10 +113,9 @@ HoFShowMonOrPlayer:
 	call HoFLoadPlayerPics
 	jr .next1
 .showMon
+	predef LoadMonBackPic ; GetMonHeader + back (wMonHeader left valid for front)
 	hlcoord 12, 5
-	call GetMonHeader
 	call LoadFrontSpriteByMonIndex
-	predef LoadMonBackPic
 .next1
 	ld b, SET_PAL_POKEMON_WHOLE_SCREEN
 	ld c, 0

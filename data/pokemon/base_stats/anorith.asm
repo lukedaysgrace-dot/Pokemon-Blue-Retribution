@@ -18,4 +18,5 @@
 	     RAGE,         DIG,          MIMIC,        DOUBLE_TEAM,   \
 	     BIDE,         REST,         ROCK_SLIDE,   SUBSTITUTE,    \
 	     SURF
-	db 0 ; padding
+	db BANK(AnorithPicFront)
+	assert BANK(AnorithPicFront) == BANK(AnorithPicBack)

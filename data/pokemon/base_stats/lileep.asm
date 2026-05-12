@@ -18,4 +18,5 @@
 	     RAGE,         MEGA_DRAIN,   SOLARBEAM,    MIMIC,         \
 	     DOUBLE_TEAM,  BIDE,         REST,         ROCK_SLIDE,    \
 	     SUBSTITUTE
-	db 0 ; padding
+	db BANK(LileepPicFront)
+	assert BANK(LileepPicFront) == BANK(LileepPicBack)

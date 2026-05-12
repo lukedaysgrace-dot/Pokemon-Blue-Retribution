@@ -21,4 +21,5 @@
 	     REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(GlaceonPicFront)
+	assert BANK(GlaceonPicFront) == BANK(GlaceonPicBack)

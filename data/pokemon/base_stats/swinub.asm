@@ -16,4 +16,5 @@
 	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    ICE_BEAM,     BLIZZARD,     \
 	     EARTHQUAKE,   DIG,          DOUBLE_TEAM,  REST,         ROCK_SLIDE,   \
 	     SUBSTITUTE
-	db 0 ; padding
+	db BANK(SwinubPicFront)
+	assert BANK(SwinubPicFront) == BANK(SwinubPicBack)

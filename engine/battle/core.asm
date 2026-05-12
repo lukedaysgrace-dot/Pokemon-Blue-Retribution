@@ -94,8 +94,12 @@ SlidePlayerAndEnemySilhouettesOnScreen:
 	inc a
 	ldh [hAutoBGTransferEnabled], a
 	call Delay3
+	ld a, 1
+	ldh [hPlayerSideTrainerPicActive], a
 	ld b, SET_PAL_BATTLE
 	call RunPaletteCommand
+	xor a
+	ldh [hPlayerSideTrainerPicActive], a
 	call HideSprites
 	jpfar PrintBeginningBattleText
 
@@ -1139,6 +1143,8 @@ ChooseNextMon:
 	pop bc
 	ld hl, wPartyFoughtCurrentEnemyFlags
 	predef FlagActionPredef
+	ld a, 1
+	ldh [hPlayerSideTrainerPicActive], a
 	call LoadBattleMonFromParty
 	call GBPalWhiteOut
 	call LoadHudTilePatterns
@@ -1331,6 +1337,12 @@ EnemySendOutFirstMon:
 	ld [wAICount], a
 	ld hl, wPlayerBattleStatus1
 	res USING_TRAPPING_MOVE, [hl]
+	ld a, [wPlayerBattleSendOutComplete]
+	and a
+	jr nz, .enemySendOutTrainerPaletteGateDone
+	ld a, 1
+	ldh [hPlayerSideTrainerPicActive], a
+.enemySendOutTrainerPaletteGateDone
 	hlcoord 18, 0
 	ld a, 8
 	call SlideTrainerPicOffScreen
@@ -1666,7 +1678,7 @@ LoadBattleMonFromParty:
 	ld de, wBattleMonLevel
 	ld bc, wBattleMonPP - wBattleMonLevel
 	call CopyData
-	ld a, [wBattleMonSpecies2]
+	ld a, [wBattleMonSpecies]
 	ld [wCurSpecies], a
 	call GetMonHeader
 	ld hl, wPartyMonNicks
@@ -1755,6 +1767,7 @@ SendOutMon:
 	call DrawPlayerHUDAndHPBar
 	predef LoadMonBackPic
 	xor a
+	ldh [hPlayerSideTrainerPicActive], a ; mon tiles loaded — use species palette for POOF/send-out
 	ldh [hStartTileID], a
 	ld hl, wBattleAndStartSavedMenuItem
 	ld [hli], a
@@ -1784,6 +1797,12 @@ SendOutMon:
 	call PlayMoveAnimation
 	hlcoord 4, 11
 	predef AnimateSendingOutMon
+	ld a, 1
+	ld [wPlayerBattleSendOutComplete], a
+	xor a
+	ldh [hPlayerSideTrainerPicActive], a
+	ld b, SET_PAL_BATTLE
+	call RunPaletteCommand
 	ld a, [wCurPartySpecies]
 	call PlayCry
 	call PrintEmptyString
@@ -7372,10 +7391,27 @@ CopyUncompressedPicToHL::
 	ret
 
 LoadMonBackPic:
-; Assumes the monster's attributes have
-; been loaded with GetMonHeader.
-	ld a, [wBattleMonSpecies2]
+; Reload header for the back pic. In battle, use the party slot's species (source of truth)
+; unless transformed — then wBattleMonSpecies is the appearance. Out of battle (e.g. HoF),
+; wBattleMonSpecies was set by the caller.
+	ld a, [wIsInBattle]
+	and a
+	jr z, .speciesFromBattleMon
+	ld a, [wPlayerBattleStatus3]
+	bit TRANSFORMED, a
+	jr nz, .speciesFromBattleMon
+	ld hl, wPartyMon1Species
+	ld a, [wPlayerMonNumber]
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	ld a, [hl]
+	jr .gotSpecies
+.speciesFromBattleMon
+	ld a, [wBattleMonSpecies]
+.gotSpecies
 	ld [wCurPartySpecies], a
+	ld [wCurSpecies], a
+	call GetMonHeader
 	hlcoord 1, 5
 	ld b, 7
 	ld c, 8
@@ -7390,4 +7426,5 @@ LoadMonBackPic:
 	ld c, (2 * SPRITEBUFFERSIZE) / TILE_SIZE ; count of 16-byte chunks to be copied
 	ldh a, [hLoadedROMBank]
 	ld b, a
-	jp CopyVideoData
+	call CopyVideoData
+	ret

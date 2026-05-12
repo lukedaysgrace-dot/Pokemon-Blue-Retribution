@@ -15,4 +15,5 @@
 
 	tmhm TOXIC,        PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  REST,         \
 	     SUBSTITUTE
-	db 0 ; padding
+	db BANK(DuskullPicFront)
+	assert BANK(DuskullPicFront) == BANK(DuskullPicBack)

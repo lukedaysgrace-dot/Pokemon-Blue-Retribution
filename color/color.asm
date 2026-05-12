@@ -78,9 +78,19 @@ SetPal_Battle:
 	ret
 
 SetPal_Battle_Common:
+; No battle mon loaded yet (enemy sending first, VS slide, etc.): player BG/OBJ slot must stay
+; hero palette — even if TRANSFORMED or stale W2_BattleMonPalette would otherwise win.
+	ld a, [wBattleMonSpecies]
+	and a
+	jr z, .introTrainerPlayerPalette
+
 	ld a, [wPlayerBattleStatus3]
 	bit TRANSFORMED, a
 	jr z, .getBattleMonPal
+
+	ldh a, [hPlayerSideTrainerPicActive]
+	and a
+	jr nz, .introTrainerPlayerPalette
 
 	; If transformed, don't trust the "DetermineBackSpritePaletteID" function.
 	ld a, $02
@@ -92,8 +102,47 @@ SetPal_Battle_Common:
 	jr .getEnemyMonPal
 
 .getBattleMonPal
-	ld a, [wBattleMonSpecies]        ; player Pokemon ID
+	ldh a, [hPlayerSideTrainerPicActive]
+	and a
+	jr nz, .introTrainerPlayerPalette
+	ld a, [wBattleMonSpecies]
+	and a
+	jr z, .introTrainerPlayerPalette
+; Match LoadMonBackPic: party slot is authoritative in battle unless transformed.
+	ld a, [wIsInBattle]
+	and a
+	jr z, .playerPalFromBattleMonSpecies
+	ld a, [wPlayerBattleStatus3]
+	bit TRANSFORMED, a
+	jr nz, .playerPalFromBattleMonSpecies
+	ld hl, wPartyMon1Species
+	ld a, [wPlayerMonNumber]
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	ld a, [hl]
+	jr .playerPalGotSpecies
+.playerPalFromBattleMonSpecies
+	ld a, [wBattleMonSpecies]
+.playerPalGotSpecies
 	call DetermineBackSpritePaletteID
+	ld b, a
+	jr .getEnemyMonPal
+
+.introTrainerPlayerPalette
+	ld a, [wBattleType]
+	cp BATTLE_TYPE_OLD_MAN
+	jr nz, .introTrainerNotOldMan
+	ld a, PAL_GRAYMON
+	jr .introTrainerPaletteInB
+.introTrainerNotOldMan
+	ld a, [wPlayerGender]
+	and a
+	jr nz, .introTrainerFemaleHeroPalette
+	ld a, PAL_REDMON
+	jr .introTrainerPaletteInB
+.introTrainerFemaleHeroPalette
+	ld a, PAL_MINT_HERO
+.introTrainerPaletteInB
 	ld b, a
 
 .getEnemyMonPal

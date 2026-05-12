@@ -15,4 +15,5 @@
 
 	tmhm TOXIC,        MEGA_KICK,    RAZOR_WIND,   MIMIC,        DOUBLE_TEAM,  \
 	     SWIFT,        SKY_ATTACK,   REST,         SUBSTITUTE,   FLY
-	db 0 ; padding
+	db BANK(MurkrowPicFront)
+	assert BANK(MurkrowPicFront) == BANK(MurkrowPicBack)

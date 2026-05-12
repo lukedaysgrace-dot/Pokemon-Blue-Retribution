@@ -18,4 +18,5 @@
 	     MEGA_DRAIN,   SOLARBEAM,    DIG,          MIMIC,        DOUBLE_TEAM,  \
 	     REFLECT,      BIDE,         REST,         SUBSTITUTE,   \
 	     CUT
-	db 0 ; padding
+	db BANK(ChikoritaPicFront)
+	assert BANK(ChikoritaPicFront) == BANK(ChikoritaPicBack)

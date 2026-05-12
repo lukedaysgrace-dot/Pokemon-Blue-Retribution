@@ -18,4 +18,5 @@
 	     HYPER_BEAM,   SUBMISSION,   COUNTER,      RAGE,         DIG,          \
 	     MIMIC,        DOUBLE_TEAM,  BIDE,         SKULL_BASH,   REST,         \
 	     SUBSTITUTE,   CUT,          SURF,         STRENGTH,     FLASH
-	db 0 ; padding
+	db BANK(FeraligatrPicFront)
+	assert BANK(FeraligatrPicFront) == BANK(FeraligatrPicBack)

@@ -18,4 +18,5 @@
 	     BLIZZARD,     RAGE,         DIG,          MIMIC,         \
 	     DOUBLE_TEAM,  BIDE,         REST,         ROCK_SLIDE,    \
 	     SUBSTITUTE,   SURF
-	db 0 ; padding
+	db BANK(ArmaldoPicFront)
+	assert BANK(ArmaldoPicFront) == BANK(ArmaldoPicBack)

@@ -18,4 +18,5 @@
 	     THUNDER,      EARTHQUAKE,   DIG,          MIMIC,         \
 	     DOUBLE_TEAM,  BIDE,         FLAMETHROWER, FIRE_BLAST,   REST,          \
 	     ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
-	db 0 ; padding
+	db BANK(BastiodonPicFront)
+	assert BANK(BastiodonPicFront) == BANK(BastiodonPicBack)

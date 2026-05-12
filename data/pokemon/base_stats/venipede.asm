@@ -20,4 +20,5 @@
 	     REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(VenipedePicFront)
+	assert BANK(VenipedePicFront) == BANK(VenipedePicBack)

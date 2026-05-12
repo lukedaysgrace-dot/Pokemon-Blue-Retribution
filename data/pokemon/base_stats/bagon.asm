@@ -15,4 +15,5 @@
 
 	tmhm BODY_SLAM,    FLAMETHROWER, FIRE_BLAST,   DOUBLE_TEAM,  REST,         \
 	     ROCK_SLIDE,   SUBSTITUTE
-	db 0 ; padding
+	db BANK(BagonPicFront)
+	assert BANK(BagonPicFront) == BANK(BagonPicBack)

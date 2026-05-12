@@ -18,4 +18,5 @@
 	     EARTHQUAKE,   FISSURE,      DIG,          MIMIC,         \
 	     DOUBLE_TEAM,  BIDE,         FLAMETHROWER, FIRE_BLAST,   SKULL_BASH,    \
 	     REST,         ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
-	db 0 ; padding
+	db BANK(RampardosPicFront)
+	assert BANK(RampardosPicFront) == BANK(RampardosPicBack)

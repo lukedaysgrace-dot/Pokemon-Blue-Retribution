@@ -16,4 +16,5 @@
 	tmhm MEGA_KICK,    TOXIC,        BODY_SLAM,    FLAMETHROWER, FIRE_BLAST,   \
 	     HYPER_BEAM,   DOUBLE_TEAM,  SWIFT,        REST,         SUBSTITUTE,   \
 	     FLY,          STRENGTH
-	db 0 ; padding
+	db BANK(SalamencePicFront)
+	assert BANK(SalamencePicFront) == BANK(SalamencePicBack)

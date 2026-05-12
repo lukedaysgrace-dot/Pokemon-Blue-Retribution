@@ -16,4 +16,5 @@
 	tmhm MEGA_PUNCH,   DIG,          TOXIC,        BODY_SLAM,    FLAMETHROWER, FIRE_BLAST,   \
 	     DOUBLE_TEAM,  SWIFT,        REST,         \
 	     SUBSTITUTE,     CUT
-	db 0 ; padding
+	db BANK(QuilavaPicFront)
+	assert BANK(QuilavaPicFront) == BANK(QuilavaPicBack)

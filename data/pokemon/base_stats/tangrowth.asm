@@ -21,4 +21,5 @@
 	     CUT
 	; end
 
-	db 0 ; padding
+	db BANK(TangrowthPicFront)
+	assert BANK(TangrowthPicFront) == BANK(TangrowthPicBack)

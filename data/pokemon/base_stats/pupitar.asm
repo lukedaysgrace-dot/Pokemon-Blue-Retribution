@@ -15,4 +15,5 @@
 
 	tmhm TOXIC,        BODY_SLAM,    ROCK_SLIDE,   DIG,          DOUBLE_TEAM,  \
 	     REST,         SUBSTITUTE
-	db 0 ; padding
+	db BANK(PupitarPicFront)
+	assert BANK(PupitarPicFront) == BANK(PupitarPicBack)

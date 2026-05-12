@@ -20,4 +20,5 @@
 	     BIDE,         SWIFT,        REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(CrobatPicFront)
+	assert BANK(CrobatPicFront) == BANK(CrobatPicBack)

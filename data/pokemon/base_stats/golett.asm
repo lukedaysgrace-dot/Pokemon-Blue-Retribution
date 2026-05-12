@@ -15,4 +15,5 @@
 
 	tmhm MEGA_PUNCH,   TOXIC,        BODY_SLAM,    EARTHQUAKE,   DIG,          \
 	     DOUBLE_TEAM,  REST,         ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
-	db 0 ; padding
+	db BANK(GolettPicFront)
+	assert BANK(GolettPicFront) == BANK(GolettPicBack)

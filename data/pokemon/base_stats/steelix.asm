@@ -21,4 +21,5 @@
 	     ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
 	; end
 
-	db 0 ; padding
+	db BANK(SteelixPicFront)
+	assert BANK(SteelixPicFront) == BANK(SteelixPicBack)

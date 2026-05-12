@@ -16,4 +16,5 @@
 	tmhm TOXIC,        HYPER_BEAM,   THUNDERBOLT,  THUNDER,      PSYCHIC_M,    \
 	     MIMIC,        DOUBLE_TEAM,  BIDE,         DREAM_EATER,  REST,         \
 	     SUBSTITUTE
-	db 0 ; padding
+	db BANK(MismagiusPicFront)
+	assert BANK(MismagiusPicFront) == BANK(MismagiusPicBack)

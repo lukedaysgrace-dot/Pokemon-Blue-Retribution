@@ -22,4 +22,5 @@
 	     TRI_ATTACK,   SUBSTITUTE,   FLASH
 	; end
 
-	db 0 ; padding
+	db BANK(Porygon2PicFront)
+	assert BANK(Porygon2PicFront) == BANK(Porygon2PicBack)

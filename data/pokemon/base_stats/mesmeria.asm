@@ -22,4 +22,5 @@
 	     SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(MesmeriaPicFront)
+	assert BANK(MesmeriaPicFront) == BANK(MesmeriaPicBack)

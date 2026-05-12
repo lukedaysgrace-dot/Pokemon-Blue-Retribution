@@ -2043,19 +2043,11 @@ ChangeMonPic:
 	call LoadFrontSpriteByMonIndex
 	jr .done
 .playerTurn
-	ld a, [wBattleMonSpecies2]
-	push af
-	ld a, [wChangeMonPicPlayerTurnSpecies]
-	ld [wBattleMonSpecies2], a
-	ld [wCurSpecies], a
-	call GetMonHeader
 	predef LoadMonBackPic
 	xor a ; TILEMAP_MON_PIC
 	call GetTileIDList
 	call GetMonSpriteTileMapPointerFromRowCount
 	call CopyPicTiles
-	pop af
-	ld [wBattleMonSpecies2], a
 .done
 	ld b, SET_PAL_BATTLE
 	jp RunPaletteCommand

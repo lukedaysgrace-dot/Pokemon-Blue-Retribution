@@ -23,4 +23,5 @@
 	     FLASH,        STRENGTH
 	; end
 
-	db 0 ; padding
+	db BANK(ElectivirePicFront)
+	assert BANK(ElectivirePicFront) == BANK(ElectivirePicBack)
