@@ -132,7 +132,7 @@ DebugSetPokedexEntries:
 	ld [hli], a
 	dec b
 	jr nz, .loop
-	ld [hl], %01111111
+	ld [hl], %00111111
 	ret
 
 DebugNewGameItemsList:

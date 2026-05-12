@@ -20,5 +20,9 @@ CountSetBits::
 	dec b
 	jr nz, .loop
 	ld a, c
+	cp NUM_POKEMON + 1
+	jr c, .storeCount
+	ld a, NUM_POKEMON
+.storeCount
 	ld [wNumSetBits], a
 	ret

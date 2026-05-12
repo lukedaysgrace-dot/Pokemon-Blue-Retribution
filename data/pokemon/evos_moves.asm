@@ -1537,7 +1537,7 @@ WeedleEvosMoves:
 
 KakunaEvosMoves:
 ; Evolutions
-	db EVOLVE_LEVEL, 10, BEEDRILL
+	db EVOLVE_LEVEL, 18, BEEDRILL
 	db 0
 ; Learnset
 	db 0
@@ -1546,9 +1546,9 @@ BeedrillEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 12, FURY_ATTACK
-	db 16, TWINEEDLE
-	db 20, FOCUS_ENERGY
+	db 18, FURY_ATTACK
+	db 20, TWINEEDLE
+	db 22, FOCUS_ENERGY
 	db 25, PIN_MISSILE
 	db 30, PIN_MISSILE
 	db 35, AGILITY
@@ -1640,7 +1640,7 @@ CaterpieEvosMoves:
 
 MetapodEvosMoves:
 ; Evolutions
-	db EVOLVE_LEVEL, 10, BUTTERFREE
+	db EVOLVE_LEVEL, 18, BUTTERFREE
 	db 0
 ; Learnset
 	db 0

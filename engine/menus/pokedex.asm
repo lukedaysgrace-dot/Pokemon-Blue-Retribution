@@ -213,6 +213,10 @@ HandlePokedexListMenu:
 
 .storeMaxSeenPokemon
 	ld a, b
+	cp NUM_POKEMON + 1
+	jr c, .storeClampedMaxSeenPokemon
+	ld a, NUM_POKEMON
+.storeClampedMaxSeenPokemon
 	ld [wDexMaxSeenMon], a
 .loop
 	xor a
@@ -628,6 +632,10 @@ PokedexToIndex:
 	push bc
 	push hl
 	ld a, [wPokedexNum]
+	and a
+	jr z, .notFound
+	cp NUM_POKEMON + 1
+	jr nc, .notFound
 	ld b, a
 	ld c, 0
 	ld hl, PokedexOrder
@@ -636,9 +644,17 @@ PokedexToIndex:
 	inc c
 	ld a, [hli]
 	cp b
-	jr nz, .loop
-
+	jr z, .found
 	ld a, c
+	cp NUM_POKEMON_INDEXES
+	jr c, .loop
+
+.notFound
+	xor a
+	jr .storeIndex
+.found
+	ld a, c
+.storeIndex
 	ld [wPokedexNum], a
 	pop hl
 	pop bc
