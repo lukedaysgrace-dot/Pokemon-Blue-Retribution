@@ -560,7 +560,11 @@ SetPal_TitleScreen:
 IF GEN_2_GRAPHICS
 	ld d, PAL_HERO
 ELSE
+IF DEF(_BLUE)
+	ld d, PAL_BLUEMON ; Blue build: title trainer tint (matches party menu protagonist)
+ELSE
 	ld d, PAL_REDMON
+ENDC
 ENDC
 	ld e, 0
 	farcall LoadSGBPalette_Sprite
