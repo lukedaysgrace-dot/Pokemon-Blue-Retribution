@@ -216,7 +216,12 @@ BlkPacket_GameFreakIntro:
 
 
 PalPacket_Empty:          PAL_SET 0, 0, 0, 0
-PalPacket_PartyMenu:      PAL_SET PAL_MEWMON, PAL_GREENBAR, PAL_YELLOWBAR, PAL_REDBAR
+IF DEF(_RED)
+PalPacket_PartyMenu:      PAL_SET PAL_REDMON, PAL_GREENBAR, PAL_YELLOWBAR, PAL_REDBAR
+ENDC
+IF DEF(_BLUE)
+PalPacket_PartyMenu:      PAL_SET PAL_BLUEMON, PAL_GREENBAR, PAL_YELLOWBAR, PAL_REDBAR
+ENDC
 PalPacket_Black:          PAL_SET PAL_BLACK, PAL_BLACK, PAL_BLACK, PAL_BLACK
 PalPacket_TownMap:        PAL_SET PAL_TOWNMAP, 0, 0, 0
 PalPacket_Pokedex:        PAL_SET PAL_BROWNMON, 0, 0, 0

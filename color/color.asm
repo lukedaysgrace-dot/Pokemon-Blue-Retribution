@@ -693,9 +693,14 @@ SetPal_PartyMenu:
 
 	CALL_INDIRECT LoadOverworldSpritePalettes
 
-	ld d, PAL_GREENBAR ; Filler for palette 0 (technically, green)
+IF DEF(_RED)
+	ld d, PAL_REDMON
+ENDC
+IF DEF(_BLUE)
+	ld d, PAL_BLUEMON
+ENDC
 	ld e, 0
-	farcall LoadSGBPalette
+	farcall LoadSGBPalette_Sprite
 	ld d, PAL_GREENBAR
 	ld e, 1
 	farcall LoadSGBPalette
@@ -725,7 +730,6 @@ SetPal_PartyMenu:
 	jr nz, .loop
 
 	CALL_INDIRECT ClearSpritePaletteMap
-
 	ld a, 3
 	ld [W2_StaticPaletteMapChanged], a
 	xor a
