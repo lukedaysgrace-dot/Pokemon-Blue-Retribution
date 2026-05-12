@@ -479,6 +479,14 @@ HippopotasPicFront::   INCBIN "gfx/pokemon/front/hippopotas.pic"
 HippopotasPicBack::    INCBIN "gfx/pokemon/back/hippopotasb.pic"
 HippowdonPicFront::    INCBIN "gfx/pokemon/front/hippowdon.pic"
 HippowdonPicBack::     INCBIN "gfx/pokemon/back/hippowdonb.pic"
+LileepPicFront::       INCBIN "gfx/pokemon/front/lileep.pic"
+LileepPicBack::        INCBIN "gfx/pokemon/back/lileepb.pic"
+CradilyPicFront::      INCBIN "gfx/pokemon/front/cradily.pic"
+CradilyPicBack::       INCBIN "gfx/pokemon/back/cradilyb.pic"
+AnorithPicFront::      INCBIN "gfx/pokemon/front/anorith.pic"
+AnorithPicBack::       INCBIN "gfx/pokemon/back/anorithb.pic"
+ArmaldoPicFront::      INCBIN "gfx/pokemon/front/armaldo.pic"
+ArmaldoPicBack::       INCBIN "gfx/pokemon/back/armaldob.pic"
 
 
 SECTION "Trainer Pics", ROMX

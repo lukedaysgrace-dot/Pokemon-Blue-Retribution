@@ -168,10 +168,10 @@ EvosMovesPointerTable:
 	dw MissingNo9CEvosMoves
 	dw GoldeenEvosMoves
 	dw SeakingEvosMoves
-	dw MissingNo9FEvosMoves
-	dw MissingNoA0EvosMoves
-	dw MissingNoA1EvosMoves
-	dw MissingNoA2EvosMoves
+	dw LileepEvosMoves
+	dw CradilyEvosMoves
+	dw AnorithEvosMoves
+	dw ArmaldoEvosMoves
 	dw PonytaEvosMoves
 	dw RapidashEvosMoves
 	dw RattataEvosMoves
@@ -3109,4 +3109,52 @@ HoundoomEvosMoves:
 	db 30, GROWL
 	db 41, FLAMETHROWER
 	db 52, FIRE_BLAST
+	db 0
+
+LileepEvosMoves:
+	db EVOLVE_LEVEL, 40, CRADILY
+	db 0
+	db 1, CONSTRICT
+	db 8, ACID
+	db 15, CONFUSE_RAY
+	db 22, BARRIER
+	db 29, ROCK_THROW
+	db 36, MEGA_DRAIN
+	db 43, AMNESIA
+	db 0
+
+CradilyEvosMoves:
+	db 0
+	db 1, CONSTRICT
+	db 8, ACID
+	db 15, CONFUSE_RAY
+	db 22, BARRIER
+	db 29, ROCK_THROW
+	db 36, MEGA_DRAIN
+	db 46, AMNESIA
+	db 53, SLUDGE_BOMB
+	db 0
+
+AnorithEvosMoves:
+	db EVOLVE_LEVEL, 40, ARMALDO
+	db 0
+	db 1, SCRATCH
+	db 10, HARDEN
+	db 18, WATER_GUN
+	db 25, FURY_SWIPES
+	db 32, ROCK_THROW
+	db 39, SLASH
+	db 46, SWORDS_DANCE
+	db 0
+
+ArmaldoEvosMoves:
+	db 0
+	db 1, SCRATCH
+	db 10, HARDEN
+	db 18, WATER_GUN
+	db 25, FURY_SWIPES
+	db 32, ROCK_THROW
+	db 39, SLASH
+	db 48, SWORDS_DANCE
+	db 56, CRABHAMMER
 	db 0

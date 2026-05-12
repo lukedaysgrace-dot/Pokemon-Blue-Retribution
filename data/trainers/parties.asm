@@ -519,7 +519,7 @@ GiovanniData:
 RocketData:
 ; Mt. Moon B2F
 	db 13, RATTATA, ZUBAT, 0
-	db 11, SANDSHREW, HIPPOPATAS, HOUNDOUR, 0
+	db 11, SANDSHREW, HIPPOPOTAS, HOUNDOUR, 0
 	db 12, ZUBAT, EKANS, 0
 	db 16, RATICATE, 0
 ; Cerulean City
@@ -759,10 +759,8 @@ GreenData:
 	db $FF, 45, VENUSAUR, 45, NIDOQUEEN, 45, ARTICUNO, 45, MOLTRES, 45, ZAPDOS, 50, WIGGLYTUFF, 0
 	db $FF, 45, CHARIZARD, 45, NIDOQUEEN, 45, ARTICUNO, 45, MOLTRES, 45, ZAPDOS, 50, WIGGLYTUFF, 0
 	db $FF, 45, BLASTOISE, 45, NIDOQUEEN, 45, ARTICUNO, 45, MOLTRES, 45, ZAPDOS, 50, WIGGLYTUFF, 0
-; Pallet Town postgame dex-completion fight - wTrainerNo 16-18; starter mapping mirrors earlier Green fights
-	db $FF, 75, UMBREON, 75, NIDOQUEEN, 75, WIGGLYTUFF, 75, MESMERIA, 75, VENUSAUR, 75, MEW, 0
-	db $FF, 75, UMBREON, 75, NIDOQUEEN, 75, WIGGLYTUFF, 75, MESMERIA, 75, CHARIZARD, 75, MEW, 0
-	db $FF, 75, UMBREON, 75, NIDOQUEEN, 75, WIGGLYTUFF, 75, MESMERIA, 75, BLASTOISE, 75, MEW, 0
+; Pallet Town postgame dex-completion fight - wTrainerNo 16
+	db $FF, 75, UMBREON, 75, NIDOQUEEN, 75, WIGGLYTUFF, 75, MESMERIA, 75, ZAPDOS, 75, MEW, 0
 
 GreenRocketData:
 ; Rocket Hideout B2F — wTrainerNo 1–3 (mirror Route 5 / Route 10 starter mapping)
@@ -783,7 +781,7 @@ NinjaData:
 
 JanineData:
 ; Fuchsia Gym
-	db 34, CROBAT, VENOMOTH, SCOLIPED, WEEZING  0
+	db 34, CROBAT, VENOMOTH, SCOLIPEDE, WEEZING, 0
 
 PetrelData:
 ; Rocket Hideout B4F

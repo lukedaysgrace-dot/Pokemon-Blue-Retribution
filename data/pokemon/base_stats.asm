@@ -222,4 +222,8 @@ INCLUDE "data/pokemon/base_stats/buneary.asm"
 INCLUDE "data/pokemon/base_stats/lopunny.asm"
 INCLUDE "data/pokemon/base_stats/hippopotas.asm"
 INCLUDE "data/pokemon/base_stats/hippowdon.asm"
+INCLUDE "data/pokemon/base_stats/lileep.asm"
+INCLUDE "data/pokemon/base_stats/cradily.asm"
+INCLUDE "data/pokemon/base_stats/anorith.asm"
+INCLUDE "data/pokemon/base_stats/armaldo.asm"
 	assert_table_length NUM_POKEMON

@@ -164,10 +164,10 @@ CryData::
 	mon_cry SFX_CRY_00, $00, $00 ; MissingNo.
 	mon_cry SFX_CRY_16, $80, $40 ; Goldeen
 	mon_cry SFX_CRY_16, $10, $FF ; Seaking
-	mon_cry SFX_CRY_00, $00, $00 ; MissingNo.
-	mon_cry SFX_CRY_00, $00, $00 ; MissingNo.
-	mon_cry SFX_CRY_00, $00, $00 ; MissingNo.
-	mon_cry SFX_CRY_00, $00, $00 ; MissingNo.
+	mon_cry SFX_CRY_12, $90, $80 ; Lileep
+	mon_cry SFX_CRY_12, $40, $C0 ; Cradily
+	mon_cry SFX_CRY_16, $A8, $30 ; Anorith
+	mon_cry SFX_CRY_17, $60, $A0 ; Armaldo
 	mon_cry SFX_CRY_25, $00, $80 ; Ponyta
 	mon_cry SFX_CRY_25, $20, $C0 ; Rapidash
 	mon_cry SFX_CRY_22, $00, $80 ; Rattata

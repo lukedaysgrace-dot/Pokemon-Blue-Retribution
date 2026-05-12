@@ -80,6 +80,14 @@ UncompressMonSprite::
 	ld a, BANK("Pics 4")
 	jr c, .GotBank
 	ld a, b
+	cp LILEEP
+	jr c, .afterFossilExtPics8
+	cp ARMALDO + 1
+	jr nc, .afterFossilExtPics8
+	ld a, BANK("Pics 8")
+	jr .GotBank
+.afterFossilExtPics8
+	ld a, b
 	cp CROAGUNK
 	ld a, BANK("Pics 8")
 	jr nc, .GotBank

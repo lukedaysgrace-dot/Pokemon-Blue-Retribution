@@ -1511,7 +1511,7 @@ _VictreebelDexEntry::
 SECTION "Pokédex Text 2", ROMX
 
 _ChikoritaDexEntry::
-	text "A sweet aroma wafts"
+	text "Sweet scents waft"
 	next "from the leaf on"
 	next "its head"
 
@@ -1524,7 +1524,7 @@ _BayleefDexEntry::
 	next "around its neck"
 	next "when it walks"
 
-	page "Leaves seem to warm"
+	page "Leaves warm nearby"
 	next "those nearby"
 	dex
 
@@ -1539,10 +1539,10 @@ _MeganiumDexEntry::
 
 _CyndaquilDexEntry::
 	text "When threatened it"
-	next "feeds flame from its"
+	next "spouts flame from"
 	next "back to scare foes"
 
-	page "If healthy the fire"
+	page "A healthy fire"
 	next "burns brighter"
 	dex
 
@@ -1575,7 +1575,7 @@ _TotodileDexEntry::
 
 _CroconawDexEntry::
 	text "Once it bites down"
-	next "it will not release"
+	next "it won't let go"
 	next "until it wins"
 
 	page "Its fangs leave"
@@ -1584,7 +1584,7 @@ _CroconawDexEntry::
 
 _FeraligatrDexEntry::
 	text "When it opens its"
-	next "massive jaws it can"
+	next "huge jaws, it can"
 	next "shake the ground"
 
 	page "It hauls prey from"
@@ -1594,16 +1594,16 @@ _FeraligatrDexEntry::
 _MurkrowDexEntry::
 	text "It seeks shiny"
 	next "things at night"
-	next "and hides them away"
+	next "then hides them"
 
-	page "Flocks gather where"
+	page "Flocks gather near"
 	next "treasure glints"
 	dex
 
 _HonchkrowDexEntry::
-	text "It commands smaller"
+	text "It leads smaller"
 	next "MURKROW and builds"
-	next "nests of stolen loot"
+	next "nests with loot"
 
 	page "Its cry warns"
 	next "its followers"
@@ -1619,7 +1619,7 @@ _MisdreavusDexEntry::
 	dex
 
 _MismagiusDexEntry::
-	text "Its muttered spells"
+	text "Its strange spells"
 	next "cause headaches or"
 	next "happiness by luck"
 
@@ -1630,7 +1630,7 @@ _MismagiusDexEntry::
 _SwinubDexEntry::
 	text "It roots for food"
 	next "with its nose even"
-	next "through snow and ice"
+	next "through snowdrifts"
 
 	page "Often found near"
 	next "hot springs"
@@ -1655,16 +1655,16 @@ _MamoswineDexEntry::
 	dex
 
 _LarvitarDexEntry::
-	text "Born underground it"
-	next "eats mountains over"
+	text "Born underground"
+	next "eats mountains for"
 	next "years to grow"
 
 	page "It emerges only"
-	next "after gaining size"
+	next "when it's larger"
 	dex
 
 _PupitarDexEntry::
-	text "Its shell is hard as"
+	text "Its shell is like"
 	next "bedrock yet it"
 	next "can still leap"
 
@@ -1678,12 +1678,12 @@ _TyranitarDexEntry::
 	next "as it hunts"
 
 	page "It cares only for"
-	next "strength and ruins"
+	next "strength and ruin"
 	dex
 
 _RaltsDexEntry::
 	text "The horns on its"
-	next "head sense friendly"
+	next "head sense kind"
 	next "feelings nearby"
 
 	page "It hides when"
@@ -1691,7 +1691,7 @@ _RaltsDexEntry::
 	dex
 
 _KirliaDexEntry::
-	text "When joyful it spins"
+	text "Joy makes it spin"
 	next "like a dancer and"
 	next "amplifies emotions"
 
@@ -1709,12 +1709,12 @@ _GardevoirDexEntry::
 	dex
 
 _RioluDexEntry::
-	text "It reads auras even"
+	text "It reads auras"
 	next "through walls and"
-	next "prefers quiet lands"
+	next "likes quiet places"
 
 	page "Its body responds"
-	next "to strong feelings"
+	next "to strong emotion"
 	dex
 
 _LucarioDexEntry::
@@ -1723,12 +1723,12 @@ _LucarioDexEntry::
 	next "distances"
 
 	page "Metal on its limbs"
-	next "focuses aura blows"
+	next "focus aura blows"
 	dex
 
 _BagonDexEntry::
-	text "Its steel-hard head"
-	next "lets it smash rocks"
+	text "Its sturdy skull"
+	next "can smash boulders"
 	next "while dreaming"
 
 	page "It leaps cliffs"
@@ -1741,16 +1741,16 @@ _ShelgonDexEntry::
 	next "cells bulge inside"
 
 	page "Inside it awaits"
-	next "evolution heat"
+	next "evolution"
 	dex
 
 _SalamenceDexEntry::
 	text "Joyful dreams of"
-	next "flight unlocked two"
+	next "flight gave it two"
 	next "great wings"
 
 	page "It burns forests"
-	next "when truly angered"
+	next "when angered"
 	dex
 
 _DuskullDexEntry::
@@ -1765,14 +1765,14 @@ _DuskullDexEntry::
 _DusclopsDexEntry::
 	text "Its hollow body is"
 	next "a black hole that"
-	next "can swallow victims"
+	next "draws prey inside"
 
 	page "Its single eye"
 	next "never blinks"
 	dex
 
 _DusknoirDexEntry::
-	text "It drags souls away"
+	text "It drags souls"
 	next "through shadow"
 	next "hands unseen"
 
@@ -1781,7 +1781,7 @@ _DusknoirDexEntry::
 	dex
 
 _GolettDexEntry::
-	text "Ancient clay brought"
+	text "Ancient clay made"
 	next "to life obeys"
 	next "orders forever"
 
@@ -1800,15 +1800,15 @@ _GolurkDexEntry::
 
 _HeracrossDexEntry::
 	text "It lifts foes with"
-	next "its horn and flings"
+	next "its horn to toss"
 	next "them with ease"
 
-	page "Sap is its favorite"
-	next "meal from trees"
+	page "Tree sap is its"
+	next "favorite meal"
 	dex
 
 _AnnihilapeDexEntry::
-	text "When anger outlives"
+	text "When rage outlives"
 	next "its body, its"
 	next "spirit fights on"
 
@@ -1930,8 +1930,8 @@ _PorygonZDexEntry::
 	dex
 
 _RhyperiorDexEntry::
-	text "It fires rocks from"
-	next "holes in its hands"
+	text "It launches rocks"
+	next "through hand holes"
 	next "and can topple"
 
 	page "even sturdy walls"
@@ -1997,7 +1997,7 @@ _UmbreonDexEntry::
 	dex
 
 _VenipedeDexEntry::
-	text "It bites and stings"
+	text "It bites and jabs"
 	next "when stepped on,"
 	next "then releases a"
 
@@ -2043,12 +2043,12 @@ _CroagunkDexEntry::
 	dex
 
 _ToxicroakDexEntry::
-	text "It knocks foes over"
-	next "with sweeping kicks,"
-	next "then coats them with"
+	text "It bowls foes over"
+	next "with wide kicks"
+	next "then coats them in"
 
-	page "potent toxin from"
-	next "its knuckle spines."
+	page "toxin from its"
+	next "knuckle spines."
 	dex
 
 
@@ -2076,7 +2076,8 @@ _HoundourDexEntry::
 	next "pack and corner"
 
 	page "prey at night."
-	next "Its breath is hot."
+	next "Its breath is"
+	next "extremely hot"
 	dex
 
 _HoundoomDexEntry::
@@ -2085,7 +2086,7 @@ _HoundoomDexEntry::
 	next "can linger for"
 
 	page "days. Its howl"
-	next "makes foes shiver."
+	next "terrifies foes"
 	dex
 
 _CranidosDexEntry::
@@ -2094,25 +2095,27 @@ _CranidosDexEntry::
 	next "foes head-first to"
 
 	page "crack even stone."
-	next "It lived long ago."
+	next "It is an ancient"
+	next "species"
 	dex
 
 _RampardosDexEntry::
 	text "Its massive jaws"
-	next "can pulverize rock."
+	next "can shatter stone."
 	next "This ancient brute"
 
 	page "charges straight"
-	next "through obstacles."
+	next "through stone"
+	next "like nothing"
 	dex
 
 _ShieldonDexEntry::
 	text "Its face plate can"
-	next "deflect attacks. It"
-	next "grazes on plants"
+	next "deflect attacks."
+	next "It feeds on plants"
 
-	page "and wanders ancient"
-	next "forests for berries."
+	page "It roams old woods"
+	next "for berries."
 	dex
 
 _BastiodonDexEntry::
@@ -2120,8 +2123,8 @@ _BastiodonDexEntry::
 	next "walls with their"
 	next "shields to protect"
 
-	page "their herd from any"
-	next "predator attack."
+	page "to shield the herd"
+	next "from attacks."
 	dex
 
 _BunearyDexEntry::
@@ -2145,17 +2148,53 @@ _LopunnyDexEntry::
 _HippopotasDexEntry::
 	text "It covers itself"
 	next "in sand to stay"
-	next "cool and hide from"
+	next "cool and hide"
 
-	page "predators. It lives"
-	next "in dry riverbeds."
+	page "It lives in"
+	next "dry riverbeds."
 	dex
 
 _HippowdonDexEntry::
-	text "It blasts massive"
-	next "sand sprays from its"
-	next "ports to swallow"
+	text "It blasts foes"
+	next "with sand jets"
+	next "from its ports"
 
-	page "foes whole. Its body"
-	next "stores desert grit."
+	page "It swallows foes"
+	next "whole"
+	dex
+
+_LileepDexEntry::
+	text "It clung to rocks"
+	next "under ancient seas"
+	next "snared unwary prey"
+
+	page "Its feelers wave"
+	next "like seaweed."
+	dex
+
+_CradilyDexEntry::
+	text "It sways its body"
+	next "like kelp as it"
+	next "grips prey fast"
+
+	page "then ends fights"
+	next "with strong acid."
+	dex
+
+_AnorithDexEntry::
+	text "This ancient bug"
+	next "used sharp claws"
+	next "to seize prey"
+
+	page "in warm, shallow"
+	next "seas long ago."
+	dex
+
+_ArmaldoDexEntry::
+	text "Its armor was once"
+	next "as hard as stone."
+	next "It tore apart prey"
+
+	page "with huge claws"
+	next "on the seafloor."
 	dex

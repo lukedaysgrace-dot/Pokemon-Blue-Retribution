@@ -226,5 +226,9 @@
 	const DEX_LOPUNNY    ; 220
 	const DEX_HIPPOPOTAS ; 221
 	const DEX_HIPPOWDON  ; 222
+	const DEX_LILEEP     ; 223
+	const DEX_CRADILY    ; 224
+	const DEX_ANORITH    ; 225
+	const DEX_ARMALDO    ; 226
 
 DEF NUM_POKEMON EQU const_value - 1

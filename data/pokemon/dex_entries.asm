@@ -158,10 +158,10 @@ PokedexEntryPointers:
 	dw MissingNoDexEntry
 	dw GoldeenDexEntry
 	dw SeakingDexEntry
-	dw MissingNoDexEntry
-	dw MissingNoDexEntry
-	dw MissingNoDexEntry
-	dw MissingNoDexEntry
+	dw LileepDexEntry
+	dw CradilyDexEntry
+	dw AnorithDexEntry
+	dw ArmaldoDexEntry
 	dw PonytaDexEntry
 	dw RapidashDexEntry
 	dw RattataDexEntry
@@ -1812,6 +1812,34 @@ HippowdonDexEntry:
 	db 6,7
 	dw 6610
 	text_far _HippowdonDexEntry
+	text_end
+
+LileepDexEntry:
+	db "SEA LILY@"
+	db 3,3
+	dw 524
+	text_far _LileepDexEntry
+	text_end
+
+CradilyDexEntry:
+	db "BARNACLE@"
+	db 4,11
+	dw 1338
+	text_far _CradilyDexEntry
+	text_end
+
+AnorithDexEntry:
+	db "OLD SHRIMP@"
+	db 2,4
+	dw 275
+	text_far _AnorithDexEntry
+	text_end
+
+ArmaldoDexEntry:
+	db "PLATE@"
+	db 4,11
+	dw 1504
+	text_far _ArmaldoDexEntry
 	text_end
 
 MissingNoDexEntry:

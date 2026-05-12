@@ -221,5 +221,9 @@ MonPartyData:
 	db ICON_LOPUNNY       ; Lopunny
 	db ICON_HIPPOPOTAS    ; Hippopotas
 	db ICON_HIPPOPOTAS    ; Hippowdon
+	db ICON_LILEEP        ; Lileep
+	db ICON_CRADILY       ; Cradily
+	db ICON_ANORITH       ; Anorith
+	db ICON_ARMALDO       ; Armaldo
 
 ASSERT @ - MonPartyData == NUM_POKEMON

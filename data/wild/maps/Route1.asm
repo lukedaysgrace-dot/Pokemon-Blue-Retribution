@@ -1,9 +1,9 @@
 Route1WildMons:
 	def_grass_wildmons 25 ; encounter rate
-	db  2, RATTATA
-	db  3, PIDGEY
-	db  3, SPEAROW
-	db  3, HIPPOPOTAS
+	db  2, ARMALDO
+	db  3, ANORITH
+	db  3, LILEEP
+	db  3, CRADILY
 	db  4, BUNEARY
 	db  3, NIDORAN_M
 	db  3, NIDORAN_F

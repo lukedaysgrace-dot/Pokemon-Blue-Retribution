@@ -165,10 +165,10 @@
 	const_skip               ; $9C
 	const GOLDEEN            ; $9D
 	const SEAKING            ; $9E
-	const_skip               ; $9F
-	const_skip               ; $A0
-	const_skip               ; $A1
-	const_skip               ; $A2
+	const LILEEP             ; $9F
+	const CRADILY            ; $A0
+	const ANORITH            ; $A1
+	const ARMALDO            ; $A2
 	const PONYTA             ; $A3
 	const RAPIDASH           ; $A4
 	const RATTATA            ; $A5
@@ -261,8 +261,8 @@
 	const HOUNDOUR           ; $FC
 	const HOUNDOOM           ; $FD
 
-; Extended species ($BF–$FD): same sequence in every species-indexed table (EvosMovesPointerTable,
-; CryData, names.asm, dex_order.asm, dex_entries PokedexEntryPointers). MonPartyData and
+; Species-indexed tables (EvosMovesPointerTable, CryData, names.asm, dex_order.asm,
+; dex_entries PokedexEntryPointers) must stay in sync with this internal-id order. MonPartyData and
 ; MonsterPalettes are indexed by National Dex number instead (see engine/gfx/mon_icons.asm).
 
 DEF NUM_POKEMON_INDEXES EQU const_value - 1
