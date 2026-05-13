@@ -103,6 +103,8 @@ ItemUsePtrTable:
 	dw ItemUsePPRestore  ; MAX_ELIXER
 	dw UnusableItem      ; SKULL_FOSSIL
 	dw UnusableItem      ; ARMOR_FOSSIL
+	dw UnusableItem      ; CLAW_FOSSIL
+	dw UnusableItem      ; ROOT_FOSSIL
 
 ItemUseBall:
 

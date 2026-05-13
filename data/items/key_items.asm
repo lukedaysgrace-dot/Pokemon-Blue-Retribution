@@ -86,4 +86,6 @@ KeyItemFlags:
 	dbit FALSE ; MAX_ELIXER
 	dbit TRUE  ; SKULL_FOSSIL
 	dbit TRUE  ; ARMOR_FOSSIL
+	dbit TRUE  ; CLAW_FOSSIL
+	dbit TRUE  ; ROOT_FOSSIL
 	end_bit_array NUM_ITEMS

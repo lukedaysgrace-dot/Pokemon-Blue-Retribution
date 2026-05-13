@@ -247,11 +247,13 @@ ToggleableObjectStates:
 	toggle_object_state MTMOON1F_POTION2,      ON
 	toggle_object_state MTMOON1F_TM_WATER_GUN, ON
 	toggle_object_state MTMOON1F_ARMOR_FOSSIL, ON
+	toggle_object_state MTMOON1F_ROOT_FOSSIL, ON
 
 	toggleable_objects_for MT_MOON_B2F
 	toggle_object_state MTMOONB2F_DOME_FOSSIL,   ON
 	toggle_object_state MTMOONB2F_HELIX_FOSSIL,  ON
 	toggle_object_state MTMOONB2F_HP_UP,         ON
+	toggle_object_state MTMOONB2F_CLAW_FOSSIL,  ON
 	toggle_object_state MTMOONB2F_TM_MEGA_PUNCH, ON
 	toggle_object_state MTMOONB2F_SKULL_FOSSIL,  ON
 

@@ -139,75 +139,150 @@ MonsNestText:
 	db "'s NEST@"
 
 LoadTownMap_Fly::
+; Like DisplayTownMap: browse every town/route on the world map with Up/Down.
+; Press A to fly only if the spot is a visited city (same rules as before).
+; Press B to cancel.
 	call ClearSprites
 	call LoadTownMap
 	call LoadPlayerSpriteGraphics
 	call LoadFontTilePatterns
-	ld de, BirdSprite
-	ld hl, vSprites tile BIRD_BASE_TILE
-	lb bc, BANK(BirdSprite), 12
-	call CopyVideoData
-	ld de, TownMapUpArrow
-	ld hl, vChars1 tile $6d
-	lb bc, BANK(TownMapUpArrow), (TownMapUpArrowEnd - TownMapUpArrow) / TILE_1BPP_SIZE
-	call CopyVideoDataDouble
 	call BuildFlyLocationsList
 	ld hl, wUpdateSpritesEnabled
 	ld a, [hl]
 	push af
 	ld [hl], $ff
 	push hl
-	hlcoord 0, 0
-	ld de, ToText
-	call PlaceString
+	ld a, $1
+	ldh [hJoy7], a
+	ld hl, TownMapOrder
+	ld c, 0
+.findCurMapIndex
+	ld a, [hl]
+	ld b, a
+	ld a, [wCurMap]
+	cp b
+	jr z, .foundCurMapIndex
+	inc hl
+	inc c
+	ld a, c
+	cp TownMapOrderEnd - TownMapOrder
+	jr nz, .findCurMapIndex
+	ld c, 0
+.foundCurMapIndex
+	ld a, c
+	ld [wWhichTownMapLocation], a
 	ld a, [wCurMap]
 	ld b, $0
 	call DrawPlayerOrBirdSprite
-	ld hl, wFlyLocationsList
-	decoord 18, 0
+	hlcoord 1, 0
+	ld de, wNameBuffer
+	call PlaceString
+	ld hl, wShadowOAMSprite00
+	ld de, wShadowOAMBackupSprite00
+	ld bc, OBJ_SIZE * 4
+	call CopyData
+	ld hl, vSprites tile BIRD_BASE_TILE
+	ld de, TownMapCursor
+	lb bc, BANK(TownMapCursor), (TownMapCursorEnd - TownMapCursor) / TILE_1BPP_SIZE
+	call CopyVideoDataDouble
 .townMapFlyLoop
-	ld a, ' '
-	ld [de], a
-	push hl
-	push hl
-	hlcoord 3, 0
-	lb bc, 1, 15
+	hlcoord 0, 0
+	lb bc, 1, 20
 	call ClearScreenArea
-	pop hl
+	ld hl, TownMapOrder
+	ld a, [wWhichTownMapLocation]
+	ld c, a
+	ld b, 0
+	add hl, bc
 	ld a, [hl]
-	ld b, BIRD_BASE_TILE
-	call DrawPlayerOrBirdSprite
+.flyShowSelected
+	ld de, wTownMapCoords
+	call LoadTownMapEntry
+	ld a, [de]
+	push hl
+	call TownMapCoordsToOAMCoords
+	ld a, $4
+	ld [wOAMBaseTile], a
+	ld hl, wShadowOAMSprite04
+	call WriteTownMapSpriteOAM
+	pop hl
+	ld de, wNameBuffer
+.flyCopyName
+	ld a, [hli]
+	ld [de], a
+	inc de
+	cp '@'
+	jr nz, .flyCopyName
+	hlcoord 0, 0
+	ld de, ToText
+	call PlaceString
 	hlcoord 3, 0
 	ld de, wNameBuffer
 	call PlaceString
-	ld c, 15
-	call DelayFrames
-	hlcoord 18, 0
-	ld [hl], '▲'
-	hlcoord 19, 0
-	ld [hl], '▼'
-	pop hl
-.inputLoop
-	push hl
-	call DelayFrame
+	ld hl, wShadowOAMSprite04
+	ld de, wShadowOAMBackupSprite04
+	ld bc, OBJ_SIZE * 4
+	call CopyData
+.flyInputLoop
+	call TownMapSpriteBlinkingAnimation
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
 	ld b, a
-	pop hl
 	and PAD_A | PAD_B | PAD_UP | PAD_DOWN
-	jr z, .inputLoop
+	jr z, .flyInputLoop
+	bit B_PAD_B, b
+	jr nz, .flyExit
 	bit B_PAD_A, b
-	jr nz, .pressedA
+	jr nz, .pressedAFly
 	ld a, SFX_TINK
 	call PlaySound
 	bit B_PAD_UP, b
-	jr nz, .pressedUp
+	jr nz, .flyPressedUp
 	bit B_PAD_DOWN, b
-	jr nz, .pressedDown
-	jr .pressedB
-.pressedA
+	jr nz, .flyPressedDown
+	jr .flyInputLoop
+.flyPressedUp
+	ld a, [wWhichTownMapLocation]
+	inc a
+	cp TownMapOrderEnd - TownMapOrder
+	jr nz, .flyNoOverflow
+	xor a
+.flyNoOverflow
+	ld [wWhichTownMapLocation], a
+	jp .townMapFlyLoop
+.flyPressedDown
+	ld a, [wWhichTownMapLocation]
+	dec a
+	cp -1
+	jr nz, .flyNoUnderflow
+	ld a, TownMapOrderEnd - TownMapOrder - 1
+.flyNoUnderflow
+	ld [wWhichTownMapLocation], a
+	jp .townMapFlyLoop
+.pressedAFly
+	ld hl, TownMapOrder
+	ld a, [wWhichTownMapLocation]
+	ld e, a
+	ld d, 0
+	add hl, de
+	ld a, [hl]
+	cp FIRST_ROUTE_MAP
+	jr nc, .flyInvalid
+	cp NUM_CITY_MAPS
+	jr nc, .flyInvalid
+	ld e, a
+	ld hl, wFlyLocationsList
+	add hl, de
+	ld a, [hl]
+	cp NOT_VISITED
+	jr z, .flyInvalid
 	ld a, SFX_HEAL_AILMENT
 	call PlaySound
+	ld hl, TownMapOrder
+	ld a, [wWhichTownMapLocation]
+	ld e, a
+	ld d, 0
+	add hl, de
 	ld a, [hl]
 	ld [wDestinationMap], a
 	ld hl, wStatusFlags6
@@ -215,38 +290,23 @@ LoadTownMap_Fly::
 	ASSERT wStatusFlags6 + 1 == wStatusFlags7
 	inc hl
 	set BIT_USED_FLY, [hl]
-.pressedB
+	jr .flyExit
+.flyInvalid
+	ld a, SFX_DENIED
+	call PlaySound
+	jp .flyInputLoop
+.flyExit
+; Same teardown as DisplayTownMap: restore tiles, sprites, and default palette.
+; (GBPalWhiteOutWithDelay3 alone leaves SET_PAL_TOWN_MAP active → overworld colors wrong.)
 	xor a
 	ld [wTownMapSpriteBlinkingEnabled], a
-	call GBPalWhiteOutWithDelay3
+	ldh [hJoy7], a
+	ld [wAnimCounter], a
+	call ExitTownMap
 	pop hl
 	pop af
 	ld [hl], a
 	ret
-.pressedUp
-	decoord 18, 0
-	inc hl
-	ld a, [hl]
-	cp $ff
-	jr z, .wrapToStartOfList
-	cp NOT_VISITED
-	jr z, .pressedUp ; skip past unvisited towns
-	jp .townMapFlyLoop
-.wrapToStartOfList
-	ld hl, wFlyLocationsList
-	jp .townMapFlyLoop
-.pressedDown
-	decoord 19, 0
-	dec hl
-	ld a, [hl]
-	cp $ff
-	jr z, .wrapToEndOfList
-	cp NOT_VISITED
-	jr z, .pressedDown ; skip past unvisited towns
-	jp .townMapFlyLoop
-.wrapToEndOfList
-	ld hl, wFlyLocationsList + NUM_CITY_MAPS
-	jr .pressedDown
 
 ToText:
 	db "To@"

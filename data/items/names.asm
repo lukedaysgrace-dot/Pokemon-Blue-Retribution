@@ -86,6 +86,8 @@ ItemNames::
 	li "MAX ELIXER"
 	li "SKULL FOSSIL"
 	li "ARMOR FOSSIL"
+	li "CLAW FOSSIL"
+	li "ROOT FOSSIL"
 	assert_list_length NUM_ITEMS
 	li "B2F"
 	li "B1F"

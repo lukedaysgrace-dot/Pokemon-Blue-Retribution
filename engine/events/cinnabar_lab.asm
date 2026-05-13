@@ -44,7 +44,17 @@ GiveFossilToCinnabarLab::
 	jr z, .choseSkullFossil
 	cp ARMOR_FOSSIL
 	jr z, .choseArmorFossil
+	cp CLAW_FOSSIL
+	jr z, .choseClawFossil
+	cp ROOT_FOSSIL
+	jr z, .choseRootFossil
 	ld b, AERODACTYL
+	jr .fossilSelected
+.choseRootFossil
+	ld b, LILEEP
+	jr .fossilSelected
+.choseClawFossil
+	ld b, ANORITH
 	jr .fossilSelected
 .choseArmorFossil
 	ld b, SHIELDON
@@ -169,5 +179,7 @@ FossilsList:
 	db HELIX_FOSSIL
 	db SKULL_FOSSIL
 	db ARMOR_FOSSIL
+	db CLAW_FOSSIL
+	db ROOT_FOSSIL
 	db OLD_AMBER
 	db 0 ; end
