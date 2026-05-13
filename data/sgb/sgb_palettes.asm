@@ -259,6 +259,12 @@ IF GEN_2_GRAPHICS
 	RGB 31,31,31, 28,18,17, 22,07,08, 00,00,00 ; PAL_HERO
 	; Mint: rival Blue skin; clothes ~#66C5B3 seafoam GBC≈12,24,22; black
 	RGB 31,31,31, 31,19,10, 12,24,22, 00,00,00 ; PAL_MINT_HERO
+	; ~#B50000 / #63D6D6 (middle colors swapped vs prior — match sprite color indices)
+	RGB 31,31,31, 12,26,26, 22,00,00, 00,00,00 ; PAL_SCOLMON
+	; purple shell, seafoam markings (Whirlipede reference)
+	RGB 31,31,31, 18,06,20, 07,25,23, 00,00,00 ; PAL_WHIRLMON
+	; ~#C66363 / #528C52 (middle colors swapped vs prior — match sprite color indices)
+	RGB 31,31,31, 10,17,10, 24,12,12, 00,00,00 ; PAL_VENMON
 ELSE
 	RGB 31,31,31, 27,20,09, 09,12,23, 00,00,00 ; PAL_YOUNGSTER
 	RGB 31,31,31, 27,17,10, 06,10,18, 00,00,00 ; PAL_BUGCATCHER
@@ -314,5 +320,8 @@ ELSE
 	RGB 31,31,31, 28,18,17, 22,07,08, 00,00,00 ; PAL_HERO
 	RGB 31,31,31, 22,31,12, 05,14,06, 00,00,00 ; PAL_SOLDIER (military greens)
 	RGB 31,31,31, 31,19,10, 12,24,22, 00,00,00 ; PAL_MINT_HERO (same mint as GEN 2 row)
+	RGB 31,31,31, 12,26,26, 22,00,00, 00,00,00 ; PAL_SCOLMON
+	RGB 31,31,31, 18,06,20, 07,25,23, 00,00,00 ; PAL_WHIRLMON
+	RGB 31,31,31, 10,17,10, 24,12,12, 00,00,00 ; PAL_VENMON
 ENDC
 	assert_table_length NUM_SGB_PALS

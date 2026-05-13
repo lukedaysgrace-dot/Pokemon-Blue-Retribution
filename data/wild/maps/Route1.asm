@@ -1,8 +1,8 @@
 Route1WildMons:
 	def_grass_wildmons 25 ; encounter rate
-	db  2, ARMALDO
-	db  3, ANORITH
-	db  3, LILEEP
+	db  2, VENIPEDE
+	db  3, WHIRLIPEDE
+	db  3, SCOLIPEDE
 	db  3, CRADILY
 	db  4, BUNEARY
 	db  3, NIDORAN_M

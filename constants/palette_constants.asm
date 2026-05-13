@@ -269,6 +269,9 @@ IF GEN_2_GRAPHICS
 	const PAL_PROTON        ; $EE
 	const PAL_HERO          ; $EF
 	const PAL_MINT_HERO     ; $F0 (female Mint; deep blue)
+	const PAL_SCOLMON       ; Scolipede custom (red / cyan / white / black)
+	const PAL_WHIRLMON      ; Whirlipede custom (purple / teal / white / black)
+	const PAL_VENMON        ; Venipede custom (dusty rose / forest green / white / black)
 ENDC
 IF !GEN_2_GRAPHICS
 	const PAL_YOUNGSTER     ; $25
@@ -325,5 +328,8 @@ IF !GEN_2_GRAPHICS
 	const PAL_HERO          ; $58
 	const PAL_SOLDIER       ; $59
 	const PAL_MINT_HERO     ; $5A (female Mint; GEN_2_GRAPHICS off build)
+	const PAL_SCOLMON
+	const PAL_WHIRLMON
+	const PAL_VENMON
 ENDC
 DEF NUM_SGB_PALS EQU const_value

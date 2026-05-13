@@ -190,8 +190,8 @@ ROMX $2C
 	"Custom Trainer Moves Data"
 	"Mint Fishing Tiles"
 	"Koga Guard and Admin OW Sprites"
-	"Rocket Admin OW Sprites"
 ROMX $2D
+	"Rocket Admin OW Sprites"
 	"Base Stats Data"
 	"Green Player OW Sprites"
 	"Green Rocket OW Sprite"
