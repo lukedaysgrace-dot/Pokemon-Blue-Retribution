@@ -35,18 +35,44 @@ _MtMoonB2FSuperNerdOkIllShareText::
 
 _MtMoonB2fSuperNerdEachTakeOneText::
 	text "We'll each take"
-	line "one!"
-	cont "No being greedy!"
+	line "one! No being"
+	cont "greedy!"
+
+	para "Find every fossil"
+	line "in MT.MOON and"
+	cont "I'll let you have"
+	cont "the one I keep."
 	done
 
 _MtMoonB2FSuperNerdTheresAPokemonLabText::
-	text "Far away, on"
-	line "CINNABAR ISLAND,"
-	cont "there's a #MON"
-	cont "LAB."
+	text "I heard one of"
+	line "the scientists"
+	cont "from CINNABAR"
+	cont "moved to"
+	cont "CERULEAN CITY."
 
-	para "They do research"
-	line "on regenerating"
+	para "Bring me SKULL,"
+	line "ARMOR, CLAW, and"
+	cont "ROOT FOSSIL and"
+	cont "I'll hand over"
+	cont "the one I kept."
+	done
+
+_MtMoonB2FSuperNerdFoundThemAllText::
+	text "You found every"
+	line "fossil in"
+	cont "MT.MOON?"
+
+	para "A deal's a deal!"
+	line "Take the fossil I"
+	cont "held onto."
+	done
+
+_MtMoonB2FSuperNerdAfterRewardText::
+	text "That scientist in"
+	line "CERULEAN should"
+	cont "be able to help"
+	cont "with those"
 	cont "fossils."
 	done
 

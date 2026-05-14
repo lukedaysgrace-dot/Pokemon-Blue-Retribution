@@ -186,8 +186,10 @@ MtMoonB2FSuperNerdText:
 	text_asm
 	CheckEvent EVENT_BEAT_MT_MOON_EXIT_SUPER_NERD
 	jr z, .beat_super_nerd
+	CheckEvent EVENT_GOT_MT_MOON_SUPER_NERD_FOSSIL
+	jr nz, .got_reward_fossil
 	CheckEitherEventSet EVENT_GOT_DOME_FOSSIL, EVENT_GOT_HELIX_FOSSIL, 1
-	jr nz, .got_a_fossil
+	jr nz, .check_all_fossils
 	ld hl, MtMoonB2fSuperNerdEachTakeOneText
 	call PrintText
 	jr .done
@@ -208,8 +210,19 @@ MtMoonB2FSuperNerdText:
 	ld [wMtMoonB2FCurScript], a
 	ld [wCurMapScript], a
 	jr .done
+.check_all_fossils
+	call MtMoonB2FCheckHasAllOtherFossils
+	jr z, .got_a_fossil
+	ld hl, MtMoonB2FSuperNerdFoundThemAllText
+	call PrintText
+	call MtMoonB2FGiveSuperNerdFossil
+	jr .done
 .got_a_fossil
 	ld hl, MtMoonB2FSuperNerdTheresAPokemonLabText
+	call PrintText
+	jr .done
+.got_reward_fossil
+	ld hl, MtMoonB2FSuperNerdAfterRewardText
 	call PrintText
 .done
 	jp TextScriptEnd
@@ -314,6 +327,46 @@ MtMoonB2FYouHaveNoRoomText:
 	text_waitbutton
 	text_end
 
+MtMoonB2FCheckHasAllOtherFossils:
+	ld b, SKULL_FOSSIL
+	call IsItemInBag
+	ret z
+	ld b, ARMOR_FOSSIL
+	call IsItemInBag
+	ret z
+	ld b, CLAW_FOSSIL
+	call IsItemInBag
+	ret z
+	ld b, ROOT_FOSSIL
+	call IsItemInBag
+	ret
+
+MtMoonB2FGiveSuperNerdFossil:
+	CheckEvent EVENT_GOT_DOME_FOSSIL
+	jr z, .give_dome
+	lb bc, HELIX_FOSSIL, 1
+	call GiveItem
+	jr nc, .bag_full
+	call MtMoonB2FReceivedFossilText
+	SetEvent EVENT_GOT_MT_MOON_SUPER_NERD_FOSSIL
+	ret
+.give_dome
+	lb bc, DOME_FOSSIL, 1
+	call GiveItem
+	jr nc, .bag_full
+	call MtMoonB2FReceivedFossilText
+	SetEvent EVENT_GOT_MT_MOON_SUPER_NERD_FOSSIL
+	ret
+.bag_full
+	ld hl, .NoRoomText
+	call PrintText
+	ret
+
+.NoRoomText:
+	text_far _MtMoonB2FYouHaveNoRoomText
+	text_waitbutton
+	text_end
+
 MtMoonB2FSuperNerdTheyreBothMineText:
 	text_far _MtMoonB2FSuperNerdTheyreBothMineText
 	text_end
@@ -328,6 +381,14 @@ MtMoonB2fSuperNerdEachTakeOneText:
 
 MtMoonB2FSuperNerdTheresAPokemonLabText:
 	text_far _MtMoonB2FSuperNerdTheresAPokemonLabText
+	text_end
+
+MtMoonB2FSuperNerdFoundThemAllText:
+	text_far _MtMoonB2FSuperNerdFoundThemAllText
+	text_end
+
+MtMoonB2FSuperNerdAfterRewardText:
+	text_far _MtMoonB2FSuperNerdAfterRewardText
 	text_end
 
 MtMoonB2FSuperNerdThenThisIsMineText:
