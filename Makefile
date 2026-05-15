@@ -212,6 +212,16 @@ gfx/trainers/petrel.2bpp gfx/trainers/proton.2bpp gfx/trainers/archer.2bpp gfx/t
 	$(if $(tools/gfx),\
 		tools/gfx $(tools/gfx) -o $@ $@ || $$($(RM) $@ && false))
 
+gfx/sprites/blue.2bpp: gfx/sprites/blue.png
+	$(RGBGFX) --colors auto $(RGBGFXFLAGS) -o $@ $<
+	$(if $(tools/gfx),\
+		tools/gfx $(tools/gfx) -o $@ $@ || $$($(RM) $@ && false))
+
+gfx/sprites/%_new.2bpp: gfx/sprites/%_new.png
+	$(RGBGFX) --colors auto $(RGBGFXFLAGS) -o $@ $<
+	$(if $(tools/gfx),\
+		tools/gfx $(tools/gfx) -o $@ $@ || $$($(RM) $@ && false))
+
 %.2bpp: %.png
 	$(RGBGFX) --colors dmg $(RGBGFXFLAGS) -o $@ $<
 	$(if $(tools/gfx),\

@@ -126,4 +126,22 @@ DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_ARTICUNO               ; $78
 	const SPRITE_ZAPDOS                 ; $79
 	const SPRITE_MOLTRES                ; $7a
+	const SPRITE_YOUNGSTER_NEW          ; $7b
+	const SPRITE_BUG_CATCHER_NEW        ; $7c
+	const SPRITE_LASS_NEW               ; $7d
+	const SPRITE_JR_TRAINER_M_NEW       ; $7e
+	const SPRITE_JR_TRAINER_F_NEW       ; $7f
+	const SPRITE_POKEMANIAC_NEW         ; $80
+	const SPRITE_SUPER_NERD_NEW         ; $81
+	const SPRITE_HIKER_NEW              ; $82
+	const SPRITE_BURGLAR_NEW            ; $83
+	const SPRITE_ENGINEER_NEW           ; $84
+	const SPRITE_FISHER_NEW             ; $85
+	const SPRITE_SWIMMER_NEW            ; $86
+	const SPRITE_CUE_BALL_NEW           ; $87
+	const SPRITE_ROCKER_NEW             ; $88
+	const SPRITE_JUGGLER_NEW            ; $89
+	const SPRITE_TAMER_NEW              ; $8a
+	const SPRITE_BIRD_KEEPER_NEW        ; $8b
+	const SPRITE_BLACKBELT_NEW          ; $8c
 DEF NUM_SPRITES EQU const_value - 1

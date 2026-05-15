@@ -116,6 +116,10 @@ LoadMapSpriteTilePatterns:
 	jr c, .checkStillCutoff
 	cp SPRITE_MOLTRES + 1
 	jr c, .notFourTileSprite
+	cp SPRITE_YOUNGSTER_NEW
+	jr c, .checkStillCutoff
+	cp SPRITE_BLACKBELT_NEW + 1
+	jr c, .notFourTileSprite
 .checkStillCutoff
 	cp FIRST_STILL_SPRITE ; is it a 4-tile sprite?
 	jr c, .notFourTileSprite
@@ -129,20 +133,15 @@ LoadMapSpriteTilePatterns:
 	ld [hl], a ; store VRAM slot at [x#SPRITESTATEDATA2_IMAGEBASEOFFSET]
 	ldh [hVRAMSlot], a ; used to determine if it's 4-tile sprite later
 	ld a, b ; a = current sprite picture ID
-	dec a
-	add a
-	add a
 	push bc
 	push hl
-	ld hl, SpriteSheetPointerTable
-	jr nc, .noCarry
-	inc h
-.noCarry
-	add l
+	dec a
 	ld l, a
-	jr nc, .noCarry2
-	inc h
-.noCarry2
+	ld h, 0
+	add hl, hl
+	add hl, hl
+	ld de, SpriteSheetPointerTable
+	add hl, de
 	push hl
 	call ReadSpriteSheetData
 	push af

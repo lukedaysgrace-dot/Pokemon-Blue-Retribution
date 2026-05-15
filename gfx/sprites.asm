@@ -76,7 +76,6 @@ FairySprite::            INCBIN "gfx/sprites/fairy.2bpp"
 AgathaSprite::           INCBIN "gfx/sprites/agatha.2bpp"
 KarenSprite::            INCBIN "gfx/sprites/karen.2bpp"
 LoreleiSprite::          INCBIN "gfx/sprites/lorelei.2bpp"
-SeelSprite::             INCBIN "gfx/sprites/seel.2bpp"
 
 
 SECTION "Gym Leader OW Sprites", ROMX
@@ -157,6 +156,36 @@ ElectrodeSprite::        INCBIN "gfx/icons/electrode_ow.2bpp"
 SECTION "Blue Cloak OW Sprite", ROMX
 
 BlueCloakWorldSprite::   INCBIN "gfx/sprites/blue_cloak_world.2bpp"
+
+
+SECTION "NPC Sprites 2 Overflow", ROMX
+
+SeelSprite::             INCBIN "gfx/sprites/seel.2bpp"
+
+
+SECTION "Trainer Class OW Sprites 1", ROMX
+
+YoungsterNewSprite::     INCBIN "gfx/sprites/youngster_new.2bpp"
+BugCatcherNewSprite::    INCBIN "gfx/sprites/bug_catcher_new.2bpp"
+LassNewSprite::          INCBIN "gfx/sprites/lass_new.2bpp"
+JrTrainerMNewSprite::    INCBIN "gfx/sprites/jr_trainer_m_new.2bpp"
+JrTrainerFNewSprite::    INCBIN "gfx/sprites/jr_trainer_f_new.2bpp"
+PokemaniacNewSprite::    INCBIN "gfx/sprites/pokemaniac_new.2bpp"
+SuperNerdNewSprite::     INCBIN "gfx/sprites/super_nerd_new.2bpp"
+HikerNewSprite::         INCBIN "gfx/sprites/hiker_new.2bpp"
+BurglarNewSprite::       INCBIN "gfx/sprites/burglar_new.2bpp"
+
+SECTION "Trainer Class OW Sprites 2", ROMX
+
+EngineerNewSprite::      INCBIN "gfx/sprites/engineer_new.2bpp"
+FisherNewSprite::        INCBIN "gfx/sprites/fisher_new.2bpp"
+SwimmerNewSprite::       INCBIN "gfx/sprites/swimmer_new.2bpp"
+CueBallNewSprite::       INCBIN "gfx/sprites/cue_ball_new.2bpp"
+RockerNewSprite::        INCBIN "gfx/sprites/rocker_new.2bpp"
+JugglerNewSprite::       INCBIN "gfx/sprites/juggler_new.2bpp"
+TamerNewSprite::         INCBIN "gfx/sprites/tamer_new.2bpp"
+BirdKeeperNewSprite::    INCBIN "gfx/sprites/bird_keeper_new.2bpp"
+BlackbeltNewSprite::     INCBIN "gfx/sprites/blackbelt_new.2bpp"
 
 
 SECTION "Mon Icons 1", ROMX

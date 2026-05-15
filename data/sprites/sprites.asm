@@ -4,7 +4,7 @@ MACRO overworld_sprite
 	db BANK(\1)
 ENDM
 
-SpriteSheetPointerTable:
+SpriteSheetPointerTable::
 	table_width 4
 	; graphics, tile count
 	overworld_sprite RedSprite, 12              ; SPRITE_RED
@@ -129,4 +129,22 @@ SpriteSheetPointerTable:
 	overworld_sprite ArticunoSprite, 12         ; SPRITE_ARTICUNO
 	overworld_sprite ZapdosSprite, 12           ; SPRITE_ZAPDOS
 	overworld_sprite MoltresSprite, 12          ; SPRITE_MOLTRES
+	overworld_sprite YoungsterNewSprite, 12     ; SPRITE_YOUNGSTER_NEW
+	overworld_sprite BugCatcherNewSprite, 12    ; SPRITE_BUG_CATCHER_NEW
+	overworld_sprite LassNewSprite, 12          ; SPRITE_LASS_NEW
+	overworld_sprite JrTrainerMNewSprite, 12    ; SPRITE_JR_TRAINER_M_NEW
+	overworld_sprite JrTrainerFNewSprite, 12    ; SPRITE_JR_TRAINER_F_NEW
+	overworld_sprite PokemaniacNewSprite, 12    ; SPRITE_POKEMANIAC_NEW
+	overworld_sprite SuperNerdNewSprite, 12     ; SPRITE_SUPER_NERD_NEW
+	overworld_sprite HikerNewSprite, 12         ; SPRITE_HIKER_NEW
+	overworld_sprite BurglarNewSprite, 12       ; SPRITE_BURGLAR_NEW
+	overworld_sprite EngineerNewSprite, 12      ; SPRITE_ENGINEER_NEW
+	overworld_sprite FisherNewSprite, 12        ; SPRITE_FISHER_NEW
+	overworld_sprite SwimmerNewSprite, 12       ; SPRITE_SWIMMER_NEW
+	overworld_sprite CueBallNewSprite, 12       ; SPRITE_CUE_BALL_NEW
+	overworld_sprite RockerNewSprite, 12        ; SPRITE_ROCKER_NEW
+	overworld_sprite JugglerNewSprite, 12       ; SPRITE_JUGGLER_NEW
+	overworld_sprite TamerNewSprite, 12         ; SPRITE_TAMER_NEW
+	overworld_sprite BirdKeeperNewSprite, 12    ; SPRITE_BIRD_KEEPER_NEW
+	overworld_sprite BlackbeltNewSprite, 12     ; SPRITE_BLACKBELT_NEW
 	assert_table_length NUM_SPRITES

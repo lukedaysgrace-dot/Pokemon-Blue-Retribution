@@ -28,7 +28,7 @@ IF DEF(_BLUE)
 	db  25, HAUNTER
 	db  36, MAROWAK
 	db  25, GOLBAT
-	db  43, HYPNO
+	db  21, GASTLY
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate
