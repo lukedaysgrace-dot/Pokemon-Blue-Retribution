@@ -306,12 +306,16 @@ ToggleableObjectStates:
 	toggle_object_state SILPHCO2F_SCIENTIST2,     ON
 	toggle_object_state SILPHCO2F_ROCKET1,        ON
 	toggle_object_state SILPHCO2F_ROCKET2,        ON
+	toggle_object_state SILPHCO2F_TAMER,          ON
+	toggle_object_state SILPHCO2F_JUGGLER,       ON
 
 	toggleable_objects_for SILPH_CO_3F
 	toggle_object_state SILPHCO3F_ROCKET,       ON
 	toggle_object_state SILPHCO3F_SCIENTIST,    ON
 	toggle_object_state SILPHCO3F_HYPER_POTION, ON
 	toggle_object_state SILPHCO3F_PROTON,       OFF
+	toggle_object_state SILPHCO3F_TAMER1,       ON
+	toggle_object_state SILPHCO3F_JUGGLER1,     ON
 
 	toggleable_objects_for SILPH_CO_4F
 	toggle_object_state SILPHCO4F_ROCKET1,     ON
@@ -334,6 +338,7 @@ ToggleableObjectStates:
 	toggle_object_state SILPHCO6F_ROCKET1,    ON
 	toggle_object_state SILPHCO6F_SCIENTIST,  ON
 	toggle_object_state SILPHCO6F_ROCKET2,    ON
+	toggle_object_state SILPHCO6F_TAMER,      ON
 	toggle_object_state SILPHCO6F_HP_UP,      ON
 	toggle_object_state SILPHCO6F_X_ACCURACY, ON
 

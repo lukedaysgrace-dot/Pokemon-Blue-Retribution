@@ -424,6 +424,10 @@ JugglerData:	;joenote - tweaked some parties
 ; Unused
 	;db 34,DROWZEE,KADABRA,0	;joenote - in fuschia gym, replaced by Janine
 	;db 33,HYPNO,0
+; Silph Co. hired showcase — roster 6 filler; rosters 7–8 with Tamers upstairs
+	db 29, ABRA, 0
+	db 30, HYPNO, MR_MIME, 0
+	db 31, KADABRA, ALAKAZAM, 0
 TamerData:
 ; Fuchsia Gym
 	db 34, SANDSLASH, ARBOK, 0
@@ -433,8 +437,10 @@ TamerData:
 	db 39, HIPPOWDON, TAUROS, 0
 ; Victory Road 2F
 	db 44, PERSIAN, GOLDUCK, 0
-; Unused
-	;db 42,RHYDON,PRIMEAPE,ARBOK,TAUROS,0
+; Silph Co. hired muscle — rosters 6–8 (2F / one pair on 3F / 6F)
+	db 31, RHYPERIOR, STEELIX, 0
+	db 32, HIPPOWDON, MACHAMP, 0
+	db 32, MACHAMP, TAUROS, 0
 BirdKeeperData:
 ; Route 13
 	db 29, PIDGEOTTO, PIDGEOTTO, 0
@@ -812,7 +818,7 @@ ProtonData:
 
 ArcherData:
 ; Silph Co. 11F
-	db $FF, 31, GOLBAT, 31, ELECTRODE, 32, PERSIAN, 33, WEEZING, 0
+	db $FF, 31, CROBAT, 31, ELECTABUZZ, 32, PERSIAN, 33, WEEZING, 35, HOUNDOOM, 0
 
 SoldierData:
 ; Vermilion Gym

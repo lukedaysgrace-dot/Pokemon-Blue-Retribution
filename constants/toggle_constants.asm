@@ -279,12 +279,16 @@ ENDM
 	const TOGGLE_SILPH_CO_2F_3                 ; 8C
 	const TOGGLE_SILPH_CO_2F_4                 ; 8D
 	const TOGGLE_SILPH_CO_2F_5                 ; 8E
+	const TOGGLE_SILPH_CO_2F_TAMER
+	const TOGGLE_SILPH_CO_2F_JUGGLER
 
 	toggle_consts_for SILPH_CO_3F
 	const TOGGLE_SILPH_CO_3F_1                 ; 8F
 	const TOGGLE_SILPH_CO_3F_2                 ; 90
 	const TOGGLE_SILPH_CO_3F_ITEM              ; 91 X
 	const TOGGLE_SILPH_CO_3F_PROTON
+	const TOGGLE_SILPH_CO_3F_TAMER1
+	const TOGGLE_SILPH_CO_3F_JUGGLER1
 
 	toggle_consts_for SILPH_CO_4F
 	const TOGGLE_SILPH_CO_4F_1                 ; 92
@@ -307,6 +311,7 @@ ENDM
 	const TOGGLE_SILPH_CO_6F_1                 ; 9F
 	const TOGGLE_SILPH_CO_6F_2                 ; A0
 	const TOGGLE_SILPH_CO_6F_3                 ; A1
+	const TOGGLE_SILPH_CO_6F_TAMER
 	const TOGGLE_SILPH_CO_6F_ITEM_1            ; A2 X
 	const TOGGLE_SILPH_CO_6F_ITEM_2            ; A3 X
 

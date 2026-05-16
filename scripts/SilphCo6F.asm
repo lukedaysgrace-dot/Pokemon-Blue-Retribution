@@ -50,6 +50,7 @@ SilphCo6F_TextPointers:
 	dw_const SilphCo6FRocket1Text,       TEXT_SILPHCO6F_ROCKET1
 	dw_const SilphCo6FScientistText,     TEXT_SILPHCO6F_SCIENTIST
 	dw_const SilphCo6FRocket2Text,       TEXT_SILPHCO6F_ROCKET2
+	dw_const SilphCo6FTamerText,         TEXT_SILPHCO6F_TAMER
 	dw_const PickUpItemText,             TEXT_SILPHCO6F_HP_UP
 	dw_const PickUpItemText,             TEXT_SILPHCO6F_X_ACCURACY
 
@@ -61,6 +62,8 @@ SilphCo6TrainerHeader1:
 	trainer EVENT_BEAT_SILPH_CO_6F_TRAINER_1, 3, SilphCo6FScientistBattleText, SilphCo6FScientistEndBattleText, SilphCo6FScientistAfterBattleText
 SilphCo6TrainerHeader2:
 	trainer EVENT_BEAT_SILPH_CO_6F_TRAINER_2, 2, SilphCo6FRocket2BattleText, SilphCo6FRocket2EndBattleText, SilphCo6FRocket2AfterBattleText
+SilphCo6TrainerHeader3:
+	trainer EVENT_BEAT_SILPH_CO_6F_TRAINER_3, 2, SilphCo6FTamerBattleText, SilphCo6FTamerEndBattleText, SilphCo6FTamerAfterBattleText
 	db -1 ; end
 
 SilphCo6FBeatGiovanniPrintDEOrPrintHLScript:
@@ -190,6 +193,12 @@ SilphCo6FRocket2Text:
 	call TalkToTrainer
 	jp TextScriptEnd
 
+SilphCo6FTamerText:
+	text_asm
+	ld hl, SilphCo6TrainerHeader3
+	call TalkToTrainer
+	jp TextScriptEnd
+
 SilphCo6FRocket2BattleText:
 	text_far _SilphCo6FRocket2BattleText
 	text_end
@@ -200,4 +209,16 @@ SilphCo6FRocket2EndBattleText:
 
 SilphCo6FRocket2AfterBattleText:
 	text_far _SilphCo6FRocket2AfterBattleText
+	text_end
+
+SilphCo6FTamerBattleText:
+	text_far _SilphCo6FTamerBattleText
+	text_end
+
+SilphCo6FTamerEndBattleText:
+	text_far _SilphCo6FTamerEndBattleText
+	text_end
+
+SilphCo6FTamerAfterBattleText:
+	text_far _SilphCo6FTamerAfterBattleText
 	text_end

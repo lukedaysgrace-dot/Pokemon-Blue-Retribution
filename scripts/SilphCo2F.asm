@@ -99,6 +99,8 @@ SilphCo2F_TextPointers:
 	dw_const SilphCo2FScientist2Text,   TEXT_SILPHCO2F_SCIENTIST2
 	dw_const SilphCo2FRocket1Text,      TEXT_SILPHCO2F_ROCKET1
 	dw_const SilphCo2FRocket2Text,      TEXT_SILPHCO2F_ROCKET2
+	dw_const SilphCo2FTamerText,       TEXT_SILPHCO2F_TAMER
+	dw_const SilphCo2FJugglerText,     TEXT_SILPHCO2F_JUGGLER
 
 SilphCo2TrainerHeaders:
 	def_trainers 2
@@ -110,6 +112,10 @@ SilphCo2TrainerHeader2:
 	trainer EVENT_BEAT_SILPH_CO_2F_TRAINER_2, 3, SilphCo2FRocket1BattleText, SilphCo2FRocket1EndBattleText, SilphCo2FRocket1AfterBattleText
 SilphCo2TrainerHeader3:
 	trainer EVENT_BEAT_SILPH_CO_2F_TRAINER_3, 3, SilphCo2FRocket2BattleText, SilphCo2FRocket2EndBattleText, SilphCo2FRocket2AfterBattleText
+SilphCo2TrainerHeader4:
+	trainer EVENT_BEAT_SILPH_CO_2F_TRAINER_4, 3, SilphCo2FTamerBattleText, SilphCo2FTamerEndBattleText, SilphCo2FTamerAfterBattleText
+SilphCo2TrainerHeader5:
+	trainer EVENT_BEAT_SILPH_CO_2F_TRAINER_5, 3, SilphCo2FJugglerBattleText, SilphCo2FJugglerEndBattleText, SilphCo2FJugglerAfterBattleText
 	db -1 ; end
 
 SilphCo2FSilphWorkerFText:
@@ -172,6 +178,18 @@ SilphCo2FRocket2Text:
 	call TalkToTrainer
 	jp TextScriptEnd
 
+SilphCo2FTamerText:
+	text_asm
+	ld hl, SilphCo2TrainerHeader4
+	call TalkToTrainer
+	jp TextScriptEnd
+
+SilphCo2FJugglerText:
+	text_asm
+	ld hl, SilphCo2TrainerHeader5
+	call TalkToTrainer
+	jp TextScriptEnd
+
 SilphCo2FScientist1BattleText:
 	text_far _SilphCo2FScientist1BattleText
 	text_end
@@ -218,4 +236,28 @@ SilphCo2FRocket2EndBattleText:
 
 SilphCo2FRocket2AfterBattleText:
 	text_far _SilphCo2FRocket2AfterBattleText
+	text_end
+
+SilphCo2FTamerBattleText:
+	text_far _SilphCo2FTamerBattleText
+	text_end
+
+SilphCo2FTamerEndBattleText:
+	text_far _SilphCo2FTamerEndBattleText
+	text_end
+
+SilphCo2FTamerAfterBattleText:
+	text_far _SilphCo2FTamerAfterBattleText
+	text_end
+
+SilphCo2FJugglerBattleText:
+	text_far _SilphCo2FJugglerBattleText
+	text_end
+
+SilphCo2FJugglerEndBattleText:
+	text_far _SilphCo2FJugglerEndBattleText
+	text_end
+
+SilphCo2FJugglerAfterBattleText:
+	text_far _SilphCo2FJugglerAfterBattleText
 	text_end

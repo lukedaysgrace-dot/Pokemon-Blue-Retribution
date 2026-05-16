@@ -1243,9 +1243,9 @@ ENDU
 ; money received after battle = base money × level of last enemy mon
 wTrainerBaseMoney:: dw ; BCD
 
-wToggleableObjectCounter:: db
-
-	ds 1
+wToggleableObjectCounter::
+wToggleableObjectCounterLow:: db
+wToggleableObjectCounterHigh:: db
 
 ; 13 bytes for the letters of the opposing trainer
 ; the name is terminated with $50 with possible
@@ -1936,10 +1936,10 @@ wUnusedMapVariable:: db
 wPlayerCoins:: dw ; BCD
 
 ; bit array of toggleable objects; bit set = toggled off
-wToggleableObjectFlags:: flag_array $100
+wToggleableObjectFlags:: flag_array NUM_TOGGLEABLE_OBJECTS
 wToggleableObjectFlagsEnd::
 
-	ds 7
+	ds 6
 
 ; saved copy of SPRITESTATEDATA1_IMAGEINDEX (used for sprite facing/anim)
 wSavedSpriteImageIndex:: db

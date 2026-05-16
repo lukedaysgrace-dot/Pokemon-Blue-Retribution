@@ -72,7 +72,8 @@ InitializeToggleableObjectsFlags:
 	call FillMemory ; clear toggleable objects flags
 	ld hl, ToggleableObjectStates
 	xor a
-	ld [wToggleableObjectCounter], a
+	ld [wToggleableObjectCounterLow], a
+	ld [wToggleableObjectCounterHigh], a
 .toggleableObjectsLoop
 	ld a, [hli]
 	cp -1 ; end of list
@@ -83,17 +84,26 @@ InitializeToggleableObjectsFlags:
 	cp OFF
 	jr nz, .skip
 	ld hl, wToggleableObjectFlags
-	ld a, [wToggleableObjectCounter]
-	ld c, a
+	ld a, [wToggleableObjectCounterLow]
+	ld e, a
+	ld a, [wToggleableObjectCounterHigh]
+	ld d, a
 	ld b, FLAG_SET
 	call ToggleableObjectFlagAction ; set flag if object is toggled off
 .skip
-	ld hl, wToggleableObjectCounter
-	inc [hl]
+	call IncToggleObjectCounterWide
 	pop hl
 	inc hl
 	inc hl
 	jr .toggleableObjectsLoop
+
+IncToggleObjectCounterWide:
+	ld hl, wToggleableObjectCounterLow
+	inc [hl]
+	ret nz
+	inc hl ; wToggleableObjectCounterHigh
+	inc [hl]
+	ret
 
 ; tests if current object is toggled off/has been hidden
 IsObjectHidden:
@@ -108,7 +118,9 @@ IsObjectHidden:
 	cp b
 	ld a, [hli]
 	jr nz, .loop
-	ld c, a
+	ld e, a
+	xor a
+	ld d, a
 	ld b, FLAG_TEST
 	ld hl, wToggleableObjectFlags
 	call ToggleableObjectFlagAction
@@ -127,7 +139,9 @@ ShowObject:
 ShowObject2:
 	ld hl, wToggleableObjectFlags
 	ld a, [wToggleableObjectIndex]
-	ld c, a
+	ld e, a
+	xor a
+	ld d, a
 	ld b, FLAG_RESET
 	call ToggleableObjectFlagAction   ; reset "removed" flag
 	jp UpdateSprites
@@ -137,46 +151,54 @@ ShowObject2:
 HideObject:
 	ld hl, wToggleableObjectFlags
 	ld a, [wToggleableObjectIndex]
-	ld c, a
+	ld e, a
+	xor a
+	ld d, a
 	ld b, FLAG_SET
 	call ToggleableObjectFlagAction   ; set "removed" flag
 	jp UpdateSprites
 
 ToggleableObjectFlagAction:
-; identical to FlagAction
+; FlagAction variant: toggle index passed in DE (high byte unused when idx < $100).
 
-	push hl
-	push de
-	push bc
+	push hl ; base address
+	push bc ; flag action is in B
+	push de ; toggle global index
 
-	; bit
-	ld a, c
-	ld d, a
+	pop de ; index
+	pop bc ; restored B = action code
+	pop hl ; restored base ptr
+
+	push hl ; save base ptr while masking
+
+	ld a, e ; low nybble of toggle index selects the bit inside the packed byte
 	and 7
-	ld e, a
+	inc a ; same loop count convention as vanilla FlagAction
+	ld c, 1
+.loopBitShift
+	dec a
+	jr z, .gotBitShift
+	sla c
+	jr .loopBitShift
+.gotBitShift
 
-	; byte
-	ld a, d
-	srl a
-	srl a
-	srl a
-	add l
+	; de >> 3 (byte offset into the bitmap)
+	srl d
+	rr e
+	srl d
+	rr e
+	srl d
+	rr e
+
+	pop hl
+	ld a, l ; add quotient to base pointer with 16-bit carry
+	add e
 	ld l, a
-	jr nc, .ok
-	inc h
-.ok
+	ld a, h
+	adc d
+	ld h, a
 
-	; d = 1 << e (bitmask)
-	inc e
-	ld d, 1
-.shift
-	dec e
-	jr z, .shifted
-	sla d
-	jr .shift
-.shifted
-
-	ld a, b
+	ld a, b ; action flag
 	and a
 	jr z, .reset
 	cp FLAG_TEST
@@ -185,7 +207,7 @@ ToggleableObjectFlagAction:
 ; set
 	ld a, [hl]
 	ld b, a
-	ld a, d
+	ld a, c
 	or b
 	ld [hl], a
 	jr .done
@@ -193,7 +215,7 @@ ToggleableObjectFlagAction:
 .reset
 	ld a, [hl]
 	ld b, a
-	ld a, d
+	ld a, c
 	xor $ff
 	and b
 	ld [hl], a
@@ -202,12 +224,9 @@ ToggleableObjectFlagAction:
 .read
 	ld a, [hl]
 	ld b, a
-	ld a, d
+	ld a, c
 	and b
 
 .done
-	pop bc
-	pop de
-	pop hl
-	ld c, a
+	ld c, a ; result mirrors FlagAction convention
 	ret

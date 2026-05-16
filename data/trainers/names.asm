@@ -12,7 +12,7 @@ TrainerNames::
 	li "BIKER"
 	li "BURGLAR"
 	li "ENGINEER"
-	li "ARIANA"
+	li "ROCKET ADMIN"
 	li "FISHERMAN"
 	li "SWIMMER"
 	li "SWIMMER♀"

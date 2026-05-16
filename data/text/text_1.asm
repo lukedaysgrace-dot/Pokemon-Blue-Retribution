@@ -13,6 +13,11 @@ _CardKeyFailText::
 	line "CARD KEY!"
 	done
 
+_CardKeyWontWorkSilph11FGiovanniDoorText::
+	text "The CARD KEY"
+	line "won't work!"
+	done
+
 _TrainerNameText::
 	text_ram wNameBuffer
 	text ": @"

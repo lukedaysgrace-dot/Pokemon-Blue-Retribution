@@ -45,6 +45,39 @@ _SilphCo3FScientistAfterBattleText::
 	cont "me study #MON!"
 	done
 
+_SilphCo3FTamer1BattleText::
+	text "Rocket Exec hired"
+	line "real trainers."
+	cont "Guess that's me!"
+	done
+
+_SilphCo3FTamer1EndBattleText::
+	text "Too rough!"
+	prompt
+
+_SilphCo3FTamer1AfterBattleText::
+	text "You'll choke on"
+	line "those warp tiles."
+	cont "Enjoy getting lost!"
+	done
+
+_SilphCo3FJuggler1BattleText::
+	text "SILPH thinks they're"
+	line "smart? We're smarter."
+	cont "Hypnosis incoming!"
+	done
+
+_SilphCo3FJuggler1EndBattleText::
+	text "My timing slipped!"
+	prompt
+
+_SilphCo3FJuggler1AfterBattleText::
+	text "CARD KEY opens doors,"
+	line "sure."
+	cont "Warp maze upstairs"
+	cont "won't forgive you!"
+	done
+
 _SilphCo3FProtonText::
 	text "Wha..."
 	line "You again?!"

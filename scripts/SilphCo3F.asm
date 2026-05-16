@@ -8,11 +8,20 @@ SilphCo3F_Script:
 	ld [wSilphCo3FCurScript], a
 	ret
 
+; Adjacent tiles around the warp panel (Proton stands at 11,11).
+SilphCo3F_ProtonTriggerCoords:
+	dbmapcoord 11, 10
+	dbmapcoord 11, 12
+	dbmapcoord 10, 11
+	dbmapcoord 12, 11
+	db -1 ; end
+
 SilphCo3FGateCallbackScript:
 	ld hl, wCurrentMapScriptFlags
 	bit BIT_CUR_MAP_LOADED_1, [hl]
 	res BIT_CUR_MAP_LOADED_1, [hl]
 	ret z
+	call SilphCo3F_EnforceProtonHiddenUnlessTriggered
 	ld hl, .GateCoordinates
 	call SilphCo2F_SetCardKeyDoorYScript
 	call SilphCo3F_UnlockedDoorEventScript
@@ -36,6 +45,18 @@ SilphCo3FGateCallbackScript:
 	dbmapcoord  4,  4
 	dbmapcoord  8,  4
 	db -1 ; end
+
+; On map load, keep Proton hidden unless the player warps/spawns on a trigger tile.
+SilphCo3F_EnforceProtonHiddenUnlessTriggered:
+	CheckEvent EVENT_BEAT_SILPH_CO_3F_PROTON
+	ret nz
+	ld hl, SilphCo3F_ProtonTriggerCoords
+	call ArePlayerCoordsInArray
+	ret c
+	ld a, TOGGLE_SILPH_CO_3F_PROTON
+	ld [wToggleableObjectIndex], a
+	predef HideObject
+	ret
 
 SilphCo3F_UnlockedDoorEventScript:
 	EventFlagAddress hl, EVENT_SILPH_CO_3_UNLOCKED_DOOR1
@@ -62,7 +83,7 @@ SilphCo3F_ScriptPointers:
 SilphCo3FDefaultScript:
 	CheckEvent EVENT_BEAT_SILPH_CO_3F_PROTON
 	jp nz, .hide_proton
-	ld hl, .ProtonTriggerCoords
+	ld hl, SilphCo3F_ProtonTriggerCoords
 	call ArePlayerCoordsInArray
 	jp nc, CheckFightingMapTrainers
 	ld a, [wCoordIndex]
@@ -102,13 +123,6 @@ SilphCo3FDefaultScript:
 	predef HideObject
 	jp CheckFightingMapTrainers
 
-.ProtonTriggerCoords:
-	dbmapcoord 11, 10
-	dbmapcoord 11, 12
-	dbmapcoord 10, 11
-	dbmapcoord 12, 11
-	db -1 ; end
-
 SilphCo3FSetCurScript:
 	ld [wSilphCo3FCurScript], a
 	ld [wCurMapScript], a
@@ -142,7 +156,8 @@ SilphCo3FProtonBattleScript:
 	call SilphCo3FProtonFacePlayer
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
-	ld a, TEXT_SILPHCO3F_PROTON
+	; Sprite index lets DisplayTextID read TEXT_* from wMapSpriteData; TEXT_SILPHCO3F_* alone is ambiguous.
+	ld a, SILPHCO3F_PROTON
 	ldh [hTextID], a
 	call DisplayTextID
 	xor a
@@ -205,6 +220,8 @@ SilphCo3F_TextPointers:
 	dw_const SilphCo3FScientistText,    TEXT_SILPHCO3F_SCIENTIST
 	dw_const PickUpItemText,            TEXT_SILPHCO3F_HYPER_POTION
 	dw_const SilphCo3FProtonText,       TEXT_SILPHCO3F_PROTON
+	dw_const SilphCo3FTamer1Text,       TEXT_SILPHCO3F_TAMER1
+	dw_const SilphCo3FJuggler1Text,     TEXT_SILPHCO3F_JUGGLER1
 	dw_const SilphCo3FProtonAfterBattleText, TEXT_SILPHCO3F_PROTON_AFTER_BATTLE
 
 SilphCo3TrainerHeaders:
@@ -213,6 +230,10 @@ SilphCo3TrainerHeader0:
 	trainer EVENT_BEAT_SILPH_CO_3F_TRAINER_0, 2, SilphCo3FRocketBattleText, SilphCo3FRocketEndBattleText, SilphCo3FRocketAfterBattleText
 SilphCo3TrainerHeader1:
 	trainer EVENT_BEAT_SILPH_CO_3F_TRAINER_1, 3, SilphCo3FScientistBattleText, SilphCo3FScientistEndBattleText, SilphCo3FScientistAfterBattleText
+SilphCo3TrainerHeader2:
+	trainer EVENT_BEAT_SILPH_CO_3F_TRAINER_2, 2, SilphCo3FTamer1BattleText, SilphCo3FTamer1EndBattleText, SilphCo3FTamer1AfterBattleText
+SilphCo3TrainerHeader3:
+	trainer EVENT_BEAT_SILPH_CO_3F_TRAINER_3, 2, SilphCo3FJuggler1BattleText, SilphCo3FJuggler1EndBattleText, SilphCo3FJuggler1AfterBattleText
 	db -1 ; end
 
 SilphCo3FSilphWorkerMText:
@@ -257,6 +278,18 @@ SilphCo3FScientistText:
 	call TalkToTrainer
 	jp TextScriptEnd
 
+SilphCo3FTamer1Text:
+	text_asm
+	ld hl, SilphCo3TrainerHeader2
+	call TalkToTrainer
+	jp TextScriptEnd
+
+SilphCo3FJuggler1Text:
+	text_asm
+	ld hl, SilphCo3TrainerHeader3
+	call TalkToTrainer
+	jp TextScriptEnd
+
 SilphCo3FScientistBattleText:
 	text_far _SilphCo3FScientistBattleText
 	text_end
@@ -267,6 +300,30 @@ SilphCo3FScientistEndBattleText:
 
 SilphCo3FScientistAfterBattleText:
 	text_far _SilphCo3FScientistAfterBattleText
+	text_end
+
+SilphCo3FTamer1BattleText:
+	text_far _SilphCo3FTamer1BattleText
+	text_end
+
+SilphCo3FTamer1EndBattleText:
+	text_far _SilphCo3FTamer1EndBattleText
+	text_end
+
+SilphCo3FTamer1AfterBattleText:
+	text_far _SilphCo3FTamer1AfterBattleText
+	text_end
+
+SilphCo3FJuggler1BattleText:
+	text_far _SilphCo3FJuggler1BattleText
+	text_end
+
+SilphCo3FJuggler1EndBattleText:
+	text_far _SilphCo3FJuggler1EndBattleText
+	text_end
+
+SilphCo3FJuggler1AfterBattleText:
+	text_far _SilphCo3FJuggler1AfterBattleText
 	text_end
 
 SilphCo3FProtonText:

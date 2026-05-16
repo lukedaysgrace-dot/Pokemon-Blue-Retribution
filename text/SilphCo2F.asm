@@ -96,6 +96,41 @@ _SilphCo2FRocket2AfterBattleText::
 	cont "TEAM ROCKET!"
 	done
 
+_SilphCo2FTamerBattleText::
+	text "TEAM ROCKET pays"
+	line "my bills. You're"
+	cont "not getting past!"
+	done
+
+_SilphCo2FTamerEndBattleText::
+	text "Cheap shot!"
+	prompt
+
+_SilphCo2FTamerAfterBattleText::
+	text "Fine. Crawl deeper"
+	line "into our maze!"
+	cont "See how far it gets"
+	cont "you!"
+	done
+
+_SilphCo2FJugglerBattleText::
+	text "My #MON bend minds,"
+	line "not spoons."
+	cont "You'll hate this!"
+	done
+
+_SilphCo2FJugglerEndBattleText::
+	text "Focused..."
+	line "too hard..."
+	prompt
+
+_SilphCo2FJugglerAfterBattleText::
+	text "Psychics aren't toys,"
+	line "kid. ARCHER keeps"
+	cont "the real monsters"
+	cont "upstairs."
+	done
+
 _SilphCo2FProtonText::
 	text "You're nosing"
 	line "around the wrong"

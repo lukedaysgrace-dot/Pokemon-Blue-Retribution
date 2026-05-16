@@ -105,3 +105,19 @@ _SilphCo6FRocket2AfterBattleText::
 	line "justice, you"
 	cont "betray evil!"
 	done
+
+_SilphCo6FTamerBattleText::
+	text "Rocket brass flew me"
+	line "in for intimidation."
+	cont "You're small prey!"
+	done
+
+_SilphCo6FTamerEndBattleText::
+	text "Out-clobbered!"
+	prompt
+
+_SilphCo6FTamerAfterBattleText::
+	text "SILPH thinks guards"
+	line "matter?"
+	cont "We're worse."
+	done

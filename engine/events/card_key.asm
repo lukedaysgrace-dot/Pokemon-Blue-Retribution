@@ -25,6 +25,19 @@ PrintCardKeyText:
 	ld b, CARD_KEY
 	call IsItemInBag
 	jr z, .noCardKey
+	ld a, [wCurMap]
+	cp SILPH_CO_11F
+	jr nz, .cardKeyProceedUnlock
+	ld a, [wTileInFrontOfPlayer]
+	cp $5e
+	jr nz, .cardKeyProceedUnlock
+	CheckEvent EVENT_BEAT_SILPH_CO_11F_TRAINER_1
+	jr nz, .cardKeyProceedUnlock
+	tx_pre_id CardKeyWontWorkSilph11FGiovanniDoorText
+	ldh [hTextID], a
+	jp PrintPredefTextID
+
+.cardKeyProceedUnlock
 	call GetCoordsInFrontOfPlayer
 	push de
 	tx_pre_id CardKeySuccessText
@@ -68,6 +81,10 @@ CardKeySuccessText::
 
 CardKeyFailText::
 	text_far _CardKeyFailText
+	text_end
+
+CardKeyWontWorkSilph11FGiovanniDoorText::
+	text_far _CardKeyWontWorkSilph11FGiovanniDoorText
 	text_end
 
 ; d = Y
