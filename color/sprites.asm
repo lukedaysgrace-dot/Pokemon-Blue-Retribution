@@ -798,7 +798,10 @@ SpritePaletteAssignments: ; Characters on the overworld
 	db SPR_PAL_RANDOM
 
 	; 0x8d: SPRITE_SWIMMER_F
-	db SPR_PAL_RANDOM
+	db SPR_PAL_ORANGE
+
+	; 0x8e: SPRITE_ROCKET_GIRL (match male GRUNT browns / uniform)
+	db SPR_PAL_ORANGE
 
 	assert_table_length NUM_SPRITES
 

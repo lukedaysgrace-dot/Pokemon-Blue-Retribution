@@ -61,4 +61,5 @@ TrainerAIPointers:
 	dbw 4, EliteFourAI     ; PROTON
 	dbw 4, BlueAI          ; ARCHER
 	dbw 4, CooltrainerMAI  ; SOLDIER
+	dbw 3, CooltrainerMAI  ; ROCKET_F
 	assert_table_length NUM_TRAINERS

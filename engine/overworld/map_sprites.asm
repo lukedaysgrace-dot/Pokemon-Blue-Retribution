@@ -118,7 +118,7 @@ LoadMapSpriteTilePatterns:
 	jr c, .notFourTileSprite
 	cp SPRITE_YOUNGSTER_NEW
 	jr c, .checkStillCutoff
-	cp SPRITE_SWIMMER_F + 1
+	cp SPRITE_ROCKET_GIRL + 1
 	jr c, .notFourTileSprite
 .checkStillCutoff
 	cp FIRST_STILL_SPRITE ; is it a 4-tile sprite?

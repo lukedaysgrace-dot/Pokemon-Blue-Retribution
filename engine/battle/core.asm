@@ -7299,6 +7299,8 @@ _LoadTrainerPic:
 	jr z, .trainerPicOverflow
 	cp ROCKET
 	jr z, .trainerPicOverflow
+	cp ROCKET_F
+	jr z, .trainerPicOverflow
 	ld a, [wLinkState]
 	and a
 	ld a, BANK("Trainer Pics")
@@ -7313,13 +7315,6 @@ _LoadTrainerPic:
 	ld a, $77
 	ld c, a
 	jp LoadUncompressedSpriteData
-
-; unreferenced
-ResetCryModifiers:
-	xor a
-	ld [wFrequencyModifier], a
-	ld [wTempoModifier], a
-	jp PlaySound
 
 ; animates the mon "growing" out of the pokeball
 AnimateSendingOutMon:

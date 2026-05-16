@@ -105,6 +105,7 @@ ArcherSprite::            INCBIN "gfx/sprites/archer.2bpp"
 PetrelSprite::            INCBIN "gfx/sprites/petrel.2bpp"
 ProtonSprite::            INCBIN "gfx/sprites/proton.2bpp"
 SoldierSprite::           INCBIN "gfx/sprites/soldier.2bpp"
+RocketGirlSprite::        INCBIN "gfx/sprites/rocket_girl.2bpp"
 
 
 ; Keep the larger Pokemon-specific overworld sheets outside the cramped legacy NPC

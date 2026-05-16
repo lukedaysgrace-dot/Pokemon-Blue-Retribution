@@ -1,7 +1,6 @@
 ; Must satisfy OPP_ID_OFFSET + last trainer class <= 255 (8-bit wCurOpponent /
-; wEngagedTrainerClass). With SOLDIER at $39, 199 + $39 = 256 wraps to 0 and
-; breaks trainer battles (wild path, no fight after dialogue).
-DEF OPP_ID_OFFSET EQU 198
+; wEngagedTrainerClass). ROCKET_F is $3A; offset 197 + 58 = 255.
+DEF OPP_ID_OFFSET EQU 197
 
 MACRO trainer_const
 	const \1
@@ -79,4 +78,5 @@ DEF OPP_KAREN EQU OPP_BRUNO
 	trainer_const PROTON         ; $37
 	trainer_const ARCHER         ; $38
 	trainer_const SOLDIER        ; $39
+	trainer_const ROCKET_F       ; $3a
 DEF NUM_TRAINERS EQU const_value - 1

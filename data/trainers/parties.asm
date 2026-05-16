@@ -57,6 +57,7 @@ TrainerDataPointers:
 	dw ProtonData
 	dw ArcherData
 	dw SoldierData
+	dw RocketData ; ROCKET_F: same parties as TEAM ROCKET
 	assert_table_length NUM_TRAINERS
 
 ; if first byte != $FF, then
