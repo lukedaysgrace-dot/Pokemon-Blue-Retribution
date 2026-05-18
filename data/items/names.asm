@@ -88,8 +88,6 @@ ItemNames::
 	li "ARMOR FOSSIL"
 	li "CLAW FOSSIL"
 	li "ROOT FOSSIL"
-	li "JAW FOSSIL"
-	li "SAIL FOSSIL"
 	assert_list_length NUM_ITEMS
 	li "B2F"
 	li "B1F"

@@ -46,7 +46,6 @@ _AddPartyMon::
 	ld hl, wPartyMonNicks
 	ldh a, [hNewPartyLength]
 	dec a
-	ld [wWhichPokemon], a
 	call SkipFixedLengthTextEntries
 	ld a, NAME_MON_SCREEN
 	ld [wNamingScreenType], a

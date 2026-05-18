@@ -339,12 +339,6 @@ MtMoonB2FCheckHasAllOtherFossils:
 	ret z
 	ld b, ROOT_FOSSIL
 	call IsItemInBag
-	ret z
-	ld b, JAW_FOSSIL
-	call IsItemInBag
-	ret z
-	ld b, SAIL_FOSSIL
-	call IsItemInBag
 	ret
 
 MtMoonB2FGiveSuperNerdFossil:
