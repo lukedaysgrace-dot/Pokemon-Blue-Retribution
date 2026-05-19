@@ -1,10 +1,9 @@
-; Phase 1 trainer move AI (layers 1-3), adapted from Shin Pokémon Red (joenote).
+; Phase 1 trainer move AI (layers 1-3), adapted from Shin Pokémon Red.
 AIMoveChoiceModification1:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;	ld a, [wBattleMonStatus]
 ;	and a
 ;	ret z ; return if no status ailment on player's mon
-;joenote - don't return yet. going to check for dream eater. will do this later
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
 	ld b, NUM_MOVES + 1
@@ -19,7 +18,6 @@ AIMoveChoiceModification1:
 	call ReadMove
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .checkBadMoves
-;joenote - do not use effects that end battle because this is a trainer battle and they do not work
 	ld a, [wEnemyMoveEffect]	;load the move effect
 	cp SWITCH_AND_TELEPORT_EFFECT	;see if it is a battle-ending effect
 	jp z, .heavydiscourage	;heavily discourage if so
@@ -40,7 +38,6 @@ AIMoveChoiceModification1:
 .endBadMoves
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;joenote - do not use dream eater if enemy not asleep, otherwise encourage it
 	ld a, [wEnemyMoveEffect]	;load the move effect
 	cp DREAM_EATER_EFFECT	;see if it is dream eater
 	jr nz, .notdreameater	;skip out if move is not dream eater
@@ -55,7 +52,6 @@ AIMoveChoiceModification1:
 .notdreameater	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;joenote - do not use counter against a non-applicable move
 	ld a, [wEnemyMoveNum]	
 	cp COUNTER
 	jr nz, .countercheck_end	;if this move is not counter then jump out
@@ -73,7 +69,6 @@ AIMoveChoiceModification1:
 .countercheck_end
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;joenote - do not use moves that are ineffective against substitute if a substitute is up
 	ld a, [wPlayerBattleStatus2]
 	bit HAS_SUBSTITUTE_UP, a	;check for substitute bit
 	jr z, .noSubImm	;if the substitute bit is not set, then skip out of this block
@@ -157,8 +152,7 @@ AIMoveChoiceModification1:
 .twoturndone
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;joenote - discourage the use of fly or dig if a slower player is doing the same
-; this is because the faster 'mon always misses if both decide to use fly/dig
+; Discourage fly/dig when a slower player is also using fly/dig (faster mon misses).
 	ld a, [wEnemyMoveNum]
 	call IsDigOrFly
 	jr nz, .end_bothusedigorfly
@@ -186,7 +180,6 @@ AIMoveChoiceModification1:
 ;At this line onward all moves are assumed to be zero power
 ;**************************************************************************************************************************
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;joenote - slightly discourage all zero power moves if the player's pokemon has < 1/2 HP remaining
 	ld a, 2
 	call AICheckIfPlayerHPBelowFraction
 	jr nc, .end_playerHPcheck
@@ -194,7 +187,6 @@ AIMoveChoiceModification1:
 .end_playerHPcheck
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;joenote - do not use haze if user has no status or neutral stat mods
 	ld a, [wEnemyMoveEffect]	;load the move effect
 	cp HAZE_EFFECT	;see if it is haze
 	jp nz, .hazekickout	;move on if not haze
@@ -219,7 +211,6 @@ AIMoveChoiceModification1:
 .hazekickout
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;joenote - do not use disable on a pkmn that is already disabled
 	ld a, [wEnemyMoveEffect]	;load the move effect
 	cp DISABLE_EFFECT
 	jr nz, .notdisable
@@ -229,7 +220,6 @@ AIMoveChoiceModification1:
 .notdisable
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;joenote - do not use substitute if not enough hp
 	ld a, [wEnemyMoveEffect]
 	cp SUBSTITUTE_EFFECT
 	jr nz, .notsubstitute
@@ -239,7 +229,6 @@ AIMoveChoiceModification1:
 .notsubstitute
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;joenote - do not use moves that are blocked by mist
 	ld a, [wPlayerBattleStatus2]
 	bit PROTECTED_BY_MIST, a	;check for mist bit
 	jr z, .noMistImm	;if the mist bit is not set, then skip out of this block
@@ -258,7 +247,6 @@ AIMoveChoiceModification1:
 .noMistImm	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;joenote - do not use defense-up moves if opponent is special attacking
 	ld a, [wEnemyMoveEffect]	;get the move effect
 	cp LIGHT_SCREEN_EFFECT	
 	jr z, .do_def_check
@@ -292,7 +280,6 @@ AIMoveChoiceModification1:
 .nodefupmove
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;joenote - heavily discourage stat modifying moves if it would hit the mod limit and be ineffective
 	;check for stat down effects
 	ld a, [wEnemyMoveEffect]	;get the move effect
 	cp ATTACK_DOWN1_EFFECT	
@@ -359,7 +346,6 @@ AIMoveChoiceModification1:
 .endstatmod
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;joenote - heavily discourage moves that do not stack
 	;check each of the stackabe effects one by one and jump to the corresponding section
 	ld a, [wEnemyMoveEffect]
 	cp LIGHT_SCREEN_EFFECT
@@ -418,7 +404,6 @@ AIMoveChoiceModification1:
 .endstacking
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;joenote - discourage using confuse-only moves on confused pkmn
 	ld a, [wEnemyMoveEffect]
 	cp CONFUSION_EFFECT	;see if the move has a confusion effect
 	jr nz, .notconfuse	;skip out if move is not a zero-power confusion move
@@ -446,7 +431,6 @@ AIMoveChoiceModification1:
 .nostatusconflict
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;joenote: fix spamming of buff/debuff moves
 	;See if the move has an effect that should not be dissuaded
 	ld a, [wEnemyMoveEffect]
 	push hl
@@ -510,14 +494,13 @@ AIMoveChoiceModification1:
 .skipoutspam
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;joenote - end of this AI layer
 	jp .nextMove
 .heavydiscourage
 	ld a, [hl]
 	add $5 ; heavily discourage move
 	ld [hl], a
 	jp .nextMove
-.givepref	;joenote - added marker
+.givepref
 	dec [hl] ; slightly encourage this move
 	jp .nextMove
 
@@ -537,7 +520,7 @@ StatusAilmentMoveEffects:
 	db PARALYZE_EFFECT
 	db $FF
 
-SubstituteImmuneEffects:	;joenote - added this table to track for substitute immunities
+SubstituteImmuneEffects:
 	db $01 ; unused sleep effect
 	db SLEEP_EFFECT
 	db POISON_EFFECT
@@ -547,7 +530,7 @@ SubstituteImmuneEffects:	;joenote - added this table to track for substitute imm
 	db LEECH_SEED_EFFECT
 	db DREAM_EATER_EFFECT
 	;fall through
-MistBlockEffects:	;joenote - added this table to track for things blocked by mist
+MistBlockEffects:
 	db ATTACK_DOWN1_EFFECT
 	db DEFENSE_DOWN1_EFFECT
 	db SPEED_DOWN1_EFFECT
@@ -562,13 +545,13 @@ MistBlockEffects:	;joenote - added this table to track for things blocked by mis
 	db EVASION_DOWN2_EFFECT
 	db $FF
 
-SpecialZeroBPMoves:	;joenote - added this table to tracks 0 bp moves that should not be treated as buffs
+SpecialZeroBPMoves:
 	db BIDE
 	db METRONOME
 	db THUNDER_WAVE
 	db $FF
 	
-OtherZeroBPEffects:	;joenote - added to keep track of some outliers
+OtherZeroBPEffects:
 	db LEECH_SEED_EFFECT
 	db DISABLE_EFFECT
 	db CONFUSION_EFFECT
@@ -579,7 +562,7 @@ OtherZeroBPEffects:	;joenote - added to keep track of some outliers
 ; that fall in-between
 AIMoveChoiceModification2:
 	ld a, [wAILayer2Encouragement]
-	and a ;cp $1	;joenote - AI layer 2 should activate on 1st turn instead of 2nd turn after sendout
+	and a
 	ret nz
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
@@ -610,7 +593,6 @@ AIMoveChoiceModification2:
 ; encourages moves that are effective against the player's mon (even if non-damaging).
 ; discourage damaging moves that are ineffective or not very effective against the player's mon,
 ; unless there's no damaging move that deals at least neutral damage
-; joenote - updated to also do some more advanced battle strategies
 AIMoveChoiceModification3:
 ; If the player used the turn for a switch, item, etc., skip type logic (no free switch-in info).
 	ld a, [wActionResultOrTookBattleTurn]
@@ -746,7 +728,6 @@ AIMoveChoiceModification3:
 ;.blind_end
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;joenote - heavily discourage attack moves that have no effect due to typing
 	push hl
 	push bc
 	push de
@@ -774,7 +755,6 @@ AIMoveChoiceModification3:
 	jp z, .nextMove
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;joenote - do not use ohko moves on faster opponents, since they will auto-miss
 	ld a, [wEnemyMoveEffect]	;load the move effect
 	cp OHKO_EFFECT	;see if it is ohko move
 	jr nz, .skipout3	;skip ahead if not ohko move
@@ -788,8 +768,6 @@ AIMoveChoiceModification3:
 .skipout3	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;joenote: static damage value moves should not be accounted for typing
-;at the same time, randomly bump their preference to spice things up
 	ld a, [wEnemyMovePower]	;get the base power of the enemy's attack
 	cp $1	;check if it is 1. special damage moves assumed to have 1 base power
 	jr nz, .skipout4	;skip down if it's not a special damage move
@@ -853,7 +831,7 @@ AIMoveChoiceModification3:
 	jp .nextMove
 .isSuperEffectiveMove
 	;at this line, move is super effective
-.givepref	;joenote - added marker
+.givepref
 	dec [hl] ; slightly encourage this move
 	jp .nextMove
 .notEffectiveMove ; discourages non-effective moves if better moves are available 

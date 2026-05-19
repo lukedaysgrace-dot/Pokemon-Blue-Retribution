@@ -166,8 +166,6 @@ JrTrainerMData:
 	db 19, RATTATA, DIGLETT, EKANS, SANDSHREW, 0
 ; Route 12
 	db 29, NIDORINO, NIDORINO, 0
-;joenote - special fight with future trainer red
-	db $FF, 83, LAPRAS, 85, VENUSAUR, 85, CHARIZARD, 85, BLASTOISE, 87, SNORLAX, 88, PIKACHU, 0	;jr trainer male #9
 ; Unused
 	;db 18,DIGLETT,DIGLETT,SANDSHREW,0
 JrTrainerFData:
@@ -411,19 +409,16 @@ PsychicData:
 RockerData:
 ; Route 12
 	db 29, ELECTABUZZ, JOLTEON, 0
-JugglerData:	;joenote - tweaked some parties
+JugglerData:
 ; Silph Co. 5F
 	db 29, KADABRA, MR_MIME, 0
 ; Victory Road 2F
 	db 41, HYPNO, HYPNO, ALAKAZAM, ALAKAZAM, 0
-	db 48, TANGROWTH, GOLEM, 0	;db 48, MR_MIME, 0
+	db 48, TANGROWTH, GOLEM, 0
 ; Fuchsia Gym
-	db 33, VILEPLUME, HAUNTER, VENOMOTH, KOFFING, 0	;db 31, DROWZEE, HYPNO, KADABRA, DROWZEE, 0
-	db 38, SCOLIPEDE, BEEDRILL, 0	;db 38, HYPNO, 0
+	db 33, VILEPLUME, HAUNTER, VENOMOTH, KOFFING, 0
+	db 38, SCOLIPEDE, BEEDRILL, 0
 	db 34, HYPNO, HYPNO, 0
-; Unused
-	;db 34,DROWZEE,KADABRA,0	;joenote - in fuschia gym, replaced by Janine
-	;db 33,HYPNO,0
 ; Silph Co. hired showcase — roster 6 filler; rosters 7–8 with Tamers upstairs
 	db 29, ABRA, 0
 	db 30, HYPNO, MR_MIME, 0
@@ -468,7 +463,7 @@ BirdKeeperData:
 	;db 42,FARFETCHD,FEAROW,0
 BlackbeltData:
 ; Fighting Dojo
-	db $FF, 38, HITMONLEE, 38, HITMONCHAN, 0	;joenote - dojo master raised 1 level to get some extra moves
+	db $FF, 38, HITMONLEE, 38, HITMONCHAN, 0
 	db 31, PRIMEAPE, PRIMEAPE, PRIMEAPE, 0
 	db 32, MACHOKE, MACHOKE, 0
 	db 36, POLIWRATH, 0
@@ -492,16 +487,10 @@ Rival1Data:
 	db $FF, 18, PIDGEOTTO, 15, ABRA, 15, RATTATA, 17, IVYSAUR, 0
 	db $FF, 18, PIDGEOTTO, 15, ABRA, 15, RATTATA, 17, CHARMELEON, 0
 ProfOakData:
-; Unused - joenote: restored
-	db $FF, 66, TAUROS, 67, EXEGGUTOR, 68, ARCANINE, 69, BLASTOISE, 70, GYARADOS, 0
-	db $FF, 66, TAUROS, 67, EXEGGUTOR, 68, ARCANINE, 69, VENUSAUR, 70, GYARADOS, 0
-	db $FF, 66, TAUROS, 67, EXEGGUTOR, 68, ARCANINE, 69, CHARIZARD, 70, GYARADOS, 0
+; Oak's Lab postgame dex-completion fight - wTrainerNo 1
+	db $FF, 75, TAUROS, 75, DRAGONITE, 75, EXEGGUTOR, 75, CLOYSTER, 75, SNORLAX, 75, CHARIZARD, 0
 ChiefData:
 ; none
-;joenote - special fight with the silph chief
-	db $FF, 72, KANGASKHAN, 73, RHYPERIOR, 73, GOLDUCK, 74, PINSIR, 74, SCYTHER, 76, TAUROS, 0
-	db $FF, 128, $B5, 0	;joenote - fight with missingno
-	db $FF, 128, $B5, 128, $B5, 128, $B5, 0	;joenote - another superboss
 ScientistData:
 ; Silph Co. 2F
 	db 26, GRIMER, PORYGON, PORYGON2, 0
@@ -526,8 +515,6 @@ ScientistData:
 	db 33, MAGNETON, MAGNETON, LICKILICKY, 0
 ; Mansion B1F
 	db 34, MAGNETON, ELECTRODE, 0
-; Unused/joenote - restored and put in Mansion 1F
-	db 34, KOFFING, ELECTRODE, 0
 GiovanniData:
 ; Rocket Hideout B4F
 	db $FF, 24, PHANPY, 27, RHYHORN, 28, KABUTO, 29, KANGASKHAN, 0
@@ -674,8 +661,6 @@ GentlemanData:
 	db 23, PIKACHU, 0
 ; SS Anne 2F Rooms
 	db 17, GROWLITHE, PONYTA, 0
-;joenote - special fight with mr fuji
-	db $FF, 69, MAROWAK, 70, OMASTAR, 70, KABUTOPS, 71, AERODACTYL, 73, ARCANINE, 100, DITTO, 0	;gentleman #5
 ; Unused
 	;db 48,PRIMEAPE,0
 Rival2Data:

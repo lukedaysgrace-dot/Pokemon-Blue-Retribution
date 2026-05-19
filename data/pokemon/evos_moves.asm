@@ -2205,6 +2205,9 @@ SquirtleEvosMoves:
 	db 28, WITHDRAW
 	db 35, BUBBLEBEAM
 	db 42, HYDRO_PUMP
+	db 98, FRENZY_PLANT
+	db 99, HYDRO_CANNON
+	db 100, BLAST_BURN
 	db 0
 
 CharmeleonEvosMoves:

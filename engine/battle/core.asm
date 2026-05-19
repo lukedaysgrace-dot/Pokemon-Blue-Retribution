@@ -6210,6 +6210,12 @@ LoadEnemyMonData:
 	jr z, .perfectTrainerDVs
 	cp GREEN_ROCKET
 	jr z, .perfectTrainerDVs
+	cp PROF_OAK
+	jr nz, .notOaksLabOakBattleDVs
+	ld a, [wTrainerNo]
+	cp 1
+	jr z, .perfectTrainerDVs
+.notOaksLabOakBattleDVs
 	cp GIOVANNI
 	jr z, .perfectTrainerDVs
 	cp JANINE

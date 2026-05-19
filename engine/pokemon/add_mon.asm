@@ -91,6 +91,12 @@ _AddPartyMon::
 	jr z, .enemyPerfectDVs
 	cp GREEN_ROCKET
 	jr z, .enemyPerfectDVs
+	cp PROF_OAK
+	jr nz, .notOaksLabOakPartyDVs
+	ld a, [wTrainerNo]
+	cp 1
+	jr z, .enemyPerfectDVs
+.notOaksLabOakPartyDVs
 	cp GIOVANNI
 	jr z, .enemyPerfectDVs
 	cp JANINE
@@ -295,6 +301,18 @@ _AddPartyMon::
 	jp nz, .checkGreenOtherFightsStatExp
 	ld a, [wTrainerNo]
 	cp 16
+	jp nz, .checkOaksLabOakStatExp
+	ld b, $66
+	ld c, $66
+	jp .writeTrainerStatExp
+
+.checkOaksLabOakStatExp
+	; Oak's Lab postgame Oak is wTrainerNo 1: 0x6666 each stat (same as Pallet Green).
+	ld a, [wTrainerClass]
+	cp PROF_OAK
+	jp nz, .checkGreenOtherFightsStatExp
+	ld a, [wTrainerNo]
+	cp 1
 	jp nz, .checkGreenOtherFightsStatExp
 	ld b, $66
 	ld c, $66

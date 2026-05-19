@@ -26,3 +26,38 @@ CountSetBits::
 .storeCount
 	ld [wNumSetBits], a
 	ret
+
+; Returns carry if the original 150 Pokédex entries are owned.
+; Mew (#151, bit 6 of byte 18) is intentionally ignored.
+Original150PokedexComplete::
+	ld hl, wPokedexOwned
+	ld b, 18
+.checkFullBytes
+	ld a, [hli]
+	cp $ff
+	jr nz, .notComplete
+	dec b
+	jr nz, .checkFullBytes
+	ld a, [hl]
+	and %00111111
+	cp %00111111
+	jr nz, .notComplete
+	scf
+	ret
+.notComplete
+	and a
+	ret
+
+; Returns carry if the original 151 Pokédex entries are owned (includes MEW).
+Original151PokedexComplete::
+	call Original150PokedexComplete
+	ret nc
+	ld hl, wPokedexOwned + 18
+	ld a, [hl]
+	bit 6, a ; DEX_MEW
+	jr z, .notComplete
+	scf
+	ret
+.notComplete
+	and a
+	ret
