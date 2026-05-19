@@ -362,7 +362,6 @@ INCLUDE "engine/items/itemfinder.asm"
 SECTION "Vending Machine", ROMX
 
 INCLUDE "engine/events/vending_machine.asm"
-INCLUDE "engine/overworld/elevator.asm"
 
 
 SECTION "Itemfinder 2", ROMX
@@ -390,3 +389,4 @@ INCLUDE "data/moves/animations.asm"
 INCLUDE "data/battle_anims/subanimations.asm"
 INCLUDE "data/battle_anims/frame_blocks.asm"
 INCLUDE "engine/movie/evolution.asm"
+INCLUDE "engine/overworld/elevator.asm"

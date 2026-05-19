@@ -36,30 +36,6 @@ OaksLab_ScriptPointers:
 	dw_const OaksLabOakGivesPokedexScript,           SCRIPT_OAKSLAB_OAK_GIVES_POKEDEX
 	dw_const OaksLabRivalLeavesWithPokedexScript,    SCRIPT_OAKSLAB_RIVAL_LEAVES_WITH_POKEDEX
 	dw_const OaksLabNoopScript,                      SCRIPT_OAKSLAB_NOOP
-	dw_const OaksLabOakAfterBattleScript,            SCRIPT_OAKSLAB_OAK_AFTER_BATTLE
-
-OaksLabOakAfterBattleScript:
-	ld a, [wIsInBattle]
-	and a
-	ret nz ; battle in progress
-	ld a, [wCurOpponent]
-	and a
-	ret nz ; keep opponent set until NewBattle runs
-	CheckEvent EVENT_BEAT_OAKS_LAB_OAK
-	jr nz, .reset
-	ld a, PAD_CTRL_PAD
-	ld [wJoyIgnore], a
-	SetEvent EVENT_BEAT_OAKS_LAB_OAK
-	xor a
-	ld [wCurOpponent], a
-	predef HealParty
-	ld a, TEXT_OAKSLAB_OAK1
-	ldh [hTextID], a
-	call DisplayTextID
-.reset
-	xor a
-	ld [wOaksLabCurScript], a
-	ret
 
 OaksLabDefaultScript:
 	CheckEvent EVENT_OAK_APPEARED_IN_PALLET
@@ -1243,35 +1219,6 @@ OaksLabOak1Text:
 	CheckEvent EVENT_GOT_POKEDEX
 	jr z, .check_for_poke_balls
 .already_got_poke_balls
-	CheckEvent EVENT_BEAT_OAKS_LAB_OAK
-	jr nz, .afterOakBattle
-	call Original151PokedexComplete
-	jr nc, .showDexRating
-	ld a, BANK(Music_MeetProfOak)
-	ld c, a
-	ld a, MUSIC_MEET_PROF_OAK
-	call PlayMusic
-	ld hl, OaksLabOakPostgameBeforeBattleText
-	call PrintText
-	ld hl, wStatusFlags3
-	set BIT_TALKED_TO_TRAINER, [hl]
-	set BIT_PRINT_END_BATTLE_TEXT, [hl]
-	ld hl, OaksLabOakPostgameEndBattleText
-	ld de, OaksLabOakPostgamePlayerLoseText
-	call SaveEndBattleTextPointers
-	ld a, OPP_PROF_OAK
-	ld [wCurOpponent], a
-	ld [wEnemyMonOrTrainerClass], a
-	ld a, 1
-	ld [wTrainerNo], a
-	ld a, SCRIPT_OAKSLAB_OAK_AFTER_BATTLE
-	ld [wOaksLabCurScript], a
-	jp .done
-.afterOakBattle
-	ld hl, OaksLabOakPostgameAfterBattleText
-	call PrintText
-	jp .done
-.showDexRating
 	ld hl, .HowIsYourPokedexComingText
 	call PrintText
 	ld a, $1
@@ -1365,58 +1312,6 @@ OaksLabOak1Text:
 .HowIsYourPokedexComingText:
 	text_far _OaksLabOak1HowIsYourPokedexComingText
 	text_end
-
-OaksLabOakPostgameBeforeBattleText:
-	text "Ah, <PLAYER>!"
-
-	para "You've completed"
-	line "your #DEX,"
-	cont "including MEW!"
-
-	para "All 151 #MON!"
-
-	para "Magnificent work!"
-	line "Truly, you have"
-	cont "become a fine"
-	cont "trainer."
-
-	para "In my younger"
-	line "days, I traveled"
-	cont "far and wide with"
-	cont "a team of my own."
-
-	para "Would you grant"
-	line "an old man one"
-	cont "last battle?"
-	done
-
-OaksLabOakPostgameEndBattleText:
-	text "Splendid!"
-	line "You live up to"
-	cont "your reputation!"
-	prompt
-
-OaksLabOakPostgamePlayerLoseText:
-	text "Take your time,"
-	line "<PLAYER>."
-	cont "Train hard and"
-	cont "try again!"
-	done
-
-OaksLabOakPostgameAfterBattleText:
-	text "Ha ha! I knew"
-	line "you would win."
-
-	para "Completing the"
-	line "#DEX was only"
-	cont "the beginning."
-
-	para "Keep exploring,"
-	line "keep learning,"
-	cont "and never lose"
-	cont "your love for"
-	cont "#MON!"
-	done
 
 OaksLabPokedexText:
 	text_asm

@@ -281,12 +281,33 @@ PalletTownShouldShowGreen:
 	jr z, .hide
 	CheckEvent EVENT_BEAT_PALLET_TOWN_GREEN
 	jr nz, .hide
-	call Original150PokedexComplete
+	call PalletTownOriginal150PokedexComplete
 	jr nc, .hide
 	ld a, TRUE
 	ret
 .hide
 	xor a
+	ret
+
+; Returns carry if the original 150 Pokédex entries are owned.
+; Mew (#151, bit 6 of byte 18) is intentionally ignored.
+PalletTownOriginal150PokedexComplete:
+	ld hl, wPokedexOwned
+	ld b, 18
+.checkFullBytes
+	ld a, [hli]
+	cp $ff
+	jr nz, .notComplete
+	dec b
+	jr nz, .checkFullBytes
+	ld a, [hl]
+	and %00111111
+	cp %00111111
+	jr nz, .notComplete
+	scf
+	ret
+.notComplete
+	and a
 	ret
 
 PalletTown_TextPointers:

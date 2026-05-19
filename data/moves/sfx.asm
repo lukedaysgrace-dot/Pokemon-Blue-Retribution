@@ -166,9 +166,6 @@ MoveSoundTable:
 	db SFX_NOT_VERY_EFFECTIVE, $01, $ff ; SLASH
 	db SFX_BATTLE_2C,          $d8, $04 ; SUBSTITUTE
 	db SFX_BATTLE_25,          $11, $e0 ; FOCUS_ENERGY
-	db SFX_BATTLE_29,          $2f, $10 ; BLAST_BURN
-	db SFX_BATTLE_2A,          $f0, $40 ; HYDRO_CANNON
-	db SFX_BATTLE_12,          $20, $e0 ; FRENZY_PLANT
 	db SFX_BATTLE_0B,          $00, $80 ; STRUGGLE
 	assert_table_length NUM_ATTACKS
 	db SFX_BATTLE_0B,          $00, $80
