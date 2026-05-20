@@ -212,9 +212,10 @@ HoFLoadPlayerPics:
 	ld a, BANK(RedPicBack)
 .hofBackPicBankReady
 	call UncompressSpriteFromDE
-	ld de, vBackPic
 	predef ScaleSpriteByTwo
-	jp InterlaceMergeSpriteBuffers
+	ld de, vBackPic
+	call InterlaceMergeSpriteBuffers
+	ld c, $1
 
 HoFLoadMonPlayerPicTileIDs:
 ; c = base tile ID

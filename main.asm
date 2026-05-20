@@ -208,8 +208,6 @@ SECTION "Base Stats Data", ROMX
 
 INCLUDE "data/pokemon/base_stats.asm"
 
-INCLUDE "data/pokemon/back_hd_pics.asm"
-
 
 SECTION "Battle Core", ROMX
 
