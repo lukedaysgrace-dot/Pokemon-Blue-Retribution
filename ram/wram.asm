@@ -1786,10 +1786,6 @@ wPokedexOwnedEnd::
 wPokedexSeen:: flag_array NUM_POKEMON
 wPokedexSeenEnd::
 
-wNumBagItems:: db
-; item, quantity
-wBagItems:: ds BAG_ITEM_CAPACITY * 2 + 1
-
 wPlayerMoney:: ds 3 ; BCD
 
 wRivalName:: ds NAME_LENGTH
@@ -1863,7 +1859,15 @@ wWarpEntries:: ds MAX_WARP_EVENTS * 4 ; Y, X, warp ID, map ID
 ; if $ff, the player's coordinates are not updated when entering the map
 wDestinationWarpID:: db
 
-	ds 128
+wBagDataStart::
+
+wNumBagItems:: db
+; item, quantity
+wBagItems:: ds BAG_ITEM_CAPACITY * 2 + 1
+
+wBagDataEnd::
+
+	ds 46 ; padding (was 128; bag uses 82 bytes of that space)
 
 ; number of signs in the current map (up to MAX_BG_EVENTS)
 wNumSigns:: db

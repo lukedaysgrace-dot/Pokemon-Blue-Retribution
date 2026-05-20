@@ -61,6 +61,10 @@ LoadMainData:
 	ld de, wPlayerName
 	ld bc, NAME_LENGTH
 	call CopyData
+	ld hl, sBagData
+	ld de, wBagDataStart
+	ld bc, wBagDataEnd - wBagDataStart
+	call CopyData
 	ld hl, sMainData
 	ld de, wMainDataStart
 	ld bc, wMainDataEnd - wMainDataStart
@@ -216,6 +220,10 @@ SaveMainData:
 	ld hl, wPlayerName
 	ld de, sPlayerName
 	ld bc, NAME_LENGTH
+	call CopyData
+	ld hl, wBagDataStart
+	ld de, sBagData
+	ld bc, wBagDataEnd - wBagDataStart
 	call CopyData
 	ld hl, wMainDataStart
 	ld de, sMainData

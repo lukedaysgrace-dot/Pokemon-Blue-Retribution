@@ -15,6 +15,7 @@ SECTION "Save Data", SRAM
 
 sGameData::
 sPlayerName::  ds NAME_LENGTH
+sBagData::     ds wBagDataEnd - wBagDataStart
 sMainData::    ds wMainDataEnd - wMainDataStart
 sSpriteData::  ds wSpriteDataEnd - wSpriteDataStart
 sPartyData::   ds wPartyDataEnd - wPartyDataStart
