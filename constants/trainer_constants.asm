@@ -1,6 +1,11 @@
 ; Must satisfy OPP_ID_OFFSET + last trainer class <= 255 (8-bit wCurOpponent /
-; wEngagedTrainerClass). ROCKET_F is $3A; offset 197 + 58 = 255.
+; wEngagedTrainerClass). Blue: EXILE_BRUNO $3B, offset 196 + 59 = 255.
+; Red: ROCKET_F $3A, offset 197 + 58 = 255.
+IF DEF(_RED)
 DEF OPP_ID_OFFSET EQU 197
+ELSE
+DEF OPP_ID_OFFSET EQU 196
+ENDC
 
 MACRO trainer_const
 	const \1
@@ -79,4 +84,7 @@ DEF OPP_KAREN EQU OPP_BRUNO
 	trainer_const ARCHER         ; $38
 	trainer_const SOLDIER        ; $39
 	trainer_const ROCKET_F       ; $3a
+IF DEF(_BLUE)
+	trainer_const EXILE_BRUNO    ; $3b (Blue only)
+ENDC
 DEF NUM_TRAINERS EQU const_value - 1

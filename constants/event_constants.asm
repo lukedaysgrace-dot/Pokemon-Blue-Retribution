@@ -739,6 +739,9 @@
 	const_next $8C0
 	const_skip
 	const EVENT_BEAT_MEWTWO
+IF DEF(_BLUE)
+	const EVENT_BEAT_EXILE_BRUNO
+ENDC
 
 ; Indigo Plateau events
 	const_next $8E0

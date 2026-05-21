@@ -554,6 +554,10 @@ CooltrainerFData:
 	;db 45,NIDORINA,NIDOQUEEN,0
 	;db 43,PERSIAN,NINETALES,RAICHU,0
 
+ExileBrunoData:
+; Cerulean Cave B1F ambush (wTrainerNo 1)
+	db $FF, 70, HITMONLEE, 70, HITMONCHAN, 70, MACHAMP, 70, LUCARIO, 70, POLIWRATH, 70, ANNIHILAPE, 0
+
 BrunoKarenData:
 	db $FF, 53, ONIX, 55, HITMONCHAN, 55, HITMONLEE, 56, ONIX, 58, MACHAMP, 0
 ; Post-Champion rematch (wTrainerNo 2)

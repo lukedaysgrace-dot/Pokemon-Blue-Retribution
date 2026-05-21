@@ -6234,6 +6234,10 @@ LoadEnemyMonData:
 	jr z, .perfectTrainerDVs
 	cp LANCE
 	jr z, .perfectTrainerDVs
+IF DEF(_BLUE)
+	cp EXILE_BRUNO
+	jr z, .perfectTrainerDVs
+ENDC
 .averageTrainerDVs
 	ld a, ATKDEFDV_TRAINER
 	ld b, SPDSPCDV_TRAINER

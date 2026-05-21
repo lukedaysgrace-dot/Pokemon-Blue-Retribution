@@ -211,6 +211,11 @@ TrainerPalettes: ; Gen II trainer sprites are given their own palettes
 	db PAL_PETREL
 	db PAL_PROTON
 	db PAL_ARCHER
+	db PAL_SOLDIER
+	db PAL_ROCKET
+IF DEF(_BLUE)
+	db PAL_BRUNO
+ENDC
 	assert_table_length NUM_POKEMON + 1 + NUM_TRAINERS + 1
 ELSE
 	db PAL_MEWMON    ; MISSINGNO
@@ -506,5 +511,8 @@ TrainerPalettes:
 	db PAL_ARCHER
 	db PAL_SOLDIER
 	db PAL_ROCKET
+IF DEF(_BLUE)
+	db PAL_BRUNO
+ENDC
 	assert_table_length NUM_TRAINERS + 1
 ENDC

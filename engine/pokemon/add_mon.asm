@@ -115,6 +115,10 @@ _AddPartyMon::
 	jr z, .enemyPerfectDVs
 	cp LANCE
 	jr z, .enemyPerfectDVs
+IF DEF(_BLUE)
+	cp EXILE_BRUNO
+	jr z, .enemyPerfectDVs
+ENDC
 .enemyAverageDVs
 	ld a, ATKDEFDV_TRAINER
 	ld b, SPDSPCDV_TRAINER
@@ -442,7 +446,11 @@ _AddPartyMon::
 	jr z, .eliteFourMaybeRematch2
 	cp RIVAL3
 	jr z, .championRivalMaybeRematch456
+IF DEF(_BLUE)
+	jp .checkExileBrunoStatExp
+ELSE
 	jp .checkProfOakStatExp
+ENDC
 
 .eliteFourMaybeRematch2
 	ld a, [wTrainerNo]
@@ -459,6 +467,17 @@ _AddPartyMon::
 	ld b, $33
 	ld c, $33
 	jp .writeTrainerStatExp
+
+IF DEF(_BLUE)
+.checkExileBrunoStatExp
+	; Exile Bruno (Cerulean Cave): 40% of max Stat EXP -> 0x6666 each stat.
+	ld a, [wTrainerClass]
+	cp EXILE_BRUNO
+	jp nz, .checkProfOakStatExp
+	ld b, $66
+	ld c, $66
+	jp .writeTrainerStatExp
+ENDC
 
 .checkProfOakStatExp
 	; Route 1 dex reward: 45% of max Stat EXP -> 0x7333 (~29491) each stat.

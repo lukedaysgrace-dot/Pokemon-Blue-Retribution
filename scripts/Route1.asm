@@ -27,6 +27,7 @@ Route1_ScriptPointers:
 Route1ResetScript:
 	xor a ; SCRIPT_ROUTE1_DEFAULT
 	ld [wJoyIgnore], a
+	ld [wGymLeaderNo], a
 	ld [wCurMapScript], a
 	ret
 
@@ -37,6 +38,8 @@ Route1AfterBattleScript:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, Route1ResetScript
+	xor a
+	ld [wGymLeaderNo], a
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	; Set before DisplayTextID — Route1OakText checks this flag and would
@@ -201,10 +204,7 @@ Route1OakText:
 	call PrintText
 	jr .done
 .beforeBattle
-	ld a, BANK(Music_MeetProfOak)
-	ld c, a
-	ld a, MUSIC_MEET_PROF_OAK
-	call PlayMusic
+	farcall Music_Cities1AlternateTempo
 	ld hl, Route1OakBeforeBattleText
 	call PrintText
 	ld hl, wStatusFlags3
@@ -217,6 +217,7 @@ Route1OakText:
 	ld [wCurOpponent], a
 	ld a, 1
 	ld [wTrainerNo], a
+	ld [wGymLeaderNo], a
 	ld a, SCRIPT_ROUTE1_AFTER_BATTLE
 	ld [wCurMapScript], a
 .done

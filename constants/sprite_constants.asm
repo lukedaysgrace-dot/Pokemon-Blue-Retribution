@@ -146,4 +146,7 @@ DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_BLACKBELT_NEW          ; $8c
 	const SPRITE_SWIMMER_F              ; $8d
 	const SPRITE_ROCKET_GIRL            ; $8e
+IF DEF(_BLUE)
+	const SPRITE_EXILE_BRUNO            ; $8f (Blue only)
+ENDC
 DEF NUM_SPRITES EQU const_value - 1

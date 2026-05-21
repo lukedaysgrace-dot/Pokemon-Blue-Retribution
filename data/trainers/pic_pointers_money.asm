@@ -65,4 +65,7 @@ TrainerPicAndMoneyPointers::
 	pic_money ArcherPic,       5500
 	pic_money SoldierPic,      3000
 	pic_money RocketGirlPic,   3000
+IF DEF(_BLUE)
+	pic_money ExileBrunoPic,   9900
+ENDC
 	assert_table_length NUM_TRAINERS

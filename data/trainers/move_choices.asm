@@ -69,5 +69,8 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1, 2, 3 ; ARCHER
 	move_choices 1, 3    ; SOLDIER
 	move_choices 1, 3    ; ROCKET_F
+IF DEF(_BLUE)
+	move_choices 1, 3, 4 ; EXILE_BRUNO
+ENDC
 	assert __move_choices__ == NUM_TRAINERS, \
 		"TrainerClassMoveChoiceModifications: expected {d:NUM_TRAINERS} entries, got {d:__move_choices__}"

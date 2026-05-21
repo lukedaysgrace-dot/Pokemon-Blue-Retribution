@@ -50,26 +50,118 @@ _Route1SignText::
 	done
 
 _Route1OakBeforeBattleText::
-	text "Ah, <PLAYER>!"
+	text "OAK: So..."
+	line "You finally did"
+	cont "it."
 
-	para "You've completed"
-	line "the #DEX!"
+	para "All 151 #MON."
 
-	para "Every single one"
-	line "of the original"
-	cont "151 #MON, MEW"
-	cont "included."
+	para "I had a feeling"
+	line "from the very"
+	cont "beginning,"
 
-	para "I'm impressed."
-	line "Let me see how"
-	cont "far you've come!"
+	para "that you might"
+	line "be the one."
+
+	para "When you first"
+	line "stepped into"
+	cont "the tall grass..."
+
+	para "You were just"
+	line "a child with"
+	cont "a single #MON"
+
+	para "and a dream too"
+	line "big for PALLET"
+	cont "TOWN."
+
+	para "But now?"
+
+	para "You stand before"
+	line "me as the"
+	cont "greatest trainer"
+
+	para "this region has"
+	line "ever seen."
+
+	para "Ha... Even old"
+	line "men hear rumors."
+
+	para "The CHAMPION who"
+	line "conquered every"
+	cont "GYM."
+
+	para "The trainer who"
+	line "faced TEAM"
+	cont "ROCKET."
+
+	para "The one who"
+	line "caught even the"
+	cont "rarest legends."
+
+	para "That passion..."
+	line "That curiosity..."
+
+	para "It reminds me"
+	line "of someone."
+
+	para "...Me."
+
+	para "There was a time"
+	line "when I traveled"
+	cont "the world,"
+
+	para "not as a"
+	line "PROFESSOR..."
+
+	para "...but as a"
+	line "#MON trainer."
+
+	para "Before the"
+	line "#DEX."
+
+	para "Before the"
+	line "LEAGUE."
+
+	para "Before age"
+	line "caught up to me."
+
+	para "I wondered if"
+	line "those days were"
+	cont "behind me."
+
+	para "But seeing you"
+	line "complete the"
+	cont "#DEX..."
+
+	para "Well."
+
+	para "It lit a fire"
+	line "I thought had"
+	cont "burned out."
+
+	para "So tell me,"
+	line "<PLAYER>..."
+
+	para "Now that you've"
+	line "found every"
+	cont "#MON..."
+
+	para "Do you think"
+	line "you've found"
+	cont "all this world"
+	cont "has to offer?"
+
+	para "...Let an old"
+	line "man test that"
+	cont "theory."
 	done
 
 _Route1OakEndBattleText::
-	text "Splendid! You've"
-	line "grown into a fine"
-	cont "#MON TRAINER!"
-	done
+	text "Ha!"
+	line "Truly"
+	cont "remarkable!"
+	prompt
 
 _Route1OakPlayerLoseText::
 	text "Don't give up!"
@@ -78,12 +170,35 @@ _Route1OakPlayerLoseText::
 	done
 
 _Route1OakAfterBattleText::
-	text "You remind me of"
-	line "myself at your"
-	cont "age."
+	text "#MON and people"
+	line "both grow by"
+	cont "learning from"
+	cont "one another."
 
-	para "Keep training,"
-	line "and take good"
-	cont "care of your"
-	cont "#MON!"
+	para "You've surpassed"
+	line "every expectation"
+	cont "I ever had."
+
+	para "But your journey"
+	line "isn't over yet."
+
+	para "A true #MON"
+	line "MASTER never"
+	cont "stops exploring."
+
+	para "By the way,"
+	line "I recently heard"
+	cont "that my grandson"
+
+	para "<RIVAL> has been"
+	line "training near"
+	cont "CINNABAR as of"
+	cont "late."
+
+	para "Maybe you should"
+	line "pay him a visit."
+
+	para "He seemed pretty"
+	line "serious the last"
+	cont "time I saw him."
 	done

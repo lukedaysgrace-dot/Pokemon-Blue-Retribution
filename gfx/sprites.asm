@@ -168,6 +168,12 @@ SECTION "Bruno OW Sprite", ROMX
 KarenSprite::            INCBIN "gfx/sprites/bruno.2bpp"
 ENDC
 
+IF DEF(_BLUE)
+SECTION "Exile Bruno OW Sprite", ROMX
+
+ExileBrunoSprite::        INCBIN "gfx/sprites/brunoblindfold.2bpp"
+ENDC
+
 
 SECTION "NPC Sprites 2 Overflow", ROMX
 

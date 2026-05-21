@@ -62,4 +62,7 @@ TrainerAIPointers:
 	dbw 4, BlueAI          ; ARCHER
 	dbw 4, CooltrainerMAI  ; SOLDIER
 	dbw 3, CooltrainerMAI  ; ROCKET_F
+IF DEF(_BLUE)
+	dbw 4, EliteFourAI     ; EXILE_BRUNO
+ENDC
 	assert_table_length NUM_TRAINERS

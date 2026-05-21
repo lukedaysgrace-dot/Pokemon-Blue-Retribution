@@ -550,6 +550,9 @@ ChannelerPic::     INCBIN "gfx/trainers/channeler.pic"
 AgathaPic::        INCBIN "gfx/trainers/agatha.pic"
 LancePic::         INCBIN "gfx/trainers/lance.pic"
 BlueCloakPic::     INCBIN "gfx/trainers/bluecloak.pic"
+IF DEF(_BLUE)
+ExileBrunoPic::     INCBIN "gfx/trainers/brunoblindfold.pic"
+ENDC
 
 SECTION "Trainer Pics Overflow", ROMX
 

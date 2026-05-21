@@ -400,9 +400,12 @@ ENDM
 	const TOGGLE_CERULEAN_CAVE_2F_ITEM_3       ; D1 X
 
 	toggle_consts_for CERULEAN_CAVE_B1F
-	const TOGGLE_MEWTWO                        ; D2 X
-	const TOGGLE_CERULEAN_CAVE_B1F_ITEM_1      ; D3 X
-	const TOGGLE_CERULEAN_CAVE_B1F_ITEM_2      ; D4 X
+IF DEF(_BLUE)
+	const TOGGLE_CERULEANCAVEB1F_EXILE_BRUNO   ; D2
+ENDC
+	const TOGGLE_MEWTWO                        ; D2/D3 X
+	const TOGGLE_CERULEAN_CAVE_B1F_ITEM_1      ; D3/D4 X
+	const TOGGLE_CERULEAN_CAVE_B1F_ITEM_2      ; D4/D5 X
 
 	toggle_consts_for VICTORY_ROAD_1F
 	const TOGGLE_VICTORY_ROAD_1F_ITEM_1        ; D5 X

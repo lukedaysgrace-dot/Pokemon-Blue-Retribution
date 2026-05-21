@@ -803,6 +803,11 @@ SpritePaletteAssignments: ; Characters on the overworld
 	; 0x8e: SPRITE_ROCKET_GIRL (match male GRUNT browns / uniform)
 	db SPR_PAL_ORANGE
 
+IF DEF(_BLUE)
+	; 0x8f: SPRITE_EXILE_BRUNO
+	db SPR_PAL_BROWN
+ENDC
+
 	assert_table_length NUM_SPRITES
 
 

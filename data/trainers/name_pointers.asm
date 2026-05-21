@@ -61,6 +61,9 @@ TrainerNamePointers:
 	dw wTrainerName
 	dw wTrainerName
 	dw .RocketFName
+IF DEF(_BLUE)
+	dw wTrainerName
+ENDC
 	assert_table_length NUM_TRAINERS
 
 .YoungsterName:     db "YOUNGSTER@"

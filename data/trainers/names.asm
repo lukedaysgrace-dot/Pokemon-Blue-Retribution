@@ -62,4 +62,7 @@ ENDC
 	li "ROCKET ADMIN"
 	li "SOLDIER"
 	li "ROCKET♀"
+IF DEF(_BLUE)
+	li "EXILE BRUNO"
+ENDC
 	assert_list_length NUM_TRAINERS
