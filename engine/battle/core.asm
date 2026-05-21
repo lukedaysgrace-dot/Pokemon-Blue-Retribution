@@ -6292,28 +6292,27 @@ ENDC
 	inc hl
 	ld a, [hl]
 	ld [wEnemyMonStatus], a
-	ld a, [wTrainerClass]
-	cp BLUE_CLOAK
-	jr nz, .copyTypes
+; Party mons with Stat EXP were built with boosted stats, but CalcStats above
+; uses b=0. Copy stored stats from party so HP bars stay correct. Never sync
+; current HP to max or switched-in mons would be fully healed.
+	push hl
+	ld bc, MON_HP_EXP - MON_STATUS
+	add hl, bc
+	ld b, NUM_STATS * 2
+.checkPartyMonStatExp
+	ld a, [hli]
+	jr nz, .partyMonHasStatExp
+	dec b
+	jr nz, .checkPartyMonStatExp
+	pop hl
+	jr .copyTypes
+.partyMonHasStatExp
+	pop hl
 	ld bc, MON_MAXHP - MON_STATUS
 	add hl, bc
 	ld de, wEnemyMonMaxHP
 	ld bc, NUM_STATS * 2
 	call CopyData
-	; If we override enemy max stats at send-out, sync current HP to max HP
-	; or the mon appears damaged due to old pre-override HP value.
-	ld a, [wEnemyMonMaxHP]
-	ld [wEnemyMonHP], a
-	ld a, [wEnemyMonMaxHP + 1]
-	ld [wEnemyMonHP + 1], a
-	ld a, [wWhichPokemon]
-	ld bc, PARTYMON_STRUCT_LENGTH
-	ld hl, wEnemyMon1HP
-	call AddNTimes
-	ld a, [wEnemyMonMaxHP]
-	ld [hli], a
-	ld a, [wEnemyMonMaxHP + 1]
-	ld [hl], a
 	jr .copyTypes
 .copyTypes
 	ld hl, wMonHTypes

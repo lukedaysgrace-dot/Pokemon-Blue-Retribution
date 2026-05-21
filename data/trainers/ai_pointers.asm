@@ -30,7 +30,7 @@ TrainerAIPointers:
 	dbw 3, GenericAI       ; BIRD_KEEPER
 	dbw 3, BlackbeltAI     ; BLACKBELT
 	dbw 4, BlueAI          ; RIVAL1
-	dbw 4, BlueAI          ; PROF_OAK
+	dbw 4, BlueCloakAI     ; PROF_OAK
 	dbw 4, GenericAI       ; CHIEF
 	dbw 3, GenericAI       ; SCIENTIST
 	dbw 4, EliteFourAI     ; GIOVANNI
@@ -52,8 +52,8 @@ TrainerAIPointers:
 	dbw 3, GenericAI       ; CHANNELER
 	dbw 4, EliteFourAI     ; AGATHA
 	dbw 4, EliteFourAI     ; LANCE
-	dbw 4, BlueAI          ; BLUE_CLOAK
-	dbw 4, BlueAI          ; GREEN
+	dbw 4, BlueCloakAI     ; BLUE_CLOAK
+	dbw 4, BlueCloakAI     ; GREEN
 	dbw 4, BlueAI          ; GREEN_ROCKET
 	dbw 4, CooltrainerMAI  ; NINJA
 	dbw 4, EliteFourAI     ; JANINE
