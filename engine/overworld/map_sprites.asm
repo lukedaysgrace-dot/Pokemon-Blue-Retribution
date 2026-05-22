@@ -121,7 +121,7 @@ LoadMapSpriteTilePatterns:
 IF DEF(_BLUE)
 	cp SPRITE_EXILE_BRUNO + 1
 ELSE
-	cp SPRITE_ROCKET_GIRL + 1
+	cp SPRITE_BEAUTY_NEW + 1
 ENDC
 	jr c, .notFourTileSprite
 .checkStillCutoff

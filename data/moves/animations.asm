@@ -458,8 +458,9 @@ PoisonStingAnim:
 	db -1 ; end
 
 TwineedleAnim:
-	battle_anim TWINEEDLE, SUBANIM_0_STAR_TWICE, 0, 5
-	battle_anim TWINEEDLE, SUBANIM_0_STAR_TWICE, 0, 5
+	battle_anim TWINEEDLE, SUBANIM_0_HORN_JAB_TWICE, 0, 2
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim SLUDGE, SUBANIM_1_BLOB_DRIP_ENEMY, 1, 3
 	db -1 ; end
 
 PinMissileAnim:

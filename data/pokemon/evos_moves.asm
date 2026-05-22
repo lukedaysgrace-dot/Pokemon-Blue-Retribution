@@ -2210,7 +2210,8 @@ SquirtleEvosMoves:
 	db 42, HYDRO_PUMP
 	db 97, FRENZY_PLANT
 	db 98, HYDRO_CANNON
-        db 99, BLAST_BURN
+    db 99, BLAST_BURN
+	db 100, TWINEEDLE
 	db 0
 
 CharmeleonEvosMoves:

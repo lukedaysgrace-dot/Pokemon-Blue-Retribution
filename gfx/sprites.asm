@@ -178,6 +178,7 @@ ENDC
 SECTION "NPC Sprites 2 Overflow", ROMX
 
 SeelSprite::             INCBIN "gfx/sprites/seel.2bpp"
+RocketAsleepSprite::     INCBIN "gfx/sprites/rocket_asleep.2bpp"
 
 
 SECTION "Trainer Class OW Sprites 1", ROMX
@@ -204,6 +205,7 @@ JugglerNewSprite::       INCBIN "gfx/sprites/juggler_new.2bpp"
 TamerNewSprite::         INCBIN "gfx/sprites/tamer_new.2bpp"
 BirdKeeperNewSprite::    INCBIN "gfx/sprites/bird_keeper_new.2bpp"
 BlackbeltNewSprite::     INCBIN "gfx/sprites/blackbelt_new.2bpp"
+BeautyNewSprite::        INCBIN "gfx/sprites/beauty_new.2bpp"
 
 
 SECTION "Mon Icons 1", ROMX

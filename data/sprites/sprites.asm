@@ -149,7 +149,9 @@ SpriteSheetPointerTable::
 	overworld_sprite BlackbeltNewSprite, 12     ; SPRITE_BLACKBELT_NEW
 	overworld_sprite SwimmerFSprite, 12         ; SPRITE_SWIMMER_F
 	overworld_sprite RocketGirlSprite, 12       ; SPRITE_ROCKET_GIRL
+	overworld_sprite BeautyNewSprite, 12        ; SPRITE_BEAUTY_NEW
 IF DEF(_BLUE)
 	overworld_sprite ExileBrunoSprite, 12       ; SPRITE_EXILE_BRUNO
 ENDC
+	overworld_sprite RocketAsleepSprite, 4      ; SPRITE_ROCKET_ASLEEP
 	assert_table_length NUM_SPRITES
