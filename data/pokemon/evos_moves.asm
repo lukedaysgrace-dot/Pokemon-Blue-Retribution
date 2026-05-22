@@ -2208,10 +2208,10 @@ SquirtleEvosMoves:
 	db 28, WITHDRAW
 	db 35, BUBBLEBEAM
 	db 42, HYDRO_PUMP
-	db 97, FRENZY_PLANT
-	db 98, HYDRO_CANNON
-    db 99, BLAST_BURN
-	db 100, TWINEEDLE
+	db 97, BUG_BITE
+	db 98, ICE_SHARD
+        db 99, EXTREME_SPEED
+	db 100, X_SCISSOR
 	db 0
 
 CharmeleonEvosMoves:

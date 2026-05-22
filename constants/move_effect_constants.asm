@@ -77,7 +77,7 @@
 	const SPEED_DOWN_SIDE_EFFECT     ; $46
 	const SPECIAL_DOWN_SIDE_EFFECT   ; $47
 	const ATTACK_UP_SIDE_EFFECT      ; $48 Metal Claw: damage + chance to raise user's Attack
-	const_skip                       ; $49
+	const SPEED_DOWN_SIDE_EFFECT2    ; $49 Powder Snow: damage + 10% chance to lower target's Speed
 	const_skip                       ; $4A
 	const_skip                       ; $4B
 	const CONFUSION_SIDE_EFFECT      ; $4C

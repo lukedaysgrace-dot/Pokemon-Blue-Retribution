@@ -169,6 +169,11 @@ MoveSoundTable:
 	db SFX_BATTLE_29,          $1f, $20 ; BLAST_BURN
 	db SFX_BATTLE_2A,          $00, $80 ; HYDRO_CANNON
 	db SFX_BATTLE_2E,          $00, $80 ; FRENZY_PLANT
+	db SFX_BATTLE_1C,          $00, $c0 ; POWDER_SNOW
+	db SFX_BATTLE_28,          $60, $e0 ; ICE_SHARD
+	db SFX_BATTLE_25,          $00, $f0 ; EXTREME_SPEED
+	db SFX_BATTLE_1E,          $00, $80 ; BUG_BITE
+	db SFX_BATTLE_1B,          $30, $c0 ; X_SCISSOR
 	db SFX_BATTLE_0B,          $00, $80 ; STRUGGLE
 	assert_table_length NUM_ATTACKS
 	db SFX_BATTLE_0B,          $00, $80

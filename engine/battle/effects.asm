@@ -588,10 +588,27 @@ StatModifierDownEffect:
 	cp ATTACK_DOWN_SIDE_EFFECT
 	jr c, .nonSideEffect
 	call BattleRandom
+	ld b, a
+	ld a, [de]
+	cp SPEED_DOWN_SIDE_EFFECT2
+	jr z, .sideEffectTenPercent
+	ld a, b
 	cp 33 percent + 1 ; chance for side effects
 	jp nc, CantLowerAnymore
+	jr .sideEffectApply
+.sideEffectTenPercent
+	ld a, b
+	cp 10 percent + 1
+	jp nc, CantLowerAnymore
+.sideEffectApply
 	ld a, [de]
+	cp SPEED_DOWN_SIDE_EFFECT2
+	jr z, .speedDownSideEffect2
 	sub ATTACK_DOWN_SIDE_EFFECT ; map each stat to 0-3
+	jr .decrementStatMod
+.speedDownSideEffect2
+	ld c, SPEED_DOWN_SIDE_EFFECT - ATTACK_DOWN_SIDE_EFFECT
+	ld b, $0
 	jr .decrementStatMod
 .nonSideEffect ; non-side effects only
 	push hl

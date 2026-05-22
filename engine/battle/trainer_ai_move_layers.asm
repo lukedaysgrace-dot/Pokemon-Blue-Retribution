@@ -651,11 +651,15 @@ AIMoveChoiceModification3:
 	call StrCmpSpeed	;do a speed compare
 	jr c, .flydigcheck_faster	;a set carry bit means the ai 'mon is faster
 	ld a, [wEnemyMoveNum]
+	cp EXTREME_SPEED
+	jr z, .flydigcheck_faster
 	cp QUICK_ATTACK
 	jr z, .flydigcheck_faster
 	cp SUCKER_PUNCH
 	jr z, .flydigcheck_faster
 	cp MACH_PUNCH
+	jr z, .flydigcheck_faster
+	cp ICE_SHARD
 	jr z, .flydigcheck_faster
 
 .flydigcheck_notfaster

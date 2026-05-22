@@ -371,12 +371,27 @@ MainInBattleLoop:
 .specialMoveNotUsed
 	callfar SwitchEnemyMon
 .noLinkBattle
+; +2 priority (Extreme Speed)
+	ld a, [wPlayerSelectedMove]
+	cp EXTREME_SPEED
+	jr nz, .playerDidNotUseExtremeSpeed
+	ld a, [wEnemySelectedMove]
+	cp EXTREME_SPEED
+	jr z, .compareSpeed
+	jp .playerMovesFirst
+.playerDidNotUseExtremeSpeed
+	ld a, [wEnemySelectedMove]
+	cp EXTREME_SPEED
+	jr z, .enemyMovesFirst
+; +1 priority (Quick Attack, Mach Punch, etc.)
 	ld a, [wPlayerSelectedMove]
 	cp QUICK_ATTACK
 	jr z, .playerUsedPriorityMove
 	cp SUCKER_PUNCH
 	jr z, .playerUsedPriorityMove
 	cp MACH_PUNCH
+	jr z, .playerUsedPriorityMove
+	cp ICE_SHARD
 	jr nz, .playerDidNotUseQuickAttack
 .playerUsedPriorityMove
 	ld a, [wEnemySelectedMove]
@@ -386,6 +401,8 @@ MainInBattleLoop:
 	jr z, .compareSpeed  ; if both used priority moves
 	cp MACH_PUNCH
 	jr z, .compareSpeed
+	cp ICE_SHARD
+	jr z, .compareSpeed
 	jp .playerMovesFirst ; if player used a priority move and enemy didn't
 .playerDidNotUseQuickAttack
 	ld a, [wEnemySelectedMove]
@@ -394,6 +411,8 @@ MainInBattleLoop:
 	cp SUCKER_PUNCH
 	jr z, .enemyMovesFirst ; if enemy used Sucker Punch and player didn't
 	cp MACH_PUNCH
+	jr z, .enemyMovesFirst
+	cp ICE_SHARD
 	jr z, .enemyMovesFirst
 	ld a, [wPlayerSelectedMove]
 	cp COUNTER

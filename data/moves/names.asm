@@ -169,5 +169,10 @@ MoveNames::
 	li "BLAST BURN"
 	li "HYDRO CANNON"
 	li "FRENZY PLANT"
+	li "POWDER SNOW"
+	li "ICE SHARD"
+	li "EXTREMESPEED"
+	li "BUG BITE"
+	li "X SCISSOR"
 	li "STRUGGLE"
 	assert_list_length NUM_ATTACKS

@@ -174,7 +174,12 @@
 	const BLAST_BURN   ; a6
 	const HYDRO_CANNON ; a7
 	const FRENZY_PLANT ; a8
-	const STRUGGLE     ; a9
+	const POWDER_SNOW  ; a9
+	const ICE_SHARD    ; aa
+	const EXTREME_SPEED ; ab
+	const BUG_BITE     ; ac
+	const X_SCISSOR    ; ad
+	const STRUGGLE     ; ae
 DEF NUM_ATTACKS EQU const_value - 1
 
 DEF CANNOT_MOVE EQU $ff

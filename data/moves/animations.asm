@@ -168,6 +168,11 @@ AttackAnimationPointers:
 	dw BlastBurnAnim
 	dw HydroCannonAnim
 	dw FrenzyPlantAnim
+	dw PowderSnowAnim
+	dw IceShardAnim
+	dw ExtremeSpeedAnim
+	dw BugBiteAnim
+	dw XScissorAnim
 	dw StruggleAnim
 	assert_table_length NUM_ATTACKS
 	dw ShowPicAnim
@@ -995,7 +1000,12 @@ SwiftAnim:
 	db -1 ; end
 
 SkullBashAnim:
-	battle_anim SKULL_BASH, SUBANIM_1_STAR_BIG, 1, 6
+	battle_anim LEECH_SEED, SE_MOVE_MON_HORIZONTALLY
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_RESET_MON_POSITION
+	battle_anim SURF, SE_WATER_DROPLETS_EVERYWHERE
+	battle_anim HYDRO_PUMP, SUBANIM_0_WATER_COLUMNS, 0, 6
 	db -1 ; end
 
 SpikeCannonAnim:
@@ -1242,6 +1252,41 @@ FrenzyPlantAnim:
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
 	battle_anim NO_MOVE, SUBANIM_1_STAR_BIG_MOVING, 1, 6
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
+
+PowderSnowAnim:
+	battle_anim POWDER_SNOW, SUBANIM_0_CIRCLES_FALLING, 0, 4
+	battle_anim ICE_BEAM, SUBANIM_0_ICE_FALL, 0, 6
+	db -1 ; end
+
+IceShardAnim:
+	battle_anim ICE_SHARD, SE_SLIDE_MON_OFF
+	battle_anim NO_MOVE, SUBANIM_0_ICE_RISE, 0, 4
+	battle_anim NO_MOVE, SE_SHOW_MON_PIC
+	db -1 ; end
+
+ExtremeSpeedAnim:
+	battle_anim EXTREME_SPEED, SE_SLIDE_MON_OFF
+	battle_anim AGILITY, SE_LIGHT_SCREEN_PALETTE
+	battle_anim EXTREME_SPEED, SUBANIM_0_STAR_TWICE, 0, 3
+	battle_anim EXTREME_SPEED, SUBANIM_0_STAR_TWICE, 0, 3
+	battle_anim EXTREME_SPEED, SUBANIM_0_STAR_TWICE, 0, 3
+	battle_anim EXTREME_SPEED, SUBANIM_0_SCRATCHES, 0, 1
+	battle_anim EXTREME_SPEED, SUBANIM_0_SLICE, 0, 1
+	battle_anim NO_MOVE, SE_SHOW_MON_PIC
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
+
+BugBiteAnim:
+	battle_anim BUG_BITE, SUBANIM_0_STAR_THRICE, 0, 5
+	battle_anim BUG_BITE, SUBANIM_0_STAR_THRICE, 0, 5
+	battle_anim NO_MOVE, SE_BLINK_ENEMY_MON
+	db -1 ; end
+
+XScissorAnim:
+	battle_anim X_SCISSOR, SUBANIM_0_SLICE_BOTH_SIDES, 0, 3
+	battle_anim X_SCISSOR, SUBANIM_0_SLICE_BOTH_SIDES, 0, 3
+	battle_anim TWINEEDLE, SUBANIM_0_SCRATCHES, 0, 4
 	db -1 ; end
 
 BallTossAnim:

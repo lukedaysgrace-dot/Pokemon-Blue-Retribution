@@ -42,6 +42,7 @@ MoveGrammar:
 	db LEER
 	db BITE
 	db CRUNCH
+	db BUG_BITE
 	db GROWL
 	db MACH_PUNCH
 	db SING
@@ -73,6 +74,7 @@ MoveGrammar:
 	db REST
 	db METAL_CLAW
 	db SLASH
+	db X_SCISSOR
 	db SUBSTITUTE
 	db FOCUS_ENERGY
 	db 0 ; end set
