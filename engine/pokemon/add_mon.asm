@@ -176,13 +176,6 @@ ENDC
 	ld c, 1
 	xor a
 	ld b, a
-	ld a, [wMonDataLocation]
-	and $f
-	jr z, .calcInitialHP
-	ld a, [wTrainerClass]
-	cp BLUE_CLOAK
-	jr nz, .calcInitialHP
-	inc b
 .calcInitialHP
 	call CalcStat      ; calc HP stat (set cur Hp to max HP)
 	ldh a, [hMultiplicand+1]
@@ -506,10 +499,10 @@ ENDC
 	ld b, NUM_STATS
 .writeTrainerStatExpLoop
 	inc de
-	ld a, l
+	ld a, h
 	ld [de], a
 	inc de
-	ld a, h
+	ld a, l
 	ld [de], a
 	dec b
 	jr nz, .writeTrainerStatExpLoop
@@ -532,18 +525,31 @@ ENDC
 	ld [de], a
 	inc de
 	pop hl
+	push hl
 	ld bc, MON_HP_EXP - 1
 	add hl, bc
 	ld b, $0
 	ld a, [wMonDataLocation]
 	and $f
 	jr z, .calcStatsDone
-	ld a, [wTrainerClass]
-	cp BLUE_CLOAK
-	jr nz, .calcStatsDone
 	inc b
 .calcStatsDone
-	call CalcStats         ; Blue Cloak enemy party stats include stat exp
+	call CalcStats
+	pop hl
+	ld a, [wMonDataLocation]
+	and $f
+	jr z, .done
+	ld bc, MON_MAXHP
+	add hl, bc
+	ld a, [hli]
+	ld d, a
+	ld a, [hl]
+	ld e, a
+	ld bc, MON_HP - (MON_MAXHP + 1)
+	add hl, bc
+	ld [hl], d
+	inc hl
+	ld [hl], e
 .done
 	scf
 	ret
