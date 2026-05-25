@@ -85,8 +85,8 @@ PokedexEntryPointers:
 	dw NinetalesDexEntry
 	dw PikachuDexEntry
 	dw RaichuDexEntry
-	dw WimpodDexEntry
-	dw GolisopodDexEntry
+	dw HippopotasDexEntry
+	dw HippowdonDexEntry
 	dw DratiniDexEntry
 	dw DragonairDexEntry
 	dw KabutoDexEntry
@@ -1800,18 +1800,18 @@ LopunnyDexEntry:
 	text_far _LopunnyDexEntry
 	text_end
 
-WimpodDexEntry:
+HippopotasDexEntry:
 	db "HIPPO@"
 	db 2,7
 	dw 1091
-	text_far _WimpodDexEntry
+	text_far _HippopotasDexEntry
 	text_end
 
-GolisopodDexEntry:
+HippowdonDexEntry:
 	db "HEAVY@"
 	db 6,7
 	dw 6610
-	text_far _GolisopodDexEntry
+	text_far _HippowdonDexEntry
 	text_end
 
 LileepDexEntry:

@@ -2145,22 +2145,22 @@ _LopunnyDexEntry::
 	next "hit like hammers."
 	dex
 
-_WimpodDexEntry::
-	text "Its cowardly side"
-	next "at sudden noise"
-	next "and runs away"
+_HippopotasDexEntry::
+	text "It covers itself"
+	next "in sand to stay"
+	next "cool and hide"
 
-	page "It hides in"
-	next "in damp rocks."
+	page "It lives in"
+	next "dry riverbeds."
 	dex
 
-_GolisopodDexEntry::
-	text "It breaks foes"
-	next "with huge claws"
-	next "from all sides"
+_HippowdonDexEntry::
+	text "It blasts foes"
+	next "with sand jets"
+	next "from its ports"
 
-	page "It rubs on rocks"
-	next "hard."
+	page "It swallows foes"
+	next "whole"
 	dex
 
 _LileepDexEntry::
