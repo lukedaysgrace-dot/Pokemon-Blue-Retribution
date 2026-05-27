@@ -91,4 +91,5 @@
 	const LEECH_SEED_EFFECT          ; $54
 	const SPLASH_EFFECT              ; $55
 	const DISABLE_EFFECT             ; $56
+	const THUNDER_FANG_EFFECT        ; $57 10% paralyze + 10% flinch
 DEF NUM_MOVE_EFFECTS EQU const_value - 1

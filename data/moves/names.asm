@@ -174,5 +174,7 @@ MoveNames::
 	li "EXTREMESPEED"
 	li "BUG BITE"
 	li "X SCISSOR"
+	li "DRAGON CLAW"
+	li "THUNDER FANG"
 	li "STRUGGLE"
 	assert_list_length NUM_ATTACKS

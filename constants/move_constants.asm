@@ -179,7 +179,9 @@
 	const EXTREME_SPEED ; ab
 	const BUG_BITE     ; ac
 	const X_SCISSOR    ; ad
-	const STRUGGLE     ; ae
+	const DRAGON_CLAW  ; ae
+	const THUNDER_FANG ; af
+	const STRUGGLE     ; b0
 DEF NUM_ATTACKS EQU const_value - 1
 
 DEF CANNOT_MOVE EQU $ff

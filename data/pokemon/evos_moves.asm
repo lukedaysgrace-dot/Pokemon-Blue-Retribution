@@ -2335,7 +2335,7 @@ CharmanderEvosMoves:
 	db 26, SLASH
 	db 29, FLAME_WHEEL
 	db 33, FLAMETHROWER
-	db 44, FIRE_BLAST
+	db 44, THUNDER_FANG
 	db 0
 SquirtleEvosMoves:
 ; Evolutions

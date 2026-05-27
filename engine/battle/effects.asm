@@ -1031,6 +1031,9 @@ FlinchSideEffect:
 	call ClearHyperBeam
 	ret
 
+ThunderFangEffect:
+	jpfar ThunderFangEffect_
+
 OneHitKOEffect:
 	jpfar OneHitKOEffect_
 

@@ -174,6 +174,8 @@ MoveSoundTable:
 	db SFX_BATTLE_25,          $00, $f0 ; EXTREME_SPEED
 	db SFX_BATTLE_1E,          $00, $80 ; BUG_BITE
 	db SFX_BATTLE_1B,          $30, $c0 ; X_SCISSOR
+	db SFX_NOT_VERY_EFFECTIVE, $f0, $ff ; DRAGON_CLAW
+	db SFX_BATTLE_1E,          $00, $80 ; THUNDER_FANG
 	db SFX_BATTLE_0B,          $00, $80 ; STRUGGLE
 	assert_table_length NUM_ATTACKS
 	db SFX_BATTLE_0B,          $00, $80

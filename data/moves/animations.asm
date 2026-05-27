@@ -173,6 +173,8 @@ AttackAnimationPointers:
 	dw ExtremeSpeedAnim
 	dw BugBiteAnim
 	dw XScissorAnim
+	dw DragonClawAnim
+	dw ThunderFangAnim
 	dw StruggleAnim
 	assert_table_length NUM_ATTACKS
 	dw ShowPicAnim
@@ -1287,6 +1289,18 @@ XScissorAnim:
 	battle_anim X_SCISSOR, SUBANIM_0_SLICE_BOTH_SIDES, 0, 3
 	battle_anim X_SCISSOR, SUBANIM_0_SLICE_BOTH_SIDES, 0, 3
 	battle_anim TWINEEDLE, SUBANIM_0_SCRATCHES, 0, 4
+	db -1 ; end
+
+DragonClawAnim:
+	battle_anim NO_MOVE, SE_SHAKE_SCREEN
+	battle_anim DRAGON_CLAW, SUBANIM_0_SCRATCHES, 0, 4
+	battle_anim NO_MOVE, SE_BLINK_ENEMY_MON
+	db -1 ; end
+
+ThunderFangAnim:
+	battle_anim BITE, SUBANIM_0_STAR_THRICE, 0, 6
+	battle_anim THUNDERSHOCK, SUBANIM_1_LIGHTNING_BALL, 1, 2
+	battle_anim NO_MOVE, SE_BLINK_ENEMY_MON
 	db -1 ; end
 
 BallTossAnim:
