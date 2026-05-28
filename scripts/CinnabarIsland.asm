@@ -12,7 +12,7 @@ CinnabarIsland_Script:
 CinnabarIslandMaybeShowBlueCloak:
 	CheckEvent EVENT_BEAT_VIRIDIAN_BLUE_CLOAK
 	ret nz
-	CheckEvent EVENT_BEAT_PALLET_TOWN_GREEN
+	CheckEvent EVENT_BEAT_ROUTE1_OAK
 	ret z
 	ld a, TOGGLE_CINNABAR_ISLAND_BLUE_CLOAK
 	ld [wToggleableObjectIndex], a
@@ -210,13 +210,13 @@ CinnabarIslandBlueCloakText:
 	CheckEvent EVENT_BEAT_VIRIDIAN_BLUE_CLOAK
 	jp nz, .alreadyFinished
 	CheckEvent EVENT_BEAT_CINNABAR_ISLAND_BLUE_CLOAK
-	jr z, .needAllRematches
+	jr z, .needOak
 	ld a, SCRIPT_CINNABARISLAND_BLUE_CLOAK_AFTER_BATTLE
 	ld [wCinnabarIslandCurScript], a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
-.needAllRematches
-	CheckEvent EVENT_BEAT_PALLET_TOWN_GREEN
+.needOak
+	CheckEvent EVENT_BEAT_ROUTE1_OAK
 	jp z, .notYet
 	ld a, SFX_STOP_ALL_MUSIC
 	ld [wNewSoundID], a

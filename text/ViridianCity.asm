@@ -181,10 +181,10 @@ _ViridianCityGymLockedText::
 	done
 
 _ViridianCityBlueCloakNotYetText::
-	text "…(Placeholder) You still need"
-	line "every gym and Elite Four"
-	line "rematch, plus the Champion"
-	line "rematch, before this fight."
+	text "There is still"
+	line "one battle"
+	cont "waiting for you"
+	cont "on ROUTE 1."
 	done
 
 _ViridianCityBlueCloakPreBattleText1::

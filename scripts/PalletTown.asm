@@ -289,8 +289,14 @@ PalletTownUpdateGreenVisibility:
 PalletTownShouldShowGreen:
 	CheckEvent EVENT_BEAT_PALLET_TOWN_GREEN
 	jr nz, .hide
+IF DEF(_BLUE)
+	ld a, [wNumHoFTeams]
+	cp 2
+	jr c, .hide
+ELSE
 	call PalletTownDexCompleteForGreen
 	jr nc, .hide
+ENDC
 	ld a, TRUE
 	ret
 .hide

@@ -95,8 +95,13 @@ Route1OakExitScript:
 Route1UpdateOakVisibility:
 	CheckEvent EVENT_BEAT_ROUTE1_OAK
 	jr nz, .hideOak
+IF DEF(_BLUE)
+	CheckEvent EVENT_BEAT_PALLET_TOWN_GREEN
+	jr z, .hideOak
+ELSE
 	call Route1DexComplete151
 	jr nc, .hideOak
+ENDC
 .showOak
 	ld a, ROUTE1_OAK
 	swap a

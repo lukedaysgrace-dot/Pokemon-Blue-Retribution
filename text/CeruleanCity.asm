@@ -197,10 +197,13 @@ _CeruleanCitySuperNerd3Text::
 	cont "strong #MON"
 	cont "live in there!"
 
-	para "The #MON LEAGUE"
-	line "champion is the"
-	cont "only person who"
-	cont "is allowed in!"
+	para "Only trainers"
+	line "who have"
+	cont "completely"
+	cont "conquered all"
+	cont "of KANTO at"
+	cont "its full might"
+	cont "may enter here!"
 	done
 
 _CeruleanCitySignText::

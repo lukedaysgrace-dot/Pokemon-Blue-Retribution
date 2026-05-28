@@ -1,6 +1,6 @@
 	db DEX_SQUIRTLE ; pokedex id
 
-	db  150,  150,  150,  150,  150
+	db  250, 250,  250,  250,  250
 	;   hp  atk  def  spd  spc
 
 	db WATER, WATER ; type

@@ -1,9 +1,36 @@
 CeruleanCity_Script:
 	call EnableAutoTextBoxDrawing
 	ResetEvent EVENT_LAB_STILL_REVIVING_FOSSIL ; same cue as stepping on CINNabar Island outdoors
+	call CeruleanCityUpdateCaveGuyVisibility
 	ld hl, CeruleanCity_ScriptPointers
 	ld a, [wCeruleanCityCurScript]
 	jp CallFunctionInTable
+
+CeruleanCityUpdateCaveGuyVisibility:
+	ld a, [wNumHoFTeams]
+	cp 2
+	jr nc, .hideCaveGuy
+	ld a, CERULEANCITY_SUPER_NERD3
+	swap a
+	ldh [hCurrentSpriteOffset], a
+	predef IsObjectHidden
+	ldh a, [hIsToggleableObjectOff]
+	and a
+	ret z
+	ld a, TOGGLE_CERULEAN_CAVE_GUY
+	ld [wToggleableObjectIndex], a
+	predef_jump ShowObject
+.hideCaveGuy
+	ld a, CERULEANCITY_SUPER_NERD3
+	swap a
+	ldh [hCurrentSpriteOffset], a
+	predef IsObjectHidden
+	ldh a, [hIsToggleableObjectOff]
+	and a
+	ret nz
+	ld a, TOGGLE_CERULEAN_CAVE_GUY
+	ld [wToggleableObjectIndex], a
+	predef_jump HideObject
 
 CeruleanCityClearScripts:
 	xor a ; SCRIPT_CERULEANCITY_DEFAULT

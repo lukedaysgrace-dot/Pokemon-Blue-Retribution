@@ -98,9 +98,13 @@ HallOfFameOakCongratulationsScript:
 	call DisplayTextID
 	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
+	ld a, [wNumHoFTeams]
+	and a
+	jr z, .skipCeruleanCaveGuy
 	ld a, TOGGLE_CERULEAN_CAVE_GUY
 	ld [wToggleableObjectIndex], a
 	predef HideObject
+.skipCeruleanCaveGuy
 IF DEF(_RED)
 	ld a, TOGGLE_ROUTE_24_CHARMANDER_TRAINER
 	ld [wToggleableObjectIndex], a
