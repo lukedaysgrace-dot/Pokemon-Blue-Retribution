@@ -328,9 +328,6 @@ MtMoonB2FYouHaveNoRoomText:
 	text_end
 
 MtMoonB2FCheckHasAllOtherFossils:
-	ld b, SAIL_FOSSIL
-	call IsItemInBag
-	ret z
 	ld b, ARMOR_FOSSIL
 	call IsItemInBag
 	ret z
@@ -338,9 +335,6 @@ MtMoonB2FCheckHasAllOtherFossils:
 	call IsItemInBag
 	ret z
 	ld b, SKULL_FOSSIL
-	call IsItemInBag
-	ret z
-	ld b, JAW_FOSSIL
 	call IsItemInBag
 	ret z
 	ld b, ROOT_FOSSIL
@@ -361,11 +355,9 @@ MtMoonB2FTakeRequiredFossils:
 	jr .loop
 
 MtMoonB2FRequiredFossils:
-	db SAIL_FOSSIL
 	db ARMOR_FOSSIL
 	db CLAW_FOSSIL
 	db SKULL_FOSSIL
-	db JAW_FOSSIL
 	db ROOT_FOSSIL
 	db -1
 ENDC

@@ -51,12 +51,12 @@ _MtMoonB2FSuperNerdTheresAPokemonLabText::
 	cont "moved to"
 	cont "CERULEAN CITY."
 
-	para "Bring me SAIL,"
-	line "ARMOR, CLAW,"
-	cont "SKULL, JAW, and"
-	cont "ROOT FOSSIL and"
-	cont "I'll hand over"
-	cont "the one I kept."
+	para "Bring me ARMOR,"
+	line "CLAW, SKULL,"
+	cont "and ROOT FOSSIL,"
+	cont "then I'll hand"
+	cont "over the one I"
+	cont "kept."
 	done
 
 _MtMoonB2FSuperNerdFoundThemAllText::
