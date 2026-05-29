@@ -41,8 +41,31 @@ RocketHideoutB4F_ScriptPointers:
 	def_script_pointers
 	dw_const CheckFightingMapTrainers,              SCRIPT_ROCKETHIDEOUTB4F_DEFAULT
 	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_ROCKETHIDEOUTB4F_START_BATTLE
-	dw_const EndTrainerBattle,                      SCRIPT_ROCKETHIDEOUTB4F_END_BATTLE
+	dw_const RocketHideoutB4FEndBattleScript,       SCRIPT_ROCKETHIDEOUTB4F_END_BATTLE
 	dw_const RocketHideoutB4FBeatGiovanniScript,    SCRIPT_ROCKETHIDEOUTB4F_BEAT_GIOVANNI
+
+RocketHideoutB4FEndBattleScript:
+	call EndTrainerBattle
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, RocketHideoutB4FSetDefaultScript
+	ld a, [wSpriteIndex]
+	cp ROCKETHIDEOUTB4F_ROCKET1
+	jr z, .petrel
+	cp ROCKETHIDEOUTB4F_ROCKET2
+	jr z, .proton
+	jp RocketHideoutB4FSetDefaultScript
+.petrel
+	ld a, ROCKETHIDEOUTB4F_ROCKET1
+	jr .displayAfterBattleText
+.proton
+	ld a, ROCKETHIDEOUTB4F_ROCKET2
+.displayAfterBattleText
+	ldh [hTextID], a
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	call DisplayTextID
+	jp RocketHideoutB4FSetDefaultScript
 
 RocketHideoutB4FBeatGiovanniScript:
 	ld a, [wIsInBattle]
@@ -57,6 +80,12 @@ RocketHideoutB4FBeatGiovanniScript:
 	call DisplayTextID
 	call GBFadeOutToBlack
 	ld a, TOGGLE_ROCKET_HIDEOUT_B4F_GIOVANNI
+	ld [wToggleableObjectIndex], a
+	predef HideObject
+	ld a, TOGGLE_ROCKET_HIDEOUT_B4F_PETREL
+	ld [wToggleableObjectIndex], a
+	predef HideObject
+	ld a, TOGGLE_ROCKET_HIDEOUT_B4F_PROTON
 	ld [wToggleableObjectIndex], a
 	predef HideObject
 	ld a, TOGGLE_ROCKET_HIDEOUT_B4F_ITEM_4

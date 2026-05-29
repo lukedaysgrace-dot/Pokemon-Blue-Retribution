@@ -284,6 +284,8 @@ ENDM
 	const TOGGLE_ROCKET_HIDEOUT_B4F_ITEM_3     ; 87 X
 	const TOGGLE_ROCKET_HIDEOUT_B4F_ITEM_4     ; 88
 	const TOGGLE_ROCKET_HIDEOUT_B4F_ITEM_5     ; 89
+	const TOGGLE_ROCKET_HIDEOUT_B4F_PETREL     ; 8A
+	const TOGGLE_ROCKET_HIDEOUT_B4F_PROTON     ; 8B
 
 	toggle_consts_for SILPH_CO_2F
 	const TOGGLE_SILPH_CO_2F_1                 ; 8A XXX never (de)activated?
