@@ -463,4 +463,9 @@ PlayGreenEncounterMusic::
 	ld a, MUSIC_GREEN_THEME
 	jp PlayMusic
 
+EndGreenEncounterMusic::
+	ld hl, wStatusFlags7
+	res BIT_NO_MAP_MUSIC, [hl]
+	jp PlayDefaultMusic
+
 INCLUDE "data/trainers/encounter_types.asm"

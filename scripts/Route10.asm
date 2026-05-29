@@ -1,5 +1,12 @@
 Route10_Script:
 	call EnableAutoTextBoxDrawing
+	ld a, [wRoute10CurScript]
+	cp SCRIPT_ROUTE10_GREEN_AFTER_BATTLE
+	jr z, .skipGreenVisibility
+	cp SCRIPT_ROUTE10_GREEN_EXIT
+	jr z, .skipGreenVisibility
+	call Route10UpdateGreenVisibility
+.skipGreenVisibility
 	ld hl, Route10TrainerHeaders
 	ld de, Route10_ScriptPointers
 	ld a, [wRoute10CurScript]
@@ -162,12 +169,50 @@ Route10PowerPlantSignText:
 	text_far _Route10PowerPlantSignText
 	text_end
 
+Route10UpdateGreenVisibility:
+	call Route10ShouldShowGreen
+	and a
+	jr z, .hideGreen
+	ld a, ROUTE10_GREEN
+	swap a
+	ldh [hCurrentSpriteOffset], a
+	predef IsObjectHidden
+	ldh a, [hIsToggleableObjectOff]
+	and a
+	ret z
+	ld a, TOGGLE_ROUTE_10_GREEN
+	ld [wToggleableObjectIndex], a
+	predef_jump ShowObject
+.hideGreen
+	ld a, ROUTE10_GREEN
+	swap a
+	ldh [hCurrentSpriteOffset], a
+	predef IsObjectHidden
+	ldh a, [hIsToggleableObjectOff]
+	and a
+	ret nz
+	ld a, TOGGLE_ROUTE_10_GREEN
+	ld [wToggleableObjectIndex], a
+	predef_jump HideObject
+
+Route10ShouldShowGreen:
+	CheckEvent EVENT_BEAT_ROUTE_10_GREEN
+	jr nz, .hide
+	CheckEvent EVENT_BEAT_ROUTE5_GREEN
+	jr z, .hide
+	ld a, TRUE
+	ret
+.hide
+	xor a
+	ret
+
 Route10GreenAfterBattleScript:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, Route10ResetJoyAndMapScript
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
+	call PlayGreenEncounterMusic
 	call Route10GreenFacePlayer
 	SetEvent EVENT_BEAT_ROUTE_10_GREEN
 	ld a, TEXT_ROUTE10_GREEN_AFTER_BATTLE
@@ -197,6 +242,7 @@ Route10GreenExitScript:
 	ld a, TOGGLE_ROUTE_10_GREEN
 	ld [wToggleableObjectIndex], a
 	predef HideObject
+	call EndGreenEncounterMusic
 
 Route10ResetJoyAndMapScript:
 	xor a

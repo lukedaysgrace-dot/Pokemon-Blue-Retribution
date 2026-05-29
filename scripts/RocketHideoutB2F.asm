@@ -397,6 +397,7 @@ RocketHideoutB2FGreenAfterBattleScript:
 	jp z, RocketHideoutB2FGreenBattleCancelled
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
+	call PlayGreenEncounterMusic
 	call RocketHideoutB2FGreenFacePlayer
 	SetEvent EVENT_BEAT_ROCKET_HIDEOUT_B2F_GREEN
 	ld a, TEXT_ROCKETHIDEOUTB2F_GREEN_POST_BATTLE
@@ -457,7 +458,7 @@ RocketHideoutB2FGreenExitScript:
 	predef HideObject
 	xor a
 	ld [wJoyIgnore], a
-	call PlayDefaultMusic
+	call EndGreenEncounterMusic
 	ld [wRocketHideoutB2FCurScript], a
 	ld [wCurMapScript], a
 	ret

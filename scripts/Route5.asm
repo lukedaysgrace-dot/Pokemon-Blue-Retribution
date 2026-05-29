@@ -30,6 +30,7 @@ Route5AfterBattleScript:
 	jp z, Route5ResetScript
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
+	call PlayGreenEncounterMusic
 	SetEvent EVENT_BEAT_ROUTE5_GREEN
 	ld a, TEXT_ROUTE5_GREEN
 	ldh [hTextID], a
@@ -57,6 +58,7 @@ Route5GreenExitScript:
 	ld a, TOGGLE_ROUTE_5_GREEN
 	ld [wToggleableObjectIndex], a
 	predef HideObject
+	call EndGreenEncounterMusic
 	jp Route5ResetScript
 
 Route5_TextPointers:

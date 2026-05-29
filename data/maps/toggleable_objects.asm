@@ -492,7 +492,7 @@ ENDC
 	toggle_object_state SEAFOAMISLANDSB4F_ARTICUNO, ON
 
 	toggleable_objects_for ROUTE_10
-	toggle_object_state ROUTE10_GREEN, ON
+	toggle_object_state ROUTE10_GREEN, OFF
 
 	toggleable_objects_for INDIGO_PLATEAU_LOBBY
 	toggle_object_state INDIGOPLATEAULOBBY_GREEN, OFF

@@ -167,6 +167,7 @@ PalletTownGreenAfterBattleScript:
 	jr z, .reset
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
+	call PlayGreenEncounterMusic
 	SetEvent EVENT_BEAT_PALLET_TOWN_GREEN
 	ld a, TEXT_PALLETTOWN_GREEN
 	ldh [hTextID], a
@@ -254,6 +255,7 @@ PalletTownGreenExitScript:
 	ld a, TOGGLE_PALLET_TOWN_GREEN
 	ld [wToggleableObjectIndex], a
 	predef HideObject
+	call EndGreenEncounterMusic
 .reset
 	xor a ; SCRIPT_PALLETTOWN_DEFAULT
 	ld [wJoyIgnore], a

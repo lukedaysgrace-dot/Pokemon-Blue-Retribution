@@ -227,6 +227,7 @@ PokemonMansionB1FGreenAfterBattleScript:
 	jp z, PokemonMansionB1FGreenBattleCancelled
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
+	call PlayGreenEncounterMusic
 	call PokemonMansionB1FGreenFacePlayer
 	SetEvent EVENT_BEAT_MANSION_B1F_GREEN
 	ld a, TEXT_POKEMONMANSIONB1F_GREEN_AFTER_BATTLE
@@ -377,8 +378,7 @@ PokemonMansionB1FGreenExitScript:
 	predef HideObject
 	xor a
 	ld [wJoyIgnore], a
-	call PlayDefaultMusic
-	xor a
+	call EndGreenEncounterMusic
 	ld [wPokemonMansionB1FCurScript], a
 	ld [wCurMapScript], a
 	ret

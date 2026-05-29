@@ -44,6 +44,23 @@ EndOfBattle:
 	ld [wForceEvolution], a
 	predef EvolutionAfterBattle
 .resetVariables
+	ld a, [wBattleResult]
+	and a
+	jr nz, .clearBattleVars
+	ld a, [wIsInBattle]
+	cp $2 ; trainer battle
+	jr nz, .clearBattleVars
+	ld a, [wTrainerClass]
+	cp GREEN
+	jr z, .keepGreenTheme
+	cp GREEN_ROCKET
+	jr z, .keepGreenTheme
+	jr .clearBattleVars
+.keepGreenTheme
+; Keep overworld map music from replacing Green's theme until her exit script runs.
+	ld hl, wStatusFlags7
+	set BIT_NO_MAP_MUSIC, [hl]
+.clearBattleVars
 	xor a
 	ld [wLowHealthAlarm], a ;disable low health alarm
 	ld [wLowHealthAlarmCount], a

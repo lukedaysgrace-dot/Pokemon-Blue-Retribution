@@ -165,6 +165,7 @@ IndigoPlateauLobbyGreenAfterBattleScript:
 	jp z, IndigoPlateauLobbyResetScript
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
+	call PlayGreenEncounterMusic
 	call IndigoPlateauLobbyGreenFacePlayer
 	SetEvent EVENT_BEAT_INDIGO_PLATEAU_GREEN
 	ld a, TEXT_INDIGOPLATEAULOBBY_GREEN_AFTER_BATTLE
@@ -195,6 +196,7 @@ IndigoPlateauLobbyGreenExitScript:
 	ld a, TOGGLE_INDIGO_PLATEAU_LOBBY_GREEN
 	ld [wToggleableObjectIndex], a
 	predef HideObject
+	call EndGreenEncounterMusic
 	jp IndigoPlateauLobbyResetScript
 
 IndigoPlateauLobbySetGreenStartCoords:
