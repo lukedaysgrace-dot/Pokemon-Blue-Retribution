@@ -45,6 +45,7 @@ MoveGrammar:
 	db BUG_BITE
 	db GROWL
 	db MACH_PUNCH
+	db LUNGE
 	db SING
 	db PECK
 	db COUNTER

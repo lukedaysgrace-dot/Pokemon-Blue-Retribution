@@ -2347,8 +2347,8 @@ SquirtleEvosMoves:
 	db 21, BITE
 	db 26, BUBBLEBEAM
 	db 29, HEADBUTT
-	db 38, SURF
-	db 40, HYDRO_PUMP
+	db 38, SLACK_OFF
+	db 40, LUNGE
 	db 0
 CharmeleonEvosMoves:
 ; Evolutions

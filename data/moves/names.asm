@@ -178,5 +178,7 @@ MoveNames::
 	li "THUNDER FANG"
 	li "ACCELEROCK"
 	li "STONE EDGE"
+	li "LUNGE"
+	li "SLACK OFF"
 	li "STRUGGLE"
 	assert_list_length NUM_ATTACKS

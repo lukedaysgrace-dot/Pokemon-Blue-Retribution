@@ -178,6 +178,8 @@ MoveSoundTable:
 	db SFX_BATTLE_1E,          $00, $80 ; THUNDER_FANG
 	db SFX_BATTLE_14,          $00, $80 ; ACCELEROCK
 	db SFX_BATTLE_36,          $e0, $20 ; STONE_EDGE
+	db SFX_BATTLE_1B,          $02, $a0 ; LUNGE
+	db SFX_BATTLE_21,          $12, $10 ; SLACK_OFF
 	db SFX_BATTLE_0B,          $00, $80 ; STRUGGLE
 	assert_table_length NUM_ATTACKS
 	db SFX_BATTLE_0B,          $00, $80

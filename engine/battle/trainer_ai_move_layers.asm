@@ -663,6 +663,8 @@ AIMoveChoiceModification3:
 	jr z, .flydigcheck_faster
 	cp ACCELEROCK
 	jr z, .flydigcheck_faster
+	cp LUNGE
+	jr z, .flydigcheck_faster
 
 .flydigcheck_notfaster
 	jr .endflydigcheck

@@ -183,7 +183,9 @@
 	const THUNDER_FANG ; af
 	const ACCELEROCK   ; b0
 	const STONE_EDGE   ; b1
-	const STRUGGLE     ; b2
+	const LUNGE        ; b2
+	const SLACK_OFF    ; b3
+	const STRUGGLE     ; b4
 DEF NUM_ATTACKS EQU const_value - 1
 
 DEF CANNOT_MOVE EQU $ff

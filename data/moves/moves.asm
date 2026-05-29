@@ -101,7 +101,7 @@ Moves:
 	move ROCK_THROW,   NO_ADDITIONAL_EFFECT,        50, ROCK,      95, 25
 	move EARTHQUAKE,   NO_ADDITIONAL_EFFECT,       100, GROUND,   100, 10
 	move FISSURE,      OHKO_EFFECT,                  1, GROUND,    30,  5
-	move DIG,          CHARGE_EFFECT,              80, GROUND,   100, 10
+	move DIG,          NO_ADDITIONAL_EFFECT,              65, GROUND,   100, 10
 	move TOXIC,        POISON_EFFECT,                0, POISON,    85, 10
 	move CONFUSION,    CONFUSION_SIDE_EFFECT,       50, PSYCHIC_TYPE,  100, 25
 	move PSYCHIC_M,    SPECIAL_DOWN_SIDE_EFFECT,    90, PSYCHIC_TYPE,  100, 10
@@ -188,5 +188,7 @@ Moves:
 	move THUNDER_FANG, THUNDER_FANG_EFFECT,         75, ELECTRIC, 100, 15
 	move ACCELEROCK,   NO_ADDITIONAL_EFFECT,        40, ROCK,     100, 15
 	move STONE_EDGE,   NO_ADDITIONAL_EFFECT,       100, ROCK,      90, 10
+	move LUNGE,        NO_ADDITIONAL_EFFECT,        40, BUG,      100, 20
+	move SLACK_OFF,    HEAL_EFFECT,                  0, NORMAL,   100, 10
 	move STRUGGLE,     RECOIL_EFFECT,               50, BIRD,   100, 10
 	assert_table_length NUM_ATTACKS

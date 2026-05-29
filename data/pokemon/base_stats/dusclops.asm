@@ -1,6 +1,6 @@
 	db DEX_DUSCLOPS ; pokedex id
 
-	db  80,  60, 110,  25,  85
+	db  90,  60, 110,  25,  85
 	;   hp  atk  def  spd  spc
 
 	db GHOST, GHOST ; type

@@ -177,6 +177,8 @@ AttackAnimationPointers:
 	dw ThunderFangAnim
 	dw AccelerockAnim
 	dw StoneEdgeAnim
+	dw LungeAnim
+	dw SlackOffAnim
 	dw StruggleAnim
 	assert_table_length NUM_ATTACKS
 	dw ShowPicAnim
@@ -1323,6 +1325,20 @@ StoneEdgeAnim:
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
 	battle_anim NO_MOVE, SE_SHAKE_SCREEN
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
+
+LungeAnim:
+	battle_anim LUNGE, SE_SLIDE_MON_OFF
+	battle_anim LUNGE, SUBANIM_0_SCRATCHES, 0, 2
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_SHAKE_ENEMY_HUD
+	battle_anim NO_MOVE, SE_BLINK_ENEMY_MON
+	battle_anim NO_MOVE, SE_SHOW_MON_PIC
+	db -1 ; end
+
+SlackOffAnim:
+	battle_anim SLACK_OFF, SUBANIM_0_STATUS_SLEEP, 0, 16
+	battle_anim SLACK_OFF, SUBANIM_0_STATUS_SLEEP, 0, 16
 	db -1 ; end
 
 BallTossAnim:

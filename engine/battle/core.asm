@@ -440,6 +440,7 @@ MainInBattleLoop:
 	db MACH_PUNCH
 	db ICE_SHARD
 	db ACCELEROCK
+	db LUNGE
 	db -1 ; end
 
 .enemyMovesFirst

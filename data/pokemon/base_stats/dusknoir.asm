@@ -1,6 +1,6 @@
 	db DEX_DUSKNOIR ; pokedex id
 
-	db  95,  60, 115,  45,  90
+	db  95,  80, 115,  45,  90
 	;   hp  atk  def  spd  spc
 
 	db GHOST, GHOST ; type
