@@ -25,9 +25,11 @@ PlayBattleMusic::
 	cp OPP_GREEN_ROCKET + 1
 	jr c, .normalTrainerBattle
 .notGreenBattle
+	cp OPP_GIOVANNI
+	jr z, .gymLeaderBattle
 	cp OPP_LANCE
 	jr nz, .normalTrainerBattle
-; lance uses the gym leader / Elite Four theme
+; giovanni and lance use the gym leader / Elite Four theme
 .gymLeaderBattle
 	ld a, MUSIC_GYM_LEADER_BATTLE
 	jr .playSong
