@@ -1,6 +1,6 @@
 	db DEX_GOROCHU ; pokedex id
 
-	db  70,  95,  65, 115,  90
+	db  70,  90,  65, 115, 100
 	;   hp  atk  def  spd  spc
 
 	db ELECTRIC, DARK ; type

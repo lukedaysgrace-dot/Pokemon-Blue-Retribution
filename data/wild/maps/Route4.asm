@@ -6,7 +6,7 @@ IF DEF(_RED)
 	db   8, EKANS
 	db   6, SANDSHREW
 	db   8, MACHOP
-	db  10, ZUBAT
+	db  10, FARFETCHD
 	db  12, PARAS
 	db  12, CLEFAIRY
 	db   8, PSYDUCK
@@ -24,7 +24,7 @@ IF DEF(_BLUE)
 	db   8, EKANS
 	db   6, SANDSHREW
 	db   8, MACHOP
-	db  10, ZUBAT
+	db  10, FARFETCHD
 	db  12, PARAS
 	db  12, CLEFAIRY
 	db   8, PSYDUCK

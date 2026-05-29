@@ -1,6 +1,6 @@
 	db DEX_COPPERAJAH ; pokedex id
 
-	db 122, 130,  69,  30,  80
+	db 122, 120,  79,  30,  80
 	;   hp  atk  def  spd  spc
 
 	db STEEL, STEEL ; type

@@ -1,6 +1,6 @@
 	db DEX_WEAVILE ; pokedex id
 
-	db   70, 120,  65, 125,  65
+	db   70, 120,  55, 125,  75
 	;   hp  atk  def  spd  spc
 
 	db DARK, ICE ; type

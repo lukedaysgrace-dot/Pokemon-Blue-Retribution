@@ -4,8 +4,8 @@ IF DEF(_RED)
 	db   4, CATERPIE
 	db   5, WEEDLE
 	db   7, METAPOD
-	db   7, KAKUNA
-	db   4, PIDGEY
+	db   5, ODDISH
+	db   5, BELLSPROUT
 	db   6, PARAS
 	db   4, VENONAT
 	db   5, PIKACHU
@@ -21,9 +21,9 @@ IF DEF(_BLUE)
 	def_grass_wildmons 8 ; encounter rate
 	db   4, CATERPIE
 	db   5, VENIPEDE
-	db   7, METAPOD
+	db   5, BELLSPROUT
 	db   4, WEEDLE
-	db   4, PIDGEY
+	db   5, ODDISH
 	db   7, KAKUNA
 	db   5, PIKACHU
 	db   6, SCYTHER

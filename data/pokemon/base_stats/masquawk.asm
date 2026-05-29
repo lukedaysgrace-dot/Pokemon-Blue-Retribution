@@ -1,6 +1,6 @@
 	db DEX_MASQUAWK ; pokedex id
 
-	db  70, 110,  75, 105,  65
+	db  70, 120,  70, 100,  60
 	;   hp  atk  def  spd  spc
 
 	db FIGHTING, FLYING ; type

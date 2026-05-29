@@ -1,6 +1,6 @@
 	db DEX_GOLISOPOD ; pokedex id
 
-	db  75, 125, 140,  40,  72
+	db  75, 125, 130,  40,  85
 	;   hp  atk  def  spd  spc
 
 	db BUG, WATER ; type

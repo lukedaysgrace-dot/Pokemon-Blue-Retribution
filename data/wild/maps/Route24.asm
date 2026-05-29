@@ -19,8 +19,8 @@ ENDC
 
 IF DEF(_BLUE)
 	def_grass_wildmons 25 ; encounter rate
-	db   7, WEEDLE
-	db   8, VENIPEDE
+	db   9, WIMPOD
+	db   9, VENIPEDE
 	db   11, PIDGEY
 	db  10, ODDISH
 	db   11, BELLSPROUT

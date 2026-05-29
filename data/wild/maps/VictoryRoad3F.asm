@@ -27,8 +27,8 @@ IF DEF(_BLUE)
 	db  45, LUCARIO
 	db   45, SHELGON
 	db   45, PUPITAR
-	db  42, WIMPOD
-	db  45, GOLISOPOD
+	db  42, TYRANITAR
+	db  45, ALAKAZAM
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate
