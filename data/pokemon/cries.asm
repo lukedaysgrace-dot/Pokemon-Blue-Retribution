@@ -55,18 +55,18 @@ CryData::
 	mon_cry SFX_CRY_21, $20, $60 ; Psyduck
 	mon_cry SFX_CRY_0D, $88, $20 ; Drowzee
 	mon_cry SFX_CRY_12, $E0, $40 ; Golem
-	mon_cry SFX_CRY_19, $70, $28 ; Cufant
+	mon_cry SFX_CRY_19, $30, $B0 ; Ampharos
 	mon_cry SFX_CRY_04, $FF, $30 ; Magmar
-	mon_cry SFX_CRY_13, $04, $F0 ; Copperajah
+	mon_cry SFX_CRY_0F, $48, $38 ; Gible
 	mon_cry SFX_CRY_06, $8F, $FF ; Electabuzz
 	mon_cry SFX_CRY_1C, $20, $C0 ; Magneton
 	mon_cry SFX_CRY_12, $E6, $DD ; Koffing
-	mon_cry SFX_CRY_0F, $E8, $18 ; Toxel
+	mon_cry SFX_CRY_16, $70, $88 ; Gabite
 	mon_cry SFX_CRY_0A, $DD, $60 ; Mankey
 	mon_cry SFX_CRY_0C, $88, $C0 ; Seel
 	mon_cry SFX_CRY_0B, $AA, $01 ; Diglett
 	mon_cry SFX_CRY_1D, $11, $40 ; Tauros
-	mon_cry SFX_CRY_06, $98, $E8 ; Toxtricity
+	mon_cry SFX_CRY_06, $98, $E8 ; Garchomp
 	mon_cry SFX_CRY_00, $00, $00 ; MissingNo.
 	mon_cry SFX_CRY_00, $00, $00 ; MissingNo.
 	mon_cry SFX_CRY_10, $DD, $01 ; Farfetch'd
@@ -84,9 +84,9 @@ CryData::
 	mon_cry SFX_CRY_0E, $FF, $FF ; Ditto
 	mon_cry SFX_CRY_19, $77, $10 ; Meowth
 	mon_cry SFX_CRY_20, $20, $E0 ; Krabby
-	mon_cry SFX_CRY_19, $B8, $08 ; Buneary
-	mon_cry SFX_CRY_19, $68, $70 ; Lopunny
-	mon_cry SFX_CRY_0E, $E0, $60 ; MissingNo.
+	mon_cry SFX_CRY_03, $A8, $50 ; Mareep
+	mon_cry SFX_CRY_0F, $BB, $28 ; Flaaffy
+	mon_cry SFX_CRY_00, $00, $00 ; MissingNo.
 	mon_cry SFX_CRY_24, $4F, $10 ; Vulpix
 	mon_cry SFX_CRY_24, $88, $60 ; Ninetales
 	mon_cry SFX_CRY_0F, $EE, $01 ; Pikachu
@@ -209,8 +209,8 @@ CryData::
 	mon_cry SFX_CRY_18, $30, $C0 ; Honchkrow
 	mon_cry SFX_CRY_1C, $A0, $90 ; Misdreavus
 	mon_cry SFX_CRY_07, $40, $E0 ; Mismagius
-	mon_cry SFX_CRY_08, $20, $C0 ; Guardia
-	mon_cry SFX_CRY_10, $98, $70 ; Masquawk
+	mon_cry SFX_CRY_1A, $70, $58 ; Chinchou
+	mon_cry SFX_CRY_1B, $50, $A0 ; Lanturn
 	mon_cry SFX_CRY_09, $E0, $FF ; Gorochu
 	mon_cry SFX_CRY_04, $B0, $30 ; Larvitar
 	mon_cry SFX_CRY_04, $C0, $70 ; Pupitar
@@ -238,7 +238,7 @@ CryData::
 	mon_cry SFX_CRY_1D, $C0, $C0 ; Crobat
 	mon_cry SFX_CRY_06, $7F, $FF ; Electivire
 	mon_cry SFX_CRY_19, $10, $C0 ; Kingdra
-	mon_cry SFX_CRY_0C, $20, $90 ; Lickilicky
+	mon_cry SFX_CRY_07, $90, $35 ; Mimikyu
 	mon_cry SFX_CRY_04, $E0, $50 ; Magmortar
 	mon_cry SFX_CRY_1C, $10, $E0 ; Magnezone
 	mon_cry SFX_CRY_25, $44, $FF ; Porygon2
@@ -253,8 +253,8 @@ CryData::
 	mon_cry SFX_CRY_19, $60, $30 ; Sneasel
 	mon_cry SFX_CRY_19, $20, $90 ; Weavile
 	mon_cry SFX_CRY_0D, $E0, $FF ; Mesmeria
-	mon_cry SFX_CRY_0E, $60, $70 ; Croagunk
-	mon_cry SFX_CRY_0E, $20, $B0 ; Toxicroak
+	mon_cry SFX_CRY_0E, $D8, $28 ; Snorunt
+	mon_cry SFX_CRY_1C, $60, $70 ; Froslass
 	mon_cry SFX_CRY_19, $A8, $20 ; Phanpy
 	mon_cry SFX_CRY_13, $30, $D0 ; Donphan
 	mon_cry SFX_CRY_1F, $30, $60 ; Houndour

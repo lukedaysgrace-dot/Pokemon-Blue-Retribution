@@ -56,18 +56,18 @@
 	const PSYDUCK            ; $2F
 	const DROWZEE            ; $30
 	const GOLEM              ; $31
-	const CUFANT             ; $32
+	const AMPHAROS           ; $32
 	const MAGMAR             ; $33
-	const COPPERAJAH         ; $34
+	const GIBLE              ; $34
 	const ELECTABUZZ         ; $35
 	const MAGNETON           ; $36
 	const KOFFING            ; $37
-	const TOXEL              ; $38
+	const GABITE             ; $38
 	const MANKEY             ; $39
 	const SEEL               ; $3A
 	const DIGLETT            ; $3B
 	const TAUROS             ; $3C
-	const TOXTRICITY         ; $3D
+	const GARCHOMP           ; $3D
 	const_skip               ; $3E
 	const_skip               ; $3F
 	const FARFETCHD          ; $40
@@ -85,8 +85,8 @@
 	const DITTO              ; $4C
 	const MEOWTH             ; $4D
 	const KRABBY             ; $4E
-	const BUNEARY            ; $4F
-	const LOPUNNY            ; $50
+	const MAREEP             ; $4F
+	const FLAAFFY            ; $50
 	const_skip               ; $51
 	const VULPIX             ; $52
 	const NINETALES          ; $53
@@ -210,8 +210,8 @@
 	const HONCHKROW          ; $C9
 	const MISDREAVUS         ; $CA
 	const MISMAGIUS          ; $CB
-	const GUARDIA            ; $CC
-	const MASQUAWK           ; $CD
+	const CHINCHOU           ; $CC
+	const LANTURN            ; $CD
 	const GOROCHU            ; $CE
 	const LARVITAR           ; $CF
 	const PUPITAR            ; $D0
@@ -239,7 +239,7 @@
 	const CROBAT             ; $E6
 	const ELECTIVIRE         ; $E7
 	const KINGDRA            ; $E8
-	const LICKILICKY         ; $E9
+	const MIMIKYU            ; $E9
 	const MAGMORTAR          ; $EA
 	const MAGNEZONE          ; $EB
 	const PORYGON2           ; $EC
@@ -254,8 +254,8 @@
 	const SNEASEL            ; $F5
 	const WEAVILE            ; $F6
 	const MESMERIA           ; $F7
-	const CROAGUNK           ; $F8
-	const TOXICROAK          ; $F9
+	const SNORUNT            ; $F8
+	const FROSLASS           ; $F9
 	const PHANPY             ; $FA
 	const DONPHAN            ; $FB
 	const HOUNDOUR           ; $FC

@@ -163,8 +163,8 @@ MonPartyData:
 	db ICON_HONCHKROW     ; Honchkrow
 	db ICON_MISDREAVUS    ; Misdreavus
 	db ICON_MISMAGIUS     ; Mismagius
-	db ICON_GUARDIA       ; Guardia
-	db ICON_MASQUAWK      ; Masquawk
+	db ICON_CHINCHOU       ; Chinchou
+	db ICON_LANTURN      ; Lanturn
 	db ICON_GOROCHU       ; Gorochu
 	db ICON_LARVITAR      ; Larvitar
 	db ICON_PUPITAR       ; Pupitar
@@ -192,7 +192,7 @@ MonPartyData:
 	db ICON_CROBAT        ; Crobat
 	db ICON_ELECTIVIRE    ; Electivire
 	db ICON_KINGDRA       ; Kingdra
-	db ICON_LICKILICKY    ; Lickilicky
+	db ICON_MIMIKYU    ; Mimikyu
 	db ICON_MAGMORTAR     ; Magmortar
 	db ICON_MAGNEZONE     ; Magnezone
 	db ICON_PORYGON2      ; Porygon2
@@ -207,8 +207,8 @@ MonPartyData:
 	db ICON_SNEASEL       ; Sneasel
 	db ICON_WEAVILE       ; Weavile
 	db ICON_MESMERIA      ; Mesmeria
-	db ICON_CROAGUNK      ; Croagunk
-	db ICON_TOXICROAK     ; Toxicroak
+	db ICON_SNORUNT      ; Snorunt
+	db ICON_FROSLASS     ; Froslass
 	db ICON_PHANPY        ; Phanpy
 	db ICON_DONPHAN       ; Donphan
 	db ICON_HOUNDOUR      ; Houndour
@@ -217,17 +217,17 @@ MonPartyData:
 	db ICON_RAMPARDOS     ; Rampardos
 	db ICON_SHIELDON      ; Shieldon
 	db ICON_BASTIODON     ; Bastiodon
-	db ICON_BUNEARY       ; Buneary
-	db ICON_LOPUNNY       ; Lopunny
+	db ICON_MAREEP       ; Mareep
+	db ICON_FLAAFFY       ; Flaaffy
+	db ICON_AMPHAROS        ; Ampharos
+	db ICON_GIBLE    ; Gible
+	db ICON_GABITE         ; Gabite
+	db ICON_GARCHOMP    ; Garchomp
 	db ICON_WIMPOD        ; Wimpod
 	db ICON_GOLISOPOD     ; Golisopod
 	db ICON_LILEEP        ; Lileep
 	db ICON_CRADILY       ; Cradily
 	db ICON_ANORITH       ; Anorith
 	db ICON_ARMALDO       ; Armaldo
-	db ICON_CUFANT        ; Cufant
-	db ICON_COPPERAJAH    ; Copperajah
-	db ICON_TOXEL         ; Toxel
-	db ICON_TOXTRICITY    ; Toxtricity
 
 ASSERT @ - MonPartyData == NUM_POKEMON

@@ -25,8 +25,8 @@ IF DEF(_BLUE)
 	db  49, SANDSLASH
 	db  49, VICTREEBEL
 	db  52, VENOMOTH
-	db  49, CUFANT
-	db  49, TOXEL
+	db  49, AMPHAROS
+	db  49, GABITE
 	db  53, NINETALES
 	db  53, DITTO
 	end_grass_wildmons

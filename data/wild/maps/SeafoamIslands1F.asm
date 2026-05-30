@@ -28,7 +28,7 @@ IF DEF(_BLUE)
 	db  29, JYNX
 	db  28, SLOWPOKE
 	db   32, SEEL
-	db   32, GUARDIA
+	db   32, CHINCHOU
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

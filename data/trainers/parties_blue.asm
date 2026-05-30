@@ -5,7 +5,7 @@ YoungsterData:
 ; Mt. Moon 1F
 	db 10, SPEAROW, EKANS, ZUBAT, 0
 ; Route 24
-	db 14, RATTATA, EKANS, BUNEARY, 0
+	db 14, RATTATA, EKANS, MAREEP, 0
 ; Route 25
 	db 15, MURKROW, SPEAROW, 0
 	db 17, SLOWPOKE, 0
@@ -14,7 +14,7 @@ YoungsterData:
 	db 21, NIDORINO, 0
 ; Route 11
 	db 22, ARBOK, 0
-	db 19, SANDSHREW, BUNEARY, 0
+	db 19, SANDSHREW, MAREEP, 0
 	db 17, RATTATA, RATTATA, RATICATE, 0
 	db 18, NIDORINO, NIDORINO, 0
 ; Unused
@@ -64,7 +64,7 @@ LassData:
 ; Route 8
 	db 23, NIDORINA, NIDORINA, 0
 	db 24, MEOWTH, JIGGLYPUFF, EEVEE, 0
-	db 19, PIDGEOTTO, RATTATA, NIDORINO, BUNEARY, PIKACHU, 0
+	db 19, PIDGEOTTO, RATTATA, NIDORINO, MAREEP, PIKACHU, 0
 	db 22, CLEFAIRY, CLEFABLE, 0
 ; Celadon Gym
 	db 23, WEEPINBELL, WEEPINBELL, 0
@@ -449,7 +449,7 @@ ScientistData:
 ; Silph Co. 10F
 	db 29, MAGNEMITE, KOFFING, 0
 ; Mansion 3F
-	db 33, MAGNETON, MAGNETON, LICKILICKY, 0
+	db 33, MAGNETON, MAGNETON, MIMIKYU, 0
 ; Mansion B1F
 	db 34, MAGNETON, ELECTRODE, 0
 ; Unused/joenote - restored and put in Mansion 1F

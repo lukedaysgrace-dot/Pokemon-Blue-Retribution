@@ -38,7 +38,7 @@ IF DEF(_BLUE)
 	db   12, BELLSPROUT
 	db   12, ODDISH
 	db     8, JYNX
-	db   8, CROAGUNK
+	db   8, SNORUNT
 	end_grass_wildmons
 
 	def_water_wildmons 10 ; encounter rate

@@ -168,8 +168,8 @@
 	const DEX_HONCHKROW  ; 162
 	const DEX_MISDREAVUS ; 163
 	const DEX_MISMAGIUS  ; 164
-	const DEX_GUARDIA    ; 165
-	const DEX_MASQUAWK   ; 166
+	const DEX_CHINCHOU   ; 165
+	const DEX_LANTURN    ; 166
 	const DEX_GOROCHU    ; 167
 	const DEX_LARVITAR   ; 168
 	const DEX_PUPITAR    ; 169
@@ -197,7 +197,7 @@
 	const DEX_CROBAT     ; 191
 	const DEX_ELECTIVIRE ; 192
 	const DEX_KINGDRA    ; 193
-	const DEX_LICKILICKY ; 194
+	const DEX_MIMIKYU    ; 194
 	const DEX_MAGMORTAR  ; 195
 	const DEX_MAGNEZONE  ; 196
 	const DEX_PORYGON2   ; 197
@@ -212,8 +212,8 @@
 	const DEX_SNEASEL    ; 206
 	const DEX_WEAVILE    ; 207
 	const DEX_MESMERIA   ; 208
-	const DEX_CROAGUNK   ; 209
-	const DEX_TOXICROAK  ; 210
+	const DEX_SNORUNT    ; 209
+	const DEX_FROSLASS   ; 210
 	const DEX_PHANPY     ; 211
 	const DEX_DONPHAN    ; 212
 	const DEX_HOUNDOUR   ; 213
@@ -222,17 +222,17 @@
 	const DEX_RAMPARDOS  ; 216
 	const DEX_SHIELDON   ; 217
 	const DEX_BASTIODON  ; 218
-	const DEX_BUNEARY    ; 219
-	const DEX_LOPUNNY    ; 220
-	const DEX_WIMPOD     ; 221
-	const DEX_GOLISOPOD  ; 222
-	const DEX_LILEEP     ; 223
-	const DEX_CRADILY    ; 224
-	const DEX_ANORITH    ; 225
-	const DEX_ARMALDO    ; 226
-	const DEX_CUFANT     ; 227
-	const DEX_COPPERAJAH ; 228
-	const DEX_TOXEL      ; 229
-	const DEX_TOXTRICITY ; 230
+	const DEX_MAREEP     ; 219
+	const DEX_FLAAFFY    ; 220
+	const DEX_AMPHAROS   ; 221
+	const DEX_GIBLE      ; 222
+	const DEX_GABITE     ; 223
+	const DEX_GARCHOMP   ; 224
+	const DEX_WIMPOD     ; 225
+	const DEX_GOLISOPOD  ; 226
+	const DEX_LILEEP     ; 227
+	const DEX_CRADILY    ; 228
+	const DEX_ANORITH    ; 229
+	const DEX_ARMALDO    ; 230
 
 DEF NUM_POKEMON EQU const_value - 1

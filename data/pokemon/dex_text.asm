@@ -1627,22 +1627,22 @@ _MismagiusDexEntry::
 	next "between regions"
 	dex
 
-_GuardiaDexEntry::
-	text "It guards the den"
-	next "with its bone held"
-	next "before challengers"
+_ChinchouDexEntry::
+	text "On ocean floors it"
+	next "flashes both of its"
+	next "lights to find prey"
 
-	page "Often found near"
-	next "old shrines"
+	page "in the deep dark"
+	next "deep ocean."
 	dex
 
-_MasquawkDexEntry::
-	text "A stage mask hides"
-	next "eyes as it dances"
-	next "above the fog"
+_LanturnDexEntry::
+	text "At night its bright"
+	next "lure draws in fish"
+	next "from the deep"
 
-	page "Its fans flash"
-	next "bright blades"
+	page "dark ocean floor"
+	next "near its lure."
 	dex
 
 _GorochuDexEntry::
@@ -1883,13 +1883,13 @@ _LeafeonDexEntry::
 	next "grass"
 	dex
 
-_LickilickyDexEntry::
-	text "Its tongue can"
-	next "stretch far out"
-	next "to grab things"
+_MimikyuDexEntry::
+	text "Underneath its"
+	next "ragged disguise"
+	next "is a tiny body"
 
-	page "or leave foes"
-	next "soaked in spit"
+	page "that wants to"
+	next "make new friends"
 	dex
 
 _MagmortarDexEntry::
@@ -2032,23 +2032,23 @@ _MesmeriaDexEntry::
 	next "smile."
 	dex
 
-_CroagunkDexEntry::
-	text "The poison sacs on"
-	next "its cheeks inflate"
-	next "when it senses a"
+_SnoruntDexEntry::
+	text "In snowy regions it"
+	next "wears a small hat"
+	next "of snow that will"
 
-	page "fight, then it"
-	next "strikes with jabs"
-	next "to fluster foes."
+	page "shake when foes"
+	next "draw near, and it"
+	next "tries to startle."
 	dex
 
-_ToxicroakDexEntry::
-	text "It bowls foes over"
-	next "with wide kicks"
-	next "then coats them in"
+_FroslassDexEntry::
+	text "It blasts freezing"
+	next "air at its foes,"
+	next "then wraps them in"
 
-	page "toxin from its"
-	next "knuckle spines."
+	page "icy cold that can"
+	next "freeze them fast."
 	dex
 
 
@@ -2127,22 +2127,22 @@ _BastiodonDexEntry::
 	next "from attacks."
 	dex
 
-_BunearyDexEntry::
-	text "Its ears coil when"
-	next "it rests. It hops"
-	next "around forests at"
+_MareepDexEntry::
+	text "If its fluffy wool"
+	next "grows too long it"
+	next "cannot move well."
 
-	page "dawn, kicking foes"
-	next "when threatened."
+	page "It grazes in fields"
+	next "at break of dawn."
 	dex
 
-_LopunnyDexEntry::
-	text "Very cautious, it"
-	next "bounds away from"
-	next "danger with nimble"
+_FlaaffyDexEntry::
+	text "Its wool can hold"
+	next "electric heat so"
+	next "it can stay warm in"
 
-	page "leaps. Its kicks"
-	next "hit like hammers."
+	page "cold. It leaps to"
+	next "escape if scared."
 	dex
 
 _WimpodDexEntry::
@@ -2199,38 +2199,38 @@ _ArmaldoDexEntry::
 	next "on the seafloor."
 	dex
 
-_CufantDexEntry::
-	text "It carries heavy"
-	next "loads and digs"
-	next "with a trunk."
+_AmpharosDexEntry::
+	text "The light on its"
+	next "tail can shine"
+	next "bright enough to"
 
-	page "Rain makes its"
-	next "copper skin green."
+	page "be seen from far"
+	next "even on dark night."
 	dex
 
-_CopperajahDexEntry::
-	text "Copper skin turns"
-	next "green in rain. It"
-	next "can crush rock"
+_GibleDexEntry::
+	text "It nests in small"
+	next "caves and tunnels"
+	next "where it waits to"
 
-	page "with its great"
-	next "trunk."
+	page "lurk and bite at"
+	next " prey."
 	dex
 
-_ToxelDexEntry::
-	text "It stores poison"
-	next "in a sac."
-	next "Touching its skin"
+_GabiteDexEntry::
+	text "It loves hoarding"
+	next "odd gems."
+	next "Touching its rough"
 
-	page "gives a small and"
+	page "scales can give a"
 	next "weak shock."
 	dex
 
-_ToxtricityDexEntry::
-	text "It strums its"
-	next "chest to make"
-	next "loud music, then"
+_GarchompDexEntry::
+	text "It soars at high"
+	next "speed, then dives"
+	next "through the air to"
 
-	page "fires poison and"
-	next "volts at foes."
+	page "strike foes with"
+	next "claw and fang."
 	dex

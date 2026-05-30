@@ -26,7 +26,7 @@ IF DEF(_BLUE)
 	db   35, VULPIX
 	db  34, MAGMAR
 	db   35, GRIMER
-	db   35, CROAGUNK
+	db   35, SNORUNT
 	db  35, RATICATE
 	db   35, RATTATA
 	end_grass_wildmons

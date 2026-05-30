@@ -449,7 +449,7 @@ ScientistData:
 ; Silph Co. 10F
 	db 29, MAGNEMITE, KOFFING, 0
 ; Mansion 3F
-	db 33, MAGNETON, MAGNETON, LICKILICKY, 0
+	db 33, MAGNETON, MAGNETON, MIMIKYU, 0
 ; Mansion B1F
 	db 34, MAGNETON, ELECTRODE, 0
 ; Unused/joenote - restored and put in Mansion 1F
