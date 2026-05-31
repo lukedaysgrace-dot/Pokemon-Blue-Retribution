@@ -597,7 +597,7 @@ GastlyEvosMoves:
 	db 12, LICK
 	db 18, HYPNOSIS
 	db 22, CONFUSE_RAY
-	db 28, NIGHT_SHADE
+	db 24, NIGHT_SHADE
 	db 38, SHADOW_BALL
 	db 42, DREAM_EATER
 	db 0
@@ -688,6 +688,7 @@ RampardosEvosMoves:
 	db 30, ROCK_SLIDE
 	db 34, FOCUS_ENERGY
 	db 38, TAKE_DOWN
+	db 40, EARTHQUAKE
 	db 42, SLAM
 	db 48, HYPER_BEAM
 	db 0
@@ -1229,11 +1230,7 @@ DittoEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 9, QUICK_ATTACK
-	db 25, HEADBUTT
-	db 28, SLASH
-	db 31, BODY_SLAM
-	db 44, DOUBLE_EDGE
+	db 9, TACKLE
 	db 0
 MeowthEvosMoves:
 ; Evolutions
@@ -1324,19 +1321,19 @@ NinetalesEvosMoves:
 	db 0
 PikachuEvosMoves:
 ; Evolutions
-	db EVOLVE_ITEM, THUNDER_STONE, 1, RAICHU
+	db EVOLVE_LEVEL, 25, RAICHU
 	db 0
 ; Learnset
 	db 6, TAIL_WHIP
 	db 12, THUNDER_WAVE
-	db 22, SWIFT
-	db 30, SLAM
-	db 37, THUNDERBOLT
-	db 44, THUNDER
+	db 14, BITE
+	db 18, THUNDERPUNCH
+	db 24, THUNDERBOLT
+	db 34, THUNDER
 	db 0
 RaichuEvosMoves:
 ; Evolutions
-	blue_evolve_level 45, GOROCHU
+	blue_evolve_item THUNDER_STONE, 1, GOROCHU
 	db 0
 ; Learnset
 	db 6, TAIL_WHIP
@@ -1344,12 +1341,12 @@ RaichuEvosMoves:
 	db 25, BODY_SLAM
 	db 27, THUNDERBOLT
 	db 28, LIGHT_SCREEN
-	db 31, SLAM
+	db 31, BODY_SLAM
 	db 44, THUNDER
 	db 0
 WimpodEvosMoves:
 ; Evolutions
-	blue_evolve_level 30, GOLISOPOD
+	blue_evolve_level 25, GOLISOPOD
 	db 0
 ; Learnset
 	db 8, SAND_ATTACK
@@ -1357,6 +1354,7 @@ WimpodEvosMoves:
 	db 14, BUG_BITE
 	db 17, BUBBLEBEAM
 	db 18, DEFENSE_CURL
+	db 22, LUNGE
 	db 24, WATERFALL
 	db 28, LEECH_LIFE
 	db 31, X_SCISSOR
@@ -1367,8 +1365,9 @@ GolisopodEvosMoves:
 ; Learnset
 	db 17, BUG_BITE
 	db 21, PIN_MISSILE
-	db 24, SUCKER_PUNCH
+	db 26, SUCKER_PUNCH
 	db 30, WATERFALL
+	db 32, LUNGE
 	db 34, SLASH
 	db 38, X_SCISSOR
 	db 44, SWORDS_DANCE
@@ -1552,8 +1551,8 @@ FlareonEvosMoves:
 	db 9, GROWL
 	db 18, FIRE_SPIN
 	db 25, SWIFT
-	db 28, BITE
-	db 31, FLAME_WHEEL
+	db 27, BITE
+	db 29, FLAME_WHEEL
 	db 34, FLAMETHROWER
 	db 44, FIRE_BLAST
 	db 0
@@ -1999,6 +1998,7 @@ PersianEvosMoves:
 	db 20, HYPNOSIS
 	db 25, SWIFT
 	db 31, BODY_SLAM
+	db 34, CRUNCH
 	db 36, AMNESIA
 	db 44, DOUBLE_EDGE
 	db 0
@@ -2359,8 +2359,8 @@ CharmeleonEvosMoves:
 	db 10, LEER
 	db 12, SMOKESCREEN
 	db 20, FIRE_SPIN
-	db 23, RAGE
-	db 25, FLAME_WHEEL
+	db 21, RAGE
+	db 23, FLAME_WHEEL
 	db 28, SLASH
 	db 35, FLAMETHROWER
 	db 44, FIRE_BLAST
@@ -2548,7 +2548,7 @@ QuilavaEvosMoves:
 	db 15, SMOKESCREEN
 	db 23, FLAME_WHEEL
 	db 27, SWIFT
-	db 41, FLAMETHROWER
+	db 35, FLAMETHROWER
 	db 44, FIRE_BLAST
 	db 0
 TyphlosionEvosMoves:
@@ -2674,8 +2674,9 @@ GorochuEvosMoves:
 ; Learnset
 	db 6, TAIL_WHIP
 	db 22, SWIFT
-	db 27, THUNDERBOLT
+	db 32, THUNDERBOLT
 	db 34, FIRE_PUNCH
+	db 36, CRUNCH
 	db 38, THUNDERPUNCH
 	db 45, THUNDER
 	db 50, LIGHT_SCREEN

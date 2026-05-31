@@ -22,7 +22,7 @@ IF DEF(_BLUE)
 	db  25, HAUNTER
 	db  25, HAUNTER
 	db  22, GASTLY
-	db  23, GOLBAT
+	db  23, MIMIKYU
 	db  19, CUBONE
 	db  25, HAUNTER
 	db  20, VULPIX

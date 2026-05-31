@@ -137,7 +137,7 @@ Moves:
 	move SLUDGE,       POISON_SIDE_EFFECT2,         80, POISON,   100, 20
 	move BONE_CLUB,    FLINCH_SIDE_EFFECT1,         65, GROUND,    100, 20
 	move FIRE_BLAST,   BURN_SIDE_EFFECT2,          120, FIRE,      90,  10
-	move WATERFALL,    FLINCH_SIDE_EFFECT1,        70, WATER,    100, 15
+	move WATERFALL,    FLINCH_SIDE_EFFECT1,        90, WATER,    100, 15
 	move CLAMP,        TRAPPING_EFFECT,             35, WATER,     85, 10
 	move SWIFT,        SWIFT_EFFECT,                60, NORMAL,   100, 20
 	move SKULL_BASH,   SPEED_DOWN_SIDE_EFFECT,      100, WATER,   100, 15

@@ -24,6 +24,6 @@ IF DEF(_BLUE)
 	db      5, TENTACOOL
 	db      5, KRABBY
 	db      5, SHELLDER
-	db      5, MAGIKARP
+	db      5, CHINCHOU
 ENDC
 

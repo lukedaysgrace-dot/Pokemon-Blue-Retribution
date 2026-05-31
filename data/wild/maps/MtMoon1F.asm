@@ -25,9 +25,9 @@ IF DEF(_BLUE)
 	db   8, JIGGLYPUFF
 	db   8, CLEFAIRY
 	db  10, MACHOP
-	db  10, ONIX
+	db  10, BAGON
 	db   8, GOLETT
-	db   9, WIMPOD
+	db   9, GIBLE
 	db   8, LARVITAR
 	end_grass_wildmons
 
