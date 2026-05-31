@@ -26,3 +26,8 @@ _CeladonMart5FSailorText::
 _CeladonMart5FCurrentFloorSignText::
 	text "5F: DRUG STORE"
 	done
+
+_CeladonMart5FClerk2NotYetChampionText::
+	text "Sorry, we're not"
+	line "open yet."
+	done

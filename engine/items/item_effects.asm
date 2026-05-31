@@ -1372,8 +1372,8 @@ ItemUseMedicine:
 	ld bc, MON_LEVEL
 	add hl, bc ; hl now points to level
 	ld a, [hl] ; a = level
-	cp MAX_LEVEL
-	jr z, .vitaminNoEffect ; can't raise level above 100
+	cp RARE_CANDY_MAX_LEVEL
+	jr nc, .vitaminNoEffect ; can't raise level above 60
 	inc a
 	ld [hl], a ; store incremented level
 	ld [wCurEnemyLevel], a

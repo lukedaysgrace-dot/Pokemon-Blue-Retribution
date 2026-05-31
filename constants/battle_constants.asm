@@ -1,4 +1,5 @@
 DEF MAX_LEVEL EQU 100
+DEF RARE_CANDY_MAX_LEVEL EQU 60
 
 ; maximum moves known per mon
 DEF NUM_MOVES EQU 4
