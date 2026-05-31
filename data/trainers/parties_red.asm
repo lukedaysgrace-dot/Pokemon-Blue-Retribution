@@ -227,7 +227,7 @@ BurglarData:
 ;	db 28,VULPIX,CHARMANDER,PONYTA,0
 EngineerData:
 ; Route 11
-	db 21, PORYGON2, 0
+	db 21, PORYGON, 0
 	db 18, ELECTABUZZ, ELECTRODE, MAGNETON, 0
 ; Unused
 ;	db 21,VOLTORB,MAGNEMITE,0
@@ -275,7 +275,7 @@ SwimmerFData:
 ; Route 19
 	db 30, GOLDUCK, SEAKING, 0
 	db 29, STARYU, STARMIE, STARMIE, 0
-	db 30, SEADRA, SEADRA, KINGDRA, 0
+	db 30, SEADRA, SEADRA, SEADRA, 0
 ; Route 20
 	db 35, VAPOREON, 0
 	db 30, OMASTAR, SHELLDER, CLOYSTER, 0
@@ -347,7 +347,7 @@ JugglerData:	;joenote - tweaked some parties
 	db 48, TANGELA, GOLEM, 0	;db 48, MR_MIME, 0
 ; Fuchsia Gym
 	db 33, VILEPLUME, HAUNTER, VENOMOTH, KOFFING, 0	;db 31, DROWZEE, HYPNO, KADABRA, DROWZEE, 0
-	db 38, SCOLIPEDE, BEEDRILL, 0	;db 38, HYPNO, 0
+	db 38, ARBOK, BEEDRILL, 0	;db 38, HYPNO, 0
 	db 34, HYPNO, HYPNO, 0
 ; Unused
 	;db 34,DROWZEE,KADABRA,0	;joenote - in fuschia gym, replaced by Janine
@@ -435,7 +435,7 @@ ScientistData:
 ; Silph Co. 3F
 	db 29, ELECTRODE, WEEZING, 0
 ; Silph Co. 4F
-	db 34, PORYGON_Z, 0
+	db 34, PORYGON, 0
 ; Silph Co. 5F
 	db 26, MAGNETON, PORYGON, WEEZING, MAGNEMITE, 0
 ; Silph Co. 6F
@@ -529,12 +529,12 @@ CooltrainerMData:
 ; Viridian Gym
 	db 39, NIDOQUEEN, NIDOKING, 0
 ; Victory Road 3F
-	db 43, GOLISOPOD, CLOYSTER, ARCANINE, 0
+	db 43, SCYTHER, CLOYSTER, ARCANINE, 0
 	db 43, KINGLER, TENTACRUEL, BLASTOISE, 0
 ; Victory Road 1F
 	db 42, VENUSAUR, BLASTOISE, CHARIZARD, RAICHU, 0
 ; Viridian Gym
-	db 39, SANDSLASH, GOLISOPOD, 0
+	db 39, SANDSLASH, SCYTHER, 0
 	db 43, SNORLAX, 0
 ; Unused
 	;db 45,KINGLER,STARMIE,0
@@ -546,7 +546,7 @@ CooltrainerFData:
 	db 24, WEEPINBELL, GLOOM, IVYSAUR, 0
 ; Victory Road 3F
 	db 43, VILEPLUME, PARASECT, VICTREEBEL, 0
-	db 43, PARASECT, DEWGONG, BLISSEY, 0
+	db 43, PARASECT, DEWGONG, CHANSEY, 0
 ; Victory Road 1F
 	db 44, PERSIAN, NINETALES, 0
 ; Unused
@@ -635,18 +635,18 @@ ChannelerData:
 	db 24, GASTLY, 0
 ; Pokémon Tower 3F
 	db 23, GASTLY, 0
-	db 24, DUSCLOPS, 0
+	db 24, HAUNTER, 0
 ; Unused
 	db 24, HAUNTER, 0
 ; Pokémon Tower 3F
 	db 22, GASTLY, 0
 ; Pokémon Tower 4F
-	db 24, DUSCLOPS, 0
+	db 24, HAUNTER, 0
 	db 23, GASTLY, GASTLY, 0
 ; Unused
 	db 24, GASTLY, 0
 ; Pokémon Tower 4F
-	db 22, DUSKULL, 0
+	db 22, GASTLY, 0
 ; Unused
 	db 24, GASTLY, 0
 ; Pokémon Tower 5F
@@ -654,12 +654,12 @@ ChannelerData:
 ; Unused
 	db 24, GASTLY, 0
 ; Pokémon Tower 5F
-	db 22, GOLETT, 0
+	db 22, HAUNTER, 0
 	db 24, GASTLY, 0
 	db 22, HAUNTER, 0
 ; Pokémon Tower 6F
 	db 22, GASTLY, GASTLY, HAUNTER, 0
-	db 24, GOLETT, 0
+	db 24, HAUNTER, 0
 	db 24, HAUNTER, 0
 ; Saffron Gym
 	db 34, HAUNTER, HAUNTER, 0
@@ -726,7 +726,7 @@ NinjaData:
 
 JanineData:
 ; Fuchsia Gym
-	db 34, CROBAT, VENOMOTH, SCOLIPEDE, WEEZING, 0
+	db 34, CROBAT, VENOMOTH, SCYTHER, WEEZING, 0
 
 PetrelData:
 ; Rocket Hideout B4F
