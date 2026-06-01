@@ -16,3 +16,8 @@ _CeruleanBadgeHouseFossilScientistIntroText::
 	cont "here, do you have"
 	cont "any?"
 	done
+
+_CeruleanBadgeHouseFossilScientistRepeatText::
+	text "Do you have more"
+	line "fossils for me?"
+	done

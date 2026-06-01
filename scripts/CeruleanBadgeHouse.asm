@@ -9,8 +9,16 @@ CeruleanBadgeHouseFossilScientistText:
 	text_asm
 	CheckEvent EVENT_GAVE_FOSSIL_TO_LAB
 	jr nz, .check_done_reviving
+	CheckEvent EVENT_MET_CERULEAN_FOSSIL_SCIENTIST
+	jr nz, .repeat_text
 	ld hl, .IntroText
 	call PrintText
+	SetEvent EVENT_MET_CERULEAN_FOSSIL_SCIENTIST
+	jr .check_fossils
+.repeat_text
+	ld hl, .RepeatText
+	call PrintText
+.check_fossils
 	farcall Lab4Script_GetFossilsInBag
 	ld a, [wFilteredBagItemsCount]
 	and a
@@ -43,6 +51,10 @@ CeruleanBadgeHouseFossilScientistText:
 
 .IntroText:
 	text_far _CeruleanBadgeHouseFossilScientistIntroText
+	text_end
+
+.RepeatText:
+	text_far _CeruleanBadgeHouseFossilScientistRepeatText
 	text_end
 
 .NoFossilsText:
