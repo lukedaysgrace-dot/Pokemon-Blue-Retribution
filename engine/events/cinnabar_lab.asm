@@ -1,4 +1,5 @@
 GiveFossilToCinnabarLab::
+	call SaveScreenTilesToBuffer2
 	ld hl, wStatusFlags5
 	set BIT_NO_TEXT_DELAY, [hl]
 	xor a
@@ -36,6 +37,13 @@ GiveFossilToCinnabarLab::
 	add hl, de
 	ld a, [hl]
 	ldh [hItemToRemoveID], a
+IF DEF(_RED)
+	call TryRedAdvancedFossilBuyOffer
+	ld a, [wTempByteValue]
+	and a
+	ret nz
+	ld a, [wFossilItem]
+ENDC
 	cp DOME_FOSSIL
 	jr z, .choseDomeFossil
 	cp HELIX_FOSSIL
@@ -69,6 +77,9 @@ GiveFossilToCinnabarLab::
 	ld b, KABUTO
 .fossilSelected
 	ld [wFossilItem], a
+	push bc
+	call CloseFossilSelectionMenu
+	pop bc
 	ld a, b
 	ld [wFossilMon], a
 	call LoadFossilItemAndMonName
@@ -88,6 +99,7 @@ GiveFossilToCinnabarLab::
 	SetEvents EVENT_GAVE_FOSSIL_TO_LAB, EVENT_LAB_STILL_REVIVING_FOSSIL
 	ret
 .cancelledGivingFossil
+	call CloseFossilSelectionMenu
 	ld hl, .ComeAgainText
 	call PrintText
 	ret
@@ -183,3 +195,86 @@ FossilsList:
 	db ROOT_FOSSIL
 	db OLD_AMBER
 	db 0 ; end
+
+CloseFossilSelectionMenu::
+	jp LoadScreenTilesFromBuffer2
+
+IF DEF(_RED)
+; In: a = fossil item ID selected from the menu.
+; Out: [wTempByteValue] = 0 (revive normally), 1 (declined buy), 2 (sold fossil).
+TryRedAdvancedFossilBuyOffer:
+	ld [wFossilItem], a
+	cp SKULL_FOSSIL
+	jr z, .isAdvancedFossil
+	cp ARMOR_FOSSIL
+	jr z, .isAdvancedFossil
+	cp CLAW_FOSSIL
+	jr z, .isAdvancedFossil
+	cp ROOT_FOSSIL
+	jr z, .isAdvancedFossil
+.notHandled
+	xor a
+	ld [wTempByteValue], a
+	ret
+
+.isAdvancedFossil
+	CheckEvent EVENT_GOT_MT_MOON_SUPER_NERD_FOSSIL
+	jr nz, .notHandled
+	call CloseFossilSelectionMenu
+	call ReloadMapData
+	ld hl, .CantReviveAdvancedFossilText
+	call PrintText
+	ld hl, .BuyAdvancedFossilOfferText
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .declinedBuy
+	ld a, [wFossilItem]
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	call RedFossilScientistPay500
+	ld hl, .BoughtAdvancedFossilText
+	call PrintText
+	ld a, SFX_PURCHASE
+	call PlaySound
+	ld a, 2
+	ld [wTempByteValue], a
+	ret
+
+.declinedBuy
+	ld hl, .DeclinedBuyText
+	call PrintText
+	ld a, 1
+	ld [wTempByteValue], a
+	ret
+
+.DeclinedBuyText:
+	text_far _CinnabarLabFossilRoomScientist1ComeAgainText
+	text_end
+
+.CantReviveAdvancedFossilText:
+	text_far _CinnabarLabFossilRoomScientist1CantReviveAdvancedFossilText
+	text_end
+
+.BuyAdvancedFossilOfferText:
+	text_far _CinnabarLabFossilRoomScientist1BuyAdvancedFossilOfferText
+	text_end
+
+.BoughtAdvancedFossilText:
+	text_far _CinnabarLabFossilRoomScientist1BoughtAdvancedFossilText
+	text_end
+
+RedFossilScientistPay500:
+	xor a
+	ldh [hMoney], a
+	ldh [hMoney + 2], a
+	ld a, $05
+	ldh [hMoney + 1], a
+	ld hl, hMoney + 2
+	ld de, wPlayerMoney + 2
+	ld c, $3
+	predef AddBCDPredef
+	ret
+
+ENDC

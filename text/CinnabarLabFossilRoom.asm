@@ -76,3 +76,26 @@ _CinnabarLabFossilRoomScientist1ComeAgainText::
 	text "Aiyah! You come"
 	line "again!"
 	done
+
+IF DEF(_RED)
+_CinnabarLabFossilRoomScientist1CantReviveAdvancedFossilText::
+	text "I'm very sorry,"
+	line "my machine isn't"
+	cont "advanced enough"
+	cont "to handle that"
+	cont "fossil!"
+	done
+
+_CinnabarLabFossilRoomScientist1BuyAdvancedFossilOfferText::
+	text "I'll pay you"
+	line "¥500 for it"
+	cont "though, for my"
+	cont "collection!"
+	done
+
+_CinnabarLabFossilRoomScientist1BoughtAdvancedFossilText::
+	text "Thank you!"
+	line "Here's your"
+	cont "payment!"
+	done
+ENDC

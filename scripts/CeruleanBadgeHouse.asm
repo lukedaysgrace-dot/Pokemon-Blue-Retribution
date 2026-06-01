@@ -24,6 +24,11 @@ CeruleanBadgeHouseFossilScientistText:
 	and a
 	jr z, .no_fossils
 	farcall GiveFossilToCinnabarLab
+IF DEF(_RED)
+	ld a, [wTempByteValue]
+	and a
+	jp nz, TextScriptEnd
+ENDC
 	jr .done
 .no_fossils
 	ld hl, .NoFossilsText

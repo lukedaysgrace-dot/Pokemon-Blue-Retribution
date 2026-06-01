@@ -1168,7 +1168,7 @@ OaksLabMonChoiceMenu:
 	call PrintText
 	xor a ; PLAYER_PARTY_DATA
 	ld [wMonDataLocation], a
-	ld a, 5
+	ld a, MAX_LEVEL
 	ld [wCurEnemyLevel], a
 	ld a, [wCurPartySpecies]
 	ld [wPokedexNum], a
