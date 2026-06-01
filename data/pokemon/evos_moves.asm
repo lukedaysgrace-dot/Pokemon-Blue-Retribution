@@ -2439,7 +2439,8 @@ WartortleEvosMoves:
 	db 9, WATER_GUN
 	db 10, WITHDRAW
 	db 21, BITE
-	db 22, BUBBLEBEAM
+	db 22, RAGE
+	db 23, BUBBLEBEAM
 	db 27, ICE_SHARD
 	db 32, HEADBUTT
 	db 36, SKULL_BASH
