@@ -1551,7 +1551,6 @@ JigglypuffEvosMoves:
 	db EVOLVE_ITEM, MOON_STONE, 1, WIGGLYTUFF
 	db 0
 ; Learnset
-	db 9, QUICK_ATTACK
 	db 10, DOUBLESLAP
 	db 14, DISABLE
 	db 18, DEFENSE_CURL
@@ -1566,7 +1565,6 @@ WigglytuffEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 9, QUICK_ATTACK
 	db 18, BIDE
 	db 24, MINIMIZE
 	db 25, HEADBUTT

@@ -32,7 +32,7 @@ Moves:
 	move FLY,          FLY_EFFECT,                  70, FLYING,    100, 15
 	move SHADOW_BALL,  SPECIAL_DOWN_SIDE_EFFECT,    90, GHOST,     100, 15
 	move SLAM,         FLINCH_SIDE_EFFECT1,        50, DRAGON,    100, 20
-	move VINE_WHIP,    NO_ADDITIONAL_EFFECT,        40, GRASS,    100, 10
+	move VINE_WHIP,    NO_ADDITIONAL_EFFECT,        40, GRASS,    100, 20
 	move STOMP,        FLINCH_SIDE_EFFECT2,         65, NORMAL,   100, 20
 	move DOUBLE_KICK,  ATTACK_TWICE_EFFECT,         30, FIGHTING, 100, 30
 	move MEGA_KICK,    NO_ADDITIONAL_EFFECT,       120, NORMAL,    85,  10
