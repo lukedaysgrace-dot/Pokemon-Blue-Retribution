@@ -82,6 +82,28 @@ _MtMoonB2FSuperNerdThenThisIsMineText::
 	line "this is mine!@"
 	text_end
 
+IF DEF(_RED)
+_MtMoonB2FSuperNerdFourFossilsText::
+	text "Hey! If you find"
+	line "all 4 of the"
+	cont "fossils around"
+	cont "MT.MOON, I'll let"
+	cont "you have the"
+	cont "other one!"
+	done
+
+_MtMoonB2FSuperNerdSellWarningText::
+	text "Are you sure?"
+
+	para "If you sell the"
+	line "ones you have"
+	cont "you'll never be"
+	cont "able to get the"
+	cont "other one from"
+	cont "me."
+	done
+ENDC
+
 _MtMoonB2FRocket1BattleText::
 	text "TEAM ROCKET will"
 	line "find the fossils,"

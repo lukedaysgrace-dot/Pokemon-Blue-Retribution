@@ -1,5 +1,12 @@
 MtMoonB2F_Script:
 	call EnableAutoTextBoxDrawing
+IF DEF(_RED)
+	ld a, [wMtMoonB2FCurScript]
+	and a
+	jr nz, .skipEarlyFossilWarn
+	call MtMoonB2FCheckFossilWarnTiles
+.skipEarlyFossilWarn
+ENDC
 	ld hl, MtMoon3TrainerHeaders
 	ld de, MtMoonB2F_ScriptPointers
 	ld a, [wMtMoonB2FCurScript]
@@ -52,6 +59,10 @@ MtMoonB2F_ScriptPointers:
 	dw_const MtMoonB2FDefeatedSuperNerdScript,         SCRIPT_MTMOONB2F_DEFEATED_SUPER_NERD
 	dw_const MtMoonB2FMoveSuperNerdScript,             SCRIPT_MTMOONB2F_MOVE_SUPER_NERD
 	dw_const MtMoonB2FSuperNerdTakesOtherFossilScript, SCRIPT_MTMOONB2F_SUPER_NERD_TAKES_OTHER_FOSSIL
+IF DEF(_RED)
+	dw_const MtMoonB2FFossilApproachScript,          SCRIPT_MTMOONB2F_FOSSIL_APPROACH
+	dw_const MtMoonB2FFossilApproachTextScript,      SCRIPT_MTMOONB2F_FOSSIL_APPROACH_TEXT
+ENDC
 
 MtMoonB2FDefaultScript:
 	CheckEvent EVENT_BEAT_MT_MOON_EXIT_SUPER_NERD
@@ -72,6 +83,120 @@ MtMoonB2FCheckGotAFossil:
 	CheckEitherEventSet EVENT_GOT_DOME_FOSSIL, EVENT_GOT_HELIX_FOSSIL
 	jp z, CheckFightingMapTrainers
 	ret
+
+IF DEF(_RED)
+MtMoonB2FCheckFossilWarnTiles:
+	CheckEvent EVENT_BEAT_MT_MOON_EXIT_SUPER_NERD
+	ret z
+	CheckEvent EVENT_GOT_MT_MOON_SUPER_NERD_FOSSIL
+	ret nz
+	CheckEitherEventSet EVENT_GOT_DOME_FOSSIL, EVENT_GOT_HELIX_FOSSIL
+	ret z
+	CheckEvent EVENT_MT_MOON_SUPER_NERD_FOUR_FOSSIL_TOLD
+	jr nz, .checkSellWarning
+	ld hl, MtMoonB2FPlayerFirstWarnCoords
+	call ArePlayerCoordsInArray
+	ret nc
+	call MtMoonB2FLockPlayerOnTriggerTile
+	ld a, SCRIPT_MTMOONB2F_FOSSIL_APPROACH
+	ld [wMtMoonB2FCurScript], a
+	ld [wCurMapScript], a
+	scf
+	ret
+
+.checkSellWarning
+	CheckEvent EVENT_MT_MOON_SUPER_NERD_SELL_WARNING
+	ret nz
+	ld hl, MtMoonB2FPlayerSellWarnCoords
+	call ArePlayerCoordsInArray
+	ret nc
+	call MtMoonB2FLockPlayerOnTriggerTile
+	ld a, TEXT_MTMOONB2F_SUPER_NERD_SELL_WARNING
+	ldh [hTextID], a
+	call DisplayTextID
+	SetEvent EVENT_MT_MOON_SUPER_NERD_SELL_WARNING
+	xor a
+	ld [wJoyIgnore], a
+	scf
+	ret
+
+MtMoonB2FLockPlayerOnTriggerTile:
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
+	ret
+
+MtMoonB2FPlayerFirstWarnCoords:
+	dbmapcoord 12,  5
+	dbmapcoord 13,  5
+	db -1 ; end
+
+MtMoonB2FPlayerSellWarnCoords:
+	dbmapcoord 12,  4
+	dbmapcoord 13,  4
+	db -1 ; end
+
+MtMoonB2FFossilApproachScript:
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_NPC_MOVEMENT, a
+	ret nz
+	call MtMoonB2FLockPlayerOnTriggerTile
+	ld a, MTMOONB2F_SUPER_NERD
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
+	ld a, [wXCoord]
+	cp 12
+	jr z, .approachDomeSide
+	ld de, MtMoonB2FNerdApproachHelixPlayerMovement
+	jr .approachMove
+.approachDomeSide
+	ld de, MtMoonB2FNerdApproachDomePlayerMovement
+.approachMove
+	ld a, MTMOONB2F_SUPER_NERD
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	ld a, SCRIPT_MTMOONB2F_FOSSIL_APPROACH_TEXT
+	ld [wMtMoonB2FCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+MtMoonB2FNerdApproachDomePlayerMovement:
+	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_UP
+	db -1 ; end
+
+MtMoonB2FNerdApproachHelixPlayerMovement:
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_UP
+	db -1 ; end
+
+MtMoonB2FFossilApproachTextScript:
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_NPC_MOVEMENT, a
+	ret nz
+	call MtMoonB2FLockPlayerOnTriggerTile
+	ld a, TEXT_MTMOONB2F_SUPER_NERD_FOUR_FOSSILS
+	ldh [hTextID], a
+	call DisplayTextID
+	SetEvent EVENT_MT_MOON_SUPER_NERD_FOUR_FOSSIL_TOLD
+	xor a
+	ld [wJoyIgnore], a
+	ld a, SCRIPT_MTMOONB2F_DEFAULT
+	ld [wMtMoonB2FCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+MtMoonB2FSuperNerdFourFossilsText:
+	text_far _MtMoonB2FSuperNerdFourFossilsText
+	text_end
+
+MtMoonB2FSuperNerdSellWarningText:
+	text_far _MtMoonB2FSuperNerdSellWarningText
+	text_end
+ENDC
 
 MtMoonB2FDefeatedSuperNerdScript:
 	ld a, [wIsInBattle]
@@ -169,6 +294,10 @@ MtMoonB2F_TextPointers:
 	dw_const PickUpItemText,                       TEXT_MTMOONB2F_TM_MEGA_PUNCH
 	dw_const PickUpItemText,                       TEXT_MTMOONB2F_SKULL_FOSSIL
 	dw_const MtMoonB2FSuperNerdThenThisIsMineText, TEXT_MTMOONB2F_SUPER_NERD_THEN_THIS_IS_MINE
+IF DEF(_RED)
+	dw_const MtMoonB2FSuperNerdFourFossilsText,   TEXT_MTMOONB2F_SUPER_NERD_FOUR_FOSSILS
+	dw_const MtMoonB2FSuperNerdSellWarningText,   TEXT_MTMOONB2F_SUPER_NERD_SELL_WARNING
+ENDC
 
 MtMoon3TrainerHeaders:
 	def_trainers 2
