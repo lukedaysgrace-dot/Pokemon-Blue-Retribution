@@ -1670,6 +1670,9 @@ wChosenMenuItem::
 ; non-zero when the whole party has fainted due to out-of-battle poison damage
 wOutOfBattleBlackout:: db
 
+; set before blackout heal when the player lost a trainer battle (10% money penalty)
+wBlackoutFromTrainerBattle:: db
+
 ; the way the user exited a menu
 ; for list menus and the buy/sell/quit menu:
 ; $01 = the user pressed A to choose a menu item

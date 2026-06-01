@@ -61,6 +61,22 @@ EndOfBattle:
 	ld hl, wStatusFlags7
 	set BIT_NO_MAP_MUSIC, [hl]
 .clearBattleVars
+	ld a, [wLinkState]
+	cp LINK_STATE_BATTLING
+	jr z, .clearIsInBattle
+	ld a, [wIsInBattle]
+	cp $2 ; trainer battle
+	jr nz, .clearIsInBattle
+	predef AnyPartyAlive
+	ld a, d
+	and a
+	jr nz, .clearIsInBattle
+	ld a, [wCurMap]
+	cp OAKS_LAB
+	jr z, .clearIsInBattle
+	ld a, 1
+	ld [wBlackoutFromTrainerBattle], a
+.clearIsInBattle
 	xor a
 	ld [wLowHealthAlarm], a ;disable low health alarm
 	ld [wLowHealthAlarmCount], a

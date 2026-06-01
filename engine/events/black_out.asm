@@ -16,7 +16,12 @@ ResetStatusAndHalveMoneyOnBlackout::
 	call HasEnoughMoney
 	jr c, .lostmoney ; never happens
 
-	; Halve the player's money.
+	ld a, [wBlackoutFromTrainerBattle]
+	and a
+	jr z, .lostmoney
+
+.trainerMoneyPenalty
+	; Trainer blackout: lose 10% (keep 90%).
 	ld a, [wPlayerMoney]
 	ldh [hMoney], a
 	ld a, [wPlayerMoney + 1]
@@ -26,17 +31,17 @@ ResetStatusAndHalveMoneyOnBlackout::
 	xor a
 	ldh [hDivideBCDDivisor], a
 	ldh [hDivideBCDDivisor + 1], a
-	ld a, 2
+	ld a, $10
 	ldh [hDivideBCDDivisor + 2], a
 	predef DivideBCDPredef3
-	ldh a, [hDivideBCDQuotient]
-	ld [wPlayerMoney], a
-	ldh a, [hDivideBCDQuotient + 1]
-	ld [wPlayerMoney + 1], a
-	ldh a, [hDivideBCDQuotient + 2]
-	ld [wPlayerMoney + 2], a
+	ld hl, hDivideBCDQuotient + 2
+	ld de, wPlayerMoney + 2
+	ld c, $3
+	predef SubBCDPredef
 
 .lostmoney
+	xor a
+	ld [wBlackoutFromTrainerBattle], a
 	ld hl, wStatusFlags6
 	set BIT_FLY_OR_DUNGEON_WARP, [hl]
 	res BIT_FLY_WARP, [hl]
