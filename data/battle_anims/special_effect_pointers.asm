@@ -32,7 +32,7 @@ SpecialEffectPointers:
 	special_effect SE_PETALS_FALLING,            AnimationPetalsFalling           ; $E6
 	special_effect SE_SLIDE_MON_HALF_OFF,        AnimationSlideMonHalfOff         ; $E5
 	special_effect SE_SHAKE_ENEMY_HUD,           AnimationShakeEnemyHUD           ; $E4
-	special_effect SE_SHAKE_ENEMY_HUD_2,         AnimationShakeEnemyHUD           ; $E3 unused
+	special_effect SE_MINI_SHAKE_SCREEN,         AnimationMiniShakeScreen         ; $E3
 	special_effect SE_SPIRAL_BALLS_INWARD,       AnimationSpiralBallsInward       ; $E2
 	special_effect SE_DELAY_ANIMATION_10,        AnimationDelay10                 ; $E1
 	special_effect SE_FLASH_ENEMY_MON_PIC,       AnimationFlashEnemyMonPic        ; $E0 unused

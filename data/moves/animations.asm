@@ -756,6 +756,10 @@ FissureAnim:
 	db -1 ; end
 
 DigAnim:
+; One-turn Dig: bury, short underground rumble, strike, emerge.
+	battle_anim DIG, SE_SLIDE_MON_DOWN
+	battle_anim NO_MOVE, SE_DELAY_ANIMATION_10
+	battle_anim EARTHQUAKE, SE_MINI_SHAKE_SCREEN
 	battle_anim DIG, SUBANIM_1_STAR_BIG_MOVING, 1, 6
 	battle_anim NO_MOVE, SE_SLIDE_MON_UP
 	db -1 ; end

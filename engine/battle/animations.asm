@@ -1109,6 +1109,11 @@ AnimationShakeScreenVertically:
 AnimationShakeScreen:
 ; Shakes the screen for a while. Used in Earthquake/Fissure/etc. animations.
 	ld b, $8
+	jr AnimationShakeScreenHorizontallyFast
+
+AnimationMiniShakeScreen:
+; Brief horizontal shake (Dig underground rumble; shorter than Earthquake).
+	ld b, 3
 
 AnimationShakeScreenHorizontallyFast:
 	predef_jump PredefShakeScreenHorizontally

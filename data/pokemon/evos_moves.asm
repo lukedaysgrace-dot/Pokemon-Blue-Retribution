@@ -2440,8 +2440,9 @@ WartortleEvosMoves:
 	db 22, RAGE
 	db 23, BUBBLEBEAM
 	db 27, ICE_SHARD
-	db 32, HEADBUTT
-	db 36, SKULL_BASH
+	db 30, HEADBUTT
+	db 32, WATERFALL
+	db 38, SKULL_BASH
 	db 0
 CharizardEvosMoves:
 ; Evolutions
@@ -2450,8 +2451,7 @@ CharizardEvosMoves:
 	db 12, SMOKESCREEN
 	db 25, WING_ATTACK
 	db 31, SLASH
-	db 36, FLAME_WHEEL
-	db 40, FLAMETHROWER
+	db 36, FLAMETHROWER
 	db 44, FIRE_BLAST
 	db 50, SKY_ATTACK
 	db 55, BLAST_BURN

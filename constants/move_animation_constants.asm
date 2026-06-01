@@ -14,7 +14,7 @@ DEF FIRST_SE_ID EQU const_value
 	const SE_FLASH_ENEMY_MON_PIC       ; $E0 unused
 	const SE_DELAY_ANIMATION_10        ; $E1 used in lots of animations
 	const SE_SPIRAL_BALLS_INWARD       ; $E2 used in Growth/Focus Energy/Hyper Beam etc.
-	const SE_SHAKE_ENEMY_HUD_2         ; $E3 unused
+	const SE_MINI_SHAKE_SCREEN         ; $E3 short rumble (Dig underground, etc.)
 	const SE_SHAKE_ENEMY_HUD           ; $E4
 	const SE_SLIDE_MON_HALF_OFF        ; $E5 used in Softboiled
 	const SE_PETALS_FALLING            ; $E6 used in Petal Dance
