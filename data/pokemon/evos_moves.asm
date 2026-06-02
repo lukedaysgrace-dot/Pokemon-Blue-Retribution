@@ -549,14 +549,15 @@ MewEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 17, CONFUSION
-	db 23, PSYWAVE
-	db 29, TRANSFORM
-	db 32, METRONOME
-	db 33, BARRIER
-	db 37, MEGA_PUNCH
-	db 38, DREAM_EATER
-	db 42, PSYCHIC_M
+	db  7, CONFUSION
+	db 13, PSYWAVE
+	db 16, TRANSFORM
+	db 19, METRONOME
+	db 24, BARRIER
+	db 29, PSYBEAM
+	db 34, HYPNOSIS
+	db 36, DREAM_EATER
+	db 39, PSYCHIC_M
 	db 0
 GyaradosEvosMoves:
 ; Evolutions

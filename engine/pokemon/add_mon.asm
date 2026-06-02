@@ -47,6 +47,9 @@ _AddPartyMon::
 	ldh a, [hNewPartyLength]
 	dec a
 	call SkipFixedLengthTextEntries
+	ldh a, [hNewPartyLength]
+	dec a
+	ld [wWhichPokemon], a ; nickname screen icon uses wPartySpecies[wWhichPokemon]
 	ld a, NAME_MON_SCREEN
 	ld [wNamingScreenType], a
 	predef AskName

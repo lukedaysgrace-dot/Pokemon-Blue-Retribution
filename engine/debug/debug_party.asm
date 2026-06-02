@@ -17,17 +17,17 @@ DebugNewGameParty: ; unreferenced except in _DEBUG
 	; "Tsunekazu Ishihara: Exeggutor is my favorite. That's because I was
 	; always using this character while I was debugging the program."
 	; From https://web.archive.org/web/20000607152840/http://pocket.ign.com/news/14973.html
-	db FROSLASS, 100
+	db DRATINI, 100
 IF DEF(_DEBUG)
-	db AMPHAROS, 100
+	db DRAGONAIR, 100
 ELSE
 	db AMPHAROS, 20
 ENDC
-	db SNORUNT, 100
-	db CHINCHOU, 100
-	db LANTURN, 100
+	db ZUBAT, 100
+	db GOLBAT, 100
+	db BELLSPROUT, 100
 IF DEF(_DEBUG)
-	db GARCHOMP, 100
+	db CHARMELEON, 100
 ENDC
 	db -1 ; end
 

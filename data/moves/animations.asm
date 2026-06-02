@@ -248,6 +248,10 @@ ZigZagScreenAnim:
 	db -1 ; end
 
 TackleAnim:
+	battle_anim LEECH_SEED, SE_MOVE_MON_HORIZONTALLY
+	battle_anim NO_MOVE, SE_RESET_MON_POSITION
+	db -1 ; end
+
 StruggleAnim:
 	battle_anim TACKLE, SUBANIM_0_STAR_TWICE, 0, 8
 	db -1 ; end

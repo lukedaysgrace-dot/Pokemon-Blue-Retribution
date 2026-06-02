@@ -95,6 +95,9 @@ DisplayNamingScreen:
 	ld a, [wNamingScreenType]
 	cp NAME_MON_SCREEN
 	jr nz, .iconSpeciesReady
+	ld a, [wCurPartySpecies]
+	and a
+	jr nz, .iconFromCurSpecies
 	ld hl, wPartySpecies
 	ld a, [wWhichPokemon]
 	ld e, a
@@ -103,6 +106,8 @@ DisplayNamingScreen:
 	ld a, [hl]
 	ld [wMonPartySpriteSpecies], a
 	jr .iconSpeciesDone
+.iconFromCurSpecies
+	ld [wMonPartySpriteSpecies], a
 .iconSpeciesReady:
 	xor a
 	ld [wMonPartySpriteSpecies], a
