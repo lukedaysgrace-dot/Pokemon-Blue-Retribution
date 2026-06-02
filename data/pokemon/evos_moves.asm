@@ -395,8 +395,8 @@ IvysaurEvosMoves:
 ; Learnset
 	db 9, VINE_WHIP
 	db 10, GROWTH
-	db 15, RAZOR_LEAF
-	db 16, POISONPOWDER
+	db 16, RAZOR_LEAF
+	db 17, POISONPOWDER
 	db 22, SLEEP_POWDER
 	db 34, TAKE_DOWN
 	db 42, SOLARBEAM
@@ -1395,9 +1395,8 @@ WimpodEvosMoves:
 	db 14, BUG_BITE
 	db 17, BUBBLEBEAM
 	db 18, DEFENSE_CURL
-	db 22, LUNGE
+	db 23, LEECH_LIFE
 	db 24, WATERFALL
-	db 28, LEECH_LIFE
 	db 31, X_SCISSOR
 	db 0
 GolisopodEvosMoves:
@@ -2157,10 +2156,10 @@ BulbasaurEvosMoves:
 	db EVOLVE_LEVEL, 16, IVYSAUR
 	db 0
 ; Learnset
-	db 7, VINE_WHIP
-	db 9, GROWTH
+	db 9, VINE_WHIP
 	db 11, LEECH_SEED
-	db 15, RAZOR_LEAF
+        db 13, GROWTH
+	db 16, RAZOR_LEAF
 	db 16, POISONPOWDER
 	db 32, TAKE_DOWN
 	db 37, SOLARBEAM
