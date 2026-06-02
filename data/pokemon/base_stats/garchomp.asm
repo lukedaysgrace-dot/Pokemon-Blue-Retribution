@@ -15,7 +15,7 @@
 
 	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  HYPER_BEAM,   \
 	     RAGE,         EARTHQUAKE,   DIG,          MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         REST,         ROCK_SLIDE,   SUBSTITUTE,   STRENGTH,     \
-	     FLY
+	     BIDE,         REST,         ROCK_SLIDE,   SUBSTITUTE,   FLY,          \
+	     STRENGTH
 	db BANK(GarchompPicFront)
 	assert BANK(GarchompPicFront) == BANK(GarchompPicBack)

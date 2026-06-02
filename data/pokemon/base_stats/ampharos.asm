@@ -15,6 +15,6 @@
 
 	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  HYPER_BEAM,   \
 	     THUNDERBOLT,  THUNDER,      MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     REST,         THUNDER_WAVE, SUBSTITUTE,   FLASH,        STRENGTH
+	     REST,         THUNDER_WAVE, SUBSTITUTE,   STRENGTH,     FLASH
 	db BANK(AmpharosPicFront)
 	assert BANK(AmpharosPicFront) == BANK(AmpharosPicBack)

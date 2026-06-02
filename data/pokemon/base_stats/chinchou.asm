@@ -15,7 +15,7 @@
 
 	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
 	     WATER_GUN,    THUNDERBOLT,  THUNDER,      MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         REST,         THUNDER_WAVE, SUBSTITUTE,   FLASH,        \
-	     SURF
+	     BIDE,         REST,         THUNDER_WAVE, SUBSTITUTE,   SURF,         \
+	     FLASH
 	db BANK(ChinchouPicFront)
 	assert BANK(ChinchouPicFront) == BANK(ChinchouPicBack)

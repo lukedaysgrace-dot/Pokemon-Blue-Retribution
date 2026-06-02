@@ -20,7 +20,7 @@
 	     RAGE,         THUNDERBOLT,  THUNDER,      PSYCHIC_M,    MIMIC,        \
 	     DOUBLE_TEAM,  REFLECT,      BIDE,         METRONOME,    SWIFT,        \
 	     SKULL_BASH,   REST,         THUNDER_WAVE, PSYWAVE,      SUBSTITUTE,   \
-	     FLASH,        STRENGTH
+	     STRENGTH,     FLASH
 	; end
 
 	db BANK(ElectivirePicFront)
