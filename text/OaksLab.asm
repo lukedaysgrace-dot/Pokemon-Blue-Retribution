@@ -371,8 +371,8 @@ _OaksLabGreenStoleMonText::
 	text_end
 
 _OaksLabGreenHaGotchaText::
-	text "GREEN: Ha, its"
-	line "my #MON now"
+	text "GREEN: Ha, it's"
+	line "my #MON now,"
 	cont "old man!"
 	done
 

@@ -4,22 +4,22 @@ _Route5GreenBeforeBattleText::
 
 	para "I remember seeing"
 	line "you in the old"
-	cont "man's lab, must"
+	cont "man's lab. Must"
 	cont "be nice to get"
 	cont "special treatment"
 	cont "by him."
 
 	para "I see you already"
 	line "have a badge or"
-	cont "two, how"
+	cont "two. How"
 	cont "impressive!"
 
 	para "Actually, I've"
 	line "been wanting to"
 	cont "try out my new,"
-	cont "pokemon and i"
+	cont "#MON and I"
 	cont "need someone"
-	cont "to test them on"
+	cont "to test them on."
 
 	para "C'mon, it'll be"
 	line "quick. Unless"
@@ -41,8 +41,8 @@ _Route5GreenEndBattleText::
 
 _Route5GreenPlayerLoseText::
 	text "Looks like my"
-	line "new pokemon"
-	cont "did great! hehe"
+	line "new #MON"
+	cont "did great! Hehe."
 	prompt
 
 _Route5GreenAfterBattleText::

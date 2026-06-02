@@ -427,7 +427,7 @@ PalletTownGreenBeforeBattleText:
 	cont "right back in"
 	cont "PALLET TOWN."
 
-	para "Back where this"
+	para "Back where it"
 	line "all started."
 
 	para "I've been"

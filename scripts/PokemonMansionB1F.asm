@@ -619,7 +619,7 @@ PokemonMansionB1FBallText:
 
 PokemonMansionB1FGreenBeforeBattleText:
 	text "Oh? If it isn't"
-	line "you again"
+	line "you again,"
 	cont "<PLAYER>."
 	cont "Fancy running"
 	cont "into you here..."
@@ -639,26 +639,27 @@ PokemonMansionB1FGreenBeforeBattleText:
 
 	para "I've been "
 	line "reading"
-	cont "everything i"
+	cont "everything I"
 	cont "can find."
 
-	para "Mew.. the"
-	line "original #MON.."
+	para "MEW... the"
+	line "original"
+	cont "#MON..."
 
 	para "They actually"
-	line "created mewtwo"
+	line "created MEWTWO"
 	cont "from it here."
 
 	para "Isn't that"
 	line "insane? Imagine"
-	cont "that power"
+	cont "that power."
 
 	para "...And imagine"
 	line "what someone"
 	cont "evil could"
 	cont "do with it."
 
-	para "Oh..don't look"
+	para "Oh... don't look"
 	line "at me like that!"
 
 	para "I'm just curious,"
@@ -677,14 +678,14 @@ PokemonMansionB1FGreenBeforeBattleText:
 	line "Let's see if all"
 	cont "that exploring"
 	cont "made you"
-	cont "stronger."
+	cont "stronger?"
 	done
 
 PokemonMansionB1FGreenEndBattleText:
 	text "You really"
 	line "just keep"
 	cont "training nonstop"
-	cont "don't you? hehe."
+	cont "don't you? Hehe."
 
 	para "I really do"
 	line "admire that"
@@ -701,12 +702,12 @@ PokemonMansionB1FGreenAfterBattleText:
 	cont "in my head?"
 
 	para "All these notes"
-	line "about Mew..."
+	line "about MEW..."
 
 	para "The way they"
-	line "describe it.."
+	line "describe it..."
 	cont "playful,"
-	cont "intelligent.."
+	cont "intelligent..."
 
 	para "Like it's always"
 	line "just out of"
@@ -716,17 +717,17 @@ PokemonMansionB1FGreenAfterBattleText:
 	line "meet it."
 
 	para "Not like those"
-	line "scientists did.."
-	cont "using its dna"
+	line "scientists did..."
+	cont "using its DNA"
 	cont "to create such"
-	cont "a monster"
+	cont "a monster."
 
 	para "Just... see it"
 	line "for myself."
 
 	para "#MON should"
 	line "never be used"
-	cont "for experiments"
+	cont "for experiments."
 
 	para "Seems like a"
 	line "#MON with a"
@@ -735,7 +736,7 @@ PokemonMansionB1FGreenAfterBattleText:
 
 	para "I'm going to get"
 	line "out of this awful"
-	cont "place <PLAYER>."
+	cont "place, <PLAYER>."
 
 	para "I'll see you"
 	line "later!"

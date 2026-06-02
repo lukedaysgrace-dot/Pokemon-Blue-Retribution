@@ -117,8 +117,8 @@ _Route10GreenBeforeBattleText::
 	line "with you will"
 	cont "pump me up"
 	cont "before I go in."
-	cont "Hope you've been"
-	cont "training!"
+	cont "I hope you've"
+	cont "been training!"
 	done
 
 _Route10GreenEndBattleText::
@@ -130,7 +130,7 @@ _Route10GreenEndBattleText::
 	prompt
 
 _Route10GreenPlayerLoseText::
-	text "ohoho! maybe I"
+	text "Ohoho! Maybe I"
 	line "was more ready"
 	cont "than I thought!"
 	prompt
@@ -152,7 +152,7 @@ _Route10GreenAfterBattleText::
 
 	para "Hehe... you've"
 	line "gotten pretty"
-	cont "strong though."
+	cont "strong, though."
 
 	para "Don't lose that"
 	line "edge before I"

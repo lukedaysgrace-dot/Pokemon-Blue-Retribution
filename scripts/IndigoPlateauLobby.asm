@@ -388,7 +388,7 @@ IndigoPlateauLobbyGreenEndBattleText:
 	text "Not even the"
 	line "legendary birds"
 	cont "could slow"
-	cont "you down.."
+	cont "you down..."
 	prompt
 
 IndigoPlateauLobbyGreenPlayerLoseText:
