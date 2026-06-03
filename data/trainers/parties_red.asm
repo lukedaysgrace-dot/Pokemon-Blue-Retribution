@@ -742,7 +742,7 @@ PetrelData:
 ; Rocket Hideout B4F
 	db $FF, 22, GRIMER, 23, MR_MIME, 24, DROWZEE, 25, DITTO, 0
 ; Silph Co. 1F
-	db $FF, 31, MUK, 32, MR_MIME, 32, HYPNO, 33, PORYGON2, 34, DITTO, 0
+	db $FF, 31, MUK, 32, MR_MIME, 32, HYPNO, 33, EXCADRILL, 34, DITTO, 0
 
 ProtonData:
 ; Rocket Hideout B4F

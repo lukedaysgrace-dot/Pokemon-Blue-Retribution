@@ -200,8 +200,8 @@
 	const DEX_MIMIKYU    ; 194
 	const DEX_MAGMORTAR  ; 195
 	const DEX_MAGNEZONE  ; 196
-	const DEX_PORYGON2   ; 197
-	const DEX_PORYGON_Z  ; 198
+	const DEX_DRILBUR    ; 197
+	const DEX_EXCADRILL  ; 198
 	const DEX_RHYPERIOR  ; 199
 	const DEX_SCIZOR     ; 200
 	const DEX_STEELIX    ; 201

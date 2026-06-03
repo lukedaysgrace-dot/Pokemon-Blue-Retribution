@@ -1910,23 +1910,23 @@ _MagnezoneDexEntry::
 	next "nearby"
 	dex
 
-_Porygon2DexEntry::
-	text "This manmade"
-	next "#MON evolved"
-	next "from the latest"
+_DrilburDexEntry::
+	text "It burrows through"
+	next "the ground by"
+	next "spinning its body"
 
-	page "technology. It"
-	next "may have unprog-"
-	next "rammed reactions"
+	page "and using both"
+	next "claws like sharp"
+	next "drills"
 	dex
 
-_PorygonZDexEntry::
-	text "A forced upgrade"
-	next "warped its code,"
-	next "making its moves"
+_ExcadrillDexEntry::
+	text "Its steel claws"
+	next "bore through rock"
 
-	page "strange and hard"
-	next "to predict"
+	page "It builds mazes"
+	next "of tunnels under"
+	next "the ground"
 	dex
 
 _RhyperiorDexEntry::

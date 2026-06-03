@@ -20,8 +20,8 @@ ENDC
 IF DEF(_BLUE)
 	def_grass_wildmons 10 ; encounter rate
 	db  22, PORYGON
-	db  30, PORYGON2
-	db  38, PORYGON_Z
+	db  30, DRILBUR
+	db  38, EXCADRILL
 	db  36, POLIWHIRL
 	db  39, ARCANINE
 	db  42, KANGASKHAN

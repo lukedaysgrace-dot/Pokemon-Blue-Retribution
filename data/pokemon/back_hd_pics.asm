@@ -345,8 +345,8 @@ PokemonBackHDPicPointers::
 	dba MimikyuBackHDPic
 	dba MagmortarBackHDPic
 	dba MagnezoneBackHDPic
-	dba Porygon2BackHDPic
-	dba PorygonZBackHDPic
+	dba DrilburBackHDPic
+	dba ExcadrillBackHDPic
 	dba RhyperiorBackHDPic
 	dba ScizorBackHDPic
 	dba SteelixBackHDPic
@@ -618,8 +618,8 @@ ElectivireBackHDPic:: INCBIN "gfx/pokemon/backhd/electivireb.pic"
 KingdraBackHDPic:: INCBIN "gfx/pokemon/backhd/kingdrab.pic"
 MagmortarBackHDPic:: INCBIN "gfx/pokemon/backhd/magmortarb.pic"
 MagnezoneBackHDPic:: INCBIN "gfx/pokemon/backhd/magnezoneb.pic"
-Porygon2BackHDPic:: INCBIN "gfx/pokemon/backhd/porygon2b.pic"
-PorygonZBackHDPic:: INCBIN "gfx/pokemon/backhd/porygon_zb.pic"
+DrilburBackHDPic:: INCBIN "gfx/pokemon/backhd/drilburb.pic"
+ExcadrillBackHDPic:: INCBIN "gfx/pokemon/backhd/excadrillb.pic"
 RhyperiorBackHDPic:: INCBIN "gfx/pokemon/backhd/rhyperiorb.pic"
 
 SECTION "Pokemon Back HD Pics 15", ROMX

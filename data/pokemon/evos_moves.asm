@@ -257,8 +257,8 @@ EvosMovesPointerTable:
 	dw MimikyuEvosMoves
 	dw MagmortarEvosMoves
 	dw MagnezoneEvosMoves
-	dw Porygon2EvosMoves
-	dw PorygonZEvosMoves
+	dw DrilburEvosMoves
+	dw ExcadrillEvosMoves
 	dw RhyperiorEvosMoves
 	dw ScizorEvosMoves
 	dw SteelixEvosMoves
@@ -2340,7 +2340,6 @@ GeodudeEvosMoves:
 	db 0
 PorygonEvosMoves:
 ; Evolutions
-	blue_evolve_level 30, PORYGON2
 	db 0
 ; Learnset
 	db 9, QUICK_ATTACK
@@ -3072,31 +3071,32 @@ MagnezoneEvosMoves:
 	db 44, THUNDER
 	db 48, LIGHT_SCREEN
 	db 0
-PorygonZEvosMoves:
+ExcadrillEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 14, THUNDER_WAVE
-	db 23, PSYBEAM
-	db 31, TRI_ATTACK
-	db 38, AGILITY
-	db 42, THUNDERBOLT
-	db 46, DOUBLE_EDGE
-	db 50, HYPER_BEAM
+	db 8, FURY_SWIPES
+	db 12, METAL_CLAW
+	db 19, DIG
+	db 24, SLASH
+	db 29, ROCK_SLIDE
+	db 36, EARTHQUAKE
+	db 42, SWORDS_DANCE
+	db 49, FISSURE
 	db 0
-Porygon2EvosMoves:
+DrilburEvosMoves:
 ; Evolutions
-	blue_evolve_level 38, PORYGON_Z
+	blue_evolve_level 31, EXCADRILL
 	db 0
 ; Learnset
-	db 9, QUICK_ATTACK
-	db 11, THUNDERSHOCK
-	db 18, DEFENSE_CURL
-	db 23, PSYBEAM
-	db 25, HEADBUTT
-	db 31, AGILITY
-	db 34, BODY_SLAM
-	db 44, DOUBLE_EDGE
+	db 8, FURY_SWIPES
+	db 12, METAL_CLAW
+	db 19, DIG
+	db 24, SLASH
+	db 29, ROCK_SLIDE
+	db 33, EARTHQUAKE
+	db 36, SWORDS_DANCE
+	db 42, FISSURE
 	db 0
 RhyperiorEvosMoves:
 ; Evolutions
@@ -3122,7 +3122,6 @@ ScizorEvosMoves:
 	db 32, RAZOR_WIND
 	db 38, X_SCISSOR
 	db 40, SWORDS_DANCE
-	db
 	db 0
 ScolipedeEvosMoves:
 ; Evolutions

@@ -241,8 +241,8 @@ CryData::
 	mon_cry SFX_CRY_07, $90, $35 ; Mimikyu
 	mon_cry SFX_CRY_04, $E0, $50 ; Magmortar
 	mon_cry SFX_CRY_1C, $10, $E0 ; Magnezone
-	mon_cry SFX_CRY_25, $44, $FF ; Porygon2
-	mon_cry SFX_CRY_25, $88, $FF ; Porygon-Z
+	mon_cry SFX_CRY_0B, $80, $C0 ; Drilbur
+	mon_cry SFX_CRY_17, $FF, $C0 ; Excadrill
 	mon_cry SFX_CRY_11, $10, $B0 ; Rhyperior
 	mon_cry SFX_CRY_16, $E8, $B0 ; Scizor
 	mon_cry SFX_CRY_17, $FF, $C0 ; Steelix

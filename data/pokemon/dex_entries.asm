@@ -235,8 +235,8 @@ PokedexEntryPointers:
 	dw MimikyuDexEntry
 	dw MagmortarDexEntry
 	dw MagnezoneDexEntry
-	dw Porygon2DexEntry
-	dw PorygonZDexEntry
+	dw DrilburDexEntry
+	dw ExcadrillDexEntry
 	dw RhyperiorDexEntry
 	dw ScizorDexEntry
 	dw SteelixDexEntry
@@ -1625,18 +1625,18 @@ MagnezoneDexEntry:
 	text_far _MagnezoneDexEntry
 	text_end
 
-PorygonZDexEntry:
-	db "VIRTUAL@"
-	db 2,11
-	dw 750
-	text_far _PorygonZDexEntry
+DrilburDexEntry:
+	db "MOLE@"
+	db 1,0
+	dw 187
+	text_far _DrilburDexEntry
 	text_end
 
-Porygon2DexEntry:
-	db "VIRTUAL@"
-	db 2,0
-	dw 720
-	text_far _Porygon2DexEntry
+ExcadrillDexEntry:
+	db "SUBTERRENE@"
+	db 2,4
+	dw 891
+	text_far _ExcadrillDexEntry
 	text_end
 
 RhyperiorDexEntry:

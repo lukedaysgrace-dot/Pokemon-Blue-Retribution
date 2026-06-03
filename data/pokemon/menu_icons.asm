@@ -195,8 +195,8 @@ MonPartyData:
 	db ICON_MIMIKYU    ; Mimikyu
 	db ICON_MAGMORTAR     ; Magmortar
 	db ICON_MAGNEZONE     ; Magnezone
-	db ICON_PORYGON2      ; Porygon2
-	db ICON_PORYGON_Z     ; Porygon-Z
+	db ICON_DRILBUR       ; Drilbur
+	db ICON_EXCADRILL     ; Excadrill
 	db ICON_RHYPERIOR     ; Rhyperior
 	db ICON_SCIZOR        ; Scizor
 	db ICON_STEELIX       ; Steelix

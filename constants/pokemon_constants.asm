@@ -242,8 +242,8 @@
 	const MIMIKYU            ; $E9
 	const MAGMORTAR          ; $EA
 	const MAGNEZONE          ; $EB
-	const PORYGON2           ; $EC
-	const PORYGON_Z          ; $ED
+	const DRILBUR            ; $EC
+	const EXCADRILL          ; $ED
 	const RHYPERIOR          ; $EE
 	const SCIZOR             ; $EF
 	const STEELIX            ; $F0
