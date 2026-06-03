@@ -441,14 +441,14 @@ ChiefData:
 	db $FF, 128, $B5, 128, $B5, 128, $B5, 0	;joenote - another superboss
 ScientistData:
 ; Silph Co. 2F
-	db 30, GRIMER, DRILBUR, MAGNETON, 0
+	db 30, GRIMER, PORYGON, MAGNETON, 0
 	db 31, MAGNETON, ELECTRODE, MAGNETON, 0
 ; Silph Co. 3F
 	db 32, ELECTRODE, WEEZING, 0
 ; Silph Co. 4F
-	db 35, EXCADRILL, 0
+	db 35, PORYGON, 0
 ; Silph Co. 5F
-	db 31, MAGNETON, EXCADRILL, WEEZING, MAGNETON, 0
+	db 31, MAGNETON, PORYGON, WEEZING, MAGNETON, 0
 ; Silph Co. 6F
 	db 30, ELECTRODE, KOFFING, MAGNETON, MAGNETON, KOFFING, 0
 ; Silph Co. 7F
@@ -460,7 +460,7 @@ ScientistData:
 ; Silph Co. 10F
 	db 33, MAGNETON, KOFFING, 0
 ; Mansion 3F
-	db 36, MAGNEZONE, MAGNEZONE, EXCADRILL, 0
+	db 36, MAGNEZONE, MAGNEZONE, PORYGON, 0
 ; Mansion B1F
 	db 37, MAGNEZONE, ELECTRODE, 0
 ; Unused/joenote - restored and put in Mansion 1F
@@ -746,7 +746,7 @@ PetrelData:
 ; Rocket Hideout B4F
 	db $FF, 22, GRIMER, 23, MR_MIME, 24, DROWZEE, 25, DITTO, 0
 ; Silph Co. 1F
-	db $FF, 31, MUK, 32, MR_MIME, 32, HYPNO, 33, EXCADRILL, 34, DITTO, 0
+	db $FF, 31, MUK, 32, MR_MIME, 32, HYPNO, 33, PORYGON, 34, DITTO, 0
 
 ProtonData:
 ; Rocket Hideout B4F

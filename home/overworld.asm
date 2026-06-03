@@ -679,16 +679,9 @@ CheckMapConnections::
 	call PlayDefaultMusicFadeOutCurrent
 	ld b, SET_PAL_OVERWORLD
 	call RunPaletteCommand
-; InitMapSprites may replace the whole outdoor sprite set in VRAM. When the
-; previous map used a different set (e.g. Route 5 SAFFRON → Cerulean
-; PEWTER_CERULEAN), we must match LoadMapData: clear wSpriteSetID, keep the
-; LCD off during the copy, then restore the player sheet (not done on this path
-; otherwise).
-	call DisableLCD
-	xor a
-	ld [wSpriteSetID], a
+; Since the sprite set shouldn't change, this will just update VRAM slots at
+; x#SPRITESTATEDATA2_IMAGEBASEOFFSET without loading any tile patterns.
 	farcall InitMapSprites
-	call EnableLCD
 	call LoadPlayerSpriteGraphics
 	call LoadTileBlockMap
 	jp OverworldLoopLessDelay
@@ -710,7 +703,7 @@ PlayMapChangeSound::
 	ld a, [wMapPalOffset]
 	and a
 	ret nz
-	jp GBFadeOutToBlack
+	jp GBFadeOutToWhite ; HAX: Fade to white instead of black. Looks nicer IMO.
 
 CheckIfInOutsideMap::
 ; If the player is in an outside map (a town or route), set the z flag
