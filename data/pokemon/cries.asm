@@ -57,7 +57,7 @@ CryData::
 	mon_cry SFX_CRY_12, $E0, $40 ; Golem
 	mon_cry SFX_CRY_19, $30, $B0 ; Ampharos
 	mon_cry SFX_CRY_04, $FF, $30 ; Magmar
-	mon_cry SFX_CRY_0F, $48, $38 ; Scrafty
+	mon_cry SFX_CRY_0A, $70, $A0 ; Scrafty
 	mon_cry SFX_CRY_06, $8F, $FF ; Electabuzz
 	mon_cry SFX_CRY_1C, $20, $C0 ; Magneton
 	mon_cry SFX_CRY_12, $E6, $DD ; Koffing
@@ -196,15 +196,15 @@ CryData::
 	mon_cry SFX_CRY_21, $55, $01 ; Bellsprout
 	mon_cry SFX_CRY_25, $44, $20 ; Weepinbell
 	mon_cry SFX_CRY_25, $66, $CC ; Victreebel
-	mon_cry SFX_CRY_08, $C8, $20 ; Deino
-	mon_cry SFX_CRY_0F, $70, $60 ; Zweilous
-	mon_cry SFX_CRY_0F, $20, $D0 ; Hydreigon
-	mon_cry SFX_CRY_15, $A0, $20 ; Axew
-	mon_cry SFX_CRY_15, $60, $60 ; Fraxure
-	mon_cry SFX_CRY_15, $20, $D0 ; Haxorus
-	mon_cry SFX_CRY_22, $68, $D8 ; Porygon2
-	mon_cry SFX_CRY_1D, $70, $70 ; PorygonZ
-	mon_cry SFX_CRY_17, $40, $C0 ; Scraggy
+	mon_cry SFX_CRY_08, $70, $50 ; Deino
+	mon_cry SFX_CRY_08, $38, $90 ; Zweilous
+	mon_cry SFX_CRY_06, $18, $D0 ; Hydreigon
+	mon_cry SFX_CRY_15, $C0, $30 ; Axew
+	mon_cry SFX_CRY_15, $70, $70 ; Fraxure
+	mon_cry SFX_CRY_17, $18, $D0 ; Haxorus
+	mon_cry SFX_CRY_25, $44, $FF ; Porygon2
+	mon_cry SFX_CRY_25, $88, $FF ; Porygon-Z
+	mon_cry SFX_CRY_0A, $B0, $50 ; Scraggy
 	mon_cry SFX_CRY_10, $80, $60 ; Murkrow
 	mon_cry SFX_CRY_18, $30, $C0 ; Honchkrow
 	mon_cry SFX_CRY_1C, $A0, $90 ; Misdreavus
