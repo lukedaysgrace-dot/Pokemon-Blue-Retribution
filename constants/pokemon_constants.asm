@@ -197,15 +197,15 @@
 	const BELLSPROUT         ; $BC
 	const WEEPINBELL         ; $BD
 	const VICTREEBEL         ; $BE
-	const DEINO          ; $BF
-	const ZWEILOUS            ; $C0
-	const HYDREIGON           ; $C1
-	const AXEW          ; $C2
+	const DEINO              ; $BF
+	const ZWEILOUS           ; $C0
+	const HYDREIGON          ; $C1
+	const AXEW               ; $C2
 	const FRAXURE            ; $C3
-	const HAXORUS         ; $C4
+	const HAXORUS            ; $C4
 	const PORYGON2           ; $C5
 	const PORYGONZ           ; $C6
-	const SCRAGGY         ; $C7
+	const SCRAGGY            ; $C7
 	const MURKROW            ; $C8
 	const HONCHKROW          ; $C9
 	const MISDREAVUS         ; $CA

@@ -1,6 +1,6 @@
 	db DEX_MIMIKYU ; pokedex id
 
-	db  55,  90,  80,  96,  78
+	db  66,  90,  80,  96,  78
 	;   hp  atk  def  spd  spc
 
 	db GHOST, DARK ; type
