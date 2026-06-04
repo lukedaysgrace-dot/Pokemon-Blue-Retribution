@@ -159,6 +159,7 @@ MonPartyData:
 	db ICON_PORYGON2      ; Porygon2
 	db ICON_PORYGONZ      ; PorygonZ
 	db ICON_SCRAGGY    ; Scraggy
+	db ICON_SCRAFTY    ; Scrafty
 	db ICON_MURKROW       ; Murkrow
 	db ICON_HONCHKROW     ; Honchkrow
 	db ICON_MISDREAVUS    ; Misdreavus
@@ -220,7 +221,6 @@ MonPartyData:
 	db ICON_MAREEP       ; Mareep
 	db ICON_FLAAFFY       ; Flaaffy
 	db ICON_AMPHAROS        ; Ampharos
-	db ICON_SCRAFTY    ; Scrafty
 	db ICON_PAWNIARD         ; Pawniard
 	db ICON_BISHARP    ; Bisharp
 	db ICON_WIMPOD        ; Wimpod
