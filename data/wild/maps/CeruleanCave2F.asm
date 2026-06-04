@@ -24,8 +24,8 @@ IF DEF(_BLUE)
 	db  51, SALAMENCE
 	db  52, SNORLAX
 	db  52, LAPRAS
-	db  55, GIBLE
-	db  55, GARCHOMP
+	db  55, SCRAFTY
+	db  55, BISHARP
 	db  54, POLIWRATH
 	db  55, MACHAMP
 	db   55, GYARADOS

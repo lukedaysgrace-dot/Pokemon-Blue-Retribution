@@ -138,16 +138,16 @@ PokemonBackHDPicPointers::
 	dba GolemBackHDPic
 	dba AmpharosBackHDPic
 	dba MagmarBackHDPic
-	dba GibleBackHDPic
+	dba ScraftyBackHDPic
 	dba ElectabuzzBackHDPic
 	dba MagnetonBackHDPic
 	dba KoffingBackHDPic
-	dba GabiteBackHDPic
+	dba PawniardBackHDPic
 	dba MankeyBackHDPic
 	dba SeelBackHDPic
 	dba DiglettBackHDPic
 	dba TaurosBackHDPic
-	dba GarchompBackHDPic
+	dba BisharpBackHDPic
 	db 0
 	dw 0
 	db 0
@@ -300,15 +300,15 @@ PokemonBackHDPicPointers::
 	dba BellsproutBackHDPic
 	dba WeepinbellBackHDPic
 	dba VictreebelBackHDPic
-	dba ChikoritaBackHDPic
-	dba BayleefBackHDPic
-	dba MeganiumBackHDPic
-	dba CyndaquilBackHDPic
-	dba QuilavaBackHDPic
-	dba TyphlosionBackHDPic
-	dba TotodileBackHDPic
-	dba CroconawBackHDPic
-	dba FeraligatrBackHDPic
+	dba DeinoBackHDPic
+	dba ZweilousBackHDPic
+	dba HydreigonBackHDPic
+	dba AxewBackHDPic
+	dba FraxureBackHDPic
+	dba HaxorusBackHDPic
+	dba Porygon2BackHDPic
+	dba PorygonZBackHDPic
+	dba ScraggyBackHDPic
 	dba MurkrowBackHDPic
 	dba HonchkrowBackHDPic
 	dba MisdreavusBackHDPic
@@ -551,9 +551,9 @@ SECTION "Pokemon Back HD Pics 11", ROMX
 CranidosBackHDPic:: INCBIN "gfx/pokemon/backhd/cranidosb.pic"
 RampardosBackHDPic:: INCBIN "gfx/pokemon/backhd/rampardosb.pic"
 AmpharosBackHDPic:: INCBIN "gfx/pokemon/backhd/ampharosb.pic"
-GibleBackHDPic:: INCBIN "gfx/pokemon/backhd/gibleb.pic"
-GabiteBackHDPic:: INCBIN "gfx/pokemon/backhd/gabiteb.pic"
-GarchompBackHDPic:: INCBIN "gfx/pokemon/backhd/garchompb.pic"
+ScraftyBackHDPic:: INCBIN "gfx/pokemon/backhd/scraftyb.pic"
+PawniardBackHDPic:: INCBIN "gfx/pokemon/backhd/pawniardb.pic"
+BisharpBackHDPic:: INCBIN "gfx/pokemon/backhd/bisharpb.pic"
 ShieldonBackHDPic:: INCBIN "gfx/pokemon/backhd/shieldonb.pic"
 BastiodonBackHDPic:: INCBIN "gfx/pokemon/backhd/bastiodonb.pic"
 MareepBackHDPic:: INCBIN "gfx/pokemon/backhd/mareepb.pic"
@@ -568,15 +568,15 @@ ArmaldoBackHDPic:: INCBIN "gfx/pokemon/backhd/armaldob.pic"
 
 SECTION "Pokemon Back HD Pics 12", ROMX
 
-ChikoritaBackHDPic:: INCBIN "gfx/pokemon/backhd/chikoritab.pic"
-BayleefBackHDPic:: INCBIN "gfx/pokemon/backhd/bayleefb.pic"
-MeganiumBackHDPic:: INCBIN "gfx/pokemon/backhd/meganiumb.pic"
-CyndaquilBackHDPic:: INCBIN "gfx/pokemon/backhd/cyndaquilb.pic"
-QuilavaBackHDPic:: INCBIN "gfx/pokemon/backhd/quilavab.pic"
-TyphlosionBackHDPic:: INCBIN "gfx/pokemon/backhd/typhlosionb.pic"
-TotodileBackHDPic:: INCBIN "gfx/pokemon/backhd/totodileb.pic"
-CroconawBackHDPic:: INCBIN "gfx/pokemon/backhd/croconawb.pic"
-FeraligatrBackHDPic:: INCBIN "gfx/pokemon/backhd/feraligatrb.pic"
+DeinoBackHDPic:: INCBIN "gfx/pokemon/backhd/deinob.pic"
+ZweilousBackHDPic:: INCBIN "gfx/pokemon/backhd/zweilousb.pic"
+HydreigonBackHDPic:: INCBIN "gfx/pokemon/backhd/hydreigonb.pic"
+AxewBackHDPic:: INCBIN "gfx/pokemon/backhd/axewb.pic"
+FraxureBackHDPic:: INCBIN "gfx/pokemon/backhd/fraxureb.pic"
+HaxorusBackHDPic:: INCBIN "gfx/pokemon/backhd/haxorusb.pic"
+Porygon2BackHDPic:: INCBIN "gfx/pokemon/backhd/porygon2b.pic"
+PorygonZBackHDPic:: INCBIN "gfx/pokemon/backhd/porygon_zb.pic"
+ScraggyBackHDPic:: INCBIN "gfx/pokemon/backhd/scraggyb.pic"
 MurkrowBackHDPic:: INCBIN "gfx/pokemon/backhd/murkrowb.pic"
 HonchkrowBackHDPic:: INCBIN "gfx/pokemon/backhd/honchkrowb.pic"
 MisdreavusBackHDPic:: INCBIN "gfx/pokemon/backhd/misdreavusb.pic"

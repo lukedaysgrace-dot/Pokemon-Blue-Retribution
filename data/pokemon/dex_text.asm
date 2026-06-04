@@ -1510,87 +1510,87 @@ _VictreebelDexEntry::
 
 SECTION "Pokédex Text 2", ROMX
 
-_ChikoritaDexEntry::
-	text "Sweet scents waft"
-	next "from the leaf on"
-	next "its head"
+_DeinoDexEntry::
+	text "It bites anything"
+	next "nearby, sensing"
+	next "with its nose"
 
-	page "while it soaks up"
-	next "sunlight"
+	page "Hunger drives it"
+	next "straight ahead"
 	dex
 
-_BayleefDexEntry::
-	text "Spicy aromas swirl"
-	next "around its neck"
-	next "when it walks"
+_ZweilousDexEntry::
+	text "Its two heads do"
+	next "not get along and"
+	next "fight over food"
 
-	page "Leaves warm nearby"
-	next "those nearby"
+	page "It eats until the"
+	next "area around it is"
+	next "bare"
 	dex
 
-_MeganiumDexEntry::
-	text "Its breath revives"
-	next "dead patches of"
-	next "grass and flowers"
+_HydreigonDexEntry::
+	text "It attacks all it"
+	next "sees, blasting"
+	next "dark pulses out"
 
-	page "Its petals soothe"
-	next "friends in battle"
+	page "from its three"
+	next "raging heads"
 	dex
 
-_CyndaquilDexEntry::
-	text "When threatened it"
-	next "spouts flame from"
-	next "back to scare foes"
+_AxewDexEntry::
+	text "Its tusks break"
+	next "often, but grow"
+	next "back sharper"
 
-	page "A healthy fire"
-	next "burns brighter"
+	page "It marks trees to"
+	next "claim territory"
 	dex
 
-_QuilavaDexEntry::
-	text "It turns its back"
-	next "to foes to show"
-	next "blazing quills"
+_FraxureDexEntry::
+	text "Its tusks can cut"
+	next "steel beams, but"
+	next "do not grow back"
 
-	page "Heat waves shimmer"
-	next "around its body"
+	page "It polishes them"
+	next "after every clash"
 	dex
 
-_TyphlosionDexEntry::
-	text "It hides behind"
-	next "blazing heat that"
-	next "melts nearby air"
+_HaxorusDexEntry::
+	text "Its sturdy tusks"
+	next "can shear through"
+	next "thick armor"
 
-	page "Hidden in the blur"
-	next "it charges foes"
+	page "It is gentle but"
+	next "fierce in battle"
 	dex
 
-_TotodileDexEntry::
-	text "Its huge jaws can"
-	next "crush rock. It may"
-	next "snap at anything"
+_Porygon2DexEntry::
+	text "Upgraded to work"
+	next "in space, it can"
+	next "move by itself"
 
-	page "Even its trainer"
-	next "must stay alert"
+	page "Its code keeps on"
+	next "learning new acts"
 	dex
 
-_CroconawDexEntry::
-	text "Once it bites down"
-	next "it won't let go"
-	next "until it wins"
+_PorygonZDexEntry::
+	text "A faulty upgrade"
+	next "made its behavior"
+	next "hard to predict"
 
-	page "Its fangs leave"
-	next "ragged scars"
+	page "It twitches while"
+	next "processing data"
 	dex
 
-_FeraligatrDexEntry::
-	text "When it opens its"
-	next "huge jaws, it can"
-	next "shake the ground"
+_ScraggyDexEntry::
+	text "It yanks up its"
+	next "loose skin to"
+	next "guard its body"
 
-	page "It hauls prey from"
-	next "water with ease"
+	page "Then it headbutts"
+	next "foes without fear"
 	dex
-
 _MurkrowDexEntry::
 	text "It seeks shiny"
 	next "things at night"
@@ -2208,7 +2208,7 @@ _AmpharosDexEntry::
 	next "even on dark night."
 	dex
 
-_GibleDexEntry::
+_ScraftyDexEntry::
 	text "It nests in small"
 	next "caves and tunnels"
 	next "where it waits to"
@@ -2217,7 +2217,7 @@ _GibleDexEntry::
 	next " prey."
 	dex
 
-_GabiteDexEntry::
+_PawniardDexEntry::
 	text "It loves hoarding"
 	next "odd gems."
 	next "Touching its rough"
@@ -2226,7 +2226,7 @@ _GabiteDexEntry::
 	next "weak shock."
 	dex
 
-_GarchompDexEntry::
+_BisharpDexEntry::
 	text "It soars at high"
 	next "speed, then dives"
 	next "through the air to"

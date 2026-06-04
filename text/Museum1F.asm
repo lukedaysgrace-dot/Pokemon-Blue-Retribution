@@ -54,7 +54,7 @@ _Museum1FScientist1TakePlentyOfTimeText::
 
 _Museum1FGamblerOfferText::
 	text "I found this poor"
-	line "CYNDAQUIL out on"
+	line "AXEW out on"
 	cont "the road."
 
 	para "I've looked after"
@@ -67,12 +67,12 @@ _Museum1FGamblerOfferText::
 	done
 
 _Museum1FGamblerReceivedText::
-	text "Treat CYNDAQUIL"
+	text "Treat AXEW"
 	line "with kindness."
 	done
 
 _Museum1FGamblerAfterGiftText::
-	text "That CYNDAQUIL"
+	text "That AXEW"
 	line "looked lonely."
 
 	para "I'm glad it found"
@@ -83,12 +83,12 @@ _Museum1FGamblerRefusedText::
 	text "I understand."
 
 	para "I'll keep looking"
-	line "after CYNDAQUIL"
+	line "after AXEW"
 	cont "for now."
 	done
 
-_Museum1FCyndaquilText::
-	text "CYNDAQUIL: Cynda!@"
+_Museum1FAxewText::
+	text "AXEW: Cynda!@"
 	text_end
 
 _Museum1FScientist2TakeThisToAPokemonLabText::

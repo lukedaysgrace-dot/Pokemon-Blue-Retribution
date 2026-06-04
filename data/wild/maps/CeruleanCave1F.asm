@@ -26,7 +26,7 @@ IF DEF(_BLUE)
 	db  49, VICTREEBEL
 	db  52, VENOMOTH
 	db  49, AMPHAROS
-	db  49, GABITE
+	db  49, PAWNIARD
 	db  53, NINETALES
 	db  53, DITTO
 	end_grass_wildmons

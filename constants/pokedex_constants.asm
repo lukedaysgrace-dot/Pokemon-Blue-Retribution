@@ -155,15 +155,15 @@
 	const DEX_DRAGONITE  ; 149
 	const DEX_MEWTWO     ; 150
 	const DEX_MEW        ; 151
-	const DEX_CHIKORITA  ; 152
-	const DEX_BAYLEEF    ; 153
-	const DEX_MEGANIUM   ; 154
-	const DEX_CYNDAQUIL  ; 155
-	const DEX_QUILAVA    ; 156
-	const DEX_TYPHLOSION ; 157
-	const DEX_TOTODILE   ; 158
-	const DEX_CROCONAW   ; 159
-	const DEX_FERALIGATR ; 160
+	const DEX_DEINO  ; 152
+	const DEX_ZWEILOUS    ; 153
+	const DEX_HYDREIGON   ; 154
+	const DEX_AXEW  ; 155
+	const DEX_FRAXURE    ; 156
+	const DEX_HAXORUS ; 157
+	const DEX_PORYGON2   ; 158
+	const DEX_PORYGONZ   ; 159
+	const DEX_SCRAGGY ; 160
 	const DEX_MURKROW    ; 161
 	const DEX_HONCHKROW  ; 162
 	const DEX_MISDREAVUS ; 163
@@ -225,9 +225,9 @@
 	const DEX_MAREEP     ; 219
 	const DEX_FLAAFFY    ; 220
 	const DEX_AMPHAROS   ; 221
-	const DEX_GIBLE      ; 222
-	const DEX_GABITE     ; 223
-	const DEX_GARCHOMP   ; 224
+	const DEX_SCRAFTY      ; 222
+	const DEX_PAWNIARD     ; 223
+	const DEX_BISHARP   ; 224
 	const DEX_WIMPOD     ; 225
 	const DEX_GOLISOPOD  ; 226
 	const DEX_LILEEP     ; 227

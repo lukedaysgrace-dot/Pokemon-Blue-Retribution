@@ -1,3 +1,3 @@
-_VermilionTradeHouseChikoritaText::
-	text "CHIKORITA: Chika!@"
+_VermilionTradeHouseDeinoText::
+	text "DEINO: Chika!@"
 	text_end

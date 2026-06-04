@@ -94,9 +94,9 @@ DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_BULBASAUR              ; $58
 	const SPRITE_CHARMANDER             ; $59
 	const SPRITE_SQUIRTLE               ; $5a
-	const SPRITE_CHIKORITA              ; $5b
-	const SPRITE_CYNDAQUIL              ; $5c
-	const SPRITE_TOTODILE               ; $5d
+	const SPRITE_DEINO              ; $5b
+	const SPRITE_AXEW              ; $5c
+	const SPRITE_PORYGON2               ; $5d
 	const SPRITE_PIDGEY                 ; $5e
 	const SPRITE_SPEAROW                ; $5f
 	const SPRITE_FEAROW                 ; $60

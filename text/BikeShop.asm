@@ -101,7 +101,7 @@ _BikeShopYoungsterCoolBikeText::
 
 _BikeShopSailorOfferText::
 	text "I got this"
-	line "TOTODILE, but"
+	line "PORYGON2, but"
 	cont "it's far too"
 	cont "naughty for me."
 
@@ -113,13 +113,13 @@ _BikeShopSailorOfferText::
 	done
 
 _BikeShopSailorReceivedText::
-	text "Maybe TOTODILE"
+	text "Maybe PORYGON2"
 	line "will behave for"
 	cont "you."
 	done
 
 _BikeShopSailorAfterGiftText::
-	text "That TOTODILE had"
+	text "That PORYGON2 had"
 	line "more spirit than"
 	cont "I could handle."
 	done
@@ -128,10 +128,10 @@ _BikeShopSailorRefusedText::
 	text "Fair enough."
 
 	para "I'll keep trying"
-	line "to calm TOTODILE"
+	line "to calm PORYGON2"
 	cont "down."
 	done
 
-_BikeShopTotodileText::
-	text "TOTODILE: Toto!@"
+_BikeShopPorygon2Text::
+	text "PORYGON2: Toto!@"
 	text_end

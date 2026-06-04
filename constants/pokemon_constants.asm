@@ -58,16 +58,16 @@
 	const GOLEM              ; $31
 	const AMPHAROS           ; $32
 	const MAGMAR             ; $33
-	const GIBLE              ; $34
+	const SCRAFTY              ; $34
 	const ELECTABUZZ         ; $35
 	const MAGNETON           ; $36
 	const KOFFING            ; $37
-	const GABITE             ; $38
+	const PAWNIARD             ; $38
 	const MANKEY             ; $39
 	const SEEL               ; $3A
 	const DIGLETT            ; $3B
 	const TAUROS             ; $3C
-	const GARCHOMP           ; $3D
+	const BISHARP           ; $3D
 	const_skip               ; $3E
 	const_skip               ; $3F
 	const FARFETCHD          ; $40
@@ -197,15 +197,15 @@
 	const BELLSPROUT         ; $BC
 	const WEEPINBELL         ; $BD
 	const VICTREEBEL         ; $BE
-	const CHIKORITA          ; $BF
-	const BAYLEEF            ; $C0
-	const MEGANIUM           ; $C1
-	const CYNDAQUIL          ; $C2
-	const QUILAVA            ; $C3
-	const TYPHLOSION         ; $C4
-	const TOTODILE           ; $C5
-	const CROCONAW           ; $C6
-	const FERALIGATR         ; $C7
+	const DEINO          ; $BF
+	const ZWEILOUS            ; $C0
+	const HYDREIGON           ; $C1
+	const AXEW          ; $C2
+	const FRAXURE            ; $C3
+	const HAXORUS         ; $C4
+	const PORYGON2           ; $C5
+	const PORYGONZ           ; $C6
+	const SCRAGGY         ; $C7
 	const MURKROW            ; $C8
 	const HONCHKROW          ; $C9
 	const MISDREAVUS         ; $CA

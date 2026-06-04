@@ -155,10 +155,10 @@ ENDC
 	toggle_object_state MUSEUM1F_OLD_AMBER, ON
 IF DEF(_BLUE)
 	toggle_object_state MUSEUM1F_GAMBLER,   ON
-	toggle_object_state MUSEUM1F_CYNDAQUIL, ON
+	toggle_object_state MUSEUM1F_AXEW, ON
 ELSE
 	toggle_object_state MUSEUM1F_GAMBLER,   OFF
-	toggle_object_state MUSEUM1F_CYNDAQUIL, OFF
+	toggle_object_state MUSEUM1F_AXEW, OFF
 ENDC
 
 	toggleable_objects_for CERULEAN_CAVE_1F
@@ -502,16 +502,16 @@ ENDC
 
 	toggleable_objects_for BIKE_SHOP
 IF DEF(_BLUE)
-	toggle_object_state BIKESHOP_TOTODILE, ON
+	toggle_object_state BIKESHOP_PORYGON2, ON
 ELSE
-	toggle_object_state BIKESHOP_TOTODILE, OFF
+	toggle_object_state BIKESHOP_PORYGON2, OFF
 ENDC
 
 	toggleable_objects_for VERMILION_TRADE_HOUSE
 IF DEF(_BLUE)
-	toggle_object_state VERMILIONTRADEHOUSE_CHIKORITA, ON
+	toggle_object_state VERMILIONTRADEHOUSE_DEINO, ON
 ELSE
-	toggle_object_state VERMILIONTRADEHOUSE_CHIKORITA, OFF
+	toggle_object_state VERMILIONTRADEHOUSE_DEINO, OFF
 ENDC
 
 	assert_table_length NUM_TOGGLEABLE_OBJECTS

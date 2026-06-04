@@ -150,15 +150,15 @@ MonPartyData:
 	db ICON_DRAGONITE     ; Dragonite
 	db ICON_MEWTWO        ; Mewtwo
 	db ICON_MEW           ; Mew
-	db ICON_CHIKORITA     ; Chikorita
-	db ICON_BAYLEEF       ; Bayleef
-	db ICON_MEGANIUM      ; Meganium
-	db ICON_CYNDAQUIL     ; Cyndaquil
-	db ICON_QUILAVA       ; Quilava
-	db ICON_TYPHLOSION    ; Typhlosion
-	db ICON_TOTODILE      ; Totodile
-	db ICON_CROCONAW      ; Croconaw
-	db ICON_FERALIGATR    ; Feraligatr
+	db ICON_DEINO     ; Deino
+	db ICON_ZWEILOUS       ; Zweilous
+	db ICON_HYDREIGON      ; Hydreigon
+	db ICON_AXEW     ; Axew
+	db ICON_FRAXURE       ; Fraxure
+	db ICON_HAXORUS    ; Haxorus
+	db ICON_PORYGON2      ; Porygon2
+	db ICON_PORYGONZ      ; PorygonZ
+	db ICON_SCRAGGY    ; Scraggy
 	db ICON_MURKROW       ; Murkrow
 	db ICON_HONCHKROW     ; Honchkrow
 	db ICON_MISDREAVUS    ; Misdreavus
@@ -220,9 +220,9 @@ MonPartyData:
 	db ICON_MAREEP       ; Mareep
 	db ICON_FLAAFFY       ; Flaaffy
 	db ICON_AMPHAROS        ; Ampharos
-	db ICON_GIBLE    ; Gible
-	db ICON_GABITE         ; Gabite
-	db ICON_GARCHOMP    ; Garchomp
+	db ICON_SCRAFTY    ; Scrafty
+	db ICON_PAWNIARD         ; Pawniard
+	db ICON_BISHARP    ; Bisharp
 	db ICON_WIMPOD        ; Wimpod
 	db ICON_GOLISOPOD     ; Golisopod
 	db ICON_LILEEP        ; Lileep

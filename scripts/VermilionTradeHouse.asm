@@ -5,7 +5,7 @@ VermilionTradeHouse_TextPointers:
 	def_text_pointers
 	dw_const VermilionTradeHouseLittleGirlText, TEXT_VERMILIONTRADEHOUSE_LITTLE_GIRL
 	dw_const VermilionTradeHouseGamblerText,    TEXT_VERMILIONTRADEHOUSE_GAMBLER
-	dw_const VermilionTradeHouseChikoritaText,  TEXT_VERMILIONTRADEHOUSE_CHIKORITA
+	dw_const VermilionTradeHouseDeinoText,  TEXT_VERMILIONTRADEHOUSE_DEINO
 
 VermilionTradeHouseLittleGirlText:
 	text_asm
@@ -16,7 +16,7 @@ VermilionTradeHouseLittleGirlText:
 
 VermilionTradeHouseGamblerText:
 	text_asm
-	CheckEvent EVENT_GOT_CHIKORITA_IN_TRADE_HOUSE
+	CheckEvent EVENT_GOT_DEINO_IN_TRADE_HOUSE
 	jr nz, .after_gift
 	ld hl, .OfferText
 	call PrintText
@@ -24,11 +24,11 @@ VermilionTradeHouseGamblerText:
 	ld a, [wCurrentMenuItem]
 	and a
 	jr nz, .refused
-	lb bc, CHIKORITA, 10
+	lb bc, DEINO, 10
 	call GivePokemon
 	jr nc, .done
-	SetEvent EVENT_GOT_CHIKORITA_IN_TRADE_HOUSE
-	ld a, TOGGLE_VERMILION_TRADE_HOUSE_CHIKORITA
+	SetEvent EVENT_GOT_DEINO_IN_TRADE_HOUSE
+	ld a, TOGGLE_VERMILION_TRADE_HOUSE_DEINO
 	ld [wToggleableObjectIndex], a
 	predef HideObject
 	ld hl, .ReceivedText
@@ -47,7 +47,7 @@ VermilionTradeHouseGamblerText:
 .OfferText:
 	text "Hic!"
 	line "This little"
-	cont "CHIKORITA"
+	cont "DEINO"
 	cont "followed me home!"
 
 	para "The darn thing"
@@ -68,7 +68,7 @@ VermilionTradeHouseGamblerText:
 .AfterGiftText:
 	text "Hic!"
 
-	para "That CHIKORITA"
+	para "That DEINO"
 	line "sure picked its"
 	cont "trainer fast."
 	done
@@ -81,10 +81,10 @@ VermilionTradeHouseGamblerText:
 	cont "me."
 	done
 
-VermilionTradeHouseChikoritaText:
-	text_far _VermilionTradeHouseChikoritaText
+VermilionTradeHouseDeinoText:
+	text_far _VermilionTradeHouseDeinoText
 	text_asm
-	ld a, CHIKORITA
+	ld a, DEINO
 	call PlayCry
 	call WaitForSoundToFinish
 	jp TextScriptEnd

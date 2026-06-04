@@ -51,16 +51,16 @@ PokedexEntryPointers:
 	dw GolemDexEntry
 	dw AmpharosDexEntry
 	dw MagmarDexEntry
-	dw GibleDexEntry
+	dw ScraftyDexEntry
 	dw ElectabuzzDexEntry
 	dw MagnetonDexEntry
 	dw KoffingDexEntry
-	dw GabiteDexEntry
+	dw PawniardDexEntry
 	dw MankeyDexEntry
 	dw SeelDexEntry
 	dw DiglettDexEntry
 	dw TaurosDexEntry
-	dw GarchompDexEntry
+	dw BisharpDexEntry
 	dw MissingNoDexEntry
 	dw MissingNoDexEntry
 	dw FarfetchdDexEntry
@@ -190,15 +190,15 @@ PokedexEntryPointers:
 	dw BellsproutDexEntry
 	dw WeepinbellDexEntry
 	dw VictreebelDexEntry
-	dw ChikoritaDexEntry
-	dw BayleefDexEntry
-	dw MeganiumDexEntry
-	dw CyndaquilDexEntry
-	dw QuilavaDexEntry
-	dw TyphlosionDexEntry
-	dw TotodileDexEntry
-	dw CroconawDexEntry
-	dw FeraligatrDexEntry
+	dw DeinoDexEntry
+	dw ZweilousDexEntry
+	dw HydreigonDexEntry
+	dw AxewDexEntry
+	dw FraxureDexEntry
+	dw HaxorusDexEntry
+	dw Porygon2DexEntry
+	dw PorygonZDexEntry
+	dw ScraggyDexEntry
 	dw MurkrowDexEntry
 	dw HonchkrowDexEntry
 	dw MisdreavusDexEntry
@@ -1317,69 +1317,68 @@ VictreebelDexEntry:
 	text_far _VictreebelDexEntry
 	text_end
 
-ChikoritaDexEntry:
-	db "LEAF@"
-	db 2,11
-	dw 141
-	text_far _ChikoritaDexEntry
+DeinoDexEntry:
+	db "IRATE@"
+	db 2,7
+	dw 381
+	text_far _DeinoDexEntry
 	text_end
 
-BayleefDexEntry:
-	db "LEAF@"
-	db 7,11
-	dw 348
-	text_far _BayleefDexEntry
+ZweilousDexEntry:
+	db "HOSTILE@"
+	db 4,7
+	dw 1102
+	text_far _ZweilousDexEntry
 	text_end
 
-MeganiumDexEntry:
-	db "HERB@"
+HydreigonDexEntry:
+	db "BRUTAL@"
 	db 5,11
-	dw 2165
-	text_far _MeganiumDexEntry
+	dw 3527
+	text_far _HydreigonDexEntry
 	text_end
 
-CyndaquilDexEntry:
-	db "FIRE MOUSE@"
-	db 2,11
-	dw 173
-	text_far _CyndaquilDexEntry
-	text_end
-
-QuilavaDexEntry:
-	db "VOLCANO@"
-	db 2,11
-	dw 417
-	text_far _QuilavaDexEntry
-	text_end
-
-TyphlosionDexEntry:
-	db "VOLCANO@"
-	db 5,7
-	dw 1753
-	text_far _TyphlosionDexEntry
-	text_end
-
-TotodileDexEntry:
-	db "BIG JAW@"
+AxewDexEntry:
+	db "TUSK@"
 	db 2,0
-	dw 209
-	text_far _TotodileDexEntry
+	dw 397
+	text_far _AxewDexEntry
 	text_end
 
-CroconawDexEntry:
-	db "BIG JAW@"
-	db 3,7
-	dw 551
-	text_far _CroconawDexEntry
+FraxureDexEntry:
+	db "AXE JAW@"
+	db 3,3
+	dw 794
+	text_far _FraxureDexEntry
 	text_end
 
-FeraligatrDexEntry:
-	db "BIG JAW@"
-	db 7,7
-	dw 1984
-	text_far _FeraligatrDexEntry
+HaxorusDexEntry:
+	db "AXE JAW@"
+	db 5,11
+	dw 2326
+	text_far _HaxorusDexEntry
 	text_end
 
+Porygon2DexEntry:
+	db "VIRTUAL@"
+	db 2,0
+	dw 716
+	text_far _Porygon2DexEntry
+	text_end
+
+PorygonZDexEntry:
+	db "VIRTUAL@"
+	db 2,11
+	dw 750
+	text_far _PorygonZDexEntry
+	text_end
+
+ScraggyDexEntry:
+	db "SHEDDING@"
+	db 2,0
+	dw 260
+	text_far _ScraggyDexEntry
+	text_end
 MurkrowDexEntry:
 	db "DARKNESS@"
 	db 1,8
@@ -1849,27 +1848,26 @@ AmpharosDexEntry:
 	text_far _AmpharosDexEntry
 	text_end
 
-GibleDexEntry:
-	db "LAND SHARK@"
-	db 2,0
-	dw 426
-	text_far _GibleDexEntry
+ScraftyDexEntry:
+	db "HOODLUM@"
+	db 3,7
+	dw 661
+	text_far _ScraftyDexEntry
 	text_end
 
-GabiteDexEntry:
-	db "CAVE@"
-	db 4,7
-	dw 1235
-	text_far _GabiteDexEntry
+PawniardDexEntry:
+	db "SHARP@"
+	db 1,8
+	dw 225
+	text_far _PawniardDexEntry
 	text_end
 
-GarchompDexEntry:
-	db "MACH@"
-	db 6,3
-	dw 2094
-	text_far _GarchompDexEntry
+BisharpDexEntry:
+	db "SWORD@"
+	db 5,3
+	dw 1543
+	text_far _BisharpDexEntry
 	text_end
-
 MissingNoDexEntry:
 	db "???@"
 	db 10 ; 1.0 m

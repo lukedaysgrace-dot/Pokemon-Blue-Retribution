@@ -3,7 +3,7 @@
 	const_export BIKESHOP_MIDDLE_AGED_WOMAN
 	const_export BIKESHOP_YOUNGSTER
 	const_export BIKESHOP_SAILOR
-	const_export BIKESHOP_TOTODILE
+	const_export BIKESHOP_PORYGON2
 
 BikeShop_Object:
 	db $e ; border block
@@ -20,7 +20,7 @@ BikeShop_Object:
 	object_event  1,  3, SPRITE_YOUNGSTER, STAY, UP, TEXT_BIKESHOP_YOUNGSTER
 IF DEF(_BLUE)
 	object_event  2,  5, SPRITE_SAILOR, STAY, RIGHT, TEXT_BIKESHOP_SAILOR
-	object_event  3,  5, SPRITE_TOTODILE, STAY, LEFT, TEXT_BIKESHOP_TOTODILE
+	object_event  3,  5, SPRITE_PORYGON2, STAY, LEFT, TEXT_BIKESHOP_PORYGON2
 ENDC
 
 	def_warps_to BIKE_SHOP

@@ -681,9 +681,9 @@ AgathaData:
 ; Post-Champion rematch (wTrainerNo 2)
 	db $FF, 60, GENGAR, 60, MISMAGIUS, 60, MIMIKYU, 60, FROSLASS, 60, DUSKNOIR, 60, GOLURK, 0
 LanceData:
-	db $FF, 56, GYARADOS, 58, SALAMENCE, 57, KINGDRA, 56, AERODACTYL, 58, GARCHOMP, 59, DRAGONITE, 0
+	db $FF, 56, GYARADOS, 58, SALAMENCE, 57, KINGDRA, 56, AERODACTYL, 58, BISHARP, 59, DRAGONITE, 0
 ; Post-Champion rematch (wTrainerNo 2)
-	db $FF, 62, GYARADOS, 62, SALAMENCE, 62, KINGDRA, 62, AERODACTYL, 62, GARCHOMP, 62, DRAGONITE, 0
+	db $FF, 62, GYARADOS, 62, SALAMENCE, 62, KINGDRA, 62, AERODACTYL, 62, BISHARP, 62, DRAGONITE, 0
 
 BlueCloakData:
 ; wTrainerNo 1–3: last mon is rival's starter (mirror wRivalStarter, same mapping as Champion)

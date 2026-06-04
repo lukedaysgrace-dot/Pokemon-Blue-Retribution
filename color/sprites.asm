@@ -647,13 +647,13 @@ SpritePaletteAssignments: ; Characters on the overworld
 	; 0x5a: SPRITE_SQUIRTLE
 	db SPR_PAL_BLUE
 
-	; 0x5b: SPRITE_CHIKORITA
+	; 0x5b: SPRITE_DEINO
 	db SPR_PAL_GREEN
 
-	; 0x5c: SPRITE_CYNDAQUIL
+	; 0x5c: SPRITE_AXEW
 	db SPR_PAL_ORANGE
 
-	; 0x5d: SPRITE_TOTODILE
+	; 0x5d: SPRITE_PORYGON2
 	db SPR_PAL_BLUE
 
 	; 0x5e: SPRITE_PIDGEY

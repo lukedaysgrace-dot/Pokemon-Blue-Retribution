@@ -27,7 +27,7 @@ IF DEF(_BLUE)
 	db  10, MACHOP
 	db  10, BAGON
 	db   8, GOLETT
-	db   9, GIBLE
+	db   9, SCRAFTY
 	db   8, LARVITAR
 	end_grass_wildmons
 

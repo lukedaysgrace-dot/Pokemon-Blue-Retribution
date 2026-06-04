@@ -1,9 +1,9 @@
 BikeShop_Script:
 	call EnableAutoTextBoxDrawing
 IF DEF(_BLUE)
-	CheckEvent EVENT_GOT_TOTODILE_IN_BIKE_SHOP
+	CheckEvent EVENT_GOT_PORYGON2_IN_BIKE_SHOP
 	ret nz
-	ld a, TOGGLE_BIKE_SHOP_TOTODILE
+	ld a, TOGGLE_BIKE_SHOP_PORYGON2
 	ld [wToggleableObjectIndex], a
 	predef ShowObject
 ENDC
@@ -15,7 +15,7 @@ BikeShop_TextPointers:
 	dw_const BikeShopMiddleAgedWomanText,   TEXT_BIKESHOP_MIDDLE_AGED_WOMAN
 	dw_const BikeShopYoungsterText,         TEXT_BIKESHOP_YOUNGSTER
 	dw_const BikeShopSailorText,            TEXT_BIKESHOP_SAILOR
-	dw_const BikeShopTotodileText,          TEXT_BIKESHOP_TOTODILE
+	dw_const BikeShopPorygon2Text,          TEXT_BIKESHOP_PORYGON2
 
 BikeShopClerkText:
 	text_asm
@@ -252,7 +252,7 @@ BikeShopYoungsterText:
 
 BikeShopSailorText:
 	text_asm
-	CheckEvent EVENT_GOT_TOTODILE_IN_BIKE_SHOP
+	CheckEvent EVENT_GOT_PORYGON2_IN_BIKE_SHOP
 	jr nz, .after_gift
 	ld hl, .OfferText
 	call PrintText
@@ -260,11 +260,11 @@ BikeShopSailorText:
 	ld a, [wCurrentMenuItem]
 	and a
 	jr nz, .refused
-	lb bc, TOTODILE, 10
+	lb bc, PORYGON2, 10
 	call GivePokemon
 	jr nc, .done
-	SetEvent EVENT_GOT_TOTODILE_IN_BIKE_SHOP
-	ld a, TOGGLE_BIKE_SHOP_TOTODILE
+	SetEvent EVENT_GOT_PORYGON2_IN_BIKE_SHOP
+	ld a, TOGGLE_BIKE_SHOP_PORYGON2
 	ld [wToggleableObjectIndex], a
 	predef HideObject
 	ld hl, .ReceivedText
@@ -296,10 +296,10 @@ BikeShopSailorText:
 	text_far _BikeShopSailorRefusedText
 	text_end
 
-BikeShopTotodileText:
-	text_far _BikeShopTotodileText
+BikeShopPorygon2Text:
+	text_far _BikeShopPorygon2Text
 	text_asm
-	ld a, TOTODILE
+	ld a, PORYGON2
 	call PlayCry
 	call WaitForSoundToFinish
 	jp TextScriptEnd

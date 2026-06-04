@@ -97,9 +97,9 @@ SpriteSheetPointerTable::
 	overworld_sprite BulbasaurSprite, 12        ; SPRITE_BULBASAUR
 	overworld_sprite CharmanderSprite, 4        ; SPRITE_CHARMANDER
 	overworld_sprite SquirtleSprite, 4          ; SPRITE_SQUIRTLE
-	overworld_sprite ChikoritaSprite, 4         ; SPRITE_CHIKORITA
-	overworld_sprite CyndaquilSprite, 4         ; SPRITE_CYNDAQUIL
-	overworld_sprite TotodileSprite, 4          ; SPRITE_TOTODILE
+	overworld_sprite DeinoSprite, 4         ; SPRITE_DEINO
+	overworld_sprite AxewSprite, 4         ; SPRITE_AXEW
+	overworld_sprite Porygon2Sprite, 4          ; SPRITE_PORYGON2
 	overworld_sprite PidgeySprite, 12           ; SPRITE_PIDGEY
 	overworld_sprite SpearowSprite, 12          ; SPRITE_SPEAROW
 	overworld_sprite FearowSprite, 12           ; SPRITE_FEAROW
