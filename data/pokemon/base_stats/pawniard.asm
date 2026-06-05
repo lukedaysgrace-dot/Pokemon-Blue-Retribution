@@ -13,8 +13,9 @@
 	db SCRATCH, LEER, METAL_CLAW, NO_MOVE
 	db GROWTH_MEDIUM_FAST
 
-	tmhm SWORDS_DANCE, TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  CRUNCH,       \
-	     RAGE,         DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     SWIFT,        REST,         ROCK_SLIDE,   SUBSTITUTE,   CUT
+	tmhm SWORDS_DANCE , CRUNCH       , TOXIC        , TAKE_DOWN    , DOUBLE_EDGE  , \
+	     METAL_CLAW   , RAGE         , DIG          , MIMIC        , DOUBLE_TEAM  , \
+	     BIDE         , SWIFT        , REST         , THUNDER_WAVE , ROCK_SLIDE   , \
+	     SUBSTITUTE   , CUT
 	db BANK(PawniardPicFront)
 	assert BANK(PawniardPicFront) == BANK(PawniardPicBack)

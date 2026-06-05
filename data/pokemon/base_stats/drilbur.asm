@@ -15,7 +15,10 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm SWORDS_DANCE, TOXIC, TAKE_DOWN, DOUBLE_EDGE, RAGE, EARTHQUAKE, FISSURE, DIG, MIMIC, DOUBLE_TEAM, BIDE, REST, ROCK_SLIDE, SUBSTITUTE, CUT, STRENGTH
+	tmhm SWORDS_DANCE , TOXIC        , TAKE_DOWN    , DOUBLE_EDGE  , METAL_CLAW   , \
+	     SUBMISSION   , EARTHQUAKE   , FISSURE      , DIG          , DOUBLE_TEAM  , \
+	     SLUDGE_BOMB  , REST         , ROCK_SLIDE   , SUBSTITUTE   , CUT          , \
+	     STRENGTH
 	; end
 
 	db BANK(DrilburPicFront)

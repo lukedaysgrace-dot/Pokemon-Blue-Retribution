@@ -13,9 +13,9 @@
 	db SCRATCH, LEER, NO_MOVE, NO_MOVE
 	db GROWTH_SLOW
 
-	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
-	     RAGE,         DRAGON_RAGE,  DIG,          MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         REST,         ROCK_SLIDE,   SUBSTITUTE,   CUT,          \
+	tmhm RAZOR_WIND   , SWORDS_DANCE , CRUNCH       , TOXIC        , TAKE_DOWN    , \
+	     DOUBLE_EDGE  , COUNTER      , DRAGON_RAGE  , DIG          , DOUBLE_TEAM  , \
+	     SWIFT        , REST         , SUBSTITUTE   , CUT          , SURF         , \
 	     STRENGTH
 	db BANK(AxewPicFront)
 	assert BANK(AxewPicFront) == BANK(AxewPicBack)

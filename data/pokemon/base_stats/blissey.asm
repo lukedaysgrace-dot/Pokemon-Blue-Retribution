@@ -15,14 +15,13 @@
 	db GROWTH_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     \
-	     HYPER_BEAM,   SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         \
-	     SOLARBEAM,    THUNDERBOLT,  THUNDER,      PSYCHIC_M,    TELEPORT,     \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         METRONOME,    \
-	     FIRE_BLAST,   SKULL_BASH,   SOFTBOILED,   REST,         \
-	     THUNDER_WAVE, PSYWAVE,      TRI_ATTACK,   SUBSTITUTE,   STRENGTH,     \
-	     FLASH
+	tmhm MEGA_PUNCH   , MEGA_KICK    , TOXIC        , SHADOW_BALL  , BODY_SLAM    , \
+	     TAKE_DOWN    , DOUBLE_EDGE  , ICE_BEAM     , BLIZZARD     , HYPER_BEAM   , \
+	     COUNTER      , SEISMIC_TOSS , SOLARBEAM    , THUNDERBOLT  , THUNDER      , \
+	     EARTHQUAKE   , PSYCHIC_M    , MIMIC        , DOUBLE_TEAM  , METRONOME    , \
+	     FLAMETHROWER , FIRE_BLAST   , SWIFT        , SOFTBOILED   , DREAM_EATER  , \
+	     REST         , THUNDER_WAVE , ROCK_SLIDE   , TRI_ATTACK   , SUBSTITUTE   , \
+	     STRENGTH     , FLASH
 	; end
 
 	db BANK(BlisseyPicFront)

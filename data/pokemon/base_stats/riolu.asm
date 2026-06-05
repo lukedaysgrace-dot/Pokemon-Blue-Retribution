@@ -13,7 +13,9 @@
 	db QUICK_ATTACK, NO_MOVE, NO_MOVE, NO_MOVE
 	db GROWTH_MEDIUM_SLOW
 
-	tmhm MEGA_KICK,    TOXIC,        BODY_SLAM,    SUBMISSION,   DIG,          \
-	     MIMIC,        DOUBLE_TEAM,  REST,         SUBSTITUTE,   STRENGTH
+	tmhm MEGA_PUNCH   , SWORDS_DANCE , CRUNCH       , MEGA_KICK    , TOXIC        , \
+	     BODY_SLAM    , TAKE_DOWN    , METAL_CLAW   , SUBMISSION   , COUNTER      , \
+	     EARTHQUAKE   , DIG          , DOUBLE_TEAM  , SWIFT        , REST         , \
+	     ROCK_SLIDE   , SUBSTITUTE   , STRENGTH
 	db BANK(RioluPicFront)
 	assert BANK(RioluPicFront) == BANK(RioluPicBack)

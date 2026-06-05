@@ -13,10 +13,9 @@
 	db TACKLE, PSYBEAM, AGILITY, TRI_ATTACK
 	db GROWTH_MEDIUM_FAST
 
-	tmhm TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  ICE_BEAM,     BLIZZARD,     \
-	     HYPER_BEAM,   RAGE,         THUNDERBOLT,  THUNDER,      PSYCHIC_M,    \
-	     TELEPORT,     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     SWIFT,        SKULL_BASH,   REST,         THUNDER_WAVE, PSYWAVE,      \
-	     TRI_ATTACK,   SUBSTITUTE,   FLASH
+	tmhm TOXIC        , SHADOW_BALL  , TAKE_DOWN    , DOUBLE_EDGE  , ICE_BEAM     , \
+	     BLIZZARD     , HYPER_BEAM   , SOLARBEAM    , THUNDERBOLT  , THUNDER      , \
+	     PSYCHIC_M    , DOUBLE_TEAM  , SWIFT        , DREAM_EATER  , REST         , \
+	     THUNDER_WAVE , TRI_ATTACK   , SUBSTITUTE   , FLASH
 	db BANK(PorygonZPicFront)
 	assert BANK(PorygonZPicFront) == BANK(PorygonZPicBack)

@@ -13,7 +13,9 @@
 	db CONFUSE_RAY, NIGHT_SHADE, DISABLE, CONFUSION
 	db GROWTH_SLOW
 
-	tmhm TOXIC,        BODY_SLAM,    HYPER_BEAM,   PSYCHIC_M,    MIMIC,        \
-	     DOUBLE_TEAM,  REST,         SUBSTITUTE
+	tmhm MEGA_PUNCH   , MEGA_KICK    , TOXIC        , SHADOW_BALL  , BODY_SLAM    , \
+	     ICE_BEAM     , BLIZZARD     , HYPER_BEAM   , EARTHQUAKE   , PSYCHIC_M    , \
+	     DOUBLE_TEAM  , METRONOME    , SWIFT        , DREAM_EATER  , REST         , \
+	     ROCK_SLIDE   , SUBSTITUTE   , STRENGTH     , FLASH
 	db BANK(DusknoirPicFront)
 	assert BANK(DusknoirPicFront) == BANK(DusknoirPicBack)

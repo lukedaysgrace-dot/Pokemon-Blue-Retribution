@@ -14,9 +14,9 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  HYPER_BEAM,   \
-	     PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  BIDE,         REST,         \
-	     SUBSTITUTE,   FLASH
+	tmhm SWORDS_DANCE , TOXIC        , SHADOW_BALL  , BODY_SLAM    , TAKE_DOWN    , \
+	     HYPER_BEAM   , THUNDERBOLT  , THUNDER      , PSYCHIC_M    , MIMIC        , \
+	     DOUBLE_TEAM  , DREAM_EATER  , REST         , THUNDER_WAVE , SUBSTITUTE
 	; end
 
 	db BANK(MimikyuPicFront)

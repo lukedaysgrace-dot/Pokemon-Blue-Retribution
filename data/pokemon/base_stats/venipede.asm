@@ -15,9 +15,9 @@
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  RAGE,         MEGA_DRAIN,   \
-	     MIMIC,        DOUBLE_TEAM,  BIDE,         SWIFT,        SKULL_BASH,   \
-	     REST,         SUBSTITUTE
+	tmhm TOXIC        , TAKE_DOWN    , DOUBLE_EDGE  , RAGE         , MEGA_DRAIN   , \
+	     SOLARBEAM    , MIMIC        , DOUBLE_TEAM  , BIDE         , SWIFT        , \
+	     SLUDGE_BOMB  , REST         , SUBSTITUTE
 	; end
 
 	db BANK(VenipedePicFront)

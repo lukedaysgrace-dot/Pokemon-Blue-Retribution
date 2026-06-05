@@ -13,9 +13,9 @@
 	db BUBBLEBEAM, THUNDERSHOCK, NO_MOVE, NO_MOVE
 	db GROWTH_SLOW
 
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     WATER_GUN,    THUNDERBOLT,  THUNDER,      MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         REST,         THUNDER_WAVE, SUBSTITUTE,   SURF,         \
-	     FLASH
+	tmhm TOXIC        , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , BUBBLEBEAM   , \
+	     WATER_GUN    , ICE_BEAM     , BLIZZARD     , HYPER_BEAM   , THUNDERBOLT  , \
+	     THUNDER      , MIMIC        , DOUBLE_TEAM  , REST         , THUNDER_WAVE , \
+	     SUBSTITUTE   , SURF         , FLASH
 	db BANK(LanturnPicFront)
 	assert BANK(LanturnPicFront) == BANK(LanturnPicBack)

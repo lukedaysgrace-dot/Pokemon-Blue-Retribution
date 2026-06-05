@@ -14,10 +14,9 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     WATER_GUN,    ICE_BEAM,     BLIZZARD,     RAGE,         DIG,          \
-	     MIMIC,        DOUBLE_TEAM,  BIDE,         REST,         SUBSTITUTE,   \
-	     FLASH
+	tmhm CRUNCH       , TOXIC        , SHADOW_BALL  , BODY_SLAM    , TAKE_DOWN    , \
+	     DOUBLE_EDGE  , ICE_BEAM     , BLIZZARD     , MIMIC        , DOUBLE_TEAM  , \
+	     BIDE         , REST         , SUBSTITUTE   , FLASH
 	; end
 
 	db BANK(SnoruntPicFront)

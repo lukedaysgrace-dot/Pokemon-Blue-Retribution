@@ -13,9 +13,9 @@
 	db SCRATCH, LEER, DRAGON_RAGE, SLASH
 	db GROWTH_SLOW
 
-	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
-	     HYPER_BEAM,   RAGE,         DRAGON_RAGE,  EARTHQUAKE,   FISSURE,      \
-	     DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         REST,         \
-	     ROCK_SLIDE,   SUBSTITUTE,   CUT,          STRENGTH
+	tmhm SWORDS_DANCE , CRUNCH       , TOXIC        , BODY_SLAM    , TAKE_DOWN    , \
+	     DOUBLE_EDGE  , HYPER_BEAM   , DRAGON_RAGE  , EARTHQUAKE   , DIG          , \
+	     DOUBLE_TEAM  , SWIFT        , REST         , ROCK_SLIDE   , SUBSTITUTE   , \
+	     CUT          , SURF         , STRENGTH
 	db BANK(HaxorusPicFront)
 	assert BANK(HaxorusPicFront) == BANK(HaxorusPicBack)

@@ -14,10 +14,10 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    HYPER_BEAM,   TAKE_DOWN,    DOUBLE_EDGE,  \
-	     BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     PSYCHIC_M,    \
-	     MIMIC,        DOUBLE_TEAM,  BIDE,         REST,         SUBSTITUTE,   \
-	     FLASH
+	tmhm CRUNCH       , TOXIC        , SHADOW_BALL  , BODY_SLAM    , TAKE_DOWN    , \
+	     ICE_BEAM     , BLIZZARD     , HYPER_BEAM   , THUNDERBOLT  , THUNDER      , \
+	     PSYCHIC_M    , DOUBLE_TEAM  , REFLECT      , DREAM_EATER  , REST         , \
+	     THUNDER_WAVE , SUBSTITUTE   , FLASH
 	; end
 
 	db BANK(FroslassPicFront)

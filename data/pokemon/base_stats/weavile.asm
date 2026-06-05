@@ -15,10 +15,11 @@
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   PAY_DAY,      \
-	     DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         SWIFT,        \
-	     SKULL_BASH,   REST,         SUBSTITUTE
+	tmhm MEGA_PUNCH   , SWORDS_DANCE , MEGA_KICK    , TOXIC        , SHADOW_BALL  , \
+	     BODY_SLAM    , TAKE_DOWN    , ICE_BEAM     , BLIZZARD     , HYPER_BEAM   , \
+	     METAL_CLAW   , DIG          , DOUBLE_TEAM  , REFLECT      , METRONOME    , \
+	     SWIFT        , DREAM_EATER  , REST         , SUBSTITUTE   , CUT          , \
+	     SURF         , STRENGTH
 	; end
 
 	db BANK(WeavilePicFront)

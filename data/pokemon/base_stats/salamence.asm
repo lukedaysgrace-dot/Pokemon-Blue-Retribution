@@ -13,8 +13,9 @@
 	db BITE, LEER, HEADBUTT, EMBER
 	db GROWTH_SLOW
 
-	tmhm MEGA_KICK,    TOXIC,        BODY_SLAM,    FLAMETHROWER, FIRE_BLAST,   \
-	     HYPER_BEAM,   DOUBLE_TEAM,  SWIFT,        REST,         SUBSTITUTE,   \
-	     FLY,          STRENGTH
+	tmhm CRUNCH       , TOXIC        , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , \
+	     HYPER_BEAM   , RAGE         , EARTHQUAKE   , MIMIC        , DOUBLE_TEAM  , \
+	     FLAMETHROWER , FIRE_BLAST   , SWIFT        , REST         , ROCK_SLIDE   , \
+	     SUBSTITUTE   , CUT          , FLY          , STRENGTH
 	db BANK(SalamencePicFront)
 	assert BANK(SalamencePicFront) == BANK(SalamencePicBack)

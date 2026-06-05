@@ -13,7 +13,10 @@
 	db CONFUSE_RAY, NIGHT_SHADE, DISABLE, NO_MOVE
 	db GROWTH_SLOW
 
-	tmhm TOXIC,        BODY_SLAM,    HYPER_BEAM,   PSYCHIC_M,    MIMIC,        \
-	     DOUBLE_TEAM,  REST,         SUBSTITUTE
+	tmhm MEGA_PUNCH   , MEGA_KICK    , TOXIC        , SHADOW_BALL  , BODY_SLAM    , \
+	     DOUBLE_EDGE  , ICE_BEAM     , BLIZZARD     , HYPER_BEAM   , COUNTER      , \
+	     SEISMIC_TOSS , EARTHQUAKE   , PSYCHIC_M    , MIMIC        , DOUBLE_TEAM  , \
+	     METRONOME    , DREAM_EATER  , REST         , ROCK_SLIDE   , SUBSTITUTE   , \
+	     STRENGTH     , FLASH
 	db BANK(DusclopsPicFront)
 	assert BANK(DusclopsPicFront) == BANK(DusclopsPicBack)

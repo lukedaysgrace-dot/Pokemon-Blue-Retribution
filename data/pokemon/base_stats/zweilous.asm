@@ -13,8 +13,7 @@
 	db TACKLE, BITE, DRAGON_RAGE, NO_MOVE
 	db GROWTH_SLOW
 
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  CRUNCH,       \
-	     RAGE,         DRAGON_RAGE,  MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     REST,         SUBSTITUTE,   STRENGTH
+	tmhm CRUNCH       , TOXIC        , BODY_SLAM    , TAKE_DOWN    , DRAGON_RAGE  , \
+	     DOUBLE_TEAM  , REST         , THUNDER_WAVE , SUBSTITUTE   , STRENGTH
 	db BANK(ZweilousPicFront)
 	assert BANK(ZweilousPicFront) == BANK(ZweilousPicBack)

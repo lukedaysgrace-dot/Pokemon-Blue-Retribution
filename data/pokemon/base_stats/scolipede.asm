@@ -15,9 +15,10 @@
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm SWORDS_DANCE, TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  HYPER_BEAM,   \
-	     RAGE,         MEGA_DRAIN,   MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     SWIFT,        SKULL_BASH,   REST,         SUBSTITUTE,   CUT
+	tmhm SWORDS_DANCE , TOXIC        , TAKE_DOWN    , DOUBLE_EDGE  , HYPER_BEAM   , \
+	     RAGE         , MEGA_DRAIN   , SOLARBEAM    , EARTHQUAKE   , DIG          , \
+	     MIMIC        , DOUBLE_TEAM  , BIDE         , SWIFT        , SLUDGE_BOMB  , \
+	     REST         , ROCK_SLIDE   , SUBSTITUTE   , CUT          , STRENGTH
 	; end
 
 	db BANK(ScolipedePicFront)

@@ -178,7 +178,7 @@ DEF TM01 EQU const_value
 	add_tm ICE_BEAM     ; $D5
 	add_tm BLIZZARD     ; $D6
 	add_tm HYPER_BEAM   ; $D7
-	add_tm PAY_DAY      ; $D8
+	add_tm METAL_CLAW   ; $D8
 	add_tm SUBMISSION   ; $D9
 	add_tm COUNTER      ; $DA
 	add_tm SEISMIC_TOSS ; $DB
@@ -202,7 +202,7 @@ DEF TM01 EQU const_value
 	add_tm FLAMETHROWER ; $ED
 	add_tm FIRE_BLAST   ; $EE
 	add_tm SWIFT        ; $EF
-	add_tm SKULL_BASH   ; $F0
+	add_tm SLUDGE_BOMB  ; $F0
 	add_tm SOFTBOILED   ; $F1
 	add_tm DREAM_EATER  ; $F2
 	add_tm SKY_ATTACK   ; $F3

@@ -13,7 +13,9 @@
 	db CONFUSION, NO_MOVE, NO_MOVE, NO_MOVE
 	db GROWTH_SLOW
 
-	tmhm TOXIC,        BODY_SLAM,    PSYCHIC_M,    DOUBLE_TEAM,  \
-	     REFLECT,      REST,         SUBSTITUTE
+	tmhm MEGA_PUNCH   , MEGA_KICK    , TOXIC        , SHADOW_BALL  , BODY_SLAM    , \
+	     DOUBLE_EDGE  , THUNDERBOLT  , PSYCHIC_M    , TELEPORT     , MIMIC        , \
+	     DOUBLE_TEAM  , REFLECT      , METRONOME    , SWIFT        , DREAM_EATER  , \
+	     REST         , THUNDER_WAVE , SUBSTITUTE   , FLASH
 	db BANK(RaltsPicFront)
 	assert BANK(RaltsPicFront) == BANK(RaltsPicBack)

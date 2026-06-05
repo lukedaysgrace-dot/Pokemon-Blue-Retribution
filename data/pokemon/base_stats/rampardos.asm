@@ -13,10 +13,10 @@
 	db TACKLE, LEER, ROCK_THROW, NO_MOVE
 	db GROWTH_MEDIUM_FAST
 
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,   \
-	     RAGE,         HYPER_BEAM,   THUNDERBOLT,  THUNDER,       \
-	     EARTHQUAKE,   FISSURE,      DIG,          MIMIC,         \
-	     DOUBLE_TEAM,  BIDE,         FLAMETHROWER, FIRE_BLAST,   SKULL_BASH,    \
-	     REST,         ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
+	tmhm SWORDS_DANCE , CRUNCH       , TOXIC        , BODY_SLAM    , TAKE_DOWN    , \
+	     DOUBLE_EDGE  , ICE_BEAM     , BLIZZARD     , HYPER_BEAM   , RAGE         , \
+	     THUNDERBOLT  , THUNDER      , EARTHQUAKE   , FISSURE      , DIG          , \
+	     DOUBLE_TEAM  , FLAMETHROWER , FIRE_BLAST   , REST         , ROCK_SLIDE   , \
+	     SUBSTITUTE   , CUT          , SURF         , STRENGTH
 	db BANK(RampardosPicFront)
 	assert BANK(RampardosPicFront) == BANK(RampardosPicBack)

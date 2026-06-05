@@ -15,10 +15,10 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  HYPER_BEAM,   \
-	     PAY_DAY,      MEGA_KICK,    MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         SWIFT,        SKULL_BASH,   REST,         THUNDER_WAVE, \
-	     PSYCHIC_M,    PSYWAVE,      SUBSTITUTE
+	tmhm TOXIC        , SHADOW_BALL  , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , \
+	     HYPER_BEAM   , DIG          , PSYCHIC_M    , MIMIC        , DOUBLE_TEAM  , \
+	     REFLECT      , SWIFT        , DREAM_EATER  , REST         , THUNDER_WAVE , \
+	     SUBSTITUTE   , CUT          , FLASH
 	; end
 
 	db BANK(EspeonPicFront)

@@ -13,8 +13,8 @@
 	db TACKLE, GROWL, NO_MOVE, NO_MOVE
 	db GROWTH_MEDIUM_SLOW
 
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  THUNDERBOLT,  \
-	     THUNDER,      MIMIC,        DOUBLE_TEAM,  BIDE,         REST,         \
-	     THUNDER_WAVE, SUBSTITUTE,   FLASH
+	tmhm TOXIC        , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , THUNDERBOLT  , \
+	     THUNDER      , DIG          , MIMIC        , DOUBLE_TEAM  , REFLECT      , \
+	     SWIFT        , REST         , THUNDER_WAVE , SUBSTITUTE   , FLASH
 	db BANK(MareepPicFront)
 	assert BANK(MareepPicFront) == BANK(MareepPicBack)

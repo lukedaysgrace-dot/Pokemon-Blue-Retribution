@@ -13,9 +13,8 @@
 	db SCRATCH, LEER, DRAGON_RAGE, NO_MOVE
 	db GROWTH_SLOW
 
-	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
-	     RAGE,         DRAGON_RAGE,  DIG,          MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         REST,         ROCK_SLIDE,   SUBSTITUTE,   CUT,          \
-	     STRENGTH
+	tmhm SWORDS_DANCE , CRUNCH       , TOXIC        , TAKE_DOWN    , DOUBLE_EDGE  , \
+	     DRAGON_RAGE  , DIG          , DOUBLE_TEAM  , SWIFT        , REST         , \
+	     SUBSTITUTE   , CUT          , SURF         , STRENGTH
 	db BANK(FraxurePicFront)
 	assert BANK(FraxurePicFront) == BANK(FraxurePicBack)

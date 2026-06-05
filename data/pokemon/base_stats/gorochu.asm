@@ -13,9 +13,9 @@
 	db THUNDERSHOCK, TAIL_WHIP, QUICK_ATTACK, NO_MOVE
 	db GROWTH_MEDIUM_FAST
 
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  HYPER_BEAM,   SEISMIC_TOSS, THUNDERBOLT,  THUNDER,      \
-	     THUNDER_WAVE, MIMIC,        DOUBLE_TEAM,  REFLECT,      SWIFT,        \
-	     SKULL_BASH,   REST,         SUBSTITUTE,   FLASH
+	tmhm MEGA_PUNCH   , MEGA_KICK    , TOXIC        , BODY_SLAM    , TAKE_DOWN    , \
+	     DOUBLE_EDGE  , HYPER_BEAM   , SEISMIC_TOSS , THUNDERBOLT  , THUNDER      , \
+	     MIMIC        , DOUBLE_TEAM  , REFLECT      , SWIFT        , REST         , \
+	     THUNDER_WAVE , SUBSTITUTE   , FLY          , FLASH
 	db BANK(GorochuPicFront)
 	assert BANK(GorochuPicFront) == BANK(GorochuPicBack)

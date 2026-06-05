@@ -13,8 +13,9 @@
 	db TACKLE, LEER, NO_MOVE, NO_MOVE
 	db GROWTH_SLOW
 
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    SUBMISSION,   \
-	     HYPER_BEAM,   DIG,          DOUBLE_TEAM,  REST,         ROCK_SLIDE,   \
-	     SUBSTITUTE,   CUT,          FLY,          STRENGTH
+	tmhm SWORDS_DANCE , TOXIC        , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , \
+	     HYPER_BEAM   , SUBMISSION   , COUNTER      , SEISMIC_TOSS , EARTHQUAKE   , \
+	     DIG          , MIMIC        , DOUBLE_TEAM  , BIDE         , REST         , \
+	     ROCK_SLIDE   , SUBSTITUTE   , CUT          , STRENGTH
 	db BANK(HeracrossPicFront)
 	assert BANK(HeracrossPicFront) == BANK(HeracrossPicBack)

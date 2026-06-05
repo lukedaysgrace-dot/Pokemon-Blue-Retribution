@@ -13,8 +13,9 @@
 	db TACKLE, GROWL, THUNDERSHOCK, NO_MOVE
 	db GROWTH_MEDIUM_SLOW
 
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  THUNDERBOLT,  \
-	     THUNDER,      MIMIC,        DOUBLE_TEAM,  BIDE,         REST,         \
-	     THUNDER_WAVE, SUBSTITUTE,   FLASH
+	tmhm MEGA_PUNCH   , MEGA_KICK    , TOXIC        , BODY_SLAM    , TAKE_DOWN    , \
+	     DOUBLE_EDGE  , COUNTER      , SEISMIC_TOSS , THUNDERBOLT  , THUNDER      , \
+	     DIG          , MIMIC        , DOUBLE_TEAM  , REFLECT      , SWIFT        , \
+	     REST         , THUNDER_WAVE , SUBSTITUTE   , STRENGTH     , FLASH
 	db BANK(FlaaffyPicFront)
 	assert BANK(FlaaffyPicFront) == BANK(FlaaffyPicBack)

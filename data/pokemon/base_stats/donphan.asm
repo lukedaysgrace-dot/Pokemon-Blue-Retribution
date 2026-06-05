@@ -13,8 +13,8 @@
 	db HORN_ATTACK, GROWL, NO_MOVE, NO_MOVE
 	db GROWTH_MEDIUM_FAST
 
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,   HYPER_BEAM,   \
-	     EARTHQUAKE,   DIG,          MIMIC,        DOUBLE_TEAM,   BIDE,         \
-	     REST,         ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
+	tmhm TOXIC        , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , HYPER_BEAM   , \
+	     COUNTER      , EARTHQUAKE   , DIG          , MIMIC        , DOUBLE_TEAM  , \
+	     REST         , ROCK_SLIDE   , SUBSTITUTE   , STRENGTH
 	db BANK(DonphanPicFront)
 	assert BANK(DonphanPicFront) == BANK(DonphanPicBack)

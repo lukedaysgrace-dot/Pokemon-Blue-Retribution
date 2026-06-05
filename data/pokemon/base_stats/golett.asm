@@ -13,7 +13,9 @@
 	db TACKLE, LICK, NO_MOVE, NO_MOVE
 	db GROWTH_MEDIUM_SLOW
 
-	tmhm MEGA_PUNCH,   TOXIC,        BODY_SLAM,    EARTHQUAKE,   DIG,          \
-	     DOUBLE_TEAM,  REST,         ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
+	tmhm MEGA_PUNCH   , MEGA_KICK    , TOXIC        , SHADOW_BALL  , BODY_SLAM    , \
+	     TAKE_DOWN    , DOUBLE_EDGE  , ICE_BEAM     , EARTHQUAKE   , DIG          , \
+	     PSYCHIC_M    , DOUBLE_TEAM  , REFLECT      , SELFDESTRUCT , REST         , \
+	     ROCK_SLIDE   , SUBSTITUTE   , STRENGTH     , FLASH
 	db BANK(GolettPicFront)
 	assert BANK(GolettPicFront) == BANK(GolettPicBack)

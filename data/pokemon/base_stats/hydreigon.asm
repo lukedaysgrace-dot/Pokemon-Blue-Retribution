@@ -13,10 +13,9 @@
 	db BITE, DRAGON_RAGE, HEADBUTT, NO_MOVE
 	db GROWTH_SLOW
 
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  CRUNCH,       \
-	     HYPER_BEAM,   RAGE,         DRAGON_RAGE,  THUNDERBOLT,  THUNDER,      \
-	     MIMIC,        DOUBLE_TEAM,  BIDE,         FLAMETHROWER, FIRE_BLAST,   \
-	     SWIFT,        REST,         ROCK_SLIDE,   TRI_ATTACK,   SUBSTITUTE,   \
-	     FLY,          SURF,         STRENGTH
+	tmhm CRUNCH       , TOXIC        , BODY_SLAM    , TAKE_DOWN    , HYPER_BEAM   , \
+	     DRAGON_RAGE  , EARTHQUAKE   , DOUBLE_TEAM  , REFLECT      , FLAMETHROWER , \
+	     FIRE_BLAST   , REST         , THUNDER_WAVE , ROCK_SLIDE   , TRI_ATTACK   , \
+	     SUBSTITUTE   , FLY          , SURF         , STRENGTH
 	db BANK(HydreigonPicFront)
 	assert BANK(HydreigonPicFront) == BANK(HydreigonPicBack)

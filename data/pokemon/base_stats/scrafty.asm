@@ -13,9 +13,10 @@
 	db TACKLE, LEER, LOW_KICK, CRUNCH
 	db GROWTH_MEDIUM_FAST
 
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  CRUNCH,       HYPER_BEAM,   SUBMISSION,   COUNTER,      \
-	     SEISMIC_TOSS, RAGE,         DIG,          MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         REST,         ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
+	tmhm MEGA_PUNCH   , SWORDS_DANCE , CRUNCH       , MEGA_KICK    , TOXIC        , \
+	     BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , HYPER_BEAM   , SUBMISSION   , \
+	     COUNTER      , SEISMIC_TOSS , RAGE         , DIG          , MIMIC        , \
+	     DOUBLE_TEAM  , BIDE         , METRONOME    , SLUDGE_BOMB  , REST         , \
+	     ROCK_SLIDE   , SUBSTITUTE   , STRENGTH
 	db BANK(ScraftyPicFront)
 	assert BANK(ScraftyPicFront) == BANK(ScraftyPicBack)

@@ -13,9 +13,9 @@
 	db TACKLE, LEER, LOW_KICK, NO_MOVE
 	db GROWTH_MEDIUM_FAST
 
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  CRUNCH,       SUBMISSION,   COUNTER,      SEISMIC_TOSS, \
-	     RAGE,         DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     REST,         ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
+	tmhm MEGA_PUNCH   , CRUNCH       , MEGA_KICK    , TOXIC        , BODY_SLAM    , \
+	     TAKE_DOWN    , DOUBLE_EDGE  , SUBMISSION   , COUNTER      , SEISMIC_TOSS , \
+	     RAGE         , DIG          , MIMIC        , DOUBLE_TEAM  , BIDE         , \
+	     SLUDGE_BOMB  , REST         , ROCK_SLIDE   , SUBSTITUTE   , STRENGTH
 	db BANK(ScraggyPicFront)
 	assert BANK(ScraggyPicFront) == BANK(ScraggyPicBack)

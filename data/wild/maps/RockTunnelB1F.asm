@@ -19,12 +19,12 @@ ENDC
 
 IF DEF(_BLUE)
 	def_grass_wildmons 15 ; encounter rate
-	db  16, ZUBAT
+	db  16, AXEW
 	db  17, GEODUDE
 	db  17, MACHOP
 	db  15, RHYHORN
 	db  17, RIOLU
-	db   17, GEODUDE
+	db   17, DEINO
 	db   17, MACHOP
 	db   17, CUBONE
 	db  13, ONIX

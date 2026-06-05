@@ -13,10 +13,9 @@
 	db SCRATCH, HARDEN, WATER_GUN, NO_MOVE
 	db GROWTH_MEDIUM_FAST
 
-	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    TAKE_DOWN,     \
-	     DOUBLE_EDGE,  HYPER_BEAM,   WATER_GUN,    ICE_BEAM,      \
-	     BLIZZARD,     RAGE,         DIG,          MIMIC,         \
-	     DOUBLE_TEAM,  BIDE,         REST,         ROCK_SLIDE,    \
-	     SUBSTITUTE,   SURF
+	tmhm SWORDS_DANCE , TOXIC        , BODY_SLAM    , DOUBLE_EDGE  , WATER_GUN    , \
+	     HYPER_BEAM   , METAL_CLAW   , SEISMIC_TOSS , EARTHQUAKE   , DIG          , \
+	     MIMIC        , DOUBLE_TEAM  , REST         , ROCK_SLIDE   , SUBSTITUTE   , \
+	     CUT          , STRENGTH
 	db BANK(ArmaldoPicFront)
 	assert BANK(ArmaldoPicFront) == BANK(ArmaldoPicBack)

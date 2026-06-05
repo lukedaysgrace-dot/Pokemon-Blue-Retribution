@@ -13,11 +13,7 @@
 	db SAND_ATTACK, NO_MOVE, NO_MOVE, NO_MOVE
 	db GROWTH_MEDIUM_FAST
 
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,   \
-	     BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,       BLIZZARD,      \
-	     HYPER_BEAM,   RAGE,         MEGA_DRAIN,     DIG,           \
-	     MIMIC,        DOUBLE_TEAM,  BIDE,           SWIFT,         \
-	     SKULL_BASH,   REST,         SUBSTITUTE,     CUT,           \
-	     SURF,         STRENGTH
+	tmhm TOXIC        , METAL_CLAW   , DOUBLE_TEAM  , SWIFT        , REST         , \
+	     SUBSTITUTE   , SURF
 	db BANK(WimpodPicFront)
 	assert BANK(WimpodPicFront) == BANK(WimpodPicBack)

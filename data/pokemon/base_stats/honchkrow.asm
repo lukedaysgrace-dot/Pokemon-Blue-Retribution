@@ -13,8 +13,8 @@
 	db PECK, QUICK_ATTACK, NO_MOVE, NO_MOVE
 	db GROWTH_MEDIUM_SLOW
 
-	tmhm TOXIC,        MEGA_KICK,    HYPER_BEAM,   RAZOR_WIND,   MIMIC,        \
-	     DOUBLE_TEAM,  SWIFT,        SKY_ATTACK,   REST,         SUBSTITUTE,   \
-	     FLY
+	tmhm RAZOR_WIND   , TOXIC        , SHADOW_BALL  , TAKE_DOWN    , DOUBLE_EDGE  , \
+	     HYPER_BEAM   , PSYCHIC_M    , DOUBLE_TEAM  , SWIFT        , DREAM_EATER  , \
+	     SKY_ATTACK   , REST         , THUNDER_WAVE , SUBSTITUTE   , FLY
 	db BANK(HonchkrowPicFront)
 	assert BANK(HonchkrowPicFront) == BANK(HonchkrowPicBack)

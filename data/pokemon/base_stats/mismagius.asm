@@ -13,8 +13,8 @@
 	db PSYWAVE, CONFUSE_RAY, SHADOW_BALL, NO_MOVE
 	db GROWTH_MEDIUM_SLOW
 
-	tmhm TOXIC,        HYPER_BEAM,   THUNDERBOLT,  THUNDER,      PSYCHIC_M,    \
-	     MIMIC,        DOUBLE_TEAM,  BIDE,         DREAM_EATER,  REST,         \
-	     SUBSTITUTE
+	tmhm TOXIC        , SHADOW_BALL  , HYPER_BEAM   , THUNDERBOLT  , THUNDER      , \
+	     PSYCHIC_M    , DOUBLE_TEAM  , SWIFT        , DREAM_EATER  , REST         , \
+	     THUNDER_WAVE , PSYWAVE      , SUBSTITUTE   , FLASH
 	db BANK(MismagiusPicFront)
 	assert BANK(MismagiusPicFront) == BANK(MismagiusPicBack)

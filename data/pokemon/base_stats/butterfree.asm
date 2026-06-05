@@ -14,10 +14,11 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm RAZOR_WIND,   CRUNCH,    TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  \
-	     HYPER_BEAM,   RAGE,         MEGA_DRAIN,   SOLARBEAM,    PSYCHIC_M,    \
-	     TELEPORT,     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     SWIFT,        REST,         PSYWAVE,      SUBSTITUTE,   FLY
+	tmhm RAZOR_WIND   , TOXIC        , SHADOW_BALL  , TAKE_DOWN    , DOUBLE_EDGE  , \
+	     HYPER_BEAM   , RAGE         , MEGA_DRAIN   , SOLARBEAM    , PSYCHIC_M    , \
+	     TELEPORT     , MIMIC        , DOUBLE_TEAM  , REFLECT      , BIDE         , \
+	     SWIFT        , DREAM_EATER  , REST         , PSYWAVE      , SUBSTITUTE   , \
+	     FLASH
 	; end
 
 	db BANK(ButterfreePicFront)

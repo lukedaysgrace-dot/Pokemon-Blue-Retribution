@@ -13,8 +13,11 @@
 	db BITE, SAND_ATTACK, ROCK_THROW, NO_MOVE
 	db GROWTH_SLOW
 
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    HYPER_BEAM,   \
-	     SUBMISSION,   ROCK_SLIDE,   EARTHQUAKE,   DIG,          DOUBLE_TEAM,  \
-	     REST,         SUBSTITUTE,   CUT,          STRENGTH
+	tmhm MEGA_PUNCH   , CRUNCH       , MEGA_KICK    , TOXIC        , BODY_SLAM    , \
+	     TAKE_DOWN    , DOUBLE_EDGE  , ICE_BEAM     , BLIZZARD     , HYPER_BEAM   , \
+	     COUNTER      , SEISMIC_TOSS , THUNDERBOLT  , THUNDER      , EARTHQUAKE   , \
+	     DIG          , MIMIC        , DOUBLE_TEAM  , FLAMETHROWER , FIRE_BLAST   , \
+	     REST         , THUNDER_WAVE , ROCK_SLIDE   , SUBSTITUTE   , CUT          , \
+	     SURF         , STRENGTH
 	db BANK(TyranitarPicFront)
 	assert BANK(TyranitarPicFront) == BANK(TyranitarPicBack)

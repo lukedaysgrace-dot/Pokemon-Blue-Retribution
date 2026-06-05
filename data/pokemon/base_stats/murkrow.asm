@@ -13,7 +13,9 @@
 	db PECK, NO_MOVE, NO_MOVE, NO_MOVE
 	db GROWTH_MEDIUM_SLOW
 
-	tmhm TOXIC,        MEGA_KICK,    RAZOR_WIND,   MIMIC,        DOUBLE_TEAM,  \
-	     SWIFT,        SKY_ATTACK,   REST,         SUBSTITUTE,   FLY
+	tmhm RAZOR_WIND   , TOXIC        , SHADOW_BALL  , TAKE_DOWN    , DOUBLE_EDGE  , \
+	     HYPER_BEAM   , PSYCHIC_M    , MIMIC        , DOUBLE_TEAM  , SWIFT        , \
+	     DREAM_EATER  , SKY_ATTACK   , REST         , THUNDER_WAVE , SUBSTITUTE   , \
+	     FLY
 	db BANK(MurkrowPicFront)
 	assert BANK(MurkrowPicFront) == BANK(MurkrowPicBack)

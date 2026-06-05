@@ -15,10 +15,10 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   RAGE,         \
-	     MIMIC,        DOUBLE_TEAM,  BIDE,         SWIFT,        SKULL_BASH,   \
-	     REST,         SUBSTITUTE
+	tmhm TOXIC        , SHADOW_BALL  , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , \
+	     BUBBLEBEAM   , ICE_BEAM     , BLIZZARD     , HYPER_BEAM   , DIG          , \
+	     MIMIC        , DOUBLE_TEAM  , SWIFT        , REST         , SUBSTITUTE   , \
+	     STRENGTH
 	; end
 
 	db BANK(GlaceonPicFront)

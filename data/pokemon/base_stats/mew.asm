@@ -14,18 +14,17 @@
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   RAZOR_WIND,   SWORDS_DANCE, CRUNCH,    MEGA_KICK,    \
-	     TOXIC,        SHADOW_BALL,  BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
-	     BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   \
-	     PAY_DAY,      SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         \
-	     MEGA_DRAIN,   SOLARBEAM,    DRAGON_RAGE,  THUNDERBOLT,  THUNDER,      \
-	     EARTHQUAKE,   FISSURE,      DIG,          PSYCHIC_M,    TELEPORT,     \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         METRONOME,    \
-	     SELFDESTRUCT, FLAMETHROWER, FIRE_BLAST,   SWIFT,        SKULL_BASH,   \
-	     SOFTBOILED,   DREAM_EATER,  SKY_ATTACK,   REST,         THUNDER_WAVE, \
-	     PSYWAVE,      EXPLOSION,    ROCK_SLIDE,   TRI_ATTACK,   SUBSTITUTE,   \
-	     CUT,          FLY,          SURF,         STRENGTH,     FLASH,        \
-	     UNUSED
+	tmhm MEGA_PUNCH   , RAZOR_WIND   , SWORDS_DANCE , CRUNCH       , MEGA_KICK    , \
+	     TOXIC        , SHADOW_BALL  , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , \
+	     BUBBLEBEAM   , WATER_GUN    , ICE_BEAM     , BLIZZARD     , HYPER_BEAM   , \
+	     METAL_CLAW   , SUBMISSION   , COUNTER      , SEISMIC_TOSS , RAGE         , \
+	     MEGA_DRAIN   , SOLARBEAM    , DRAGON_RAGE  , THUNDERBOLT  , THUNDER      , \
+	     EARTHQUAKE   , FISSURE      , DIG          , PSYCHIC_M    , TELEPORT     , \
+	     MIMIC        , DOUBLE_TEAM  , REFLECT      , BIDE         , METRONOME    , \
+	     SELFDESTRUCT , FLAMETHROWER , FIRE_BLAST   , SWIFT        , SLUDGE_BOMB  , \
+	     SOFTBOILED   , DREAM_EATER  , SKY_ATTACK   , REST         , THUNDER_WAVE , \
+	     PSYWAVE      , EXPLOSION    , ROCK_SLIDE   , TRI_ATTACK   , SUBSTITUTE   , \
+	     CUT          , FLY          , SURF         , STRENGTH     , FLASH
 	; end
 
 	db BANK(MewPicFront)

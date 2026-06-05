@@ -13,8 +13,9 @@
 	db LEER, EMBER, NO_MOVE, NO_MOVE
 	db GROWTH_SLOW
 
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,   DIG,          \
-	     MIMIC,        DOUBLE_TEAM,  BIDE,         FLAMETHROWER, FIRE_BLAST,    SWIFT,        \
-	     REST,         SUBSTITUTE
+	tmhm CRUNCH       , TOXIC        , SHADOW_BALL  , BODY_SLAM    , TAKE_DOWN    , \
+	     DOUBLE_EDGE  , COUNTER      , RAGE         , SOLARBEAM    , DIG          , \
+	     MIMIC        , DOUBLE_TEAM  , FLAMETHROWER , FIRE_BLAST   , SWIFT        , \
+	     SLUDGE_BOMB  , DREAM_EATER  , REST         , SUBSTITUTE
 	db BANK(HoundourPicFront)
 	assert BANK(HoundourPicFront) == BANK(HoundourPicBack)

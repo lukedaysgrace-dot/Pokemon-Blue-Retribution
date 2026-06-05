@@ -13,7 +13,8 @@
 	db BITE, SAND_ATTACK, NO_MOVE, NO_MOVE
 	db GROWTH_SLOW
 
-	tmhm TOXIC,        BODY_SLAM,    ROCK_SLIDE,   DIG,          DOUBLE_TEAM,  \
-	     REST,         SUBSTITUTE
+	tmhm CRUNCH       , TOXIC        , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , \
+	     HYPER_BEAM   , EARTHQUAKE   , DIG          , MIMIC        , DOUBLE_TEAM  , \
+	     REST         , ROCK_SLIDE   , SUBSTITUTE
 	db BANK(PupitarPicFront)
 	assert BANK(PupitarPicFront) == BANK(PupitarPicBack)

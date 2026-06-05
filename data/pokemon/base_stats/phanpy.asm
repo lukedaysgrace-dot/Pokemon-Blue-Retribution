@@ -13,8 +13,8 @@
 	db TACKLE, GROWL, NO_MOVE, NO_MOVE
 	db GROWTH_MEDIUM_FAST
 
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,   EARTHQUAKE,   \
-	     DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,          REST,         \
-	     ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
+	tmhm TOXIC        , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , WATER_GUN    , \
+	     COUNTER      , EARTHQUAKE   , FISSURE      , DIG          , MIMIC        , \
+	     DOUBLE_TEAM  , REST         , ROCK_SLIDE   , SUBSTITUTE   , STRENGTH
 	db BANK(PhanpyPicFront)
 	assert BANK(PhanpyPicFront) == BANK(PhanpyPicBack)

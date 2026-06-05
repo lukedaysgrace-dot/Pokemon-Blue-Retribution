@@ -13,10 +13,10 @@
 	db CONSTRICT, ACID, MEGA_DRAIN, NO_MOVE
 	db GROWTH_MEDIUM_FAST
 
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,   \
-	     HYPER_BEAM,   BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,      \
-	     BLIZZARD,     RAGE,         MEGA_DRAIN,   SOLARBEAM,     \
-	     MIMIC,        DOUBLE_TEAM,  BIDE,         REST,          \
-	     ROCK_SLIDE,   SUBSTITUTE
+	tmhm SWORDS_DANCE , TOXIC        , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , \
+	     BUBBLEBEAM   , WATER_GUN    , HYPER_BEAM   , RAGE         , MEGA_DRAIN   , \
+	     SOLARBEAM    , EARTHQUAKE   , DIG          , MIMIC        , DOUBLE_TEAM  , \
+	     BIDE         , SLUDGE_BOMB  , REST         , ROCK_SLIDE   , SUBSTITUTE   , \
+	     STRENGTH     , FLASH
 	db BANK(CradilyPicFront)
 	assert BANK(CradilyPicFront) == BANK(CradilyPicBack)

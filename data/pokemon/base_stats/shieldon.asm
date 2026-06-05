@@ -13,10 +13,9 @@
 	db TACKLE, DEFENSE_CURL, NO_MOVE, NO_MOVE
 	db GROWTH_SLOW
 
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,   \
-	     BLIZZARD,     HYPER_BEAM,   RAGE,         THUNDERBOLT,   \
-	     THUNDER,      EARTHQUAKE,   DIG,          MIMIC,         \
-	     DOUBLE_TEAM,  BIDE,         FLAMETHROWER, FIRE_BLAST,   REST,          \
-	     ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
+	tmhm TOXIC        , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , ICE_BEAM     , \
+	     BLIZZARD     , COUNTER      , THUNDERBOLT  , THUNDER      , EARTHQUAKE   , \
+	     FISSURE      , DIG          , DOUBLE_TEAM  , FLAMETHROWER , FIRE_BLAST   , \
+	     REST         , ROCK_SLIDE   , SUBSTITUTE   , STRENGTH
 	db BANK(ShieldonPicFront)
 	assert BANK(ShieldonPicFront) == BANK(ShieldonPicBack)
