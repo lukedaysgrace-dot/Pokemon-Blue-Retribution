@@ -151,6 +151,12 @@ ENDR
 wShadowOAMEnd::
 
 
+SECTION "HDMA Buffer", WRAMX,BANK[1], ALIGN[4]
+
+; Staging area for CGB HDMA sprite tile uploads.
+wHDMABuffer:: ds 2 tiles
+
+
 SECTION "Tilemap", WRAM0
 
 ; buffer for tiles that are visible on screen (20 columns by 18 rows)

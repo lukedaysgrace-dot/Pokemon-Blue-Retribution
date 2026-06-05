@@ -274,7 +274,7 @@ ReadSpriteSheetData:
 	ret
 
 CopyMapSpriteTilePatternData:
-; Copy bc bytes from a:hl to de. If the LCD is on, copy during VBlank.
+; Copy bc bytes from a:hl to de. If the LCD is on, use a safe VRAM copier.
 	ldh [hROMBankTemp], a
 	ldh a, [rLCDC]
 	bit B_LCDC_ENABLE, a
@@ -286,24 +286,30 @@ CopyMapSpriteTilePatternData:
 	ld d, h
 	ld e, l
 	pop hl
-	jp CopyVideoData
+	jp CopyVideoDataHBlank
 
 ; Loads sprite set for outside maps (cities and routes) and sets VRAM slots.
 ; sets carry if the map is a city or route, unsets carry if not
-InitOutsideMapSprites:
+GetCurrentMapSpriteSetID::
 	ld a, [wCurMap]
-	cp FIRST_INDOOR_MAP ; is the map a city or a route?
-	ret nc ; if not, return
+	cp FIRST_INDOOR_MAP
+	ret nc
 	ld hl, MapSpriteSets
 	add l
 	ld l, a
 	jr nc, .noCarry
 	inc h
 .noCarry
-	ld a, [hl] ; a = spriteSetID
-	cp FIRST_SPLIT_SET - 1 ; does the map have 2 sprite sets?
-	call nc, GetSplitMapSpriteSetID ; if so, choose the appropriate one
-	ld b, a ; b = spriteSetID
+	ld a, [hl]
+	cp FIRST_SPLIT_SET - 1
+	call nc, GetSplitMapSpriteSetID
+	scf
+	ret
+
+InitOutsideMapSprites:
+	call GetCurrentMapSpriteSetID
+	ret nc
+	ld b, a
 	ld a, [wFontLoaded]
 	bit BIT_FONT_LOADED, a ; reloading upper half of tile patterns after displaying text?
 	jr nz, .loadSpriteSet ; if so, forcibly reload the sprite set

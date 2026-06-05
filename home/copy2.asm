@@ -110,6 +110,58 @@ CopyVideoData::
 	ld c, a
 	jr .loop
 
+CopyVideoDataHBlank::
+; Copy c 2bpp tiles from b:de to hl using CGB HBlank DMA.
+; ROM sources are staged through aligned WRAM because HDMA ignores low address bits.
+	di
+.loop
+	push bc
+	push de
+	push hl
+	ld a, b
+	ld bc, 2 tiles
+	ld hl, wHDMABuffer
+	call FarCopyData3
+	pop hl
+.waitNotHBlank
+	ldh a, [rSTAT]
+	and %11
+	jr z, .waitNotHBlank
+	ld a, HIGH(wHDMABuffer)
+	ldh [rHDMA1], a
+	ld a, LOW(wHDMABuffer)
+	ldh [rHDMA2], a
+	ld a, h
+	ldh [rHDMA3], a
+	ld a, l
+	ldh [rHDMA4], a
+	ld a, VDMA_LEN_MODE_HBLANK | 1
+	ldh [rHDMA5], a
+.wait
+	ldh a, [rHDMA5]
+	inc a
+	jr nz, .wait
+	pop de
+	pop bc
+	ld a, 2 tiles
+	add e
+	ld e, a
+	jr nc, .sourceNoCarry
+	inc d
+.sourceNoCarry
+	ld a, 2 tiles
+	add l
+	ld l, a
+	jr nc, .destNoCarry
+	inc h
+.destNoCarry
+	ld a, c
+	sub 2
+	ld c, a
+	jr nz, .loop
+	ei
+	ret
+
 CopyVideoDataDouble::
 ; Wait for the next VBlank, then copy c 1bpp
 ; tiles from b:de to hl, 8 tiles at a time.

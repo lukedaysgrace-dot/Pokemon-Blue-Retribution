@@ -652,7 +652,7 @@ CheckMapConnections::
 	ld b, a
 	ld a, [wCurrentMapHeight2]
 	cp b
-	jr nz, .didNotEnterConnectedMap
+	jp nz, .didNotEnterConnectedMap
 	ld a, [wSouthConnectedMap]
 	ld [wCurMap], a
 	ld a, [wSouthConnectedMapYAlignment] ; new Y coordinate upon entering south map
@@ -681,13 +681,23 @@ CheckMapConnections::
 	call RunPaletteCommand
 ; InitMapSprites may replace the whole outdoor sprite set in VRAM. When the
 ; previous map used a different set (e.g. Route 5 SAFFRON -> Cerulean
-; PEWTER_CERULEAN), clear wSpriteSetID so the new set is copied. The sprite
-; loader uses VBlank copies if the LCD is on, avoiding a white LCD-off blink.
-	call HideSprites
-	xor a
-	ld [wSpriteSetID], a
+; PEWTER_CERULEAN), reload the set. Matching sets skip the VBlank copy so
+; same-set connections keep moving smoothly.
+	farcall GetCurrentMapSpriteSetID
+	ld b, a
+	ld a, [wFontLoaded]
+	bit BIT_FONT_LOADED, a
+	jr nz, .reloadMapSprites
+	ld a, [wSpriteSetID]
+	cp b
+	jr z, .sameMapSpriteSet
+.reloadMapSprites
 	farcall InitMapSprites
 	call LoadPlayerSpriteGraphics
+	jr .loadBlockMap
+.sameMapSpriteSet
+	farcall InitMapSprites
+.loadBlockMap
 	call LoadTileBlockMap
 	call UpdateSprites
 	jp OverworldLoopLessDelay

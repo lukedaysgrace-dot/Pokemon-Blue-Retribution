@@ -48,7 +48,7 @@ _LoadPlayerSpriteGraphicsCommonBC::
 	push de
 	push hl
 	ld c, $0c
-	call CopyVideoData
+	call CopyVideoDataHBlank
 	pop hl
 	pop de
 	ld a, $c0
@@ -59,4 +59,4 @@ _LoadPlayerSpriteGraphicsCommonBC::
 .noCarry
 	set 3, h
 	ld c, $0c
-	jp CopyVideoData
+	jp CopyVideoDataHBlank
