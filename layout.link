@@ -69,7 +69,6 @@ ROMX $8
 	"Music Headers 2"
 	"Sound Effects 2"
 	"Low Health Alarm (Audio Engine 2)"
-	"Bill's PC"
 	"Audio Engine 2"
 	"Music 2"
 ROMX $9
@@ -145,6 +144,7 @@ ROMX $1C
 	"PrepareSuperNintendoVRAMTransfer"
 	"bank1C_extension"
 	"Engine Save"
+	"Bill's PC"
 ROMX $1D
 	"Maps 19"
 	"Itemfinder 1"

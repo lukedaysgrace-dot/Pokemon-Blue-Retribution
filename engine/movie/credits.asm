@@ -29,15 +29,36 @@ CreditsRollOnly:
 	call EnableLCD
 	ld a, SFX_STOP_ALL_MUSIC
 	call PlaySoundWaitForCurrent
-	ld c, BANK(Music_HallOfFame)
-	ld a, MUSIC_HALL_OF_FAME
-	call PlayMusic
+	call PlayCreditsMusic
 	ld c, 128
 	call DelayFrames
 	xor a
 	ld [wUnusedCreditsByte], a ; not read
 	ld [wNumCreditsMonsDisplayed], a
 	jp Credits
+
+PlayCreditsMusic:
+; Music IDs are full, so initialize bank 2 with a 3-channel song ID,
+; then point the active music channels at the credits data.
+	ld c, BANK(Music_Credits_Ch1)
+	ld a, MUSIC_DEFEATED_GYM_LEADER
+	call PlayMusic
+	ld hl, wChannelCommandPointers + CHAN1 * 2
+	ld de, Music_Credits_Ch1
+	call .setChannelPointer
+	ld hl, wChannelCommandPointers + CHAN2 * 2
+	ld de, Music_Credits_Ch2
+	call .setChannelPointer
+	ld hl, wChannelCommandPointers + CHAN3 * 2
+	ld de, Music_Credits_Ch3
+	call .setChannelPointer
+	ret
+
+.setChannelPointer
+	ld [hl], e
+	inc hl
+	ld [hl], d
+	ret
 
 FadeInCredits:
 	ld hl, HoFGBPalettes

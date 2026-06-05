@@ -11,7 +11,7 @@
 	INCBIN "gfx/pokemon/front/tangrowth.pic", 0, 1
 	dw TangrowthPicFront, TangrowthPicBack
 
-	db CONSTRICT, SHADOW_BALL, NO_MOVE, NO_MOVE ; level 1 learnset
+	db CONSTRICT, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

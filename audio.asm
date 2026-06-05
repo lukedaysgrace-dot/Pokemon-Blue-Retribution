@@ -419,6 +419,7 @@ INCLUDE "audio/sfx/caught_mon.asm"
 INCLUDE "audio/music/defeatedtrainer.asm"
 INCLUDE "audio/music/defeatedwildmon.asm"
 INCLUDE "audio/music/defeatedgymleader.asm"
+INCLUDE "audio/music/credits.asm"
 
 
 SECTION "Music 3", ROMX
