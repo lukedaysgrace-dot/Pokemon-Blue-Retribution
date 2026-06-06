@@ -2139,6 +2139,7 @@ PidgeottoEvosMoves:
 	db 19, WING_ATTACK
 	db 25, HEADBUTT
 	db 28, BODY_SLAM
+	db 30, RAZOR_WIND
 	db 32, AGILITY
 	db 36, RAZOR_WIND
 	db 44, DOUBLE_EDGE
