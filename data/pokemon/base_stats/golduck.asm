@@ -3,7 +3,11 @@
 	db  80,  82,  78,  85, 100
 	;   hp  atk  def  spd  spc
 
+IF DEF(_BLUE)
 	db WATER, PSYCHIC_TYPE ; type
+ELSE
+	db WATER, WATER ; type
+ENDC
 	db 75 ; catch rate
 	db 174 ; base exp
 

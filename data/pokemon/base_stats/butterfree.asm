@@ -3,7 +3,11 @@
 	db  65,  85,  60,  90, 100
 	;   hp  atk  def  spd  spc
 
+IF DEF(_BLUE)
 	db BUG, PSYCHIC_TYPE ; type
+ELSE
+	db BUG, FLYING ; type
+ENDC
 	db 45 ; catch rate
 	db 160 ; base exp
 

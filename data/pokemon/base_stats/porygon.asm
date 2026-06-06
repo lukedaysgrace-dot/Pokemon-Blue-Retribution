@@ -3,7 +3,11 @@
 	db  65,  60,  70,  40,  75
 	;   hp  atk  def  spd  spc
 
+IF DEF(_BLUE)
+	db NORMAL, ELECTRIC ; type
+ELSE
 	db NORMAL, NORMAL ; type
+ENDC
 	db 45 ; catch rate
 	db 130 ; base exp
 

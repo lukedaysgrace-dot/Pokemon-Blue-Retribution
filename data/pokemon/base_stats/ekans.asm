@@ -1,9 +1,13 @@
 	db DEX_EKANS ; pokedex id
 
-	db  35,  60,  44,  55,  40
+	db  45,  60,  44,  55,  50
 	;   hp  atk  def  spd  spc
 
+IF DEF(_BLUE)
+	db POISON, DARK ; type
+ELSE
 	db POISON, POISON ; type
+ENDC
 	db 255 ; catch rate
 	db 62 ; base exp
 

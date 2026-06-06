@@ -655,9 +655,11 @@ BlastoiseEvosMoves:
 ; Learnset
 	db 21, BITE
 	db 28, BUBBLEBEAM
+	db 32, METAL_CLAW
 	db 36, SURF
 	db 38, ICE_SHARD
 	db 40, SKULL_BASH
+	db 42, IRON_TAIL
 	db 44, HYDRO_PUMP
 	db 55, HYDRO_CANNON
 	db 0
@@ -887,12 +889,13 @@ ArbokEvosMoves:
 	db 0
 ; Learnset
 	db 16, GLARE
+	db 20, BITE
 	db 23, SCREECH
-	db 26, ACID
+	db 24, DIG
+	db 27, SLUDGE
 	db 31, CRUNCH
 	db 33, SLAM
-	db 38, SLUDGE
-	db 41, SLUDGE_BOMB
+	db 36, SLUDGE_BOMB
 	db 0
 ParasectEvosMoves:
 ; Evolutions
@@ -909,16 +912,17 @@ ParasectEvosMoves:
 	db 0
 PsyduckEvosMoves:
 ; Evolutions
-	db EVOLVE_LEVEL, 33, GOLDUCK
+	db EVOLVE_LEVEL, 30, GOLDUCK
 	db 0
 ; Learnset
 	db 6, TAIL_WHIP
 	db 9, BUBBLE
 	db 13, CONFUSION
 	db 14, DISABLE
-	db 25, BUBBLEBEAM
+	db 24, BUBBLEBEAM
 	db 26, PSYBEAM
 	db 37, SURF
+	db 40, PSYCHIC_M
 	db 44, HYDRO_PUMP
 	db 0
 DrowzeeEvosMoves:
@@ -1683,12 +1687,14 @@ EkansEvosMoves:
 	db 0
 ; Learnset
 	db 7, POISON_STING
+	db 12, BITE
 	db 16, GLARE
-	db 20, BITE
+	db 18, ACID
 	db 23, SCREECH
-	db 26, ACID
 	db 30, SLAM
+	db 34, CRUNCH
 	db 38, SLUDGE
+	db 41, SLUDGE_BOMB
 	db 0
 ParasEvosMoves:
 ; Evolutions
@@ -1869,12 +1875,13 @@ ButterfreeEvosMoves:
 	db 6, STRING_SHOT
 	db 9, HARDEN
 	db 12, PIN_MISSILE
-	db 19, CONFUSION
+	db 18, CONFUSION
 	db 20, BUG_BITE
 	db 22, WING_ATTACK
 	db 22, PSYBEAM
 	db 31, TWINEEDLE
 	db 38, PSYCHIC_M
+	db 44, DREAM_EATER
 	db 0
 MachampEvosMoves:
 ; Evolutions
@@ -1900,6 +1907,8 @@ GolduckEvosMoves:
 	db 17, CONFUSION
 	db 25, BUBBLEBEAM
 	db 33, PSYBEAM
+	db 35, WATERFALL
+	db 39, PSYCHIC_M
 	db 43, HYDRO_PUMP
 	db 48, AMNESIA
 	db 0
@@ -2359,16 +2368,18 @@ GeodudeEvosMoves:
 	db 0
 PorygonEvosMoves:
 ; Evolutions
-	blue_evolve_level 32, PORYGON2
+	blue_evolve_level 28, PORYGON2
 	db 0
 ; Learnset
 	db 9, QUICK_ATTACK
 	db 14, THUNDER_WAVE
+	db 18, THUNDERSHOCK
 	db 23, PSYBEAM
 	db 25, BARRIER
 	db 28, TRI_ATTACK
 	db 31, BODY_SLAM
 	db 35, THUNDERBOLT
+	db 42, THUNDER
 	db 46, DOUBLE_EDGE
 	db 0
 AerodactylEvosMoves:
@@ -2431,6 +2442,7 @@ SquirtleEvosMoves:
 	db 9, WITHDRAW
 	db 12, BUBBLE
 	db 21, BITE
+	db 24, METAL_CLAW
 	db 26, BUBBLEBEAM
 	db 29, HEADBUTT
 	db 0
@@ -2444,6 +2456,7 @@ CharmeleonEvosMoves:
 	db 19, FIRE_SPIN
 	db 20, FLAME_WHEEL
 	db 21, RAGE
+	db 24, METAL_CLAW
 	db 28, SLASH
 	db 35, FLAMETHROWER
 	db 44, FIRE_BLAST
@@ -2656,15 +2669,17 @@ HaxorusEvosMoves:
 	db 48, HYPER_BEAM
 	db 0
 Porygon2EvosMoves:
-	blue_evolve_level 38, PORYGONZ
+	blue_evolve_level 36, PORYGONZ
 	db 0
 ; Learnset
 	db 9, THUNDER_WAVE
 	db 16, PSYBEAM
 	db 24, RECOVER
 	db 32, TRI_ATTACK
+	db 35, THUNDERBOLT
 	db 36, PSYCHIC_M
 	db 38, AGILITY
+	db 45, THUNDER
 	db 0
 PorygonZEvosMoves:
 	db 0
@@ -2673,7 +2688,9 @@ PorygonZEvosMoves:
 	db 16, PSYBEAM
 	db 24, RECOVER
 	db 32, TRI_ATTACK
+	db 36, THUNDERBOLT
 	db 40, AGILITY
+	db 44, THUNDER
 	db 48, PSYCHIC_M
 	db 50, HYPER_BEAM
 	db 0
