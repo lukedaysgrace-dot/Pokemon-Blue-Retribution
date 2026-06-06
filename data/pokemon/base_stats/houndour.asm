@@ -14,7 +14,7 @@
 	db GROWTH_SLOW
 
 	tmhm CRUNCH       , TOXIC        , SHADOW_BALL  , BODY_SLAM    , TAKE_DOWN    , \
-	     DOUBLE_EDGE  , COUNTER      , RAGE         , SOLARBEAM    , DIG          , \
+	     DOUBLE_EDGE  , COUNTER      , SOLARBEAM    , DIG          , \
 	     MIMIC        , DOUBLE_TEAM  , FLAMETHROWER , FIRE_BLAST   , SWIFT        , \
 	     SLUDGE_BOMB  , DREAM_EATER  , REST         , SUBSTITUTE
 	db BANK(HoundourPicFront)

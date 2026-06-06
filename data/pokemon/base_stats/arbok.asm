@@ -15,7 +15,7 @@
 
 	; tm/hm learnset
 	tmhm CRUNCH       , TOXIC        , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , \
-	     HYPER_BEAM   , RAGE         , MEGA_DRAIN   , EARTHQUAKE   , FISSURE      , \
+	     HYPER_BEAM   , MEGA_DRAIN   , EARTHQUAKE   , FISSURE      , \
 	     DIG          , MIMIC        , DOUBLE_TEAM  , BIDE         , SLUDGE_BOMB  , \
 	     REST         , ROCK_SLIDE   , SUBSTITUTE   , STRENGTH
 	; end

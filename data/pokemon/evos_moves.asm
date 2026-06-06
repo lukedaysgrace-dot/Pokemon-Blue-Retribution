@@ -900,8 +900,8 @@ ParasectEvosMoves:
 	db 9, PIN_MISSILE
 	db 12, ABSORB
 	db 15, FURY_SWIPES
-	db 18, LEECH_SEED
-	db 21, BUG_BITE
+	db 18, BUG_BITE
+	db 21, LEECH_SEED
 	db 24, GROWTH
 	db 27, SLASH
 	db 33, X_SCISSOR

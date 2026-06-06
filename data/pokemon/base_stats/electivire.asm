@@ -17,7 +17,7 @@
 	; tm/hm learnset
 	tmhm MEGA_PUNCH   , MEGA_KICK    , TOXIC        , BODY_SLAM    , TAKE_DOWN    , \
 	     DOUBLE_EDGE  , HYPER_BEAM   , SUBMISSION   , COUNTER      , SEISMIC_TOSS , \
-	     RAGE         , THUNDERBOLT  , THUNDER      , EARTHQUAKE   , DIG          , \
+	     THUNDERBOLT  , THUNDER      , EARTHQUAKE   , DIG          , \
 	     PSYCHIC_M    , MIMIC        , DOUBLE_TEAM  , REFLECT      , BIDE         , \
 	     METRONOME    , FLAMETHROWER , SWIFT        , REST         , THUNDER_WAVE , \
 	     PSYWAVE      , ROCK_SLIDE   , SUBSTITUTE   , STRENGTH     , FLASH

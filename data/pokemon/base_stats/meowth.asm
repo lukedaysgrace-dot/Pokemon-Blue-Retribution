@@ -15,7 +15,7 @@
 
 	; tm/hm learnset
 	tmhm TOXIC        , SHADOW_BALL  , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , \
-	     BUBBLEBEAM   , WATER_GUN    , METAL_CLAW   , RAGE         , THUNDERBOLT  , \
+	     BUBBLEBEAM   , WATER_GUN    , METAL_CLAW   , PAY_DAY      , THUNDERBOLT  , \
 	     THUNDER      , DIG          , MIMIC        , DOUBLE_TEAM  , BIDE         , \
 	     SWIFT        , DREAM_EATER  , REST         , THUNDER_WAVE , SUBSTITUTE   , \
 	     CUT          , FLASH

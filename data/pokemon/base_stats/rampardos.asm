@@ -14,7 +14,7 @@
 	db GROWTH_MEDIUM_FAST
 
 	tmhm SWORDS_DANCE , CRUNCH       , TOXIC        , BODY_SLAM    , TAKE_DOWN    , \
-	     DOUBLE_EDGE  , ICE_BEAM     , BLIZZARD     , HYPER_BEAM   , RAGE         , \
+	     DOUBLE_EDGE  , ICE_BEAM     , BLIZZARD     , HYPER_BEAM   , \
 	     THUNDERBOLT  , THUNDER      , EARTHQUAKE   , FISSURE      , DIG          , \
 	     DOUBLE_TEAM  , FLAMETHROWER , FIRE_BLAST   , REST         , ROCK_SLIDE   , \
 	     SUBSTITUTE   , CUT          , SURF         , STRENGTH

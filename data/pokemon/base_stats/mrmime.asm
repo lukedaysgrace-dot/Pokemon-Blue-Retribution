@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm MEGA_PUNCH   , MEGA_KICK    , TOXIC        , SHADOW_BALL  , BODY_SLAM    , \
 	     TAKE_DOWN    , DOUBLE_EDGE  , HYPER_BEAM   , SUBMISSION   , COUNTER      , \
-	     SEISMIC_TOSS , RAGE         , SOLARBEAM    , THUNDERBOLT  , THUNDER      , \
+	     SEISMIC_TOSS , SOLARBEAM    , THUNDERBOLT  , THUNDER      , \
 	     PSYCHIC_M    , TELEPORT     , MIMIC        , DOUBLE_TEAM  , REFLECT      , \
 	     BIDE         , METRONOME    , DREAM_EATER  , REST         , THUNDER_WAVE , \
 	     PSYWAVE      , SUBSTITUTE   , FLASH

@@ -15,7 +15,7 @@
 
 	; tm/hm learnset
 	tmhm SWORDS_DANCE , CRUNCH       , TOXIC        , BODY_SLAM    , TAKE_DOWN    , \
-	     DOUBLE_EDGE  , ICE_BEAM     , BLIZZARD     , COUNTER      , RAGE         , \
+	     DOUBLE_EDGE  , ICE_BEAM     , BLIZZARD     , COUNTER      , \
 	     THUNDERBOLT  , THUNDER      , EARTHQUAKE   , FISSURE      , DIG          , \
 	     MIMIC        , DOUBLE_TEAM  , BIDE         , FLAMETHROWER , FIRE_BLAST   , \
 	     REST         , ROCK_SLIDE   , SUBSTITUTE   , STRENGTH

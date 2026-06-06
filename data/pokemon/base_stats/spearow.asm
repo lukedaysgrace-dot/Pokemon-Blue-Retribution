@@ -14,7 +14,7 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm RAZOR_WIND   , TOXIC        , TAKE_DOWN    , DOUBLE_EDGE  , RAGE         , \
+	tmhm RAZOR_WIND   , TOXIC        , TAKE_DOWN    , DOUBLE_EDGE  , \
 	     MIMIC        , DOUBLE_TEAM  , BIDE         , SWIFT        , SKY_ATTACK   , \
 	     REST         , TRI_ATTACK   , SUBSTITUTE   , FLY
 	; end

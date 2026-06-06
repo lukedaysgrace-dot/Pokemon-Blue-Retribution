@@ -14,7 +14,7 @@
 	db GROWTH_MEDIUM_FAST
 
 	tmhm SWORDS_DANCE , CRUNCH       , TOXIC        , TAKE_DOWN    , DOUBLE_EDGE  , \
-	     METAL_CLAW   , RAGE         , DIG          , MIMIC        , DOUBLE_TEAM  , \
+	     METAL_CLAW   , DIG          , MIMIC        , DOUBLE_TEAM  , \
 	     BIDE         , SWIFT        , REST         , THUNDER_WAVE , ROCK_SLIDE   , \
 	     SUBSTITUTE   , CUT
 	db BANK(PawniardPicFront)

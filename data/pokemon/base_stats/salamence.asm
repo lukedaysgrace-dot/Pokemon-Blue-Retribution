@@ -14,7 +14,7 @@
 	db GROWTH_SLOW
 
 	tmhm CRUNCH       , TOXIC        , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , \
-	     HYPER_BEAM   , RAGE         , EARTHQUAKE   , MIMIC        , DOUBLE_TEAM  , \
+	     HYPER_BEAM   , EARTHQUAKE   , MIMIC        , DOUBLE_TEAM  , \
 	     FLAMETHROWER , FIRE_BLAST   , SWIFT        , REST         , ROCK_SLIDE   , \
 	     SUBSTITUTE   , CUT          , FLY          , STRENGTH
 	db BANK(SalamencePicFront)

@@ -16,8 +16,8 @@
 	; tm/hm learnset
 	tmhm MEGA_PUNCH   , MEGA_KICK    , TOXIC        , SHADOW_BALL  , BODY_SLAM    , \
 	     TAKE_DOWN    , DOUBLE_EDGE  , BUBBLEBEAM   , WATER_GUN    , ICE_BEAM     , \
-	     BLIZZARD     , HYPER_BEAM   , SUBMISSION   , COUNTER      , SEISMIC_TOSS , \
-	     RAGE         , SOLARBEAM    , THUNDERBOLT  , THUNDER      , EARTHQUAKE   , \
+	     BLIZZARD     , HYPER_BEAM   , SUBMISSION   , COUNTER      , SEISMIC_TOSS , PAY_DAY      , \
+	     SOLARBEAM    , THUNDERBOLT  , THUNDER      , EARTHQUAKE   , \
 	     PSYCHIC_M    , TELEPORT     , MIMIC        , DOUBLE_TEAM  , REFLECT      , \
 	     BIDE         , METRONOME    , SELFDESTRUCT , FLAMETHROWER , FIRE_BLAST   , \
 	     SWIFT        , DREAM_EATER  , REST         , THUNDER_WAVE , PSYWAVE      , \

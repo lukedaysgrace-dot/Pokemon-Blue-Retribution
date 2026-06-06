@@ -17,7 +17,7 @@
 	; tm/hm learnset
 	tmhm MEGA_PUNCH   , MEGA_KICK    , TOXIC        , SHADOW_BALL  , BODY_SLAM    , \
 	     TAKE_DOWN    , DOUBLE_EDGE  , HYPER_BEAM   , SUBMISSION   , COUNTER      , \
-	     SEISMIC_TOSS , RAGE         , THUNDERBOLT  , THUNDER      , EARTHQUAKE   , \
+	     SEISMIC_TOSS , THUNDERBOLT  , THUNDER      , EARTHQUAKE   , \
 	     DIG          , MIMIC        , DOUBLE_TEAM  , BIDE         , METRONOME    , \
 	     SWIFT        , REST         , ROCK_SLIDE   , SUBSTITUTE   , STRENGTH
 	; end

@@ -14,7 +14,7 @@
 	db GROWTH_MEDIUM_FAST
 
 	tmhm SWORDS_DANCE , TOXIC        , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , \
-	     BUBBLEBEAM   , WATER_GUN    , RAGE         , MEGA_DRAIN   , SOLARBEAM    , \
+	     BUBBLEBEAM   , WATER_GUN    , MEGA_DRAIN   , SOLARBEAM    , \
 	     MIMIC        , DOUBLE_TEAM  , BIDE         , SLUDGE_BOMB  , REST         , \
 	     ROCK_SLIDE   , SUBSTITUTE   , FLASH
 	db BANK(LileepPicFront)

@@ -15,7 +15,7 @@
 
 	tmhm SWORDS_DANCE , TOXIC        , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , \
 	     BUBBLEBEAM   , WATER_GUN    , ICE_BEAM     , BLIZZARD     , HYPER_BEAM   , \
-	     SUBMISSION   , SEISMIC_TOSS , RAGE         , MEGA_DRAIN   , DIG          , \
+	     SUBMISSION   , SEISMIC_TOSS , MEGA_DRAIN   , DIG          , \
 	     MIMIC        , DOUBLE_TEAM  , BIDE         , SWIFT        , SLUDGE_BOMB  , \
 	     REST         , ROCK_SLIDE   , SUBSTITUTE   , CUT          , SURF         , \
 	     STRENGTH

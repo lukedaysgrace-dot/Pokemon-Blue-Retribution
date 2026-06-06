@@ -15,7 +15,7 @@
 
 	; tm/hm learnset
 	tmhm RAZOR_WIND   , CRUNCH       , TOXIC        , SHADOW_BALL  , TAKE_DOWN    , \
-	     DOUBLE_EDGE  , RAGE         , MEGA_DRAIN   , MIMIC        , DOUBLE_TEAM  , \
+	     DOUBLE_EDGE  , MEGA_DRAIN   , MIMIC        , DOUBLE_TEAM  , \
 	     BIDE         , SWIFT        , SLUDGE_BOMB  , REST         , SUBSTITUTE   , \
 	     FLY
 	; end

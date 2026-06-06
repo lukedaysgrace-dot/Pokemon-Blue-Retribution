@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm TOXIC        , SHADOW_BALL  , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , \
 	     BUBBLEBEAM   , WATER_GUN    , ICE_BEAM     , BLIZZARD     , HYPER_BEAM   , \
-	     RAGE         , DIG          , MIMIC        , DOUBLE_TEAM  , REFLECT      , \
+	     DIG          , MIMIC        , DOUBLE_TEAM  , REFLECT      , \
 	     BIDE         , SWIFT        , REST         , SUBSTITUTE   , SURF         , \
 	     STRENGTH
 	; end

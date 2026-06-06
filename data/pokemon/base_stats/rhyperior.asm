@@ -18,7 +18,7 @@
 	tmhm MEGA_PUNCH   , SWORDS_DANCE , CRUNCH       , MEGA_KICK    , TOXIC        , \
 	     SHADOW_BALL  , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , BUBBLEBEAM   , \
 	     WATER_GUN    , ICE_BEAM     , BLIZZARD     , HYPER_BEAM   , METAL_CLAW   , \
-	     SUBMISSION   , COUNTER      , SEISMIC_TOSS , RAGE         , THUNDERBOLT  , \
+	     SUBMISSION   , COUNTER      , SEISMIC_TOSS , THUNDERBOLT  , \
 	     THUNDER      , EARTHQUAKE   , FISSURE      , DIG          , MIMIC        , \
 	     DOUBLE_TEAM  , BIDE         , FLAMETHROWER , FIRE_BLAST   , REST         , \
 	     ROCK_SLIDE   , SUBSTITUTE   , CUT          , SURF         , STRENGTH

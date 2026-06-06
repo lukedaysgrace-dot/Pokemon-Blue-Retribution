@@ -14,7 +14,7 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC        , SHADOW_BALL  , BODY_SLAM    , TAKE_DOWN    , RAGE         , \
+	tmhm TOXIC        , SHADOW_BALL  , BODY_SLAM    , TAKE_DOWN    , \
 	     THUNDERBOLT  , THUNDER      , MIMIC        , DOUBLE_TEAM  , BIDE         , \
 	     SELFDESTRUCT , FLAMETHROWER , FIRE_BLAST   , SLUDGE_BOMB  , REST         , \
 	     PSYWAVE      , EXPLOSION    , SUBSTITUTE   , FLASH

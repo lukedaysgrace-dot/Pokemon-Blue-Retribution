@@ -15,7 +15,7 @@
 
 	tmhm MEGA_PUNCH   , SWORDS_DANCE , CRUNCH       , MEGA_KICK    , TOXIC        , \
 	     BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , HYPER_BEAM   , SUBMISSION   , \
-	     COUNTER      , SEISMIC_TOSS , RAGE         , DIG          , MIMIC        , \
+	     COUNTER      , SEISMIC_TOSS , DIG          , MIMIC        , \
 	     DOUBLE_TEAM  , BIDE         , METRONOME    , SLUDGE_BOMB  , REST         , \
 	     ROCK_SLIDE   , SUBSTITUTE   , STRENGTH
 	db BANK(ScraftyPicFront)

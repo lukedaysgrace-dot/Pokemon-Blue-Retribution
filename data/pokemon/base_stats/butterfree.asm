@@ -15,7 +15,7 @@
 
 	; tm/hm learnset
 	tmhm RAZOR_WIND   , TOXIC        , SHADOW_BALL  , TAKE_DOWN    , DOUBLE_EDGE  , \
-	     HYPER_BEAM   , RAGE         , MEGA_DRAIN   , SOLARBEAM    , PSYCHIC_M    , \
+	     HYPER_BEAM   , MEGA_DRAIN   , SOLARBEAM    , PSYCHIC_M    , \
 	     TELEPORT     , MIMIC        , DOUBLE_TEAM  , REFLECT      , BIDE         , \
 	     SWIFT        , DREAM_EATER  , REST         , PSYWAVE      , SUBSTITUTE   , \
 	     FLASH

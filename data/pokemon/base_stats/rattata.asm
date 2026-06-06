@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm CRUNCH       , TOXIC        , SHADOW_BALL  , BODY_SLAM    , TAKE_DOWN    , \
 	     DOUBLE_EDGE  , BUBBLEBEAM   , WATER_GUN    , ICE_BEAM     , BLIZZARD     , \
-	     COUNTER      , RAGE         , THUNDERBOLT  , THUNDER      , DIG          , \
+	     COUNTER      , THUNDERBOLT  , THUNDER      , DIG          , \
 	     MIMIC        , DOUBLE_TEAM  , BIDE         , SWIFT        , SLUDGE_BOMB  , \
 	     REST         , THUNDER_WAVE , SUBSTITUTE   , CUT
 	; end

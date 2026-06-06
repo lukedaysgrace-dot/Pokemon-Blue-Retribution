@@ -15,7 +15,7 @@
 
 	; tm/hm learnset
 	tmhm RAZOR_WIND   , TOXIC        , TAKE_DOWN    , DOUBLE_EDGE  , HYPER_BEAM   , \
-	     RAGE         , SOLARBEAM    , MIMIC        , DOUBLE_TEAM  , REFLECT      , \
+	     SOLARBEAM    , MIMIC        , DOUBLE_TEAM  , REFLECT      , \
 	     BIDE         , FLAMETHROWER , FIRE_BLAST   , SWIFT        , SKY_ATTACK   , \
 	     REST         , SUBSTITUTE   , FLY
 	; end

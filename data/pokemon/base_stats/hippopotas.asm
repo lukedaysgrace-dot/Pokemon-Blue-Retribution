@@ -14,7 +14,7 @@
 	db GROWTH_SLOW
 
 	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,   \
-	     HYPER_BEAM,   RAGE,         EARTHQUAKE,   FISSURE,       \
+	     HYPER_BEAM,   EARTHQUAKE,   FISSURE,       \
 	     DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,          \
 	     FLAMETHROWER, FIRE_BLAST,   REST,         ROCK_SLIDE,   SUBSTITUTE,    \
 	     STRENGTH

@@ -15,7 +15,7 @@
 
 	; tm/hm learnset
 	tmhm RAZOR_WIND   , SWORDS_DANCE , TOXIC        , TAKE_DOWN    , DOUBLE_EDGE  , \
-	     HYPER_BEAM   , COUNTER      , RAGE         , MIMIC        , DOUBLE_TEAM  , \
+	     HYPER_BEAM   , COUNTER      , MIMIC        , DOUBLE_TEAM  , \
 	     BIDE         , SWIFT        , REST         , SUBSTITUTE   , CUT          , \
 	     FLY
 	; end

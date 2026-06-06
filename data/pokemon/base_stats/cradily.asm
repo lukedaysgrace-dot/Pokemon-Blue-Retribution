@@ -14,7 +14,7 @@
 	db GROWTH_MEDIUM_FAST
 
 	tmhm SWORDS_DANCE , TOXIC        , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , \
-	     BUBBLEBEAM   , WATER_GUN    , HYPER_BEAM   , RAGE         , MEGA_DRAIN   , \
+	     BUBBLEBEAM   , WATER_GUN    , HYPER_BEAM   , MEGA_DRAIN   , \
 	     SOLARBEAM    , EARTHQUAKE   , DIG          , MIMIC        , DOUBLE_TEAM  , \
 	     BIDE         , SLUDGE_BOMB  , REST         , ROCK_SLIDE   , SUBSTITUTE   , \
 	     STRENGTH     , FLASH

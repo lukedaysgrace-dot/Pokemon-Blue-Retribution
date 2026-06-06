@@ -15,7 +15,7 @@
 
 	; tm/hm learnset
 	tmhm CRUNCH       , TOXIC        , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , \
-	     HYPER_BEAM   , RAGE         , SOLARBEAM    , DRAGON_RAGE  , DIG          , \
+	     HYPER_BEAM   , SOLARBEAM    , DRAGON_RAGE  , DIG          , \
 	     TELEPORT     , MIMIC        , DOUBLE_TEAM  , REFLECT      , BIDE         , \
 	     FLAMETHROWER , FIRE_BLAST   , SWIFT        , REST         , SUBSTITUTE   , \
 	     STRENGTH

@@ -15,7 +15,7 @@
 
 	; tm/hm learnset
 	tmhm TOXIC        , SHADOW_BALL  , BODY_SLAM    , TAKE_DOWN    , HYPER_BEAM   , \
-	     RAGE         , MEGA_DRAIN   , THUNDERBOLT  , THUNDER      , DIG          , \
+	     MEGA_DRAIN   , THUNDERBOLT  , THUNDER      , DIG          , \
 	     MIMIC        , DOUBLE_TEAM  , BIDE         , METRONOME    , SELFDESTRUCT , \
 	     FLAMETHROWER , FIRE_BLAST   , SWIFT        , SLUDGE_BOMB  , REST         , \
 	     EXPLOSION    , ROCK_SLIDE   , SUBSTITUTE   , STRENGTH

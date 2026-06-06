@@ -15,7 +15,7 @@
 
 	; tm/hm learnset
 	tmhm SWORDS_DANCE , TOXIC        , TAKE_DOWN    , DOUBLE_EDGE  , BUBBLEBEAM   , \
-	     WATER_GUN    , ICE_BEAM     , BLIZZARD     , HYPER_BEAM   , RAGE         , \
+	     WATER_GUN    , ICE_BEAM     , BLIZZARD     , HYPER_BEAM   , \
 	     MEGA_DRAIN   , MIMIC        , DOUBLE_TEAM  , REFLECT      , BIDE         , \
 	     SWIFT        , SLUDGE_BOMB  , REST         , SUBSTITUTE   , CUT          , \
 	     SURF

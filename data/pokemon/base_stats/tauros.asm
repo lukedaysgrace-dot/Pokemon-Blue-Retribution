@@ -15,7 +15,7 @@
 
 	; tm/hm learnset
 	tmhm TOXIC        , SHADOW_BALL  , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , \
-	     ICE_BEAM     , BLIZZARD     , HYPER_BEAM   , RAGE         , SOLARBEAM    , \
+	     ICE_BEAM     , BLIZZARD     , HYPER_BEAM   , SOLARBEAM    , \
 	     THUNDERBOLT  , THUNDER      , EARTHQUAKE   , FISSURE      , DIG          , \
 	     MIMIC        , DOUBLE_TEAM  , BIDE         , FLAMETHROWER , FIRE_BLAST   , \
 	     REST         , ROCK_SLIDE   , SUBSTITUTE   , SURF         , STRENGTH

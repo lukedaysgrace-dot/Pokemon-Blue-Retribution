@@ -14,7 +14,7 @@
 	db GROWTH_SLOW
 
 	tmhm CRUNCH       , TOXIC        , BODY_SLAM    , TAKE_DOWN    , DOUBLE_EDGE  , \
-	     RAGE         , MIMIC        , DOUBLE_TEAM  , FLAMETHROWER , FIRE_BLAST   , \
+	     MIMIC        , DOUBLE_TEAM  , FLAMETHROWER , FIRE_BLAST   , \
 	     REST         , ROCK_SLIDE   , SUBSTITUTE   , CUT          , STRENGTH
 	db BANK(ShelgonPicFront)
 	assert BANK(ShelgonPicFront) == BANK(ShelgonPicBack)

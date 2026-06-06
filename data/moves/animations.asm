@@ -1292,8 +1292,12 @@ ExtremeSpeedAnim:
 	db -1 ; end
 
 BugBiteAnim:
-	battle_anim BUG_BITE, SUBANIM_0_STAR_THRICE, 0, 5
-	battle_anim BUG_BITE, SUBANIM_0_STAR_THRICE, 0, 5
+	battle_anim BUG_BITE, SUBANIM_0_CIRCLE_1_SQUARE_CLOSING, 0, 2
+	battle_anim BUG_BITE, SUBANIM_0_STAR, 0, 2
+	battle_anim BUG_BITE, SUBANIM_0_CIRCLE_1_SQUARE_CLOSING, 0, 2
+	battle_anim BUG_BITE, SUBANIM_0_STAR, 0, 2
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_SHAKE_ENEMY_HUD
 	battle_anim NO_MOVE, SE_BLINK_ENEMY_MON
 	db -1 ; end
 
