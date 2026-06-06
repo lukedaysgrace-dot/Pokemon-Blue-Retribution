@@ -397,9 +397,11 @@ IvysaurEvosMoves:
 ; Learnset
 	db 9, VINE_WHIP
 	db 10, GROWTH
-	db 16, RAZOR_LEAF
 	db 17, POISONPOWDER
+	db 21, ACID
 	db 22, SLEEP_POWDER
+	db 24, RAZOR_LEAF
+	db 30, SLUDGE
 	db 34, TAKE_DOWN
 	db 42, SOLARBEAM
 	db 44, DOUBLE_EDGE
@@ -2186,8 +2188,9 @@ BulbasaurEvosMoves:
 	db 9, VINE_WHIP
 	db 11, LEECH_SEED
         db 13, GROWTH
-	db 16, RAZOR_LEAF
+	db 14, POISON_STING
 	db 16, POISONPOWDER
+	db 24, RAZOR_LEAF
 	db 32, TAKE_DOWN
 	db 37, SOLARBEAM
 	db 40, DOUBLE_EDGE
@@ -2200,7 +2203,9 @@ VenusaurEvosMoves:
 	db 15, RAZOR_LEAF
 	db 16, POISONPOWDER
 	db 22, SLEEP_POWDER
+	db 32, SLUDGE
 	db 34, TAKE_DOWN
+	db 38, SLUDGE_BOMB
 	db 42, SOLARBEAM
 	db 46, DOUBLE_EDGE
 	db 55, FRENZY_PLANT
@@ -2558,7 +2563,7 @@ BellsproutEvosMoves:
 	db 10, WRAP
 	db 16, POISONPOWDER
 	db 19, STUN_SPORE
-	db 21, ACID
+	db 20, ACID
 	db 22, SLEEP_POWDER
 	db 24, RAZOR_LEAF
 	db 38, SOLARBEAM
@@ -2589,7 +2594,7 @@ VictreebelEvosMoves:
 	db 28, RAZOR_LEAF
 	db 31, SLUDGE
 	db 34, SWORDS_DANCE
-	db 38, SLUDGE_BOMB
+	db 37, SLUDGE_BOMB
 	db 38, SOLARBEAM
 	db 0
 DeinoEvosMoves:
