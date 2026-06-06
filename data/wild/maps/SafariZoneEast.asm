@@ -5,7 +5,7 @@ IF DEF(_RED)
 	db  26, PARAS
 	db  24, PARASECT
 	db  25, VENONAT
-	db   27, VENONAT
+	db   27, KANGASKHAN
 	db  23, NIDORINO
 	db  24, NIDORINA
 	db  25, RHYHORN
@@ -23,7 +23,7 @@ IF DEF(_BLUE)
 	db  26, PARAS
 	db  24, PARASECT
 	db  25, VENONAT
-	db   27, VENONAT
+	db   27, KANGASKHAN
 	db  23, NIDORINO
 	db  24, NIDORINA
 	db  25, RHYHORN

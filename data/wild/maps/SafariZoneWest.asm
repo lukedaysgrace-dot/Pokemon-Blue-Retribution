@@ -2,7 +2,7 @@ SafariZoneWestWildMons:
 IF DEF(_RED)
 	def_grass_wildmons 30 ; encounter rate
 	db  25, VENONAT
-	db  26, DODUO
+	db  26, KANGASKHAN
 	db  23, NIDORINO
 	db  24, EXEGGCUTE
 	db   27, RHYHORN
@@ -20,7 +20,7 @@ ENDC
 IF DEF(_BLUE)
 	def_grass_wildmons 30 ; encounter rate
 	db  25, VENONAT
-	db  26, DODUO
+	db  26, KANGASKHAN
 	db  23, NIDORINO
 	db  24, EXEGGCUTE
 	db   27, RHYHORN

@@ -28,7 +28,7 @@ IF DEF(_BLUE)
 	db   26, TANGELA
 	db   26, VENONAT
 	db   26, WEEPINBELL
-	db   26, TANGELA
+	db   26, DROWZEE
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

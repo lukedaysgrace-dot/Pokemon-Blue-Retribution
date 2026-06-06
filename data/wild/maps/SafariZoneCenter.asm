@@ -8,7 +8,7 @@ IF DEF(_RED)
 	db   26, EXEGGCUTE
 	db  25, NIDORINO
 	db   26, NIDORINA
-	db   26, PARASECT
+	db   26, KANGASKHAN
 	db  23, SCYTHER
 	db  23, CHANSEY
 	end_grass_wildmons
@@ -26,7 +26,7 @@ IF DEF(_BLUE)
 	db   26, EXEGGCUTE
 	db  25, NIDORINO
 	db   26, NIDORINA
-	db   26, PARASECT
+	db   26, KANGASKHAN
 	db  23, SCYTHER
 	db  23, CHANSEY
 	end_grass_wildmons

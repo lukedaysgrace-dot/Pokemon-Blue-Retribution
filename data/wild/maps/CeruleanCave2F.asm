@@ -3,7 +3,7 @@ IF DEF(_RED)
 	def_grass_wildmons 15 ; encounter rate
 	db  55, DRAGONITE
 	db  51, RHYDON
-	db  51, SALAMENCE
+	db  51, DRAGONITE
 	db  52, SNORLAX
 	db  52, LAPRAS
 	db  55, DRAGONITE

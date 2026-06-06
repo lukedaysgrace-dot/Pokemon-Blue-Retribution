@@ -2,10 +2,10 @@ Route22WildMons:
 IF DEF(_RED)
 	def_grass_wildmons 25 ; encounter rate
 	db   3, RATTATA
-	db   3, SPEAROW
+	db   3, NIDORAN_M
 	db   4, DODUO
 	db   4, MANKEY
-	db   2, POLIWAG
+	db   2, NIDORAN_F
 	db   2, EKANS
 	db   3, MANKEY
 	db   5, DODUO
@@ -23,9 +23,9 @@ IF DEF(_BLUE)
 	db   3, RIOLU
 	db   4, EKANS
 	db   4, MANKEY
-	db   4, POLIWAG
+	db   4, NIDORAN_M
 	db   4, MURKROW
-	db   3, SCRAGGY
+	db   3, NIDORAN_F
 	db   5, DODUO
 	db   3, MANKEY
 	db   4, RIOLU
