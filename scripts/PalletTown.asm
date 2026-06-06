@@ -291,31 +291,32 @@ PalletTownUpdateGreenVisibility:
 PalletTownShouldShowGreen:
 	CheckEvent EVENT_BEAT_PALLET_TOWN_GREEN
 	jr nz, .hide
-IF DEF(_BLUE)
-	ld a, [wNumHoFTeams]
-	cp 2
-	jr c, .hide
-ELSE
 	call PalletTownDexCompleteForGreen
 	jr nc, .hide
-ENDC
 	ld a, TRUE
 	ret
 .hide
 	xor a
 	ret
 
-; Same completion rule as Celadon Mansion Game Designer: own at least NUM_POKEMON - 1
-; species (Mew optional). The old "first 18 bytes $ff + byte 18 low bits" check could fail
-; on expanded dex / non-vanilla IndexToPokedex layouts while the in-game "diploma" path
-; still counts you as complete.
+; Own all 150 original Kanto dex entries (#1-#150). MEW is optional here.
 PalletTownDexCompleteForGreen:
+	ld c, 0
+.loop
+	push bc
+	ld b, FLAG_TEST
 	ld hl, wPokedexOwned
-	ld b, wPokedexOwnedEnd - wPokedexOwned
-	call CountSetBits
-	ld a, [wNumSetBits]
-	cp NUM_POKEMON - 1
-	jr c, .dexIncomplete
+	ld a, c
+	ld c, a
+	predef FlagActionPredef
+	ld a, c
+	pop bc
+	and a
+	jr z, .dexIncomplete
+	inc c
+	ld a, c
+	cp DEX_MEWTWO
+	jr c, .loop
 	scf
 	ret
 .dexIncomplete
