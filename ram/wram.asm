@@ -1396,7 +1396,8 @@ wSavedListScrollOffset:: db
 ; number of low health alarm cycles played for the current red-HP stretch
 wLowHealthAlarmCount:: db
 
-	ds 1
+; set on title screen when starting a new game; copied to wHardMode after InitPlayerData2
+wNewGameHardMode:: db
 
 ; base coordinates of frame block
 wBaseCoordX:: db
@@ -2136,8 +2137,8 @@ wLastBlackoutMap:: db
 ; destination map (for certain types of special warps, not ordinary walking)
 wDestinationMap:: db
 
-; initialized to $ff, but nothing ever reads it
-wUnusedPlayerDataByte:: db
+; 0 = normal, non-zero = hard mode (badge-based level caps)
+wHardMode:: db
 
 ; used to store the tile in front of the boulder when trying to push a boulder
 ; also used to store the result of the collision check ($ff for a collision and $00 for no collision)
