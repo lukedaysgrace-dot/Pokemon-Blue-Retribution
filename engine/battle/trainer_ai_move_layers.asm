@@ -630,19 +630,15 @@ AIMoveChoiceModification3:
 	call ReadMove
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
-;don't use poison-effect moves on poison- or steel-type pokemon
+;don't use poison-effect moves on poison-type pokemon
 	ld a, [wEnemyMoveEffect]
 	cp POISON_EFFECT
 	jr nz, .notpoisoneffect
 	ld a, [wBattleMonType]
 	cp POISON
 	jp z, .heavydiscourage2
-	cp STEEL
-	jp z, .heavydiscourage2
 	ld a, [wBattleMonType + 1]
 	cp POISON
-	jp z, .heavydiscourage2
-	cp STEEL
 	jp z, .heavydiscourage2
 .notpoisoneffect
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
