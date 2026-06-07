@@ -2,6 +2,15 @@ GetMachinePrice::
 ; Input:  [wCurItem] = Item ID of a TM
 ; Output: Stores the TM price at hItemPrice
 	ld a, [wCurItem]
+	cp TM_WATER_GUN
+	jr nz, .notWaterGun
+	ld a, $01
+	ldh [hItemPrice + 1], a
+	xor a
+	ldh [hItemPrice], a
+	ldh [hItemPrice + 2], a
+	ret
+.notWaterGun
 	sub TM01 ; underflows below 0 for HM items (before TM items)
 	ret c ; HMs are priceless
 	ld d, a

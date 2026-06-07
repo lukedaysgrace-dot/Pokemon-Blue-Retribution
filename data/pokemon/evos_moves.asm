@@ -627,7 +627,7 @@ ScytherEvosMoves:
 	db 0
 ; Learnset
 	db 7, LEER
-	db 9, PIN_MISSILE
+	db 11, PIN_MISSILE
 	db 12, GUST
 	db 16, BUG_BITE
 	db 20, WING_ATTACK
@@ -775,6 +775,7 @@ PidgeyEvosMoves:
 	db 7, SAND_ATTACK
 	db 9, TACKLE
 	db 15, MIRROR_MOVE
+	db 16, QUICK_ATTACK
 	db 18, WING_ATTACK
 	db 25, HEADBUTT
 	db 30, RAZOR_WIND
@@ -1053,12 +1054,14 @@ MankeyEvosMoves:
 	db EVOLVE_LEVEL, 28, PRIMEAPE
 	db 0
 ; Learnset
-	db 16, SEISMIC_TOSS
-	db 18, KARATE_CHOP
-	db 22, FOCUS_ENERGY
-	db 29, SCREECH
-	db 31, SUBMISSION
-	db 37, THRASH
+	db  7, LOW_KICK
+	db 12, SEISMIC_TOSS
+	db 13, KARATE_CHOP
+	db 14, FURY_SWIPES
+	db 17, FOCUS_ENERGY
+	db 19, SCREECH
+	db 21, SUBMISSION
+	db 28, THRASH
 	db 44, HI_JUMP_KICK
 	db 0
 SeelEvosMoves:

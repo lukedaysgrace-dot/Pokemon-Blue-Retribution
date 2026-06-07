@@ -57,7 +57,7 @@ LassData:
 	db 14, PIDGEY, NIDORAN_F, 0
 ; Route 25
 	db 15, NIDORAN_M, NIDORAN_F, 0
-	db 13, DEINO, PIDGEY, ODDISH, 0
+	db 13, BELLSPROUT, PIDGEY, ODDISH, 0
 ; SS Anne 1F Rooms
 	db 18, PIDGEOTTO, NIDORINA, 0
 ; SS Anne 2F Rooms
