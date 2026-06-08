@@ -158,10 +158,11 @@ SuperNerdData:
 	db 20, VOLTORB, KOFFING, VOLTORB, MAGNEMITE, 0
 	db 22, GRIMER, MUK, GRIMER, 0
 	db 26, KOFFING, 0
-; Cinnabar Gym
+; Unused (wTrainerNo 6–8; no map references)
 	db 58, MAGMORTAR, NINETALES, FLAREON, 0
 	db 56, RAPIDASH, CHARMELEON, VULPIX, GROWLITHE, 0
 	db 60, RAPIDASH, 0
+; Cinnabar Gym (wTrainerNo 9–12)
 	db $FF, 46, ARCANINE, 47, NINETALES, 0
 	db $FF, 46, RAPIDASH, 47, RAPIDASH, 47, NINETALES, 0
 	db $FF, 46, MAGMAR, 47, FLAREON, 0
@@ -215,15 +216,15 @@ BikerData:
 	db 31, MAGMAR, GRIMER, KOFFING, 0
 	db 32, KOFFING, MUK, 0
 BurglarData:
-; Cinnabar Gym
+; Unused (wTrainerNo 1–3; no map references)
 	db 58, ARCANINE, NINETALES, NINETALES, 0
 	db 60, RAPIDASH, 0
 	db 58, NINETALES, ARCANINE, 0
-; Mansion 2F
+; Mansion 2F / Cinnabar Gym Burglar wTrainerNo 4
 	db $FF, 46, CHARIZARD, 47, CHARIZARD, 0
-; Mansion 3F
+; Mansion 3F / Cinnabar Gym Burglar wTrainerNo 5
 	db 47, NINETALES, 0
-; Mansion B1F
+; Mansion B1F / Cinnabar Gym Burglar wTrainerNo 6
 	db $FF, 46, ARCANINE, 47, RAPIDASH, 0
 	db $FF, 45, RAPIDASH, 46, NINETALES, 0
 	db $FF, 45, CHARIZARD, 46, RAPIDASH, 0
@@ -473,7 +474,7 @@ GiovanniData:
 ; Viridian Gym
 	db $FF, 53, DUGTRIO, 53, NIDOQUEEN, 53, NIDOKING, 53, RHYDON, 53, DONPHAN, 55, MAROWAK, 0
 ; Post-Champion rematch (wTrainerNo 4)
-	db $FF, 59, DUGTRIO, 59, NIDOQUEEN, 59, NIDOKING, 59, RHYPERIOR, 59, DONPHAN, 61, EXCADRILL, 0
+	db $FF, 59, MAROWAK, 59, NIDOQUEEN, 59, NIDOKING, 59, RHYPERIOR, 59, DONPHAN, 61, EXCADRILL, 0
 RocketData:
 ; Mt. Moon B2F
 	db 13, RATTATA, HOUNDOUR, 0
@@ -584,11 +585,11 @@ MistyData:
 LtSurgeData:
 	db $FF, 18, MAGNEMITE, 21, ELECTABUZZ, 25, RAICHU, 0
 ; Post-Champion rematch (wTrainerNo 2)
-	db $FF, 58, ELECTABUZZ, 58, JOLTEON, 58, MAGNETON, 58, ELECTRODE, 58, AMPHAROS, 60, GOROCHU, 0
+	db $FF, 58, ELECTIVIRE, 58, JOLTEON, 58, MAGNEZONE, 58, ELECTRODE, 58, AMPHAROS, 60, GOROCHU, 0
 ErikaData:
 	db $FF, 29, VICTREEBEL, 31, TANGELA, 33, EXEGGUTOR, 33, VILEPLUME, 0
 ; Post-Champion rematch (wTrainerNo 2)
-	db $FF, 58, VENUSAUR, 58, LEAFEON, 58, TANGELA, 58, VICTREEBEL, 58, EXEGGUTOR, 60, VILEPLUME, 0
+	db $FF, 58, VENUSAUR, 58, LEAFEON, 58, TANGROWTH, 58, VICTREEBEL, 58, EXEGGUTOR, 60, VILEPLUME, 0
 KogaData:
 	db $FF, 39, ARBOK, 40, MUK, 43, WEEZING, 42, TENTACRUEL, 41, CROBAT, 0
 ; Post-Champion rematch (wTrainerNo 2)
@@ -596,7 +597,7 @@ KogaData:
 BlaineData:
 	db $FF, 52, NINETALES, 52, ARCANINE, 52, RAPIDASH, 52, MAGMAR, 54, FLAREON, 0
 ; Post-Champion rematch (wTrainerNo 2)
-	db $FF, 59, NINETALES, 59, ARCANINE, 59, RAPIDASH, 59, MAGMAR, 59, FLAREON, 61, CHARIZARD, 0
+	db $FF, 59, NINETALES, 59, ARCANINE, 59, RAPIDASH, 59, MAGMORTAR, 59, FLAREON, 61, CHARIZARD, 0
 SabrinaData:
 	db $FF, 47, ALAKAZAM, 47, HYPNO, 47, MR_MIME, 47, JYNX, 49, GARDEVOIR, 0
 ; Post-Champion rematch (wTrainerNo 2)
@@ -687,7 +688,7 @@ AgathaData:
 LanceData:
 	db $FF, 56, GYARADOS, 56, SALAMENCE, 56, KINGDRA, 56, AERODACTYL, 56, HAXORUS, 58, DRAGONITE, 0
 ; Post-Champion rematch (wTrainerNo 2)
-	db $FF, 60, GYARADOS, 60, SALAMENCE, 60, KINGDRA, 60, AERODACTYL, 60, HAXORUS, 62, DRAGONITE, 0
+	db $FF, 60, GYARADOS, 60, SALAMENCE, 60, KINGDRA, 60, HYDREIGON, 60, HAXORUS, 62, DRAGONITE, 0
 
 BlueCloakData:
 ; wTrainerNo 1–3: last mon is rival's starter (mirror wRivalStarter, same mapping as Champion)

@@ -545,9 +545,9 @@ ArcanineEvosMoves:
 ; Learnset
 	db 25, FLAME_WHEEL
 	db 27, FLAMETHROWER
-	db 31, EXTREME_SPEED
-	db 34, CRUNCH
-	db 37, AGILITY
+	db 31, AGILITY
+	db 35, CRUNCH
+	db 37, EXTREME_SPEED
 	db 44, FIRE_BLAST
 	db 0
 MewEvosMoves:
@@ -733,6 +733,7 @@ GrowlitheEvosMoves:
 	db 7, LEER
 	db 9, EMBER
 	db 21, FLAME_WHEEL
+	db 23, THUNDER_FANG
 	db 28, AGILITY
 	db 31, CRUNCH
 	db 37, TAKE_DOWN
@@ -1161,8 +1162,9 @@ DragoniteEvosMoves:
 ; Learnset
 	db 18, DRAGON_RAGE
 	db 29, SLAM
-	db 43, OUTRAGE
-	db 45, RAZOR_WIND
+	db 45, OUTRAGE
+	db 46, RAZOR_WIND
+	db 47, EXTREME_SPEED
 	db 51, SKY_ATTACK
 	db 60, HYPER_BEAM
 	db 0
@@ -1400,6 +1402,7 @@ RaichuEvosMoves:
 	db 25, BODY_SLAM
 	db 27, THUNDERBOLT
 	db 28, LIGHT_SCREEN
+	db 34, EXTREME_SPEED
 	db 44, THUNDER
 	db 0
 WimpodEvosMoves:
@@ -1446,9 +1449,10 @@ DragonairEvosMoves:
 	db 0
 ; Learnset
 	db 18, DRAGON_RAGE
-	db 25, SLAM
+	db 25, DRAGON_CLAW
 	db 30, THUNDERBOLT
 	db 32, AGILITY
+	db 36, EXTREME_SPEED
 	db 38, THUNDER_WAVE
 	db 45, OUTRAGE
 	db 0
@@ -2020,9 +2024,10 @@ KinglerEvosMoves:
 	db 12, WATER_GUN
 	db 17, VICEGRIP
 	db 23, BUBBLEBEAM
-	db 30, STOMP
+	db 28, CRABHAMMER
 	db 34, BODY_SLAM
-	db 36, CRABHAMMER
+	db 36, X_SCISSOR
+	db 40, EARTHQUAKE
 	db 0
 CloysterEvosMoves:
 ; Evolutions
@@ -2169,6 +2174,7 @@ PidgeotEvosMoves:
 	db 29, WING_ATTACK
 	db 36, AGILITY
 	db 40, RAZOR_WIND
+	db 42, EXTREME_SPEED
 	db 43, DOUBLE_EDGE
 	db 46, SKY_ATTACK
 	db 0
@@ -2796,7 +2802,7 @@ GorochuEvosMoves:
 	db 28, THUNDERPUNCH
 	db 34, FIRE_PUNCH
 	db 36, CRUNCH
-	db 38, THUNDERBOLT
+	db 38, EXTREME_SPEED
 	db 45, THUNDER
 	db 50, LIGHT_SCREEN
 	db 0
@@ -2896,6 +2902,7 @@ LucarioEvosMoves:
 	db 32, CRUNCH
 	db 34, SUBMISSION
 	db 36, SWORDS_DANCE
+	db 38, EXTREME_SPEED
 	db 40, IRON_TAIL
 	db 44, HI_JUMP_KICK
 	db 0
