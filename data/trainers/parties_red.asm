@@ -362,9 +362,9 @@ JugglerData:	;joenote - tweaked some parties
 	;db 34,DROWZEE,KADABRA,0	;joenote - in fuschia gym, replaced by Janine
 	;db 33,HYPNO,0
 ; Silph Co. hired showcase — roster 6 filler; rosters 7–8 with Tamers upstairs
-	db 32, KADABRA, 0
-	db 33, HYPNO, 0
-	db 32, MR_MIME, HYPNO, 0
+	db 38, ALAKAZAM, 0
+	db 38, HYPNO, 0
+	db 36, MR_MIME, HYPNO, 0
 TamerData:
 ; Fuchsia Gym
 	db 36, SANDSLASH, ARBOK, 0
@@ -375,9 +375,9 @@ TamerData:
 ; Victory Road 2F
 	db 44, PERSIAN, GOLDUCK, 0
 ; Silph Co. hired muscle — rosters 6–8 (2F / one pair on 3F / 6F)
-	db 34, RHYDON, TAUROS, 0
-	db 35, KANGASKHAN, SCYTHER, 0
-	db 35, SNORLAX, TAUROS, 0
+	db 36, RHYDON, TAUROS, 0
+	db 37, KANGASKHAN, SCYTHER, 0
+	db 36, SNORLAX, TAUROS, 0
 BirdKeeperData:
 ; Route 13
 	db 31, PIDGEOTTO, PIDGEOTTO, 0
@@ -467,7 +467,7 @@ ScientistData:
 	db 37, WEEZING, ELECTRODE, 0
 GiovanniData:
 ; Rocket Hideout B4F
-	db $FF, 24, PHANPY, 27, RHYHORN, 28, NIDORINA, 29, KANGASKHAN, 0
+	db $FF, 26, PHANPY, 27, RHYHORN, 28, NIDORINO, 28, NIDORINA, 29, KANGASKHAN, 0
 ; Silph Co. 11F
 	db $FF, 37, DONPHAN, 37, KANGASKHAN, 37, RHYDON, 40, NIDOKING, 41, NIDOQUEEN, 0
 ; Viridian Gym
@@ -740,19 +740,19 @@ JanineData:
 
 PetrelData:
 ; Rocket Hideout B4F
-	db $FF, 22, GRIMER, 23, MR_MIME, 24, DROWZEE, 25, DITTO, 0
+	db $FF, 25, PORYGON2, 25, MR_MIME, 25, DROWZEE, 26, DITTO, 0
 ; Silph Co. 1F
-	db $FF, 31, MUK, 32, MR_MIME, 32, HYPNO, 33, PORYGON, 34, DITTO, 0
+	db $FF, 36, PORYGONZ, 37, MR_MIME, 37, HYPNO, 37, POLIWRATH, 39, DITTO, 0
 
 ProtonData:
 ; Rocket Hideout B4F
-	db $FF, 22, ARBOK, 23, SNEASEL, 24, SANDSLASH, 25, JOLTEON , 0
+	db $FF, 25, ARBOK, 25, SNEASEL, 25, SANDSLASH, 26, JOLTEON , 0
 ; Silph Co. 2F
-	db $FF, 31, ARBOK, 31, WEAVILE, 32, SANDSLASH, 32, PINSIR, 34, JOLTEON, 0
+	db $FF, 37, ARBOK, 38, WEAVILE, 37, SANDSLASH, 38, PINSIR, 39, JOLTEON, 0
 
 ArcherData:
 ; Silph Co. 11F
-	db $FF, 34, CROBAT, 35, ELECTABUZZ, 36, CLOYSTER, 37, SCYTHER, 39, HOUNDOOM, 0
+	db $FF, 43, CROBAT, 43, ELECTABUZZ, 44, CLOYSTER, 44, SCYTHER, 45, HOUNDOOM, 0
 
 SoldierData:
 ; Vermilion Gym
@@ -762,4 +762,4 @@ SoldierData:
 
 ArianaData:
 ; Silph Co. 11F
-	db $FF, 34, VILEPLUME, 34, DEWGONG, 35, NINETALES, 35, CLEFABLE, 36, HONCHKROW, 0
+	db $FF, 41, VILEPLUME, 41, DEWGONG, 42, NINETALES, 42, CLEFABLE, 43, HONCHKROW, 0

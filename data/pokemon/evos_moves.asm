@@ -1392,7 +1392,7 @@ PikachuEvosMoves:
 	db 0
 RaichuEvosMoves:
 ; Evolutions
-	blue_evolve_item THUNDER_STONE, 1, GOROCHU
+	blue_evolve_level 34, GOROCHU
 	db 0
 ; Learnset
 	db 6, TAIL_WHIP
@@ -3139,21 +3139,22 @@ ExcadrillEvosMoves:
 	db 19, DIG
 	db 24, SLASH
 	db 29, ROCK_SLIDE
-	db 36, EARTHQUAKE
-	db 42, SWORDS_DANCE
-	db 46, STONE_EDGE
+	db 35, SWORDS_DANCE
+	db 40, EARTHQUAKE
+	db 43, STONE_EDGE
 	db 49, FISSURE
 	db 0
 DrilburEvosMoves:
 ; Evolutions
-	blue_evolve_level 30, EXCADRILL
+	blue_evolve_level 36, EXCADRILL
 	db 0
 ; Learnset
 	db 8, FURY_SWIPES
 	db 17, METAL_CLAW
 	db 19, DIG
 	db 24, SLASH
-	db 29, ROCK_SLIDE
+	db 27, ROCK_SLIDE
+	db 29, ACCELEROCK
 	db 36, SWORDS_DANCE
 	db 42, STONE_EDGE
 	db 0
